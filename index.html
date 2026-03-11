@@ -267,30 +267,31 @@ section{padding:100px 0}
 .pillars{background:var(--bg)}
 .pillars-header{text-align:center;margin-bottom:64px}
 .pillars-header .section-rule{margin:0 auto 32px}
-.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:none}
 .pillar{
-  background:var(--bg2);padding:48px 36px;text-align:center;
+  padding:56px 40px;text-align:center;
   position:relative;overflow:hidden;
-  transition:background 0.3s;
+  transition:transform 0.3s,box-shadow 0.3s;
 }
-.pillar:hover{background:var(--bg3)}
-.pillar::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--red),transparent);
-  transform:scaleX(0);transition:transform 0.4s;
-}
-.pillar:hover::after{transform:scaleX(1)}
+.pillar:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
 .pillar-icon{
-  width:64px;height:64px;margin:0 auto 24px;
+  width:72px;height:72px;margin:0 auto 28px;
   display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(192,39,45,0.35);
-  color:var(--red);font-size:1.6rem;
+  border:2px solid rgba(255,255,255,0.4);border-radius:50%;
+  color:#fff;font-size:1.6rem;
+  background:rgba(255,255,255,0.15);
 }
 .pillar-title{
-  font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:0.15em;
-  text-transform:uppercase;font-weight:700;margin-bottom:16px;color:var(--text);
+  font-family:'Cinzel',serif;font-size:1.25rem;letter-spacing:0.18em;
+  text-transform:uppercase;font-weight:900;margin-bottom:16px;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.3);
 }
-.pillar-text{font-weight:500;font-size:1rem;line-height:1.75;color:var(--muted)}
+.pillar-text{font-weight:500;font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.9)}
+
+/* Pillar color fills */
+.pillar-leadership{background:linear-gradient(145deg,#c0272d,#8b1a1e);}
+.pillar-excellence{background:linear-gradient(145deg,#c4922a,#7a5500);}
+.pillar-cooperation{background:linear-gradient(145deg,#1a6e8a,#0d3d4f);}
 
 /* ══════════════════════════════
    CTA BAND
@@ -712,21 +713,21 @@ footer{background:var(--bg3);border-top:1px solid rgba(192,39,45,0.2);padding:40
       <div class="section-rule"></div>
     </div>
     <div class="pillars-grid">
-      <div class="pillar">
+      <div class="pillar pillar-leadership">
         <div class="pillar-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3 class="pillar-title">Leadership</h3>
         <p class="pillar-text">Cultivating the next generation of fire service leaders across the Caribbean through mentorship, training, and shared governance.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar pillar-excellence">
         <div class="pillar-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <h3 class="pillar-title">Excellence</h3>
         <p class="pillar-text">Setting and upholding the highest standards in emergency response, professional conduct, and community service throughout the region.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar pillar-cooperation">
         <div class="pillar-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
