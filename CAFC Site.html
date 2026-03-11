@@ -395,6 +395,14 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   </ul>
   <a href="#" class="nav-cta">Call Now</a>
 </nav>
+<div class="search-overlay" id="search-overlay" onclick="if(event.target===this)toggleSearch()">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search pages..." oninput="filterSearch(this.value)" autocomplete="off"/>
+    <button class="search-close" onclick="toggleSearch()">&times;</button>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
 
 <!-- ════════════ HERO ════════════ -->
 <section class="hero">
@@ -586,6 +594,42 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     </div>
   </div>
 </footer>
+
+
+<script>
+var searchPages=[
+  {name:'Home',url:'CAFC Home Page.html',icon:'🏠'},
+  {name:'About Us',url:'CAFC About Page.html',icon:'ℹ️'},
+  {name:'Our Team / Board',url:'CAFC Board Page.html',icon:'👥'},
+  {name:'Members',url:'CAFC Members Page.html',icon:'🤝'},
+  {name:'Sponsorship Prospectus',url:'CAFC Sponsorship Prospectus.html',icon:'📋'},
+  {name:'2026 Sponsors',url:'CAFC 2026 Sponsors Page.html',icon:'🏢'},
+  {name:'2025 Sponsors',url:'CAFC 2025 Sponsors Page.html',icon:'🏅'},
+  {name:'Registration',url:'CAFC Registration.html',icon:'📝'},
+  {name:'Conference Agenda',url:'CAFC Conference Agenda.html',icon:'📅'},
+  {name:'Professional Development / Gallery',url:'CAFC Professional Development Page.html',icon:'📸'},
+  {name:'Partners',url:'CAFC Partners Page.html',icon:'🤝'},
+  {name:'Values',url:'CAFC Values Page.html',icon:'⭐'},
+  {name:'Blog',url:'CAFC Blog Page.html',icon:'📰'}
+];
+function toggleSearch(){
+  var o=document.getElementById('search-overlay');
+  var isOpen=o.classList.toggle('open');
+  document.body.style.overflow=isOpen?'hidden':'';
+  if(isOpen){var inp=document.getElementById('search-input');inp.value='';inp.focus();filterSearch('');}
+}
+function filterSearch(q){
+  var r=document.getElementById('search-results');
+  var lq=q.toLowerCase().trim();
+  var matches=lq?searchPages.filter(function(p){return p.name.toLowerCase().indexOf(lq)!==-1;}):searchPages;
+  if(matches.length===0){r.innerHTML='<div class="no-results">No pages found</div>';return;}
+  r.innerHTML=matches.map(function(p){return '<a href="'+p.url+'"><span class="sr-icon">'+p.icon+'</span><span class="sr-label">'+p.name+'</span></a>';}).join('');
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&document.getElementById('search-overlay').classList.contains('open'))toggleSearch();
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();toggleSearch();}
+});
+</script>
 
 </body>
 </html>

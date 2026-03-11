@@ -89,6 +89,28 @@ nav{
 }
 .nav-cta:hover::after,.nav-cta:hover::before{opacity:1;}
 
+
+/* ══════════════════════════════
+   SEARCH
+══════════════════════════════ */
+.nav-search-btn{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;}
+.nav-search-btn:hover{opacity:0.7;}
+.nav-search-btn svg{width:20px;height:20px;stroke:var(--white,#0d0905);stroke-width:2;fill:none;}
+.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,9,5,0.85);backdrop-filter:blur(8px);z-index:200;align-items:flex-start;justify-content:center;padding-top:120px;}
+.search-overlay.open{display:flex;}
+.search-box{width:90%;max-width:560px;position:relative;}
+.search-box input{width:100%;padding:16px 48px 16px 20px;font-family:'Barlow',sans-serif;font-size:1rem;font-weight:500;border:2px solid var(--gold,#a06e1f);border-radius:8px;background:rgba(248,245,240,0.97);color:#0d0905;outline:none;letter-spacing:0.02em;}
+.search-box input::placeholder{color:rgba(13,9,5,0.45);}
+.search-box input:focus{border-color:var(--red,#c0272d);box-shadow:0 0 0 3px rgba(192,39,45,0.15);}
+.search-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.3rem;color:rgba(13,9,5,0.5);transition:color 0.2s;}
+.search-close:hover{color:var(--red,#c0272d);}
+.search-results{margin-top:12px;background:rgba(248,245,240,0.97);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+.search-results a{display:flex;align-items:center;gap:12px;padding:14px 20px;text-decoration:none;color:#0d0905;font-weight:500;font-size:0.92rem;border-bottom:1px solid rgba(13,9,5,0.08);transition:background 0.15s;}
+.search-results a:last-child{border-bottom:none;}
+.search-results a:hover{background:rgba(192,39,45,0.08);}
+.search-results a .sr-icon{font-size:1.1rem;flex-shrink:0;}
+.search-results a .sr-label{letter-spacing:0.02em;}
+.search-results .no-results{padding:14px 20px;color:rgba(13,9,5,0.5);font-size:0.92rem;}
 /* ══════════════════════════════
    BUTTONS
 ══════════════════════════════ */
@@ -407,11 +429,22 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <li><a href="CAFC Registration.html">Registration</a></li>
     <li><a href="CAFC Professional Development Page.html">Gallery</a></li>
   </ul>
+  <button class="nav-search-btn" onclick="toggleSearch()" aria-label="Search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+  </button>
   <a href="tel:+17676130912" class="nav-cta">Call Now</a>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div class="search-overlay" id="search-overlay" onclick="if(event.target===this)toggleSearch()">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search pages..." oninput="filterSearch(this.value)" autocomplete="off"/>
+    <button class="search-close" onclick="toggleSearch()">&times;</button>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
 <div class="nav-mobile" id="nav-mobile">
   <a href="CAFC Home Page.html" onclick="toggleMenu()">Home</a>
   <a href="CAFC About Page.html" onclick="toggleMenu()">About Us</a>
@@ -618,5 +651,41 @@ function toggleMenu(){
   document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
 }
 </script>
+
+<script>
+var searchPages=[
+  {name:'Home',url:'CAFC Home Page.html',icon:'🏠'},
+  {name:'About Us',url:'CAFC About Page.html',icon:'ℹ️'},
+  {name:'Our Team / Board',url:'CAFC Board Page.html',icon:'👥'},
+  {name:'Members',url:'CAFC Members Page.html',icon:'🤝'},
+  {name:'Sponsorship Prospectus',url:'CAFC Sponsorship Prospectus.html',icon:'📋'},
+  {name:'2026 Sponsors',url:'CAFC 2026 Sponsors Page.html',icon:'🏢'},
+  {name:'2025 Sponsors',url:'CAFC 2025 Sponsors Page.html',icon:'🏅'},
+  {name:'Registration',url:'CAFC Registration.html',icon:'📝'},
+  {name:'Conference Agenda',url:'CAFC Conference Agenda.html',icon:'📅'},
+  {name:'Professional Development / Gallery',url:'CAFC Professional Development Page.html',icon:'📸'},
+  {name:'Partners',url:'CAFC Partners Page.html',icon:'🤝'},
+  {name:'Values',url:'CAFC Values Page.html',icon:'⭐'},
+  {name:'Blog',url:'CAFC Blog Page.html',icon:'📰'}
+];
+function toggleSearch(){
+  var o=document.getElementById('search-overlay');
+  var isOpen=o.classList.toggle('open');
+  document.body.style.overflow=isOpen?'hidden':'';
+  if(isOpen){var inp=document.getElementById('search-input');inp.value='';inp.focus();filterSearch('');}
+}
+function filterSearch(q){
+  var r=document.getElementById('search-results');
+  var lq=q.toLowerCase().trim();
+  var matches=lq?searchPages.filter(function(p){return p.name.toLowerCase().indexOf(lq)!==-1;}):searchPages;
+  if(matches.length===0){r.innerHTML='<div class="no-results">No pages found</div>';return;}
+  r.innerHTML=matches.map(function(p){return '<a href="'+p.url+'"><span class="sr-icon">'+p.icon+'</span><span class="sr-label">'+p.name+'</span></a>';}).join('');
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&document.getElementById('search-overlay').classList.contains('open'))toggleSearch();
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();toggleSearch();}
+});
+</script>
+
 </body>
 </html>

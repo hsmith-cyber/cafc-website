@@ -493,11 +493,22 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <li><a href="/registration">Registration</a></li>
     <li><a href="/professional-development">Gallery</a></li>
   </ul>
+  <button class="nav-search-btn" onclick="toggleSearch()" aria-label="Search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+  </button>
   <a href="tel:+17676130912" class="nav-cta">Call Now</a>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div class="search-overlay" id="search-overlay" onclick="if(event.target===this)toggleSearch()">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search pages..." oninput="filterSearch(this.value)" autocomplete="off"/>
+    <button class="search-close" onclick="toggleSearch()">&times;</button>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
 <div class="nav-mobile" id="nav-mobile">
   <a href="/" onclick="toggleMenu()">Home</a>
   <a href="/about" onclick="toggleMenu()">About Us</a>
