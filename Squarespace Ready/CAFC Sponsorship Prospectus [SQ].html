@@ -428,12 +428,14 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 .footer-bottom p{font-size:0.8rem;color:rgba(13,9,5,0.55);letter-spacing:0.05em;font-weight:500}
 .social-links{display:flex;gap:12px}
 .social-link{
-  width:34px;height:34px;border:1px solid rgba(26,20,16,0.15);
+  width:34px;height:34px;border:1px solid rgba(26,20,16,0.25);
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);text-decoration:none;font-size:0.85rem;
-  transition:border-color 0.2s,color 0.2s;
+  color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:700;
+  transition:border-color 0.2s,color 0.2s,box-shadow 0.2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  border-radius:6px;background:rgba(255,255,255,0.6);
 }
-.social-link:hover{border-color:var(--red);color:var(--white)}
+.social-link:hover{border-color:var(--red);color:var(--white);box-shadow:0 4px 16px rgba(192,39,45,0.3)}
 
 /* ══════════════════════════════
    ANIMATIONS
