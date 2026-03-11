@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -:*)",
+      "WebFetch(domain:images.squarespace-cdn.com)",
+      "WebFetch(domain:magneticmediatv.com)",
+      "WebFetch(domain:jis.gov.jm)",
+      "WebFetch(domain:www.thestkittsnevisobserver.com)",
+      "WebFetch(domain:www.jamaicaobserver.com)",
+      "WebFetch(domain:www.bajanfirefighters.org)",
+      "Bash(open \"/Users/drsmith/Documents/BCOC Website Info/CAFC Blog Page.html\")",
+      "Bash(ls \"/Users/drsmith/Documents/BCOC Website Info/\"CAFC*.html)"
+    ]
+  }
+}
