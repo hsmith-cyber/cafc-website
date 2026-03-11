@@ -112,6 +112,21 @@ nav{
 .search-results a .sr-icon{font-size:1.1rem;flex-shrink:0;}
 .search-results a .sr-label{letter-spacing:0.02em;}
 .search-results .no-results{padding:14px 20px;color:rgba(13,9,5,0.5);font-size:0.92rem;}
+
+/* ── BACK TO TOP ── */
+.back-to-top{
+  position:fixed;bottom:32px;right:32px;z-index:99;
+  width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--red,#c0272d);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s,transform 0.3s,background 0.2s;
+  transform:translateY(12px);
+}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{background:var(--red-dk,#8b1a1e);transform:translateY(-2px);}
+
 /* ══════════════════════════════
    BUTTONS
 ══════════════════════════════ */
@@ -703,7 +718,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   </a>
   <ul class="nav-links">
     <li><a href="CAFC Home Page.html">Home</a></li>
-    <li><a href="CAFC About Page.html" class="nav-active">About Us</a></li>
+    <li><a href="CAFC About Page.html">About Us</a></li>
     <li><a href="CAFC Board Page.html">Our Team</a></li>
     <li><a href="CAFC Members Page.html">Members</a></li>
     <li><a href="CAFC Sponsorship Prospectus.html">Sponsor Info</a></li>
@@ -984,6 +999,32 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'&&document.getElementById('search-overlay').classList.contains('open'))toggleSearch();
   if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();toggleSearch();}
 });
+</script>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Back to top button
+(function(){
+  var btn=document.getElementById('back-to-top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+})();
+
+// Highlight current page in nav
+(function(){
+  var path=decodeURIComponent(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var href=decodeURIComponent(a.getAttribute('href')||'');
+    if(href===path||(path==='index.html'&&href==='CAFC Home Page.html')||(path===''&&href==='CAFC Home Page.html'))
+      a.classList.add('nav-active');
+  });
+})();
 </script>
 
 </body>

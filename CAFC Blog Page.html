@@ -173,7 +173,7 @@
     <li><a href="CAFC Sponsorship Prospectus.html">Sponsor Info</a></li>
     <li><a href="CAFC Registration.html">Registration</a></li>
     <li><a href="CAFC Professional Development Page.html">Gallery</a></li>
-    <li><a href="#" class="nav-active">Blog</a></li>
+    <li><a href="#">Blog</a></li>
   </ul>
   <button class="nav-search-btn" onclick="toggleSearch()" aria-label="Search">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
@@ -643,6 +643,32 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'&&document.getElementById('search-overlay').classList.contains('open'))toggleSearch();
   if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();toggleSearch();}
 });
+</script>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Back to top button
+(function(){
+  var btn=document.getElementById('back-to-top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+})();
+
+// Highlight current page in nav
+(function(){
+  var path=decodeURIComponent(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var href=decodeURIComponent(a.getAttribute('href')||'');
+    if(href===path||(path==='index.html'&&href==='CAFC Home Page.html')||(path===''&&href==='CAFC Home Page.html'))
+      a.classList.add('nav-active');
+  });
+})();
 </script>
 
 </body>

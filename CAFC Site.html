@@ -57,6 +57,9 @@ nav{
 }
 .nav-links a:hover{color:var(--white)}
 .nav-links a:hover::after{width:100%}
+.nav-links a.nav-active{color:var(--gold)}
+.nav-links a.nav-active::after{width:100%}
+
 .nav-cta{
   background:var(--red);color:#fff;padding:10px 24px;
   font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;
@@ -629,6 +632,32 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'&&document.getElementById('search-overlay').classList.contains('open'))toggleSearch();
   if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();toggleSearch();}
 });
+</script>
+
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Back to top button
+(function(){
+  var btn=document.getElementById('back-to-top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+})();
+
+// Highlight current page in nav
+(function(){
+  var path=decodeURIComponent(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var href=decodeURIComponent(a.getAttribute('href')||'');
+    if(href===path||(path==='index.html'&&href==='CAFC Home Page.html')||(path===''&&href==='CAFC Home Page.html'))
+      a.classList.add('nav-active');
+  });
+})();
 </script>
 
 </body>
