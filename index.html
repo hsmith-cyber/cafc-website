@@ -405,6 +405,21 @@ footer{background:var(--bg3);border-top:1px solid rgba(192,39,45,0.2);padding:40
 @media(max-width:900px){
   .nav-hamburger{display:flex;}
 }
+
+/* ── BACK TO TOP ── */
+.back-to-top{
+  position:fixed;bottom:32px;right:32px;z-index:99;
+  width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--red,#c0272d);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s,transform 0.3s,background 0.2s;
+  transform:translateY(12px);
+}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{background:var(--red-dk,#8b1a1e);transform:translateY(-2px);}
+
 </style>
 </head>
 <body>
