@@ -591,15 +591,17 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <span class="section-label">2026 Annual Conference</span>
     <h2 class="section-title" style="text-align:center;margin-bottom:32px;">Dominican Republic</h2>
     <div class="section-rule" style="margin:0 auto 40px;"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;max-width:1100px;margin:0 auto;">
       <!-- Flyer -->
-      <div style="text-align:center;">
-        <img src="https://images.squarespace-cdn.com/content/67ba4ef2d2050c22ab807068/6744f7ee-c015-4085-96e6-f6fdc4cacc4b/1.jpg?content-type=image%2Fjpeg"
-             alt="CAFC 2026 Annual Conference Flyer"
-             style="width:100%;max-width:480px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5);" />
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
+        <div style="width:100%;max-width:480px;aspect-ratio:9/16;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);">
+          <img src="https://images.squarespace-cdn.com/content/67ba4ef2d2050c22ab807068/6744f7ee-c015-4085-96e6-f6fdc4cacc4b/1.jpg?content-type=image%2Fjpeg"
+               alt="CAFC 2026 Annual Conference Flyer"
+               style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
       </div>
       <!-- Video -->
-      <div style="text-align:center;">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
         <h3 style="font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;color:var(--white);">Watch Our Story</h3>
         <video autoplay muted loop playsinline controls style="width:100%;max-width:480px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5);">
           <source src="https://video.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/cc21c6e6-0a8c-455a-bd79-14bb089e52a7/playlist.m3u8" type="application/x-mpegURL">
