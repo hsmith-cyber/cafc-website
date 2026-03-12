@@ -870,6 +870,128 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
+<!-- ===== GALLERY 1 – Conference Highlights ===== -->
+<section style="background:var(--dark);padding:60px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;text-align:center;">
+    <p style="font-family:'Cinzel',serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--gold);margin:0 0 8px;">CAFC Through the Years</p>
+    <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin:0 0 12px;">Conference Highlights</h2>
+    <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;margin:0 0 32px;">Click any photo to enlarge.</p>
+    <div id="gal1-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;"></div>
+  </div>
+  <div id="gal1-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;" onclick="if(event.target===this)closeGal1()">
+    <button onclick="closeGal1()" style="position:absolute;top:18px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;z-index:10001;">&times;</button>
+    <button onclick="prevGal1()" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;z-index:10001;">&#10094;</button>
+    <button onclick="nextGal1()" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;z-index:10001;">&#10095;</button>
+    <img id="gal1-img" src="" alt="" style="max-width:90vw;max-height:78vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.5);">
+    <p id="gal1-caption" style="color:rgba(255,255,255,0.8);margin:14px 0 4px;font-size:0.95rem;"></p>
+    <p id="gal1-counter" style="color:rgba(255,255,255,0.45);font-size:0.8rem;margin:0;"></p>
+  </div>
+</section>
+<script>
+(function(){
+  var gal1Photos=[
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/1210310a-9149-406a-9381-da8325f255f5/PHOTO-2025-02-23-10-53-43+21.jpg",alt:"Fire chiefs at conference with Caribbean flags",cap:"Fire chiefs in uniform at conference — Caribbean flags in background"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/7a4c4e3f-29a9-4ead-9b4c-f03192171745/PHOTO-2025-02-23-10-53-43+22.jpg",alt:"Group in formal uniforms outdoors",cap:"Officers posing outdoors with palm trees"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/3c2e90fe-ef0a-4121-b11a-0a3bca174990/PHOTO-2025-02-23-10-53-43+24.jpg",alt:"Exhibition booth at CAFC 2015",cap:"Safety technology exhibition booth — #CAFC2015"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/d86bc65c-5419-4e02-a033-dd2b148643a4/PHOTO-2025-02-23-10-53-43+25.jpg",alt:"Group at CAFC 2015",cap:"Delegates in uniforms and business attire — #CAFC2015"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/f56dc099-9e5a-4119-9361-dc6f47547f2a/PHOTO-2025-02-23-10-53-43+26.jpg",alt:"Officials with flags at CAFC 2015",cap:"Uniformed officials in front of flags — CAFC 2015"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/ba92bdf3-7a3f-4b98-bc25-9a00d402e3b7/PHOTO-2025-02-23-10-53-43+28.jpg",alt:"Officials posing outdoors",cap:"Uniformed officials group photo outdoors"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/a9b48c34-70e4-40a9-be63-9c0dc2d868d1/PHOTO-2025-02-23-10-53-43+29.jpg",alt:"Ceremonial procession indoors",cap:"Ceremonial procession with flag bearer and drum player"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/3a8f3e62-755b-4955-aebb-68ea40b32f64/PHOTO-2025-02-23-10-53-43+30.jpg",alt:"Firefighter training exercise",cap:"Firefighter in protective gear — training exercise"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/80772af7-74f7-4de6-b069-9872275c64ba/PHOTO-2025-02-23-10-53-43+31.jpg",alt:"Officers group photo with palm trees",cap:"Officers in uniform — outdoor group photo"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/7c75c8b5-d687-4a4e-abd1-597eaf6813b7/PHOTO-2025-02-23-10-53-43+32.jpg",alt:"Working on laptops in office",cap:"Collaborative workspace session"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/a59b6399-85dc-408f-bb36-f204ffbb71f4/PHOTO-2025-02-23-10-53-43+33.jpg",alt:"Group working at table",cap:"Group working session with laptops and phones"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/b95c6f47-d3d1-426f-bb02-7d7609c70b0d/PHOTO-2025-02-23-10-53-43+34.jpg",alt:"Meeting around table",cap:"Meeting around table with laptops"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/9ac817b2-df9a-4808-a648-e4c5d61e1dab/PHOTO-2025-02-23-10-53-43+37.jpg",alt:"MetalCraft Marine presentation",cap:"Presentation near MetalCraft Marine display"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/e9420bae-b3c8-4986-ab6c-f891399a7697/PHOTO-2025-02-23-10-53-42+6.jpg",alt:"Firefighter demonstration outdoors",cap:"Firefighter in protective gear — outdoor demonstration"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/8ead6f45-e83d-46e4-a3b9-de909d8686bf/PHOTO-2025-02-23-10-53-42+7.jpg",alt:"Firefighter with hose",cap:"Firefighter in uniform near fire station"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/f24db8cf-46ef-462d-a9d0-985e0f8de223/PHOTO-2025-02-23-10-53-42+9.jpg",alt:"Emergency responders near ambulance",cap:"Emergency responders with ambulance banner"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/3d127d9b-157a-424a-aa62-40eaadbd22e2/PHOTO-2025-02-23-10-53-42+11.jpg",alt:"Coast Guard on dock",cap:"Coast Guard personnel on dock with equipment"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/850bf11f-781b-42bd-994f-a6f2d411a4a5/PHOTO-2025-02-23-10-53-43+20.jpg",alt:"Conference room presentation",cap:"Presentation in conference room with flags"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/85e3c8b3-50d6-4c70-b1ac-a1e949c93167/PHOTO-2025-02-23-10-53-43+36.jpg",alt:"Officials meeting with international flags",cap:"Meeting of officials with international flags"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/b3acab91-ffe1-4296-bec9-e8da7e758c6f/PHOTO-2025-02-23-10-53-43+27.jpg",alt:"Uniformed group with medals",cap:"Uniformed individuals with medals at formal event"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/7bfe87d2-6494-466f-a0e0-eed709aaa7ba/PHOTO-2025-02-23-10-53-43+23.jpg",alt:"Formal event in ballroom",cap:"Formal event in ballroom — suits and uniforms"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/a9efe264-43d0-43d9-ab37-ebe6cbcf2234/PHOTO-2025-02-23-10-53-43+17.jpg",alt:"CAFC 2019 Conference poster",cap:"CAFC 2019 Conference & Expo promotional poster"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/0db57859-d392-4137-ada5-1b024292e42b/PHOTO-2025-02-23-10-53-43+19.jpg",alt:"Fire rescue booth at CAFC 2017",cap:"Fire rescue booth with equipment display — CAFC 2017"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/70062a0a-df43-49ba-8192-ae742a5432ea/PHOTO-2025-02-23-10-53-43+18.jpg",alt:"Training session with instructor",cap:"Training session with instructor at front"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/38f4c504-ee46-472b-8b39-f62c143427fe/PHOTO-2025-02-23-10-53-43+3.jpg",alt:"St. Kitts firefighters by rescue vehicle",cap:"Firefighters from St. Kitts and Nevis by rescue vehicle"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/db998ea2-3aea-45a3-b9d2-a45017dfaf5b/PHOTO-2025-02-23-10-53-42+12.jpg",alt:"Firefighters group outdoor",cap:"Firefighters in uniform posing outdoors"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/6204ea14-b1cf-4a17-b816-b532878646da/PHOTO-2025-02-23-10-53-42+8.jpg",alt:"Training exercise with cones",cap:"Training exercise on yellow mat with traffic cones"}
+  ];
+  var grid=document.getElementById("gal1-grid");
+  gal1Photos.forEach(function(p,i){
+    var t=document.createElement("div");
+    t.style.cssText="cursor:pointer;border-radius:12px;overflow:hidden;aspect-ratio:4/3;position:relative;box-shadow:0 4px 20px rgba(13,9,5,0.12);transition:transform 0.2s;";
+    t.onmouseenter=function(){this.style.transform="scale(1.04)";this.querySelector('.gz').style.opacity='1';};
+    t.onmouseleave=function(){this.style.transform="scale(1)";this.querySelector('.gz').style.opacity='0';};
+    t.onclick=function(){openGal1(i);};
+    t.innerHTML='<img src="'+p.src+'" alt="'+p.alt+'" style="width:100%;height:100%;object-fit:cover;" loading="lazy"><div class="gz" style="position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s;font-size:1.6rem;pointer-events:none;">&#128269;</div>';
+    grid.appendChild(t);
+  });
+  var idx=0;
+  function upd(){document.getElementById("gal1-img").src=gal1Photos[idx].src;document.getElementById("gal1-caption").textContent=gal1Photos[idx].cap;document.getElementById("gal1-counter").textContent=(idx+1)+" / "+gal1Photos.length;}
+  window.openGal1=function(i){idx=i;upd();document.getElementById("gal1-overlay").style.display="flex";document.body.style.overflow="hidden";};
+  window.closeGal1=function(){document.getElementById("gal1-overlay").style.display="none";document.body.style.overflow="";};
+  window.prevGal1=function(){idx=(idx-1+gal1Photos.length)%gal1Photos.length;upd();};
+  window.nextGal1=function(){idx=(idx+1)%gal1Photos.length;upd();};
+  document.addEventListener("keydown",function(e){if(document.getElementById("gal1-overlay").style.display==="flex"){if(e.key==="Escape")closeGal1();if(e.key==="ArrowLeft")prevGal1();if(e.key==="ArrowRight")nextGal1();}});
+})();
+</script>
+
+<!-- ===== GALLERY 2 – CAFC Archives ===== -->
+<section style="background:var(--dark);padding:60px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;text-align:center;">
+    <p style="font-family:'Cinzel',serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--gold);margin:0 0 8px;">Legacy &amp; History</p>
+    <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin:0 0 12px;">CAFC Archives</h2>
+    <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;margin:0 0 32px;">Click any photo to enlarge.</p>
+    <div id="gal2-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;"></div>
+  </div>
+  <div id="gal2-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;" onclick="if(event.target===this)closeGal2()">
+    <button onclick="closeGal2()" style="position:absolute;top:18px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;z-index:10001;">&times;</button>
+    <button onclick="prevGal2()" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;z-index:10001;">&#10094;</button>
+    <button onclick="nextGal2()" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;z-index:10001;">&#10095;</button>
+    <img id="gal2-img" src="" alt="" style="max-width:90vw;max-height:78vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.5);">
+    <p id="gal2-caption" style="color:rgba(255,255,255,0.8);margin:14px 0 4px;font-size:0.95rem;"></p>
+    <p id="gal2-counter" style="color:rgba(255,255,255,0.45);font-size:0.8rem;margin:0;"></p>
+  </div>
+</section>
+<script>
+(function(){
+  var gal2Photos=[
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/fire%2520chiefs%25201.jpg",alt:"Firefighters with bowed heads",cap:"Uniformed firefighters in solemn ceremony"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/CAFC2009-LM-9056.JPG",alt:"Officers shaking hands",cap:"Officers shaking hands — CAFC 2009"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/JOLA+P7240162.JPG",alt:"Junior Officer Leadership Academy",cap:"Junior Officer Leadership Academy group photo"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/10945293_609912635775197_1270039595_n.jpg",alt:"Men reviewing documents",cap:"Reviewing documents at conference"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/10725042_431868860302532_1938385387_n.jpg",alt:"Three people in formal attire",cap:"Delegates in formal attire"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/10963989_1577379715813748_1395028403_n.jpg",alt:"Personnel outdoors",cap:"Uniformed personnel outdoors"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/10848382_1528243440774596_283280589_n.jpg",alt:"Two people at podium",cap:"Presentation at podium"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/10838313_371076166408393_356402579_n.jpg",alt:"Classroom presentation",cap:"Presentation in classroom setting"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/11313525_998638456826236_2079114096_n.jpg",alt:"Auditorium attendees",cap:"Attendees in auditorium session"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/11337202_1481916168767851_1600228145_n.jpg",alt:"CAFC 2015 conference",cap:"Conference session — #CAFC2015"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/11232559_917778574962113_1841309506_n.jpg",alt:"Officers with flags",cap:"Officers posing with flags"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/11267900_1050306644987286_1662843303_n.jpg",alt:"Uniformed attendees",cap:"Uniformed attendees at conference"},
+    {src:"https://images.squarespace-cdn.com/content/v1/67ba4ef2d2050c22ab807068/57463005_336322080411494_4543453903469194715_n.jpg",alt:"Jim Pauley NFPA speaking",cap:"Jim Pauley, NFPA CEO — keynote address"}
+  ];
+  var grid=document.getElementById("gal2-grid");
+  gal2Photos.forEach(function(p,i){
+    var t=document.createElement("div");
+    t.style.cssText="cursor:pointer;border-radius:12px;overflow:hidden;aspect-ratio:4/3;position:relative;box-shadow:0 4px 20px rgba(13,9,5,0.12);transition:transform 0.2s;";
+    t.onmouseenter=function(){this.style.transform="scale(1.04)";this.querySelector('.gz2').style.opacity='1';};
+    t.onmouseleave=function(){this.style.transform="scale(1)";this.querySelector('.gz2').style.opacity='0';};
+    t.onclick=function(){openGal2(i);};
+    t.innerHTML='<img src="'+p.src+'" alt="'+p.alt+'" style="width:100%;height:100%;object-fit:cover;" loading="lazy"><div class="gz2" style="position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s;font-size:1.6rem;pointer-events:none;">&#128269;</div>';
+    grid.appendChild(t);
+  });
+  var idx=0;
+  function upd(){document.getElementById("gal2-img").src=gal2Photos[idx].src;document.getElementById("gal2-caption").textContent=gal2Photos[idx].cap;document.getElementById("gal2-counter").textContent=(idx+1)+" / "+gal2Photos.length;}
+  window.openGal2=function(i){idx=i;upd();document.getElementById("gal2-overlay").style.display="flex";document.body.style.overflow="hidden";};
+  window.closeGal2=function(){document.getElementById("gal2-overlay").style.display="none";document.body.style.overflow="";};
+  window.prevGal2=function(){idx=(idx-1+gal2Photos.length)%gal2Photos.length;upd();};
+  window.nextGal2=function(){idx=(idx+1)%gal2Photos.length;upd();};
+  document.addEventListener("keydown",function(e){if(document.getElementById("gal2-overlay").style.display==="flex"){if(e.key==="Escape")closeGal2();if(e.key==="ArrowLeft")prevGal2();if(e.key==="ArrowRight")nextGal2();}});
+})();
+</script>
+
 <!-- ════════════ CTA BAND ════════════ -->
 <div class="cta-band">
   <div class="container">
