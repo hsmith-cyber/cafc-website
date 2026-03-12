@@ -1048,7 +1048,22 @@ function googleTranslateElementInit(){
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <!-- Jotform AI Chatbot - Rose-Annette -->
-<script src='https://cdn.jotfor.ms/agent/embedjs/01954aa6c95375a1b93b25f7a4284cf4f57f/embed.js?isVoice=1&width=400&height=450'></script>
+<a style="
+  position:fixed;bottom:32px;right:32px;z-index:998;
+  text-transform:uppercase;font-size:12px;cursor:pointer;
+  padding:10px 16px;font-family:'Barlow',sans-serif;font-weight:600;
+  background-color:#c0272d;border:1px solid #c0272d;
+  color:#FFFFFF;border-radius:24px;text-decoration:none;
+  display:inline-block;box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  letter-spacing:0.08em;transition:background 0.2s;
+" href="javascript:void(
+        window.open(
+          'https://agent.jotform.com/01954aa6c95375a1b93b25f7a4284cf4f57f/voice?embedMode=popup&parentURL='+encodeURIComponent(window.top.location.href),
+          'blank',
+          'scrollbars=yes,toolbar=no,width=400,height=450,top='+(window.outerHeight / 2 - 225)+',left='+(window.outerWidth / 2 - 200)+'',
+        ))">
+  Rose-Annette | Chat
+</a>
 
 </body>
 </html>
