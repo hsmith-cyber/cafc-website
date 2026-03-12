@@ -88,14 +88,25 @@ nav{
   padding:5px 8px;border-radius:4px;cursor:pointer;outline:none;
 }
 .goog-te-gadget{font-size:0 !important;font-family:inherit !important;}
-.goog-te-gadget span{display:none !important;}
+.goog-te-gadget>span{display:none !important;}
 .goog-te-banner-frame{display:none !important;}
 body{top:0 !important;}
-.skiptranslate{display:none !important;}
+body>.skiptranslate{display:none !important;}
 #google_translate_element .goog-te-gadget-simple{
-  background:transparent !important;border:none !important;
-  font-size:0.68rem !important;padding:0 !important;
+  background:transparent !important;border:1px solid var(--gold) !important;
+  border-radius:4px !important;padding:4px 8px !important;
+  cursor:pointer;
 }
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value{
+  font-family:'Barlow',sans-serif !important;font-size:0.68rem !important;
+  font-weight:600 !important;letter-spacing:0.08em !important;
+  text-transform:uppercase !important;color:var(--text) !important;
+  text-decoration:none !important;
+}
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child{
+  display:inline !important;
+}
+#google_translate_element img{display:none !important;}
 
 .nav-cta{
   background:var(--red);color:#ffffff;padding:10px 24px;

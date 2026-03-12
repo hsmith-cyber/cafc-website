@@ -101,14 +101,25 @@ nav{
   padding:5px 8px;border-radius:4px;cursor:pointer;outline:none;
 }
 .goog-te-gadget{font-size:0 !important;font-family:inherit !important;}
-.goog-te-gadget span{display:none !important;}
+.goog-te-gadget>span{display:none !important;}
 .goog-te-banner-frame{display:none !important;}
 body{top:0 !important;}
-.skiptranslate{display:none !important;}
+body>.skiptranslate{display:none !important;}
 #google_translate_element .goog-te-gadget-simple{
-  background:transparent !important;border:none !important;
-  font-size:0.68rem !important;padding:0 !important;
+  background:transparent !important;border:1px solid var(--gold) !important;
+  border-radius:4px !important;padding:4px 8px !important;
+  cursor:pointer;
 }
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value{
+  font-family:'Barlow',sans-serif !important;font-size:0.68rem !important;
+  font-weight:600 !important;letter-spacing:0.08em !important;
+  text-transform:uppercase !important;color:var(--text) !important;
+  text-decoration:none !important;
+}
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child{
+  display:inline !important;
+}
+#google_translate_element img{display:none !important;}
 
 .nav-cta{
   background:var(--red);color:#ffffff;padding:10px 24px;
@@ -637,11 +648,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;max-width:1100px;margin:0 auto;">
       <!-- Flyer -->
       <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
-        <div style="width:100%;max-width:480px;aspect-ratio:9/16;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);">
-          <img src="https://images.squarespace-cdn.com/content/67ba4ef2d2050c22ab807068/6744f7ee-c015-4085-96e6-f6fdc4cacc4b/1.jpg?content-type=image%2Fjpeg"
-               alt="CAFC 2026 Annual Conference Flyer"
-               style="width:100%;height:100%;object-fit:cover;display:block;" />
-        </div>
+        <img src="https://images.squarespace-cdn.com/content/67ba4ef2d2050c22ab807068/6744f7ee-c015-4085-96e6-f6fdc4cacc4b/1.jpg?content-type=image%2Fjpeg"
+             alt="CAFC 2026 Annual Conference Flyer"
+             style="width:100%;max-width:480px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5);display:block;" />
       </div>
       <!-- Video -->
       <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
