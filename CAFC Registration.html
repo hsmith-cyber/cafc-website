@@ -170,7 +170,8 @@ body>.skiptranslate{display:none !important;}
 /* ── COUNTDOWN BANNER ── */
 .countdown-banner{
   background:linear-gradient(135deg,#1a1410 0%,#2a1f16 50%,#1a1410 100%);
-  padding:14px 24px;text-align:center;position:relative;overflow:hidden;
+  padding:14px 24px;text-align:center;position:fixed;top:72px;left:0;right:0;
+  z-index:99;overflow:hidden;
   border-bottom:2px solid var(--gold,#a06e1f);
 }
 .countdown-banner::before{
@@ -798,6 +799,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   tick();setInterval(tick,1000);
 })();
 </script>
+<div class="countdown-spacer" style="height:52px;"></div>
 
 <div class="search-overlay" id="search-overlay" onclick="if(event.target===this)toggleSearch()">
   <div class="search-box">
