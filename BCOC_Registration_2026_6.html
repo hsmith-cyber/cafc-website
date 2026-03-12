@@ -1499,5 +1499,33 @@ function submitAndPay(formId) {
 }
 </script>
 
+
+<!-- Jotform AI Chatbot - Rose-Annette -->
+<div id="jf-chat-btn" onclick="toggleJfChat()" style="position:fixed;bottom:32px;right:100px;z-index:998;width:56px;height:56px;border-radius:50%;background:var(--red,#c0272d);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:transform 0.2s,background 0.2s;font-size:1.4rem;" title="Chat with us">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+<div id="jf-chat-box" style="display:none;position:fixed;bottom:100px;right:32px;z-index:999;width:380px;height:520px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:#fff;">
+  <div style="background:var(--red,#c0272d);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="color:#fff;font-family:'Cinzel',serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;">Rose-Annette | CAFC</span>
+    <button onclick="toggleJfChat()" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;padding:0 4px;">&times;</button>
+  </div>
+  <iframe id="JotFormIFrame-01954aa6c95375a1b93b25f7a4284cf4f57f"
+    title="Rose-Annette: CAFC Secretariat" allowtransparency="true"
+    allow="geolocation; microphone; camera; fullscreen"
+    src="https://agent.jotform.com/01954aa6c95375a1b93b25f7a4284cf4f57f?embedMode=iframe&autofocus=0&background=1&shadow=1"
+    frameborder="0" style="width:100%;height:calc(100% - 44px);border:none;" scrolling="no">
+  </iframe>
+</div>
+<script src="https://cdn.jotfor.ms/s/umd/425e9ed259e/for-form-embed-handler.js"></script>
+<script>
+  window.jotformEmbedHandler("iframe[id='JotFormIFrame-01954aa6c95375a1b93b25f7a4284cf4f57f']","https://www.jotform.com");
+  function toggleJfChat(){
+    var box=document.getElementById('jf-chat-box');
+    var btn=document.getElementById('jf-chat-btn');
+    if(box.style.display==='none'){box.style.display='block';btn.style.display='none';}
+    else{box.style.display='none';btn.style.display='flex';}
+  }
+</script>
+
 </body>
 </html>
