@@ -562,6 +562,38 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <span></span><span></span><span></span>
   </button>
 </nav>
+<!-- ── COUNTDOWN BANNER ── -->
+<div class="countdown-banner" id="countdown-banner">
+  <div class="countdown-inner">
+    <span class="countdown-label">Conference Starts In</span>
+    <div class="countdown-timer" id="countdown-timer">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-lbl">Days</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hrs">--</span><span class="countdown-lbl">Hours</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-min">--</span><span class="countdown-lbl">Min</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-sec">--</span><span class="countdown-lbl">Sec</span></div>
+    </div>
+    <a href="CAFC Registration.html" class="countdown-cta">Register Now</a>
+  </div>
+</div>
+<script>
+(function(){
+  var target=new Date('2026-05-11T08:00:00-04:00').getTime();
+  function tick(){
+    var now=Date.now(),diff=target-now;
+    if(diff<=0){document.getElementById('countdown-banner').innerHTML='<div class="countdown-inner"><span class="countdown-label" style="color:#f8f5f0;font-size:0.85rem;">🔥 The 2026 CAFC Conference Is Happening Now!</span></div>';return;}
+    var d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    document.getElementById('cd-days').textContent=d;
+    document.getElementById('cd-hrs').textContent=h<10?'0'+h:h;
+    document.getElementById('cd-min').textContent=m<10?'0'+m:m;
+    document.getElementById('cd-sec').textContent=s<10?'0'+s:s;
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
 <div class="search-overlay" id="search-overlay" onclick="if(event.target===this)toggleSearch()">
   <div class="search-box">
     <input type="text" id="search-input" placeholder="Search pages..." oninput="filterSearch(this.value)" autocomplete="off"/>
@@ -749,7 +781,52 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       .tier-bronze .tier-badge{background:linear-gradient(135deg,#e09448,#a05a18);box-shadow:0 0 20px rgba(205,127,50,0.6);}
       .tier-bronze .tier-name{color:#7a3e00;}
       .tier-bronze .tier-price{color:#5a2e00;}
-    </style>
+    
+/* ── COUNTDOWN BANNER ── */
+.countdown-banner{
+  background:linear-gradient(135deg,#1a1410 0%,#2a1f16 50%,#1a1410 100%);
+  padding:14px 24px;text-align:center;position:relative;overflow:hidden;
+  border-bottom:2px solid var(--gold,#a06e1f);
+}
+.countdown-banner::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at center,rgba(160,110,31,0.08) 0%,transparent 70%);
+}
+.countdown-inner{
+  position:relative;z-index:1;display:flex;align-items:center;justify-content:center;
+  gap:8px;flex-wrap:wrap;
+}
+.countdown-label{
+  font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:#a06e1f;
+}
+.countdown-timer{display:flex;gap:6px;align-items:center;}
+.countdown-unit{
+  display:flex;flex-direction:column;align-items:center;
+  background:rgba(248,245,240,0.08);border-radius:6px;padding:4px 10px;min-width:48px;
+}
+.countdown-num{
+  font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#f8f5f0;
+  line-height:1.2;
+}
+.countdown-lbl{
+  font-family:'Barlow',sans-serif;font-size:0.55rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,245,240,0.5);
+}
+.countdown-sep{color:rgba(248,245,240,0.3);font-size:1.1rem;font-weight:700;margin:0 2px;}
+.countdown-cta{
+  font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;
+  color:#fff;background:#c0272d;padding:6px 16px;border-radius:4px;
+  margin-left:12px;transition:background 0.2s;
+}
+.countdown-cta:hover{background:#8b1a1e;}
+@media(max-width:600px){
+  .countdown-inner{flex-direction:column;gap:10px;}
+  .countdown-cta{margin-left:0;}
+}
+
+</style>
 
     <div class="tier-grid">
 
