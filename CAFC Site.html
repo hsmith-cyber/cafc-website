@@ -60,6 +60,24 @@ nav{
 .nav-links a.nav-active{color:var(--gold)}
 .nav-links a.nav-active::after{width:100%}
 
+
+.translate-wrap{display:flex;align-items:center;margin-left:8px;}
+.translate-wrap select.goog-te-combo{
+  font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--gold);color:var(--text);
+  padding:5px 8px;border-radius:4px;cursor:pointer;outline:none;
+}
+.goog-te-gadget{font-size:0 !important;font-family:inherit !important;}
+.goog-te-gadget span{display:none !important;}
+.goog-te-banner-frame{display:none !important;}
+body{top:0 !important;}
+.skiptranslate{display:none !important;}
+#google_translate_element .goog-te-gadget-simple{
+  background:transparent !important;border:none !important;
+  font-size:0.68rem !important;padding:0 !important;
+}
+
 .nav-cta{
   background:var(--red);color:#fff;padding:10px 24px;
   font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;
@@ -675,5 +693,16 @@ document.addEventListener('keydown',function(e){
 })();
 </script>
 
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage:'en',
+    includedLanguages:'fr,ht,es,pt,nl,de,zh-CN,ar,ja',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay:false
+  },'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

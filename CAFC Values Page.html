@@ -86,6 +86,24 @@ nav{
 .nav-dropdown-menu li a:hover{color:var(--red);background:rgba(160,110,31,0.06)}
 .nav-dropdown-menu li a::after{display:none}
 .nav-dropdown:hover .nav-dropdown-menu{display:block}
+
+.translate-wrap{display:flex;align-items:center;margin-left:8px;}
+.translate-wrap select.goog-te-combo{
+  font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--gold);color:var(--text);
+  padding:5px 8px;border-radius:4px;cursor:pointer;outline:none;
+}
+.goog-te-gadget{font-size:0 !important;font-family:inherit !important;}
+.goog-te-gadget span{display:none !important;}
+.goog-te-banner-frame{display:none !important;}
+body{top:0 !important;}
+.skiptranslate{display:none !important;}
+#google_translate_element .goog-te-gadget-simple{
+  background:transparent !important;border:none !important;
+  font-size:0.68rem !important;padding:0 !important;
+}
+
 .nav-cta{
   background:var(--red);color:#ffffff;padding:10px 24px;
   font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;
@@ -476,6 +494,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       </ul>
     </li>
   </ul>
+  <div id="google_translate_element" class="translate-wrap"></div>
   <button class="nav-search-btn" onclick="toggleSearch()" aria-label="Search">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
   </button>
@@ -767,5 +786,16 @@ document.addEventListener('keydown',function(e){
 })();
 </script>
 
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage:'en',
+    includedLanguages:'fr,ht,es,pt,nl,de,zh-CN,ar,ja',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay:false
+  },'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
