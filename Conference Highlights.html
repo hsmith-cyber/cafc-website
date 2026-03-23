@@ -29,9 +29,17 @@
     background: linear-gradient(135deg, var(--bcoc-dark) 0%, #0F0F1E 60%, var(--bcoc-red) 100%);
     color: var(--white);
     text-align: center;
-    padding: 40px 24px 36px;
+    padding: 20px 24px 18px;
     position: relative;
     overflow: hidden;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 14px;
   }
 
   .hero::before {
@@ -42,13 +50,9 @@
     pointer-events: none;
   }
 
-  .hero-logo {
-    margin-bottom: 20px;
-  }
-
   .hero-logo img {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
   }
 
@@ -57,7 +61,6 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--bcoc-gold);
-    margin-bottom: 16px;
     font-weight: 700;
   }
 
@@ -367,10 +370,12 @@
 <body>
 
 <section class="hero">
-  <div class="hero-logo">
-    <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC Logo">
+  <div class="hero-top">
+    <div class="hero-logo">
+      <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC Logo">
+    </div>
+    <div class="hero-label">Black Chief Officers Committee</div>
   </div>
-  <div class="hero-label">Black Chief Officers Committee</div>
   <h1>Conference <span class="hero-accent">Highlights</span></h1>
   <p>Relive the best moments from BCOC conferences — the leadership, the fellowship, and the fire service excellence that define who we are.</p>
 </section>
@@ -383,7 +388,21 @@
 
     <div class="video-grid">
 
-      <div class="video-card" data-video-src="" data-orientation="portrait" data-title="Highlights Reel" data-desc="Quick look back at the best moments from the 2025 conference.">
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_63c9eb7c225a41929319c4c16a9ef7b9/720p/mp4/file.mp4" data-orientation="landscape" data-title="Dr. Sheldon Yellen — Keynote Speaker" data-desc="Keynote address by Dr. Sheldon Yellen at the 2025 BCOC Conference.">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+          <span>Wix Video Player</span>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag">Keynote</span>
+          <h3>Dr. Sheldon Yellen</h3>
+          <p>Keynote address by Dr. Sheldon Yellen at the 2025 BCOC Conference.</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_ea7f3f1da69a47e0bf4f915ec87a82ab/720p/mp4/file.mp4" data-orientation="landscape" data-title="Highlights Reel" data-desc="Quick look back at the best moments from the 2025 conference.">
         <div class="video-placeholder">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
@@ -397,7 +416,7 @@
         </div>
       </div>
 
-      <div class="video-card" data-video-src="" data-orientation="portrait" data-title="Conference Recap" data-desc="Extended highlights from the week of leadership and fellowship.">
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_dbd365bcba2d420ab9ebc7da6c9b5a58/720p/mp4/file.mp4" data-orientation="landscape" data-title="Dr. Lori Moore-Merrell, USFA" data-desc="Conference moments featuring Dr. Lori Moore-Merrell, USFA from the 2025 conference.">
         <div class="video-placeholder">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
@@ -406,12 +425,12 @@
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
-          <h3>Conference Recap</h3>
-          <p>Extended highlights from the week of leadership and fellowship.</p>
+          <h3>Dr. Lori Moore-Merrell, USFA</h3>
+          <p>Conference moments featuring Dr. Lori Moore-Merrell, USFA from the 2025 conference.</p>
         </div>
       </div>
 
-      <div class="video-card" data-video-src="" data-orientation="portrait" data-title="Conference Moments" data-desc="More highlights from the 2025 conference and symposium.">
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_72628aef643445b5ac1e51a9f6f62ce5/720p/mp4/file.mp4" data-orientation="landscape" data-title="FirstNet Sponsor" data-desc="FirstNet sponsor presentation from the 2025 conference.">
         <div class="video-placeholder">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
@@ -420,26 +439,12 @@
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
-          <h3>Conference Moments</h3>
-          <p>More highlights from the 2025 conference and symposium.</p>
+          <h3>FirstNet Sponsor</h3>
+          <p>FirstNet sponsor presentation from the 2025 conference.</p>
         </div>
       </div>
 
-      <div class="video-card" data-video-src="" data-orientation="portrait" data-title="Waldorf University Scholarship" data-desc="Annual scholarship interview provided by Waldorf University.">
-        <div class="video-placeholder">
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
-          </div>
-          <span>Wix Video Player</span>
-        </div>
-        <div class="video-card-body">
-          <span class="video-tag">2025</span>
-          <h3>Waldorf University Scholarship</h3>
-          <p>Annual scholarship interview provided by Waldorf University.</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-src="" data-orientation="portrait" data-title="Ronald Skrine Award" data-desc="Ronald Skrine Award Video presentation from the 2025 conference.">
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_29c4b95c688a4be199a0b2ae4c1d2f8b/720p/mp4/file.mp4" data-orientation="landscape" data-title="Ronald Skrine Award" data-desc="Ronald Skrine Award video presentation from the 2025 conference.">
         <div class="video-placeholder">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
@@ -449,7 +454,35 @@
         <div class="video-card-body">
           <span class="video-tag">2025</span>
           <h3>Ronald Skrine Award</h3>
-          <p>Ronald Skrine Award Video presentation from the 2025 conference.</p>
+          <p>Ronald Skrine Award video presentation from the 2025 conference.</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_08300f345aa8402eafae096958e12216/720p/mp4/file.mp4" data-orientation="landscape" data-title="1-800-Board-Up" data-desc="1-800-Board-Up presentation from the 2025 BCOC Conference.">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+          <span>Wix Video Player</span>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag">2025</span>
+          <h3>1-800-Board-Up</h3>
+          <p>1-800-Board-Up presentation from the 2025 BCOC Conference.</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_04a10ce4d38a4973a9da3c6fd811a391/720p/mp4/file.mp4" data-orientation="landscape" data-title="MSA Sponsor" data-desc="MSA sponsor presentation from the 2025 BCOC Conference.">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+          <span>Wix Video Player</span>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag">2025</span>
+          <h3>MSA Sponsor</h3>
+          <p>MSA sponsor presentation from the 2025 BCOC Conference.</p>
         </div>
       </div>
 
