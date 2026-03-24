@@ -92,8 +92,8 @@
     background: transparent;
     border: 1px solid rgba(255,255,255,0.45);
     color: inherit;
-    font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
+    font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
     text-decoration: none; border-radius: 3px;
     transition: background .2s, border-color .2s;
     width: 100%;
@@ -128,13 +128,13 @@
   .sh-line { flex: 1; height: 1px; background: var(--border); }
   .sh-text { text-align: center; white-space: nowrap; }
   .sh-lbl {
-    font-family: 'Cinzel', serif; font-size: 10px;
+    font-family: 'Cinzel', serif; font-size: 12px;
     letter-spacing: 5px; text-transform: uppercase;
     color: var(--red); margin-bottom: 6px;
   }
   .sh-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(18px, 2.5vw, 26px); font-weight: 700; color: var(--black);
+    font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--black);
   }
 
   /* ── TIER CARDS ── */
@@ -151,10 +151,10 @@
   }
   .tc:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
   .ti     { font-size: 36px; display: block; margin-bottom: 14px; }
-  .tbadge { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: .75; }
-  .tname  { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 12px; }
-  .tprice { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-  .tavail { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; }
+  .tbadge { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: .75; }
+  .tname  { font-family: 'Cinzel', serif; font-size: 19px; font-weight: 700; line-height: 1.3; margin-bottom: 12px; }
+  .tprice { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+  .tavail { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; }
 
   .t-lift  { background: var(--red); color: #fff; box-shadow: 0 4px 18px rgba(139,28,28,0.35); }
   .t-lift .tprice { color: #ffcccc; } .t-lift .tavail { color: #ffaaaa; }
@@ -181,7 +181,7 @@
     display: flex; gap: 10px; justify-content: center;
     flex-wrap: wrap; margin-top: 18px;
   }
-  .tl-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); }
+  .tl-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
   .tl-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
   /* ── COLLAPSIBLE GROUPS ── */
@@ -198,11 +198,11 @@
 
   .gh-left  { display: flex; align-items: center; gap: 16px; }
   .gh-color { width: 5px; height: 42px; border-radius: 3px; flex-shrink: 0; }
-  .gh-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--white); }
-  .gh-sub   { font-size: 12px; color: #999; margin-top: 3px; }
+  .gh-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+  .gh-sub   { font-size: 14px; color: #999; margin-top: 3px; }
 
   .gh-right  { display: flex; align-items: center; gap: 16px; }
-  .gh-range  { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); white-space: nowrap; }
+  .gh-range  { font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold); white-space: nowrap; }
   .gh-arrow  { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 18px; transition: transform .3s; }
   .group-header.open .gh-arrow { transform: rotate(180deg); }
 
@@ -225,8 +225,8 @@
   .gitem:hover { background: var(--offwhite); }
 
   .gi-left { flex: 1; min-width: 0; }
-  .gi-name { font-size: 15px; font-weight: 600; color: var(--text); }
-  .gi-meta { font-size: 12px; color: var(--silver); margin-top: 3px; }
+  .gi-name { font-size: 19px; font-weight: 600; color: var(--text); }
+  .gi-meta { font-size: 14px; color: var(--silver); margin-top: 3px; }
 
   .gi-right {
     display: flex; align-items: center;
@@ -234,12 +234,12 @@
   }
 
   .gi-price {
-    font-family: 'Cinzel', serif; font-size: 18px;
+    font-family: 'Cinzel', serif; font-size: 22px;
     font-weight: 700; color: var(--red); white-space: nowrap;
   }
 
   .gi-badge {
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
     padding: 4px 10px; border-radius: 3px; white-space: nowrap; font-weight: 700;
   }
   .badge-excl  { background: rgba(139,28,28,.08); color: var(--red); border: 1px solid rgba(139,28,28,.25); }
@@ -250,7 +250,7 @@
     display: inline-flex; align-items: center; gap: 7px;
     padding: 10px 18px;
     background: var(--qb-green); color: var(--white);
-    font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
     letter-spacing: 1.5px; text-transform: uppercase;
     text-decoration: none; border-radius: 4px;
     white-space: nowrap;
@@ -263,30 +263,30 @@
   /* ── CTA ── */
   .cta {
     margin-top: 54px; text-align: center;
-    padding-top: 48px; border-top: 1px solid var(--border);
+    padding: 48px 0; border-top: 1px solid var(--border);
   }
   .cta-logo img { width: 64px; height: 64px; object-fit: contain; opacity: .8; margin-bottom: 18px; }
-  .cta h2 { font-family: 'Cinzel', serif; font-size: clamp(20px, 3vw, 32px); color: var(--black); margin-bottom: 12px; }
-  .cta p  { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+  .cta h2 { font-family: 'Cinzel', serif; font-size: clamp(26px, 4vw, 42px); color: var(--black); margin-bottom: 12px; }
+  .cta p  { font-size: 18px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
   .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
   .btn-red {
-    display: inline-block; padding: 15px 36px;
+    display: inline-block; padding: 16px 40px;
     background: var(--red-btn); color: var(--white);
     border: 2px solid var(--red);
-    font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
     text-decoration: none; border-radius: 3px;
     transition: background .2s, transform .2s;
   }
   .btn-red:hover { background: var(--red-hover); transform: translateY(-2px); }
 
   .btn-outline {
-    display: inline-block; padding: 15px 36px;
+    display: inline-block; padding: 16px 40px;
     background: transparent; color: var(--black);
     border: 2px solid var(--black);
-    font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
     text-decoration: none; border-radius: 3px;
     transition: all .2s;
   }
@@ -308,6 +308,16 @@
     .gi-right { width: 100%; justify-content: flex-end; margin-top: 8px; }
     .gh-sub { display: none; }
     .btn-pay { font-size: 11px; padding: 9px 14px; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .btn-red, .btn-outline { width: 100%; max-width: 300px; text-align: center; }
+    .eb-details { flex-direction: column; align-items: center; }
+  }
+
+  @media(max-width:400px){
+    .tiers { grid-template-columns: 1fr; }
+    .topbar { padding: 0 16px; }
+    .wrap { padding: 0 16px; }
+    .gh-range { display: none; }
   }
 
   /* Event Banner */
@@ -488,7 +498,8 @@
       <div class="tname">Gold Sponsor</div>
       <div class="tprice">$5,000 – $9,999</div>
       <div class="tavail">5 Available</div>
-      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?subject=Gold%20Sponsor%20Inquiry">✉ Contact Sponsor Coordinator</a>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Gold%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
     </div>
     <div class="tc t-plat">
       <span class="ti">💎</span>
@@ -496,7 +507,8 @@
       <div class="tname">Platinum</div>
       <div class="tprice">$10,000 – $14,999</div>
       <div class="tavail">5 Available</div>
-      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?subject=Platinum%20Sponsor%20Inquiry">✉ Contact Sponsor Coordinator</a>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Platinum%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
     </div>
     <div class="tc t-platp">
       <span class="ti">⭐</span>
@@ -504,7 +516,8 @@
       <div class="tname">Platinum Plus</div>
       <div class="tprice">$15,000 – $19,999</div>
       <div class="tavail">5 Available</div>
-      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?subject=Platinum%20Plus%20Sponsor%20Inquiry">✉ Contact Sponsor Coordinator</a>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Platinum%20Plus%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
     </div>
     <div class="tc t-elite">
       <span class="ecrown">★ Premier</span>
@@ -513,7 +526,8 @@
       <div class="tname">ELITE Premier Presenting</div>
       <div class="tprice">$20,000+</div>
       <div class="tavail">5 Available</div>
-      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?subject=Elite%20Premier%20Sponsor%20Inquiry">✉ Contact Sponsor Coordinator</a>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Elite%20Premier%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
     </div>
   </div>
 
@@ -816,11 +830,12 @@
     <div class="cta-logo">
       <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC">
     </div>
-    <h2>Questions About Sponsoring?</h2>
-    <p>Reach out to our team — we're happy to help you find the right sponsorship package<br>for your organization's goals and budget.</p>
+    <h2 style="font-size:clamp(24px,4vw,38px);">Questions?</h2>
+    <p style="font-size:17px;">We're here to help you find the right sponsorship.</p>
     <div class="cta-btns">
       <a class="btn-red" href="https://www.bcoc.us" target="_blank">Visit BCOC.us</a>
       <a class="btn-outline" href="mailto:chair@bcoc.us">Contact Us</a>
+      <a class="btn-outline" href="#" onclick="openProspectus();return false;" style="background:var(--black);color:var(--white);border-color:var(--black);font-size:14px;">📄 View Prospectus</a>
     </div>
   </div>
 
@@ -837,12 +852,18 @@
   <span>© Black Chief Officers Committee · bcoc.us</span>
 </div>
 
+<!-- No modal needed - prospectus opens in new tab -->
+
 <script>
 function toggle(header) {
   var body = header.nextElementSibling;
   var isOpen = header.classList.contains('open');
   header.classList.toggle('open', !isOpen);
   body.classList.toggle('open', !isOpen);
+}
+
+function openProspectus() {
+  window.open('https://online.fliphtml5.com/hpuui/2026-PROSPECTUS/', '_blank');
 }
 </script>
 

@@ -104,8 +104,8 @@
 
   .featured h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
     color: var(--bcoc-dark);
   }
 
@@ -150,6 +150,8 @@
 
   .video-modal-overlay.active {
     display: flex;
+    align-items: flex-start;
+    padding-top: 40px;
   }
 
   .video-modal {
@@ -360,10 +362,21 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
+    .hero-top {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hero-label {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 480px) {
     .video-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+    .hero-logo img {
+      width: 70px;
+      height: 70px;
+    }
   }
 </style>
 </head>
@@ -376,15 +389,13 @@
     </div>
     <div class="hero-label">Black Chief Officers Committee</div>
   </div>
-  <h1>Conference <span class="hero-accent">Highlights</span></h1>
+  <h1>2025 Conference <span class="hero-accent">Highlights</span></h1>
   <p>Relive the best moments from BCOC conferences — the leadership, the fellowship, and the fire service excellence that define who we are.</p>
 </section>
 
 <section class="featured">
   <div class="featured-inner">
-    <div class="section-label">2025 Conference</div>
     <h2>Fort Lauderdale, Florida</h2>
-    <p class="subtitle">Highlights from the 2025 BCOC Conference &amp; Symposium</p>
 
     <div class="video-grid">
 
@@ -393,7 +404,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">Keynote</span>
@@ -407,7 +418,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
@@ -421,7 +432,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
@@ -435,7 +446,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
@@ -449,7 +460,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
@@ -463,7 +474,7 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
@@ -477,12 +488,26 @@
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
           </div>
-          <span>Wix Video Player</span>
+          <span>Click to Play</span>
         </div>
         <div class="video-card-body">
           <span class="video-tag">2025</span>
           <h3>MSA Sponsor</h3>
           <p>MSA sponsor presentation from the 2025 BCOC Conference.</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-src="https://video.wixstatic.com/video/a6fc8b_6742b0f296aa4c08a07426c7deef7028/1080p/mp4/file.mp4" data-orientation="landscape" data-title="Ready Rebound" data-desc="Ready Rebound video from the 2025 BCOC Conference.">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+          <span>Click to Play</span>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag">2025</span>
+          <h3>Ready Rebound</h3>
+          <p>Ready Rebound video from the 2025 BCOC Conference.</p>
         </div>
       </div>
 
