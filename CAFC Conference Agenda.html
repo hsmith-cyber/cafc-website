@@ -1124,6 +1124,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 
   <div class="day-nav">
     <div class="day-nav-inner container">
+      <button class="day-nav-btn" onclick="switchDay26('announce26',this)">📣 Announcements</button>
       <button class="day-nav-btn active" onclick="switchDay26('sun26',this)">Sun May 17</button>
       <button class="day-nav-btn" onclick="switchDay26('mon26',this)">Mon May 18</button>
       <button class="day-nav-btn" onclick="switchDay26('tracks26',this)">Tue–Thu · Sessions</button>
@@ -1135,6 +1136,74 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 
   <div style="background:var(--dark);">
     <div class="container">
+
+      <!-- ANNOUNCEMENTS -->
+      <div class="day-section" id="day-announce26">
+        <div class="day-header">
+          <div class="day-title">Announcements & Requirements</div>
+          <div class="day-date">Dress code · Attendee checklist · Contact</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#8b0000,var(--red));border-radius:16px;padding:36px 40px;margin-bottom:40px;color:#fff;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;font-size:8rem;opacity:0.08;line-height:1;">📣</div>
+          <div style="position:relative;z-index:1;">
+            <div style="font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;opacity:0.75;margin-bottom:10px;">📣 Welcome Announcement · #CAFC2026</div>
+            <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;letter-spacing:0.04em;margin:0 0 20px;line-height:1.3;">Let Us Begin Showing Our Pride, Professionalism & Unity</h2>
+            <div style="font-family:'Barlow',sans-serif;font-size:1rem;line-height:1.8;opacity:0.92;margin-bottom:18px;">
+              Formal attire is required for Monday's Group Photos. Business attire is required for all conference sessions.
+            </div>
+            <div style="background:rgba(255,255,255,0.12);border-left:4px solid rgba(255,255,255,0.5);border-radius:0 10px 10px 0;padding:16px 20px;font-family:'Barlow',sans-serif;font-size:0.95rem;line-height:1.75;">
+              Dress Code: Department-issued dress uniforms are required for all Fire/EMS personnel participating in the #CAFC2026 Group Photo. Professional dress is required for all others who wish to participate in the Group Picture.
+            </div>
+            <div style="margin-top:18px;font-family:'Barlow',sans-serif;font-size:0.95rem;opacity:0.85;font-style:italic;">
+              Let us begin the conference showing our pride, professionalism, and unity. <strong style="opacity:1;font-style:normal;">#CAFC2026</strong>
+            </div>
+          </div>
+        </div>
+        <div class="announce-grid">
+          <div class="announce-card">
+            <div class="announce-card-header"><h3>Dress Code</h3></div>
+            <div class="announce-card-body">
+              <ul>
+                <li>Formal attire required for Monday group photo</li>
+                <li>Department-issued dress uniforms required for Fire/EMS personnel in group photo</li>
+                <li>Business attire for all conference sessions</li>
+                <li>Professional dress for others in group photo</li>
+                <li>Formal attire required for Saturday closing ceremony</li>
+              </ul>
+            </div>
+          </div>
+          <div class="announce-card">
+            <div class="announce-card-header"><h3>What to Bring</h3></div>
+            <div class="announce-card-body">
+              <ul>
+                <li>Business cards for networking</li>
+                <li>QR contact codes</li>
+                <li>Coins, pins, and department souvenirs for Meet & Greet</li>
+              </ul>
+            </div>
+          </div>
+          <div class="announce-card">
+            <div class="announce-card-header"><h3>Conference Location</h3></div>
+            <div class="announce-card-body">
+              <ul>
+                <li>Hodelpa Garden Suites, Golf & Convention Center</li>
+                <li>Playa Juan Dolio, Dominican Republic</li>
+                <li>May 17–23, 2026</li>
+              </ul>
+            </div>
+          </div>
+          <div class="announce-card">
+            <div class="announce-card-header"><h3>Contact & Support</h3></div>
+            <div class="announce-card-body">
+              <ul>
+                <li>📧 secretariat@caribbeanfirechiefs.com</li>
+                <li>📞 +1 (767) 613-0912</li>
+                <li>📍 Level 5, GPO Building, Bridgetown, Barbados</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- SUNDAY -->
       <div class="day-section active" id="day-sun26">
@@ -1216,9 +1285,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     </div>
   </div>
   <div class="day-sub-tabs"><button class="day-sub-tab active" onclick="switchSubDay26('ems26-tue','ems26',this)">Tuesday May 19</button><button class="day-sub-tab" onclick="switchSubDay26('ems26-wed','ems26',this)">Wednesday May 20</button><button class="day-sub-tab" onclick="switchSubDay26('ems26-thu','ems26',this)">Thursday May 21</button></div>
-  <div class="track-day active" id="ems26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Welcome & Opening Remarks / Command Presence / Panel Discussion</div><div class="td-speaker">CFO Kenrick Hackett</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">Research 101 / Post-Traumatic Stress Disorder & Mental Health Wellness</div><div class="td-speaker">Dr. Hezedean Smith, Dr. Gifford Blagrove, Dr. David Byer</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Back to the Basics: EMS Topics / Airway Management Skills</div><div class="td-speaker">Dr. Winston Warren, Snr. Supt. Gary Morgan, Lee Sagert</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Trauma & Medical Assessment Scenarios</div><div class="td-speaker">Dr. David Byer, Dr. Winston Warren, Dr. Gifford Blagrove</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
-  <div class="track-day" id="ems26-wed"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Day 2 Overview / Vision Alignment for Senior Leaders</div><div class="td-speaker">CFO Errol Maynard, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">EMS Operations in Mass Shootings / MCIs / Optimizing EMS Scope of Practice</div><div class="td-speaker">Dr. Hezedean Smith, Dr. Janice Miller</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Fire-Based EMS: Operational Models / Panel: Training & Development in EMS</div><div class="td-speaker">Dr. Hezedean Smith, Snr. Supt. Gary Morgan, Dr. Gifford Blagrove, Lee Sagert</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Best Practices in EMS</div><div class="td-speaker">Dr. David Byer, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
-  <div class="track-day" id="ems26-thu"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Day 3 Overview / High-Level Communication & Political Acumen</div><div class="td-speaker">CFO Errol Maynard</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">Maximizing EMS Effectiveness in Resource-Limited Environments / Legal Considerations for EMS</div><div class="td-speaker">Lee Sagert NRP, Commissioner Stewart Beckford</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Women in Emergency Services / Building an EMS System Pipeline</div><div class="td-speaker">CFO Dominican Republic, Deputy Commissioner Kevin Haughton, Supt. Gary Morgan</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Q&A, Closing & Course Evaluations</div><div class="td-speaker">Dr. David Byer, Dr. Winston Warren, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
+  <div class="track-day active" id="ems26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Welcome & Opening Remarks / Command Presence / Panel Discussion</div><div class="td-speaker">CFO Kenrick Hackett</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">Research 101 / Post-Traumatic Stress Disorder & Mental Health Wellness</div><div class="td-speaker">Dr. Hezedean Smith, Dr. Gifford Blagrove, Dr. David Byer</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Back to the Basics: EMS Topics / Airway Management Skills</div><div class="td-speaker">Dr. Winston Warren, Snr. Supt. Gary Morgan, Dr. Hezedean Smith (In Honor of Lee Sagert)</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Trauma & Medical Assessment Scenarios</div><div class="td-speaker">Dr. David Byer, Dr. Winston Warren, Dr. Gifford Blagrove</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
+  <div class="track-day" id="ems26-wed"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Day 2 Overview / Vision Alignment for Senior Leaders</div><div class="td-speaker">CFO Errol Maynard, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">EMS Operations in Mass Shootings / MCIs / Optimizing EMS Scope of Practice</div><div class="td-speaker">Dr. Hezedean Smith, Dr. Janice Miller</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Fire-Based EMS: Operational Models / Panel: Training & Development in EMS</div><div class="td-speaker">Dr. Winston Warren, Dr. David Byer, Dr. Hezedean Smith (In Honor of Lee Sagert)</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Best Practices in EMS</div><div class="td-speaker">Dr. David Byer, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
+  <div class="track-day" id="ems26-thu"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 10:00 AM</td><td><div class="td-session">Day 3 Overview / High-Level Communication & Political Acumen</div><div class="td-speaker">CFO Errol Maynard</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">Maximizing EMS Effectiveness in Resource-Limited Environments / Legal Considerations for EMS</div><div class="td-speaker">Dr. Hezedean Smith (In Honor of Lee Sagert), Commissioner Stewart Beckford</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Women in Emergency Services / Building an EMS System Pipeline</div><div class="td-speaker">CFO Dominican Republic, Deputy Commissioner Kevin Haughton, Supt. Gary Morgan</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Q&A, Closing & Course Evaluations</div><div class="td-speaker">Dr. David Byer, Dr. Winston Warren, Dr. Hezedean Smith</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
 </div>
 
       </div>
