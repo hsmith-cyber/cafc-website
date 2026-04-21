@@ -24,19 +24,19 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 #pgInd{font-size:13px;color:#999;letter-spacing:1px;font-weight:600;min-width:70px;text-align:center}
 
 /* COVER */
-.sg-cover{background:var(--navy);min-height:520px;display:flex;flex-direction:column;position:relative}
-.sg-cover-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center}
-.sg-cover-logo{width:90px;height:90px;border-radius:50%;margin-bottom:16px;border:3px solid rgba(200,150,46,0.3)}
-.sg-cover-40{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:var(--gold)}
-.sg-cover-40 sup{font-size:24px}
-.sg-cover-label{font-size:12px;letter-spacing:6px;color:rgba(255,255,255,0.5);font-weight:700;margin-bottom:20px}
-.sg-cover h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px}
-.sg-cover-theme{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--gold);padding:10px 20px;border:1px solid rgba(200,150,46,0.3);border-radius:8px;margin-bottom:20px}
-.sg-cover-intro{max-width:680px;margin:0 auto 24px;text-align:left;color:rgba(255,255,255,0.82);font-size:14px;line-height:1.75;padding:18px 22px;background:rgba(255,255,255,0.04);border-left:3px solid var(--gold);border-radius:4px}
+.sg-cover{background:var(--navy);display:flex;flex-direction:column;position:relative}
+.sg-cover-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 24px 32px;text-align:center;gap:10px}
+.sg-cover-logo{width:150px;height:150px;border-radius:50%;margin:4px 0 6px;border:4px solid rgba(200,150,46,0.55);box-shadow:0 6px 24px rgba(0,0,0,0.35)}
+.sg-cover-40{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:var(--gold);line-height:1;margin:4px 0 0}
+.sg-cover-40 sup{font-size:26px}
+.sg-cover-label{font-size:13px;letter-spacing:6px;color:rgba(255,255,255,0.85);font-weight:700;margin-bottom:8px}
+.sg-cover h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:#fff;line-height:1.15;margin:6px 0 10px}
+.sg-cover-theme{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold);padding:10px 22px;border:1px solid rgba(200,150,46,0.45);border-radius:8px;margin-bottom:12px;max-width:760px}
+.sg-cover-intro{max-width:720px;margin:0 auto 14px;text-align:left;color:#fff;font-size:15.5px;line-height:1.7;padding:18px 24px;background:rgba(255,255,255,0.06);border-left:4px solid var(--gold);border-radius:4px}
 .sg-cover-intro p{margin:0 0 10px}
 .sg-cover-intro p:last-child{margin-bottom:0}
-.sg-cover-details{font-size:14px;color:rgba(255,255,255,0.7);line-height:2}
-.sg-cover-motto{font-size:14px;letter-spacing:4px;color:rgba(255,255,255,0.4);margin-top:20px;font-weight:600}
+.sg-cover-details{font-size:16px;color:#fff;line-height:1.85;font-weight:500}
+.sg-cover-motto{font-size:15px;letter-spacing:5px;color:var(--gold);margin-top:10px;font-weight:700}
 
 /* DAY PAGES */
 .sg-day-page{display:flex;flex-direction:column;min-height:400px}
@@ -80,10 +80,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 @media(max-width:768px){
   body{padding:8px 0 24px}
   .page-nav button{padding:8px 14px;font-size:11px;letter-spacing:2px}
-  .sg-cover h1{font-size:26px!important}
-  .sg-cover-40{font-size:40px!important}
-  .sg-cover-theme{font-size:14px!important}
-  .sg-cover-intro{font-size:13px!important;padding:14px 16px!important;line-height:1.65!important}
+  .sg-cover-logo{width:110px!important;height:110px!important}
+  .sg-cover h1{font-size:30px!important}
+  .sg-cover-40{font-size:46px!important}
+  .sg-cover-theme{font-size:15px!important}
+  .sg-cover-intro{font-size:14px!important;padding:14px 16px!important;line-height:1.65!important}
+  .sg-cover-details{font-size:14px!important}
   .sg-day-header{padding:18px 16px!important}
   .sg-day-header h2{font-size:24px!important}
   .sg-day-body{padding:14px 14px!important}
@@ -147,9 +149,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
     <div class="sg-cover-40">40<sup>th</sup></div>
     <div class="sg-cover-label">ANNIVERSARY</div>
     <h1>Session Guide<br>&amp; Speaker Profiles</h1>
-    <div class="sg-cover-theme">"Forging the Future &mdash; Executive Leadership in Times of Challenge"</div>
+    <div class="sg-cover-theme">"Forging the Future: Executive Leadership in Times of Challenge"</div>
     <div class="sg-cover-intro">
-      <p>Welcome to the definitive guide for the Black Chief Officers Committee 40th Anniversary Conference &mdash; a weeklong gathering of senior fire service leaders, chief officers, and emerging executives convened in Atlanta to mark four decades of progress and prepare the next generation of command.</p>
+      <p>Welcome to the definitive guide for the Black Chief Officers Committee 40th Anniversary Conference. This weeklong gathering brings together senior fire service leaders, chief officers, and emerging executives in Atlanta to mark four decades of progress and prepare the next generation of command.</p>
       <p>Inside, you will find the full session schedule from Sunday through Friday, speaker profiles with departmental affiliations, and session details spanning leadership, labor relations, technology, wellness, finance, and community engagement. Use the day tabs above to navigate, or advance page by page to plan your conference experience.</p>
     </div>
     <div class="sg-cover-details">
@@ -662,7 +664,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
   </div>
   <div class="sg-card-body">
     <div class="sg-time"><span class="sg-time-day">Friday</span><span class="sg-time-slot">10:00 AM &ndash; 12:00 PM</span></div>
-    <div class="sg-desc">An open mentoring session led by members of the BCOC Board focused on preparing candidates for promotional assessment centers. Participants receive practical guidance on in-basket exercises, oral presentations, tactical problem solving, leaderless group discussions, and structured interviews &mdash; with direct feedback from chief officers who have served as assessors and candidates at the highest levels of the fire service.</div>
+    <div class="sg-desc">An open mentoring session led by members of the BCOC Board focused on preparing candidates for promotional assessment centers. Participants receive practical guidance on in-basket exercises, oral presentations, tactical problem solving, leaderless group discussions, and structured interviews, with direct feedback from chief officers who have served as assessors and candidates at the highest levels of the fire service.</div>
     <div class="sg-obj">
       <div class="sg-obj-label">What to Expect</div>
       One-on-one and small-group coaching with BCOC Board members. Strategies for navigating assessment center exercises. Real-world feedback on presentation, communication, and executive presence. Networking with peers preparing for chief officer promotions.
