@@ -11,10 +11,10 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px 0 32px}
 .book-wrap{max-width:820px;margin:0 auto;position:relative}
-.page-nav{display:flex;justify-content:center;gap:6px;padding:0 16px;margin-bottom:14px;flex-wrap:wrap}
-.page-nav button{background:#e8e4dc;border:none;padding:8px 18px;border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;cursor:pointer;transition:all 0.2s}
-.page-nav button.active{background:var(--navy);color:var(--gold)}
-.page-nav button:hover{background:#d5d0c6}
+.page-nav{display:flex;justify-content:center;gap:10px;padding:0 16px;margin-bottom:10px;flex-wrap:nowrap;overflow-x:auto}
+.page-nav button{background:#fff;border:2px solid #ddd;padding:9px 18px;border-radius:999px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);cursor:pointer;transition:all 0.2s;box-shadow:0 2px 6px rgba(0,0,0,0.08);flex-shrink:0;white-space:nowrap}
+.page-nav button.active{background:var(--navy);color:var(--gold);border-color:var(--navy);box-shadow:0 0 0 2px var(--gold),0 3px 10px rgba(20,33,61,.3)}
+.page-nav button:hover{border-color:var(--gold)}
 .page{display:none!important;background:var(--white);border-radius:10px;box-shadow:0 2px 20px rgba(0,0,0,0.08);overflow:hidden}
 .page.show{display:block!important}
 .flip-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;padding:0 16px}
@@ -32,6 +32,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 .sg-cover-label{font-size:12px;letter-spacing:6px;color:rgba(255,255,255,0.5);font-weight:700;margin-bottom:20px}
 .sg-cover h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px}
 .sg-cover-theme{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--gold);padding:10px 20px;border:1px solid rgba(200,150,46,0.3);border-radius:8px;margin-bottom:20px}
+.sg-cover-intro{max-width:680px;margin:0 auto 24px;text-align:left;color:rgba(255,255,255,0.82);font-size:14px;line-height:1.75;padding:18px 22px;background:rgba(255,255,255,0.04);border-left:3px solid var(--gold);border-radius:4px}
+.sg-cover-intro p{margin:0 0 10px}
+.sg-cover-intro p:last-child{margin-bottom:0}
 .sg-cover-details{font-size:14px;color:rgba(255,255,255,0.7);line-height:2}
 .sg-cover-motto{font-size:14px;letter-spacing:4px;color:rgba(255,255,255,0.4);margin-top:20px;font-weight:600}
 
@@ -76,10 +79,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 /* MOBILE */
 @media(max-width:768px){
   body{padding:8px 0 24px}
-  .page-nav button{padding:6px 12px;font-size:11px}
+  .page-nav button{padding:8px 14px;font-size:11px;letter-spacing:2px}
   .sg-cover h1{font-size:26px!important}
   .sg-cover-40{font-size:40px!important}
   .sg-cover-theme{font-size:14px!important}
+  .sg-cover-intro{font-size:13px!important;padding:14px 16px!important;line-height:1.65!important}
   .sg-day-header{padding:18px 16px!important}
   .sg-day-header h2{font-size:24px!important}
   .sg-day-body{padding:14px 14px!important}
@@ -112,7 +116,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
     <div class="sd-mh-center">
       <div class="sd-mh-title">BCOC <span>2026</span> SYMPOSIUM &amp; CONFERENCE</div>
       <div class="sd-mh-tag">Forging the Future — Executive Leadership in Times of Challenge</div>
-      <a href="BCOC_2026_Agenda_Flipbook.html" class="sd-mh-back">&larr; Back to Conference Agenda</a>
+      
     </div>
     <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary" class="sd-mh-logo-right">
   </div>
@@ -134,6 +138,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 </style>
 <div class="book-wrap">
 <div class="page-nav" id="pageNav"></div>
+<div style="text-align:center;margin:-4px 0 18px"><a href="BCOC_2026_Agenda_Flipbook.html" class="sd-mh-back" style="display:inline-block;color:#c8962e;text-decoration:none;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;border-bottom:1px solid rgba(200,150,46,0.5);padding-bottom:3px">&larr; Back to Conference Agenda</a></div>
 <div id="book">
 <div class="page show" data-label="Overview">
 <div class="sg-cover">
@@ -143,6 +148,10 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
     <div class="sg-cover-label">ANNIVERSARY</div>
     <h1>Session Guide<br>&amp; Speaker Profiles</h1>
     <div class="sg-cover-theme">"Forging the Future &mdash; Executive Leadership in Times of Challenge"</div>
+    <div class="sg-cover-intro">
+      <p>Welcome to the definitive guide for the Black Chief Officers Committee 40th Anniversary Conference &mdash; a weeklong gathering of senior fire service leaders, chief officers, and emerging executives convened in Atlanta to mark four decades of progress and prepare the next generation of command.</p>
+      <p>Inside, you will find the full session schedule from Sunday through Friday, speaker profiles with departmental affiliations, and session details spanning leadership, labor relations, technology, wellness, finance, and community engagement. Use the day tabs above to navigate, or advance page by page to plan your conference experience.</p>
+    </div>
     <div class="sg-cover-details">
       <div>August 2 &ndash; 7, 2026</div>
       <div>Loews Atlanta Hotel &bull; Atlanta, Georgia</div>
