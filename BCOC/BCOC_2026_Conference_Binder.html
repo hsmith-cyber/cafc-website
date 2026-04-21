@@ -18,8 +18,16 @@ html,body{background:#d9d3c4}
 .binder-viewport{padding:24px 20px 40px;display:flex;flex-direction:column;align-items:center;gap:24px}
 .book-wrap{max-width:none!important;margin:0!important}
 .page-nav,.flip-row{display:none!important}
-.binder-viewport .page{display:block!important;width:8.5in;min-height:11in;max-width:8.5in;background:#fff;margin:0 auto;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.18);overflow:hidden;position:relative;page-break-after:always;break-after:page}
+.binder-viewport .page{display:none!important;width:8.5in;min-height:11in;max-width:8.5in;background:#fff;margin:0 auto;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.18);overflow:hidden;position:relative}
+.binder-viewport .page.show{display:block!important}
 .binder-viewport .page:last-child{page-break-after:auto}
+/* Bottom flip controls */
+.binder-controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:14px;background:#14213d;padding:10px 18px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,0.35);border:2px solid #c8962e}
+.binder-controls button{width:42px;height:42px;border-radius:50%;border:none;background:#c8962e;color:#14213d;font-size:18px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.binder-controls button:hover:not(:disabled){background:#fff}
+.binder-controls button:disabled{opacity:0.35;cursor:default}
+.binder-controls .bc-ind{color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;min-width:140px;text-align:center}
+.binder-controls .bc-ind strong{color:#c8962e}
 /* Right-edge binder tab strip */
 .binder-tabs{position:absolute;top:0;right:0;width:42px;height:100%;display:flex;flex-direction:column;padding-top:0.4in;pointer-events:none;z-index:5}
 .binder-tab{flex:1;max-height:1.2in;background:#ece6d6;color:#5a4a2a;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-bottom:2px solid #d9d3c4;border-left:2px solid #d9d3c4;padding:8px 0;position:relative;cursor:pointer;pointer-events:auto;transition:background 0.15s,color 0.15s,width 0.15s}
@@ -37,10 +45,10 @@ html,body{background:#d9d3c4}
 /* Print rules */
 @media print{
   html,body{background:#fff}
-  .binder-toolbar{display:none!important}
+  .binder-toolbar,.binder-controls{display:none!important}
   .binder-viewport{padding:0;gap:0}
-  .binder-viewport .page{box-shadow:none;border-radius:0;margin:0;width:8.5in;min-height:11in;max-width:none}
-  .binder-viewport .page:last-child{page-break-after:auto}
+  .binder-viewport .page{display:block!important;box-shadow:none;border-radius:0;margin:0;width:8.5in;min-height:11in;max-width:none;page-break-after:always;break-after:page}
+  .binder-viewport .page:last-child{page-break-after:auto;break-after:auto}
   .binder-tabs{padding-top:0.6in}
   a[href]:after{content:""!important}
 }
@@ -178,11 +186,19 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 @media(max-width:420px){.sd-mh-logo-left,.sd-mh-logo-right{height:50px}.sd-mh-title{letter-spacing:1.5px}}
 </style>
 <div class="binder-toolbar">
-  <div class="bt-title">BCOC 2026 Conference Binder <span>40TH ANNIVERSARY &middot; ATLANTA</span></div>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="BCOC_2026_Agenda_Flipbook.html" class="bt-dl" style="background:transparent;color:#c8962e;border:2px solid #c8962e;padding:7px 16px;font-size:11px">&larr; Back to Agenda</a>
+    <div class="bt-title">BCOC 2026 Conference Binder <span>40TH ANNIVERSARY &middot; ATLANTA</span></div>
+  </div>
   <div style="display:flex;gap:10px">
     <a class="bt-dl" href="../docs/BCOC 2026 Conference Binder.pdf" download>Download PDF</a>
     <button class="bt-dl" style="background:transparent;color:#fff;border:2px solid #c8962e" onclick="window.print()">Print</button>
   </div>
+</div>
+<div class="binder-controls">
+  <button id="bcPrev" title="Previous page">&#8592;</button>
+  <div class="bc-ind"><strong id="bcCur">1</strong> / <span id="bcTot">8</span> &middot; <span id="bcLabel">Overview</span></div>
+  <button id="bcNext" title="Next page">&#8594;</button>
 </div>
 <div class="binder-viewport">
 <div class="book-wrap">
@@ -216,9 +232,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
   <div class="sg-day-body">
 
     <div class="sp-tier-label" style="text-align:center;font-family:'Playfair Display',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:#c8962e;font-weight:700;margin:6px 0 10px">&#11088; Elite Premier Sponsor</div>
-    <div class="sp-hero" style="background:linear-gradient(135deg,#14213d 0%,#0b1730 100%);border-radius:10px;padding:36px 24px 28px;margin-bottom:22px;text-align:center;box-shadow:0 6px 24px rgba(20,33,61,0.25);border:3px solid #c8962e">
-      <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet, Built with AT&amp;T" style="max-width:460px;width:80%;height:auto;display:block;margin:0 auto 18px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))">
-      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:6px">FirstNet, Built with AT&amp;T</div>
+    <div class="sp-hero" style="background:#0b1730;background-image:linear-gradient(135deg,#14213d 0%,#050c1a 100%);border-radius:10px;padding:44px 24px 32px;margin-bottom:22px;text-align:center;box-shadow:0 6px 24px rgba(20,33,61,0.25);border:3px solid #c8962e">
+      <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet, Built with AT&amp;T" style="max-width:520px;width:85%;height:auto;display:block;margin:0 auto 22px;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.5))">
+      <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:6px">FirstNet, Built with AT&amp;T</div>
       <div style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#c8962e;font-weight:700;margin-bottom:10px">Elite Premier Sponsor</div>
       <div style="font-size:15px;color:#fdfcfa;max-width:540px;margin:0 auto;line-height:1.55;font-style:italic">The Only Network Built With and For America's First Responders</div>
     </div>
@@ -863,21 +879,56 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 document.addEventListener('DOMContentLoaded', function(){
   var pages = document.querySelectorAll('.page');
   var labels = Array.prototype.map.call(pages, function(p){ return p.dataset.label; });
+  var cur = 0;
+
   pages.forEach(function(p, idx){
     var strip = document.createElement('div');
     strip.className = 'binder-tabs';
     labels.forEach(function(lab, i){
       var tab = document.createElement('div');
-      tab.className = 'binder-tab' + (i === idx ? ' active' : '');
+      tab.className = 'binder-tab';
+      tab.dataset.idx = i;
       tab.textContent = lab;
       tab.setAttribute('title', 'Go to ' + lab);
-      tab.addEventListener('click', function(){
-        pages[i].scrollIntoView({behavior:'smooth', block:'start'});
-      });
+      tab.addEventListener('click', function(){ goTo(i); });
       strip.appendChild(tab);
     });
     p.appendChild(strip);
   });
+
+  var bcPrev = document.getElementById('bcPrev');
+  var bcNext = document.getElementById('bcNext');
+  var bcCur = document.getElementById('bcCur');
+  var bcTot = document.getElementById('bcTot');
+  var bcLabel = document.getElementById('bcLabel');
+  if(bcTot) bcTot.textContent = pages.length;
+
+  function goTo(n){
+    if(n<0 || n>=pages.length) return;
+    pages[cur].classList.remove('show');
+    cur = n;
+    pages[cur].classList.add('show');
+    pages.forEach(function(p){
+      p.querySelectorAll('.binder-tab').forEach(function(t){
+        t.classList.toggle('active', parseInt(t.dataset.idx) === cur);
+      });
+    });
+    if(bcCur) bcCur.textContent = (cur+1);
+    if(bcLabel) bcLabel.textContent = labels[cur];
+    if(bcPrev) bcPrev.disabled = cur === 0;
+    if(bcNext) bcNext.disabled = cur === pages.length - 1;
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  if(bcPrev) bcPrev.addEventListener('click', function(){ goTo(cur - 1); });
+  if(bcNext) bcNext.addEventListener('click', function(){ goTo(cur + 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'ArrowRight' || e.key === 'PageDown') goTo(cur + 1);
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(cur - 1);
+  });
+
+  goTo(0);
 });
 </script>
 </body>
