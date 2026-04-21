@@ -18,8 +18,8 @@ html,body{background:#d9d3c4}
 .binder-viewport{padding:24px 20px 40px;display:flex;flex-direction:column;align-items:center;gap:24px}
 .book-wrap{max-width:none!important;margin:0!important}
 .page-nav,.flip-row{display:none!important}
-.page{display:block!important;width:8.5in;min-height:11in;max-width:8.5in;background:#fff;margin:0 auto;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.18);overflow:hidden;position:relative;page-break-after:always;break-after:page}
-.page:last-child{page-break-after:auto}
+.binder-viewport .page{display:block!important;width:8.5in;min-height:11in;max-width:8.5in;background:#fff;margin:0 auto;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.18);overflow:hidden;position:relative;page-break-after:always;break-after:page}
+.binder-viewport .page:last-child{page-break-after:auto}
 /* Right-edge binder tab strip */
 .binder-tabs{position:absolute;top:0;right:0;width:42px;height:100%;display:flex;flex-direction:column;padding-top:0.4in;pointer-events:none;z-index:5}
 .binder-tab{flex:1;max-height:1.2in;background:#ece6d6;color:#5a4a2a;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-bottom:2px solid #d9d3c4;border-left:2px solid #d9d3c4;padding:8px 0;position:relative;cursor:pointer;pointer-events:auto;transition:background 0.15s,color 0.15s,width 0.15s}
@@ -39,8 +39,8 @@ html,body{background:#d9d3c4}
   html,body{background:#fff}
   .binder-toolbar{display:none!important}
   .binder-viewport{padding:0;gap:0}
-  .page{box-shadow:none;border-radius:0;margin:0;width:8.5in;min-height:11in;max-width:none}
-  .page:last-child{page-break-after:auto}
+  .binder-viewport .page{box-shadow:none;border-radius:0;margin:0;width:8.5in;min-height:11in;max-width:none}
+  .binder-viewport .page:last-child{page-break-after:auto}
   .binder-tabs{padding-top:0.6in}
   a[href]:after{content:""!important}
 }
