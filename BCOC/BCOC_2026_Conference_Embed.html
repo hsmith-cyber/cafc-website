@@ -21,19 +21,22 @@
 .bcoc-conf-program,.bcoc-conf-program *{box-sizing:border-box}
 .bcoc-conf-program{font-family:'Lato',system-ui,sans-serif;max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* Hero header — navy background, BCOC logo, big 40th treatment */
-.bcoc-conf-program .hero{background:linear-gradient(135deg,#14213d 0%,#0b1730 100%);border-radius:10px;padding:42px 24px 30px;margin:24px 0 22px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(20,33,61,0.25);border:1px solid rgba(201,168,76,0.35)}
+/* Hero header — navy background, BCOC logo on left, big 40th treatment */
+.bcoc-conf-program .hero{background:linear-gradient(135deg,#14213d 0%,#0b1730 100%);border-radius:10px;padding:36px 36px 32px;margin:24px 0 22px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(20,33,61,0.25);border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;gap:36px;text-align:left}
 .bcoc-conf-program .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(201,168,76,0.18),transparent 55%),radial-gradient(circle at 100% 100%,rgba(139,26,26,0.12),transparent 55%);pointer-events:none}
 .bcoc-conf-program .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#c9a84c,#8b1a1a,#c9a84c)}
 .bcoc-conf-program .hero > *{position:relative;z-index:1}
-.bcoc-conf-program .hero img.logo{width:90px;height:90px;border-radius:50%;border:3px solid rgba(201,168,76,0.55);box-shadow:0 6px 22px rgba(0,0,0,0.35);margin-bottom:14px}
-.bcoc-conf-program .hero .eyebrow{display:inline-block;font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;border:1px solid rgba(201,168,76,0.5);padding:5px 14px;border-radius:999px;margin-bottom:18px}
-.bcoc-conf-program .hero .forty{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:#c9a84c;line-height:1;margin:0 0 6px}
-.bcoc-conf-program .hero .forty sup{font-size:24px;color:#c9a84c}
-.bcoc-conf-program .hero .anniv{font-family:'Cinzel',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:14px}
-.bcoc-conf-program .hero h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:#fff;margin:6px 0 10px;line-height:1.15}
-.bcoc-conf-program .hero p{font-size:15px;color:#fdfcfa;line-height:1.6;max-width:700px;margin:8px auto 0;opacity:0.92}
-.bcoc-conf-program .hero .meta{margin-top:14px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:700}
+.bcoc-conf-program .hero .logo-col{flex:0 0 auto}
+.bcoc-conf-program .hero img.logo{width:200px;height:200px;border-radius:50%;border:4px solid rgba(201,168,76,0.6);box-shadow:0 8px 28px rgba(0,0,0,0.4);display:block}
+.bcoc-conf-program .hero .text-col{flex:1;min-width:0}
+.bcoc-conf-program .hero .eyebrow{display:inline-block;font-family:'Cinzel',serif;font-size:15px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;border:1px solid rgba(201,168,76,0.5);padding:7px 16px;border-radius:999px;margin-bottom:14px}
+.bcoc-conf-program .hero .forty-line{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin:4px 0 10px}
+.bcoc-conf-program .hero .forty{font-family:'Playfair Display',serif;font-size:88px;font-weight:900;color:#c9a84c;line-height:1}
+.bcoc-conf-program .hero .forty sup{font-size:36px;color:#c9a84c}
+.bcoc-conf-program .hero .anniv{font-family:'Cinzel',serif;font-size:24px;letter-spacing:6px;text-transform:uppercase;color:#fff;font-weight:700;line-height:1}
+.bcoc-conf-program .hero h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;margin:8px 0 8px;line-height:1.15}
+.bcoc-conf-program .hero p{font-size:15px;color:#fdfcfa;line-height:1.6;margin:6px 0 0;opacity:0.92;max-width:640px}
+.bcoc-conf-program .hero .meta{margin-top:12px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:700}
 
 /* CTA row */
 .bcoc-conf-program .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 0 22px}
@@ -56,11 +59,16 @@
 /* Footer strip */
 .bcoc-conf-program .foot{text-align:center;padding:22px 16px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#c9a84c;font-weight:700}
 
-@media (max-width:640px){
-  .bcoc-conf-program .hero{padding:32px 18px 24px}
-  .bcoc-conf-program .hero img.logo{width:70px;height:70px}
-  .bcoc-conf-program .hero .forty{font-size:46px}
-  .bcoc-conf-program .hero h2{font-size:24px}
+@media (max-width:760px){
+  .bcoc-conf-program .hero{flex-direction:column;text-align:center;gap:18px;padding:30px 20px 26px}
+  .bcoc-conf-program .hero img.logo{width:130px;height:130px}
+  .bcoc-conf-program .hero .forty-line{justify-content:center}
+  .bcoc-conf-program .hero .forty{font-size:60px}
+  .bcoc-conf-program .hero .forty sup{font-size:24px}
+  .bcoc-conf-program .hero .anniv{font-size:18px;letter-spacing:4px}
+  .bcoc-conf-program .hero .eyebrow{font-size:12px}
+  .bcoc-conf-program .hero h2{font-size:22px}
+  .bcoc-conf-program .hero p{margin-left:auto;margin-right:auto}
   .bcoc-conf-program .cta-btn{font-size:10px;padding:11px 18px;letter-spacing:2px}
   .bcoc-conf-program .flip-frame iframe{height:720px!important}
 }
@@ -69,13 +77,19 @@
 <div class="bcoc-conf-program">
 
   <div class="hero">
-    <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="Black Chief Officers Committee">
-    <span class="eyebrow">Black Chief Officers Committee</span>
-    <div class="forty">40<sup>th</sup></div>
-    <div class="anniv">Anniversary</div>
-    <h2>2026 Conference Program &amp; Agenda</h2>
-    <p>Explore the full educational symposium &mdash; keynote speakers, daily sessions, sponsors, and dress code &mdash; in two formats designed for how you plan your conference experience.</p>
-    <div class="meta">August 2 &ndash; 7, 2026 &middot; Loews Atlanta Hotel &middot; Atlanta, Georgia</div>
+    <div class="logo-col">
+      <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="Black Chief Officers Committee">
+    </div>
+    <div class="text-col">
+      <span class="eyebrow">Black Chief Officers Committee</span>
+      <div class="forty-line">
+        <span class="forty">40<sup>th</sup></span>
+        <span class="anniv">Anniversary</span>
+      </div>
+      <h2>2026 Conference Program &amp; Agenda</h2>
+      <p>Explore the full educational symposium &mdash; keynote speakers, daily sessions, sponsors, and dress code &mdash; in two formats designed for how you plan your conference experience.</p>
+      <div class="meta">August 2 &ndash; 7, 2026 &middot; Loews Atlanta Hotel &middot; Atlanta, Georgia</div>
+    </div>
   </div>
 
   <div class="cta-row">
