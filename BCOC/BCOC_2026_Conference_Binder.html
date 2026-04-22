@@ -30,7 +30,7 @@ html,body{background:#d9d3c4}
 .binder-controls .bc-ind strong{color:#c8962e}
 /* Right-edge binder tab strip */
 .binder-tabs{position:absolute;top:0;right:0;width:42px;height:100%;display:flex;flex-direction:column;padding-top:0.4in;pointer-events:none;z-index:5}
-.binder-tab{flex:1;max-height:1.2in;background:#ece6d6;color:#5a4a2a;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-bottom:2px solid #d9d3c4;border-left:2px solid #d9d3c4;padding:8px 0;position:relative;cursor:pointer;pointer-events:auto;transition:background 0.15s,color 0.15s,width 0.15s}
+.binder-tab{flex:1;max-height:1.05in;background:#ece6d6;color:#5a4a2a;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-bottom:2px solid #d9d3c4;border-left:2px solid #d9d3c4;padding:6px 0;position:relative;cursor:pointer;pointer-events:auto;transition:background 0.15s,color 0.15s,width 0.15s}
 .binder-tab:hover{background:#e0b055;color:#14213d}
 .binder-tab:first-child{border-top-left-radius:4px}
 .binder-tab:last-child{border-bottom:none;border-bottom-left-radius:4px}
@@ -52,6 +52,23 @@ html,body{background:#d9d3c4}
   .binder-tabs{padding-top:0.6in}
   a[href]:after{content:""!important}
 }
+/* Daily schedule timeline */
+.day-timeline{background:#f9f7f1;border-left:4px solid #c8962e;border-radius:8px;padding:16px 18px 14px;margin-bottom:22px}
+.day-timeline-head{font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:#14213d;margin-bottom:10px;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid #c8962e;padding-bottom:6px;display:inline-block}
+.dt-row{display:grid;grid-template-columns:130px 14px 1fr;gap:10px;padding:5px 0;border-bottom:1px dashed #ddd7c5;font-size:12.5px;line-height:1.4;align-items:start}
+.dt-row:last-child{border-bottom:none}
+.dt-time{color:#14213d;font-weight:700;font-size:11.5px;letter-spacing:0.3px}
+.dt-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:#c8962e;flex-shrink:0}
+.dt-dot.keynote{background:#b82040}
+.dt-dot.brk{background:#8a8a8a}
+.dt-dot.meal{background:#14213d}
+.dt-dot.social{background:#0a7e4a}
+.dt-dot.exhibit{background:#a08f68}
+.dt-dot.ceremony{background:#c8962e}
+.dt-title{color:#2b3244;font-weight:500}
+.dt-title strong{color:#14213d;font-weight:700}
+.dt-tag{display:inline-block;background:#14213d;color:#c8962e;font-size:10px;padding:1px 7px;border-radius:3px;margin-left:4px;letter-spacing:0.3px;vertical-align:baseline;font-weight:700}
+.dt-tag.kn{background:#b82040;color:#fff}
 /* ===== END BINDER OVERRIDES ===== */
 
 :root{--navy:#14213d;--gold:#c8962e;--white:#fdfcfa;--bg:#f5f2ec}
@@ -286,10 +303,85 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 </div>
 </div>
 
+
+<div class="page" data-label="Sunday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 0</div><h2>Sunday, August 2</h2><div class="sg-day-theme">Arrival, Setup &amp; Community</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Sunday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title"><strong>Check-In &amp; Registration</strong></div></div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Setup</div></div>
+    <div class="dt-row"><div class="dt-time">2:00 &ndash; 5:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Community Give-Back Volunteer Event</strong></div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 8:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Host City Welcome / Informal Gathering</strong></div></div>
+  </div>
+
+    <div class="sg-card">
+      <div class="sg-card-header">
+        <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="sg-card-meta">
+          <div class="sg-card-title">Community Give-Back Volunteer Event</div>
+          <div class="sg-card-speaker">BCOC Service Committee</div>
+          <div class="sg-card-org">Atlanta, Georgia</div>
+        </div>
+      </div>
+      <div class="sg-card-body">
+        <div class="sg-time"><span class="sg-time-day">Sunday</span><span class="sg-time-slot">2:00 &ndash; 5:00 PM</span></div>
+        <div class="sg-desc">BCOC attendees partner with local Atlanta organizations for a hands-on service project before the conference formally begins. This is the committee's signature way of arriving in a host city &mdash; lifting the community alongside our own.</div>
+        <div class="sg-obj">
+          <div class="sg-obj-label">What to Expect</div>
+          Meet fellow attendees and BCOC leadership, contribute to a direct community need, and set the tone for a week grounded in service.
+        </div>
+        <div class="sg-bio"><span class="sg-bio-label">About</span>Location and team assignments will be distributed at check-in. Comfortable attire recommended.</div>
+      </div>
+    </div>
+
+    <div class="sg-card">
+      <div class="sg-card-header">
+        <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="sg-card-meta">
+          <div class="sg-card-title">Host City Welcome / Informal Gathering</div>
+          <div class="sg-card-speaker">BCOC Hospitality Committee</div>
+          <div class="sg-card-org">Loews Atlanta Hotel</div>
+        </div>
+      </div>
+      <div class="sg-card-body">
+        <div class="sg-time"><span class="sg-time-day">Sunday</span><span class="sg-time-slot">7:00 &ndash; 8:00 PM</span></div>
+        <div class="sg-desc">Light welcome reception for early arrivals and conference volunteers. A chance to reconnect with old colleagues and meet first-time attendees before Monday's opening ceremony.</div>
+        <div class="sg-obj">
+          <div class="sg-obj-label">What to Expect</div>
+          Light bites and networking, introductions to board members, and orientation for first-time attendees.
+        </div>
+        <div class="sg-bio"><span class="sg-bio-label">About</span>Open to all registered attendees; business casual.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="page" data-label="Monday">
 <div class="sg-day-page">
   <div class="sg-day-header"><div class="sg-day-num">Day 1</div><h2>Monday, August 3</h2><div class="sg-day-theme">Vision and Legacy</div></div>
   <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Monday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Setup (cont.)</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 8:15 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Registration &amp; Networking Breakfast</strong></div></div>
+    <div class="dt-row"><div class="dt-time">8:15 &ndash; 8:30 AM</div><div class="dt-dot ceremony"></div><div class="dt-title"><strong>Opening Ceremony</strong></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Introduction of E-Board / Welcome Remarks</div></div>
+    <div class="dt-row"><div class="dt-time">8:45 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Welcome Remarks &mdash; City of Atlanta</div></div>
+    <div class="dt-row"><div class="dt-time">8:50 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Remarks &mdash; Atlanta Fire Rescue</div></div>
+    <div class="dt-row"><div class="dt-time">8:55 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Reception of Dignitaries</div></div>
+    <div class="dt-row"><div class="dt-time">9:00 &ndash; 9:30 AM</div><div class="dt-dot "></div><div class="dt-title">Leadership, Service &amp; Community &mdash; A Senator's Perspective</div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 11:00 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Developing Your Fire Service Career</strong> &middot; Chief Joel Baker<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">11:00 AM</div><div class="dt-dot brk"></div><div class="dt-title">Group Photo &mdash; All Attendees</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:00 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch Break</strong> <span class="dt-tag">Atlantic Emergency</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:15 &ndash; 2:15 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Leadership Through Adversity</strong> &middot; Chief T. Pierre Brewton<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">2:20 &ndash; 3:00 PM</div><div class="dt-dot "></div><div class="dt-title">NFA Update &middot; Chief Joel Baker</div></div>
+    <div class="dt-row"><div class="dt-time">3:00 &ndash; 4:00 PM</div><div class="dt-dot "></div><div class="dt-title">Executive Insights for Chief Fire Officers &middot; Donna Gayden</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Welcome Reception</strong> <span class="dt-tag">American Wood Council</span></div></div>
+  </div>
+
 <div class="sg-card sg-keynote">
   <div class="sg-card-header">
     <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_c4defd57e38c416ca16d3d6b48d8d54b~mv2.jpg" alt="" class="sg-avatar-img"></div>
@@ -360,6 +452,27 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 <div class="sg-day-page">
   <div class="sg-day-header"><div class="sg-day-num">Day 2</div><h2>Tuesday, August 4</h2><div class="sg-day-theme">Challenges and Innovation</div></div>
   <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Tuesday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 8:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Harmony Breakfast</strong> <span class="dt-tag">Sutphen</span></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 &ndash; 9:30 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Leading Through What You Don't Know</strong> &middot; Chief John Alston (Ret.)<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 9:35 AM</div><div class="dt-dot "></div><div class="dt-title">FirstNet Sponsor Presentation</div></div>
+    <div class="dt-row"><div class="dt-time">9:35 &ndash; 10:30 AM</div><div class="dt-dot "></div><div class="dt-title">Top 10 Moves to Use AI to Transform F&amp;ES &middot; Chief Steven Carter</div></div>
+    <div class="dt-row"><div class="dt-time">10:30 AM</div><div class="dt-dot "></div><div class="dt-title">Sponsor Presentation</div></div>
+    <div class="dt-row"><div class="dt-time">10:30 &ndash; 10:45 AM</div><div class="dt-dot brk"></div><div class="dt-title">Break &mdash; Visit Vendor &amp; Sponsor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">10:50 &ndash; 11:30 AM</div><div class="dt-dot "></div><div class="dt-title">The KMP Mindset &middot; Dr. Kim McNair</div></div>
+    <div class="dt-row"><div class="dt-time">11:30 &ndash; 12:15 PM</div><div class="dt-dot "></div><div class="dt-title">Vote of No Confidence &mdash; Now What? &middot; Chief Joel Baker</div></div>
+    <div class="dt-row"><div class="dt-time">12:15 &ndash; 1:15 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Luncheon</strong> <span class="dt-tag">Atlantic Emergency / MSA-Globe</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:15 &ndash; 2:15 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>"But Still I Lead"</strong> &middot; Dr. I. David Daniels<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">2:15 &ndash; 2:30 PM</div><div class="dt-dot brk"></div><div class="dt-title">Book Signing: Dr. Daniels &mdash; "Psychosocial Hazards Are Real!"</div></div>
+    <div class="dt-row"><div class="dt-time">2:30 &ndash; 3:30 PM</div><div class="dt-dot "></div><div class="dt-title">Care Bias in Emergency Services &middot; Chief Mike Scott &amp; Chief Calvin Brown</div></div>
+    <div class="dt-row"><div class="dt-time">3:15 &ndash; 3:45 PM</div><div class="dt-dot "></div><div class="dt-title">CPSE Credentialing &middot; Chief Joel Baker</div></div>
+    <div class="dt-row"><div class="dt-time">3:45 &ndash; 4:15 PM</div><div class="dt-dot "></div><div class="dt-title">Strategic Grant Funding &middot; Chief Emanuel Washington Jr.</div></div>
+    <div class="dt-row"><div class="dt-time">4:15 &ndash; 4:30 PM</div><div class="dt-dot brk"></div><div class="dt-title">Daily Wrap-up &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Opening Reception Hospitality Night</strong></div></div>
+  </div>
+
 <div id="sess-alston" class="sg-card sg-keynote">
   <div class="sg-card-header">
     <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg" alt="" class="sg-avatar-img"></div>
@@ -534,6 +647,24 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 <div class="sg-day-page">
   <div class="sg-day-header"><div class="sg-day-num">Day 3</div><h2>Wednesday, August 5</h2><div class="sg-day-theme">The Future of Leadership</div></div>
   <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Wednesday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 8:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Networking Breakfast</strong></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 &ndash; 10:15 AM</div><div class="dt-dot "></div><div class="dt-title">How to Enhance Your Relationships within the Fire Service &middot; 3-Chief Panel</div></div>
+    <div class="dt-row"><div class="dt-time">10:15 &ndash; 10:30 AM</div><div class="dt-dot brk"></div><div class="dt-title">Coffee Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">10:30 &ndash; 11:00 AM</div><div class="dt-dot "></div><div class="dt-title">From Academy to Degree &middot; Dr. McElroy-Hooper &amp; Chief Burden</div></div>
+    <div class="dt-row"><div class="dt-time">11:00 &ndash; 11:45 AM</div><div class="dt-dot "></div><div class="dt-title">From LeaderShip to Leader of ShipS&trade; &middot; Dr. Joseph Danao II</div></div>
+    <div class="dt-row"><div class="dt-time">11:45 &ndash; 12:15 PM</div><div class="dt-dot brk"></div><div class="dt-title">Networking Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:00 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch</strong> <span class="dt-tag">Atlantic Emergency</span></div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot social"></div><div class="dt-title">Spouse / Partners Luncheon</div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 2:30 PM</div><div class="dt-dot "></div><div class="dt-title">"Shaping the Standard" Panel: Procurement Strategies &middot; Chief Ron Skrine</div></div>
+    <div class="dt-row"><div class="dt-time">2:30 &ndash; 3:30 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Financial "Hot Wash" (Protecting Your Legacy)</strong> &middot; Chief Anunay &amp; Chief Catlet<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">3:45 &ndash; 4:30 PM</div><div class="dt-dot "></div><div class="dt-title">From Strategy to Execution &middot; Chief Demond Simmons</div></div>
+    <div class="dt-row"><div class="dt-time">4:30 &ndash; 5:00 PM</div><div class="dt-dot brk"></div><div class="dt-title">Networking Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Evening Activities / Evening Buffet</strong> <span class="dt-tag">Sutphen</span></div></div>
+  </div>
+
 <div class="sg-card sg-keynote">
   <div class="sg-card-header">
     <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_9440fd41aebd45c384ba8b4828dded6a~mv2.png" alt="" class="sg-avatar-img"></div>
@@ -668,6 +799,22 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 <div class="sg-day-page">
   <div class="sg-day-header"><div class="sg-day-num">Day 4</div><h2>Thursday, August 6</h2><div class="sg-day-theme">Membership and Development</div></div>
   <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Thursday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 9:30 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>The Fire Service in 2026: Forging the Future</strong> &middot; Chief John Butler<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 10:00 AM</div><div class="dt-dot "></div><div class="dt-title">Revenue Generation &middot; William Bryant</div></div>
+    <div class="dt-row"><div class="dt-time">10:00 &ndash; 10:45 AM</div><div class="dt-dot "></div><div class="dt-title">Financial Access and Acumen &middot; Jere Hawkins</div></div>
+    <div class="dt-row"><div class="dt-time">10:45 &ndash; 11:00 AM</div><div class="dt-dot brk"></div><div class="dt-title">Coffee &amp; Networking Break</div></div>
+    <div class="dt-row"><div class="dt-time">11:00 &ndash; 11:30 AM</div><div class="dt-dot "></div><div class="dt-title">Developing an Explorer Program &middot; Carlos Coronado</div></div>
+    <div class="dt-row"><div class="dt-time">11:30 &ndash; 12:00 PM</div><div class="dt-dot "></div><div class="dt-title">Marketing Your Vision &middot; Maisha Land</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Sponsor Appreciation Luncheon</strong> <span class="dt-tag">Atlantic Emergency</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 3:00 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>The Seven Pillars of Modern Leadership</strong> &middot; Dr. Hezedean Smith<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 3:00 PM</div><div class="dt-dot ceremony"></div><div class="dt-title">Opening of Membership Meeting</div></div>
+    <div class="dt-row"><div class="dt-time">3:00 &ndash; 4:30 PM</div><div class="dt-dot ceremony"></div><div class="dt-title">Extended Q&amp;A / Member Networking / Closing Remarks</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Comedy Showcase + Karaoke Night</strong></div></div>
+  </div>
+
 <div class="sg-card sg-keynote">
   <div class="sg-card-header">
     <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_a926eb075afd4f1399a73e31ff074b1f~mv2.jpg" alt="" class="sg-avatar-img"></div>
@@ -798,6 +945,17 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px
 <div class="sg-day-page">
   <div class="sg-day-header"><div class="sg-day-num">Day 5</div><h2>Friday, August 7</h2><div class="sg-day-theme">Closing &amp; Mentorship</div></div>
   <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Friday</div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 9:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Harmony Breakfast</strong> <span class="dt-tag">Sutphen</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 11:00 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Special Presentation (Closing Keynote)</strong><span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">10:00 AM &ndash; 12:00 PM</div><div class="dt-dot "></div><div class="dt-title">Open Assessment Center Mentoring &middot; BCOC Board</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch</strong></div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 4:00 PM</div><div class="dt-dot ceremony"></div><div class="dt-title">Business Meeting</div></div>
+    <div class="dt-row"><div class="dt-time">6:30 &ndash; 8:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Oratorical Contest &mdash; $10,000 Scholarship</strong></div></div>
+    <div class="dt-row"><div class="dt-time">8:00 PM</div><div class="dt-dot social"></div><div class="dt-title">Post-Contest Social</div></div>
+  </div>
+
 <div id="sess-mentoring" class="sg-card">
   <div class="sg-card-header">
     <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
