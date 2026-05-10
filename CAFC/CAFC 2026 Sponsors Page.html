@@ -726,8 +726,10 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 }
 .slot-tier-label span{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;}
 .slot-grid{display:grid;gap:16px;}
+.slot-grid-1{grid-template-columns:minmax(220px,360px);justify-content:center;}
 .slot-grid-2{grid-template-columns:repeat(2,1fr);}
 .slot-grid-3{grid-template-columns:repeat(3,1fr);}
+.slot-grid-4{grid-template-columns:repeat(4,1fr);}
 .slot-grid-5{grid-template-columns:repeat(5,1fr);}
 .slot-card{
   height:160px;border-radius:12px;
@@ -770,14 +772,14 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   .tiers-grid{grid-template-columns:repeat(2,1fr);}
   .tier-card-2026:first-child{grid-column:1/-1;}
   .why-grid{grid-template-columns:1fr;}
-  .slot-grid-5{grid-template-columns:repeat(3,1fr);}
+  .slot-grid-4,.slot-grid-5{grid-template-columns:repeat(3,1fr);}
   .stats-inner{gap:0;}
   .stat-item{padding:16px 24px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.2);}
   .stat-item:last-child{border-bottom:none;}
 }
 @media(max-width:600px){
   .tiers-grid{grid-template-columns:1fr;}
-  .slot-grid-2,.slot-grid-3,.slot-grid-5{grid-template-columns:repeat(2,1fr);}
+  .slot-grid-2,.slot-grid-3,.slot-grid-4,.slot-grid-5{grid-template-columns:repeat(2,1fr);}
 }
 
   
@@ -922,6 +924,273 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     </div>
   </div>
 </div>
+
+<!-- ════════════ CURRENT 2026 SPONSORS ════════════ -->
+<style>
+.cs-flip{perspective:1200px;display:block;}
+.cs-flip-inner{position:relative;width:100%;height:100%;transition:transform 0.7s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d;}
+.cs-flip:hover .cs-flip-inner{transform:rotateY(180deg);}
+.cs-flip-front,.cs-flip-back{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:inherit;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.cs-flip-back{transform:rotateY(180deg);-webkit-transform:rotateY(180deg);background:linear-gradient(135deg,#0d0905,#3a2400);color:#fff;padding:28px 24px;gap:20px;}
+.cs-flip-back::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c4922a,#c0272d,#c4922a);}
+.cs-name{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-align:center;line-height:1.35;color:#fff;}
+.cs-visit-btn{background:#c4922a;color:#0d0905;padding:12px 28px;font-family:'Barlow',sans-serif;font-size:0.78rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:transform 0.2s,box-shadow 0.2s;border:1px solid #c4922a;}
+.cs-visit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(196,146,42,0.35);}
+.cs-no-link{font-family:'Barlow',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.cs-badge{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:'Barlow',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.26em;text-transform:uppercase;white-space:nowrap;padding:5px 14px;border-radius:20px;z-index:2;}
+.cs-badge-diamond{color:#7a5800;background:rgba(212,168,67,0.18);border:1px solid rgba(212,168,67,0.5);}
+.cs-badge-platinum{color:#37474F;background:rgba(176,190,197,0.18);border:1px solid rgba(84,110,122,0.5);}
+.cs-badge-gold{color:#7a5800;background:rgba(154,112,0,0.12);border:1px solid rgba(154,112,0,0.45);}
+.cs-badge-silver{color:#37474F;background:rgba(84,110,122,0.12);border:1px solid rgba(84,110,122,0.45);}
+.cs-badge-bronze{color:#6D2F00;background:rgba(139,69,19,0.12);border:1px solid rgba(139,69,19,0.45);}
+.cs-badge-exhibitor{color:#5d4a36;background:rgba(138,109,79,0.12);border:1px solid rgba(138,109,79,0.45);}
+</style>
+<section class="current-sponsors-2026" style="padding:96px 0;background:#f6f1e6;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.5),transparent);"></div>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="section-label">Confirmed 2026 Partners</span>
+      <h2 class="section-title">Our 2026 Sponsors</h2>
+      <div class="section-rule" style="margin:0 auto;"></div>
+      <p style="max-width:680px;margin:24px auto 0;font-family:'Barlow',sans-serif;font-size:1.05rem;line-height:1.7;color:#3a2f24;">Thank you to the companies investing in Caribbean fire service excellence and partnering with the CAFC for the 2026 conference in the Dominican Republic.</p>
+      <p style="max-width:520px;margin:14px auto 0;font-family:'Barlow',sans-serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:#7a6649;">Hover any partner to visit their site</p>
+    </div>
+
+    <!-- ═══ DIAMOND ═══ -->
+    <div class="cs-tier cs-tier-diamond" style="margin-bottom:64px;">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:36px;">
+        <span style="font-size:2.4rem;line-height:1;">💎</span>
+        <span style="font-family:'Cinzel',serif;font-size:1.45rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:#9a7000;text-shadow:0 0 22px rgba(212,168,67,0.3);">Diamond Partners</span>
+        <span style="font-size:2.4rem;line-height:1;">💎</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:32px;max-width:1100px;margin:0 auto;">
+        <div class="cs-flip" style="height:460px;border-radius:18px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:40px 22px 24px;border:2px solid rgba(212,168,67,0.55);box-shadow:0 0 0 1px rgba(212,168,67,0.15),0 8px 36px rgba(13,9,5,0.12),0 0 60px rgba(212,168,67,0.18);">
+              <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#c4922a,#c0272d,#c4922a);"></div>
+              <span class="cs-badge cs-badge-diamond">Diamond Partner</span>
+              <img src="./images/sponsors/rosenbauer.png" alt="Rosenbauer" style="max-width:520px;max-height:320px;object-fit:contain;width:100%;">
+              <div style="margin-top:24px;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#1a1200;text-align:center;">Rosenbauer</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Rosenbauer</div>
+              <a href="https://www.rosenbauer.com/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+        <div class="cs-flip" style="height:460px;border-radius:18px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:40px 22px 24px;border:2px solid rgba(212,168,67,0.55);box-shadow:0 0 0 1px rgba(212,168,67,0.15),0 8px 36px rgba(13,9,5,0.12),0 0 60px rgba(212,168,67,0.18);">
+              <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#c4922a,#c0272d,#c4922a);"></div>
+              <span class="cs-badge cs-badge-diamond">Diamond Partner</span>
+              <img src="./images/sponsors/indocom.jpg" alt="Indocom Ltd." style="max-width:520px;max-height:320px;object-fit:contain;width:100%;">
+              <div style="margin-top:24px;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#1a1200;text-align:center;">Indocom Ltd.</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Indocom Ltd.</div>
+              <a href="https://indocomlimited.com/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PLATINUM ═══ -->
+    <div class="cs-tier cs-tier-platinum" style="margin-bottom:60px;">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px;">
+        <span style="font-size:2.1rem;line-height:1;">🏆</span>
+        <span style="font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#37474F;">Platinum Partners</span>
+        <span style="font-size:2.1rem;line-height:1;">🏆</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:28px;max-width:980px;margin:0 auto;">
+        <div class="cs-flip" style="height:380px;border-radius:16px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:38px 20px 20px;border:2px solid rgba(176,190,197,0.55);box-shadow:0 6px 32px rgba(13,9,5,0.1);">
+              <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#8E9EAB;"></div>
+              <span class="cs-badge cs-badge-platinum">Platinum Partner</span>
+              <img src="./images/sponsors/geomatica.jpg" alt="Geomatica y Technologia" style="max-width:420px;max-height:260px;object-fit:contain;width:100%;">
+              <div style="margin-top:20px;font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1a1200;text-align:center;">Geomatica y Technologia</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Geomatica y Technologia</div>
+              <span class="cs-no-link">Platinum Partner</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-flip" style="height:380px;border-radius:16px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:38px 20px 20px;border:2px solid rgba(176,190,197,0.55);box-shadow:0 6px 32px rgba(13,9,5,0.1);">
+              <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#8E9EAB;"></div>
+              <span class="cs-badge cs-badge-platinum">Platinum Partner</span>
+              <img src="./images/sponsors/esri.png" alt="ESRI" style="max-width:420px;max-height:260px;object-fit:contain;width:100%;">
+              <div style="margin-top:20px;font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1a1200;text-align:center;">ESRI</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">ESRI</div>
+              <a href="https://www.esri.com/en-us/home" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ GOLD ═══ -->
+    <div class="cs-tier cs-tier-gold" style="margin-bottom:56px;">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:28px;">
+        <span style="font-size:1.85rem;line-height:1;">🥇</span>
+        <span style="font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#9a7000;">Gold Partners</span>
+        <span style="font-size:1.85rem;line-height:1;">🥇</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1180px;margin:0 auto;">
+        <div class="cs-flip" style="height:310px;border-radius:14px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:36px 16px 18px;border:1px solid rgba(154,112,0,0.35);box-shadow:0 4px 24px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#C8991A;"></div>
+              <span class="cs-badge cs-badge-gold">Gold Partner</span>
+              <img src="./images/sponsors/allen-co.gif" alt="Allen &amp; Co" style="max-width:300px;max-height:200px;object-fit:contain;width:100%;">
+              <div style="margin-top:18px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1a1200;text-align:center;">Allen &amp; Co</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Allen &amp; Co</div>
+              <a href="https://allenandco.ca/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+        <div class="cs-flip" style="height:310px;border-radius:14px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:36px 16px 18px;border:1px solid rgba(154,112,0,0.35);box-shadow:0 4px 24px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#C8991A;"></div>
+              <span class="cs-badge cs-badge-gold">Gold Partner</span>
+              <img src="./images/sponsors/angloco.jpg" alt="Angloco" style="max-width:300px;max-height:200px;object-fit:contain;width:100%;">
+              <div style="margin-top:18px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1a1200;text-align:center;">Angloco</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Angloco</div>
+              <a href="https://angloco.co.uk/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+        <div class="cs-flip" style="height:310px;border-radius:14px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:36px 16px 18px;border:1px solid rgba(154,112,0,0.35);box-shadow:0 4px 24px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#C8991A;"></div>
+              <span class="cs-badge cs-badge-gold">Gold Partner</span>
+              <img src="./images/sponsors/paladius.png" alt="Paladius" style="max-width:300px;max-height:200px;object-fit:contain;width:100%;">
+              <div style="margin-top:18px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1a1200;text-align:center;">Paladius</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Paladius</div>
+              <a href="https://www.paladius.com/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+        <div class="cs-flip" style="height:310px;border-radius:14px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:36px 16px 18px;border:1px solid rgba(154,112,0,0.35);box-shadow:0 4px 24px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#C8991A;"></div>
+              <span class="cs-badge cs-badge-gold">Gold Partner</span>
+              <img src="./images/sponsors/irp.png" alt="IRP Fire &amp; Safety Ltd." style="max-width:300px;max-height:200px;object-fit:contain;width:100%;">
+              <div style="margin-top:18px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1a1200;text-align:center;">IRP Fire &amp; Safety</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">IRP Fire &amp; Safety</div>
+              <a href="https://irpltd.com/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SILVER ═══ -->
+    <div class="cs-tier cs-tier-silver" style="margin-bottom:52px;">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;">
+        <span style="font-size:1.6rem;line-height:1;">🥈</span>
+        <span style="font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#455A64;">Silver Partner</span>
+        <span style="font-size:1.6rem;line-height:1;">🥈</span>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <div class="cs-flip" style="height:285px;width:380px;border-radius:12px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:34px 16px 18px;border:1px solid rgba(84,110,122,0.35);box-shadow:0 4px 20px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#8E9EAB;"></div>
+              <span class="cs-badge cs-badge-silver">Silver Partner</span>
+              <img src="./images/sponsors/holmatro.png" alt="Holmatro" style="max-width:300px;max-height:180px;object-fit:contain;width:100%;">
+              <div style="margin-top:16px;font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1a1200;text-align:center;">Holmatro</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Holmatro</div>
+              <a href="https://www.holmatro.com/en" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ BRONZE ═══ -->
+    <div class="cs-tier cs-tier-bronze" style="margin-bottom:48px;">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:22px;">
+        <span style="font-size:1.45rem;line-height:1;">🥉</span>
+        <span style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#7D3C1A;">Bronze Partner</span>
+        <span style="font-size:1.45rem;line-height:1;">🥉</span>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <div class="cs-flip" style="height:260px;width:320px;border-radius:12px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:32px 14px 16px;border:1px solid rgba(139,69,19,0.35);box-shadow:0 4px 18px rgba(13,9,5,0.09);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#A0522D;"></div>
+              <span class="cs-badge cs-badge-bronze">Bronze Partner</span>
+              <img src="./images/sponsors/eagle.png" alt="Eagle International Group of Companies" style="max-width:260px;max-height:160px;object-fit:contain;width:100%;">
+              <div style="margin-top:14px;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#1a1200;text-align:center;line-height:1.4;">Eagle International Group of Companies</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Eagle International<br>Group of Companies</div>
+              <span class="cs-no-link">Bronze Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ EXHIBITOR ═══ -->
+    <div class="cs-tier cs-tier-exhibitor">
+      <div class="cs-tier-heading" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;">
+        <span style="font-size:1.3rem;line-height:1;">🏷️</span>
+        <span style="font-family:'Cinzel',serif;font-size:0.92rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#5d4a36;">Exhibitor</span>
+        <span style="font-size:1.3rem;line-height:1;">🏷️</span>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <div class="cs-flip" style="height:180px;width:280px;border-radius:10px;">
+          <div class="cs-flip-inner">
+            <div class="cs-flip-front" style="background:#fff;padding:38px 22px 22px;border:1px solid rgba(93,74,54,0.3);box-shadow:0 3px 12px rgba(13,9,5,0.07);">
+              <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#8a6d4f;"></div>
+              <span class="cs-badge cs-badge-exhibitor">Exhibitor</span>
+              <div style="font-family:'Cinzel',serif;font-size:0.92rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1a1200;text-align:center;line-height:1.5;">Aluminium Marine<br>Consultants Ltd.</div>
+            </div>
+            <div class="cs-flip-back">
+              <div class="cs-name">Aluminium Marine<br>Consultants Ltd.</div>
+              <a href="https://www.aluminium-boats.com/" target="_blank" rel="noopener" class="cs-visit-btn">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ THANK YOU TO PARTNERS ════════════ -->
+<section style="padding:72px 0;background:linear-gradient(135deg,#0d0905 0%,#1a1200 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.5),transparent);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.5),transparent);"></div>
+  <div class="container">
+    <div style="max-width:780px;margin:0 auto;text-align:center;position:relative;">
+      <span style="position:absolute;top:-32px;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;font-size:5rem;line-height:1;color:rgba(196,146,42,0.35);">"</span>
+      <p style="font-family:'Cinzel',serif;font-size:1.35rem;line-height:1.7;font-style:italic;color:#fff;margin:0 0 28px;font-weight:400;">We extend our deepest gratitude to all 2026 conference sponsors. Your support enables CAFC to continue advancing fire service excellence, safety, and professional development across the Caribbean.</p>
+      <div style="width:90px;height:2px;background:#c4922a;margin:0 auto 20px;"></div>
+      <p style="font-family:'Cinzel',serif;font-size:0.9rem;letter-spacing:0.32em;text-transform:uppercase;color:#c4922a;margin:0;">Caribbean Association of Fire Chiefs</p>
+    </div>
+  </div>
+</section>
 
 <!-- ════════════ WHY SPONSOR ════════════ -->
 <section class="why-section">
@@ -1076,37 +1345,16 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="slot-tier-group">
         <div class="slot-tier-label">
           <span style="font-size:1.4rem">💎</span>
-          <span style="color:var(--white)">Diamond — 2 Slots Available</span>
+          <span style="color:var(--white)">Diamond — Fully Subscribed</span>
         </div>
-        <div class="slot-grid slot-grid-2">
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">💎</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">💎</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        </div>
+        <div style="text-align:center;padding:18px;font-family:'Barlow',sans-serif;font-size:0.85rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);">All Diamond positions confirmed for 2026. Thank you to our partners.</div>
       </div>
       <div class="slot-tier-group">
         <div class="slot-tier-label">
           <span style="font-size:1.4rem">🏅</span>
-          <span style="color:var(--white)">Platinum — 3 Slots Available</span>
+          <span style="color:var(--white)">Platinum — 1 Slot Available</span>
         </div>
-        <div class="slot-grid slot-grid-3">
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🏅</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🏅</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
+        <div class="slot-grid slot-grid-1">
         <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
           <span class="slot-icon">🏅</span>
           <span class="slot-text">Your Brand Here</span>
@@ -1117,29 +1365,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="slot-tier-group">
         <div class="slot-tier-label">
           <span style="font-size:1.4rem">🥇</span>
-          <span style="color:var(--white)">Gold — 5 Slots Available</span>
+          <span style="color:var(--white)">Gold — 1 Slot Available</span>
         </div>
-        <div class="slot-grid slot-grid-5">
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥇</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥇</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥇</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥇</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
+        <div class="slot-grid slot-grid-1">
         <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
           <span class="slot-icon">🥇</span>
           <span class="slot-text">Your Brand Here</span>
@@ -1150,14 +1378,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="slot-tier-group">
         <div class="slot-tier-label">
           <span style="font-size:1.4rem">🥈</span>
-          <span style="color:var(--white)">Silver — 5 Slots Available</span>
+          <span style="color:var(--white)">Silver — 4 Slots Available</span>
         </div>
-        <div class="slot-grid slot-grid-5">
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥈</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
+        <div class="slot-grid slot-grid-4">
         <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
           <span class="slot-icon">🥈</span>
           <span class="slot-text">Your Brand Here</span>
@@ -1183,14 +1406,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="slot-tier-group">
         <div class="slot-tier-label">
           <span style="font-size:1.4rem">🥉</span>
-          <span style="color:var(--white)">Bronze — 5 Slots Available</span>
+          <span style="color:var(--white)">Bronze — 4 Slots Available</span>
         </div>
-        <div class="slot-grid slot-grid-5">
-        <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
-          <span class="slot-icon">🥉</span>
-          <span class="slot-text">Your Brand Here</span>
-          <span class="slot-cta">Reserve This Spot →</span>
-        </a>
+        <div class="slot-grid slot-grid-4">
         <a href="mailto:secretariat@caribbeanfirechiefs.com?subject=2026%20Sponsorship%20Inquiry" class="slot-card">
           <span class="slot-icon">🥉</span>
           <span class="slot-text">Your Brand Here</span>
