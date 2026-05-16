@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cafc-2026-agenda-v2';
+const CACHE_NAME = 'cafc-2026-agenda-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -14,7 +14,9 @@ const ASSETS = [
   './images/sponsors/paladius.png',
   './images/sponsors/irp.png',
   './images/sponsors/holmatro.png',
-  './images/sponsors/eagle.png'
+  './images/sponsors/eagle.png',
+  './audio/welcome-en.mp3',
+  './audio/welcome-sp.mp3'
 ];
 
 self.addEventListener('install', (event) => {

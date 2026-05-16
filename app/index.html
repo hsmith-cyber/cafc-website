@@ -845,6 +845,12 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <div class="welcome-eyebrow">Welcome Message</div>
         <div class="welcome-line">Tap ▶ to hear a quick welcome and survey reminder</div>
       </div>
+      <div class="welcome-lang" role="group" aria-label="Language">
+        <button class="lang-pill active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-pill" data-lang="sp" aria-pressed="false">SP</button>
+      </div>
+      <audio id="welcome-audio-en" preload="auto" src="audio/welcome-en.mp3"></audio>
+      <audio id="welcome-audio-sp" preload="auto" src="audio/welcome-sp.mp3"></audio>
     </div>
 
     <div class="hero-stats">
@@ -1279,10 +1285,15 @@ document.addEventListener('keydown',function(e){
 .welcome-text{flex:1;}
 .welcome-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#f0c040;}
 .welcome-line{font-family:'Barlow',sans-serif;font-size:0.88rem;color:#f8f5f0;line-height:1.4;margin-top:2px;}
+.welcome-lang{display:inline-flex;gap:4px;flex-shrink:0;background:rgba(0,0,0,0.25);border:1px solid rgba(232,190,90,0.35);border-radius:30px;padding:3px;}
+.lang-pill{padding:5px 11px;border:none;background:transparent;color:rgba(248,245,240,0.75);font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;border-radius:20px;cursor:pointer;transition:background 0.2s,color 0.2s;}
+.lang-pill.active{background:linear-gradient(135deg,#c4922a,#a06e1f);color:#fff;box-shadow:0 2px 6px rgba(160,110,31,0.4);}
+.lang-pill:not(.active):hover{color:#f0c040;}
 @media(max-width:520px){
-  .welcome-strip{margin:18px 12px 0;padding:12px 14px;border-radius:18px;}
+  .welcome-strip{margin:18px 12px 0;padding:12px 14px;border-radius:18px;flex-wrap:wrap;}
   .welcome-play{width:42px;height:42px;}
   .welcome-line{font-size:0.82rem;}
+  .welcome-lang{margin-left:auto;}
 }
 
 /* ── VOICE SEARCH ── */
@@ -1926,36 +1937,64 @@ document.addEventListener('keydown', function(e){
   if(e.key==='Escape'){ closeHelp(); closeVoiceSearch(); }
 });
 
-// ── Welcome message (TTS) ──
+// ── Welcome message (real audio files: English + Spanish) ──
 (function(){
-  if (!('speechSynthesis' in window)) return;
   var WELCOME_KEY = 'cafc-2026-welcome-played';
-  var WELCOME_TEXT = "Welcome to the 2026 Caribbean Association of Fire Chiefs Annual Conference in the Dominican Republic. " +
-    "Please remember to complete the Strategic Plan Survey on the Announcements page, " +
-    "the End-of-Session Evaluation after each lecture, " +
-    "and the Overall Conference Evaluation on Friday after the last session. " +
-    "Your feedback helps us improve future conferences. Enjoy your time with us.";
+  var LANG_KEY = 'cafc-2026-welcome-lang';
   var btn = document.getElementById('welcome-play');
-  if (!btn) return;
-  var playing = false;
-  function play(){
-    if (playing) { window.speechSynthesis.cancel(); playing=false; btn.classList.remove('playing'); btn.querySelector('.welcome-icon').textContent='▶'; return; }
-    window.speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(WELCOME_TEXT);
-    u.lang='en-US'; u.rate=0.96; u.pitch=1;
-    u.onend = function(){ playing=false; btn.classList.remove('playing'); btn.querySelector('.welcome-icon').textContent='▶'; localStorage.setItem(WELCOME_KEY,'1'); };
-    u.onerror = u.onend;
-    btn.classList.add('playing'); btn.querySelector('.welcome-icon').textContent='■';
-    playing = true;
-    window.speechSynthesis.speak(u);
+  var iconEl = btn ? btn.querySelector('.welcome-icon') : null;
+  var audioEn = document.getElementById('welcome-audio-en');
+  var audioSp = document.getElementById('welcome-audio-sp');
+  if (!btn || !audioEn || !audioSp) return;
+
+  var langPills = document.querySelectorAll('.welcome-lang .lang-pill');
+  var current = localStorage.getItem(LANG_KEY) || 'en';
+  function setLang(lang){
+    current = lang;
+    localStorage.setItem(LANG_KEY, lang);
+    langPills.forEach(function(p){
+      var on = p.getAttribute('data-lang') === lang;
+      p.classList.toggle('active', on);
+      p.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    // If switching while playing, stop the other and restart in chosen language
+    if (!audio().paused) { stop(); play(); }
   }
+  function audio(){ return current === 'sp' ? audioSp : audioEn; }
+  function setPlaying(on){
+    btn.classList.toggle('playing', on);
+    if (iconEl) iconEl.textContent = on ? '■' : '▶';
+  }
+  function stop(){
+    audioEn.pause(); audioEn.currentTime = 0;
+    audioSp.pause(); audioSp.currentTime = 0;
+    setPlaying(false);
+  }
+  function play(){
+    var a = audio();
+    if (!a.paused) { stop(); return; }
+    // Stop the other-language track if it's playing
+    var other = (current === 'sp') ? audioEn : audioSp;
+    other.pause(); other.currentTime = 0;
+    var p = a.play();
+    if (p && p.catch) p.catch(function(){ setPlaying(false); });
+    setPlaying(true);
+  }
+  audioEn.addEventListener('ended', function(){ setPlaying(false); localStorage.setItem(WELCOME_KEY,'1'); });
+  audioSp.addEventListener('ended', function(){ setPlaying(false); localStorage.setItem(WELCOME_KEY,'1'); });
+  audioEn.addEventListener('error', function(){ setPlaying(false); });
+  audioSp.addEventListener('error', function(){ setPlaying(false); });
+
   btn.addEventListener('click', play);
+  langPills.forEach(function(p){ p.addEventListener('click', function(){ setLang(p.getAttribute('data-lang')); }); });
+  setLang(current);
+
   // Auto-play once per device on first interaction
   if (!localStorage.getItem(WELCOME_KEY)){
     var triggered = false;
     function autoTrigger(){
       if (triggered) return; triggered = true;
-      setTimeout(play, 600);
+      setTimeout(play, 700);
     }
     document.addEventListener('click', autoTrigger, { once:true });
     document.addEventListener('touchstart', autoTrigger, { once:true, passive:true });
