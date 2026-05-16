@@ -829,35 +829,35 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 <!-- ════ HERO ════ -->
 <section class="agenda-hero">
   <div class="container">
-    <span class="eyebrow">Annual Conference Program</span>
-    <h1>Conference <em>Agenda</em></h1>
+    <span class="eyebrow" data-i18n="hero.eyebrow">Annual Conference Program</span>
+    <h1 data-i18n-html="hero.title">Conference <em>Agenda</em></h1>
     <div style="margin-top:16px;padding:14px 36px;background:rgba(192,39,45,0.85);border-top:2px solid #c4922a;border-bottom:2px solid #c4922a;backdrop-filter:blur(6px);animation:fadeUp 1s ease 1.1s both;">
-      <span style="font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.6);">May 17 &ndash; 24, 2026</span>
-      <span style="font-family:'Barlow',sans-serif;font-size:clamp(0.9rem,2vw,1.2rem);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c4922a;margin-left:12px;">&#x25C6; Dominican Republic</span>
+      <span style="font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.6);" data-i18n="hero.dates">May 17 &ndash; 24, 2026</span>
+      <span style="font-family:'Barlow',sans-serif;font-size:clamp(0.9rem,2vw,1.2rem);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c4922a;margin-left:12px;" data-i18n="hero.location.short">◆ Dominican Republic</span>
     </div>
-    <p class="location-tag">📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026</p>
+    <p class="location-tag" data-i18n-html="hero.venue">📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026</p>
 
     <div id="welcome-strip" class="welcome-strip">
       <button id="welcome-play" class="welcome-play" aria-label="Play welcome message">
         <span class="welcome-icon">▶</span>
       </button>
       <div class="welcome-text">
-        <div class="welcome-eyebrow">Welcome Message</div>
-        <div class="welcome-line">Tap ▶ to hear a quick welcome and survey reminder</div>
+        <div class="welcome-eyebrow" data-i18n="welcome.eyebrow">Welcome Message</div>
+        <div class="welcome-line" data-i18n="welcome.line">Tap ▶ to hear a quick welcome and survey reminder</div>
       </div>
       <div class="welcome-lang" role="group" aria-label="Language">
-        <button class="lang-pill active" data-lang="en" aria-pressed="true">English</button>
-        <button class="lang-pill" data-lang="sp" aria-pressed="false">Spanish</button>
+        <button class="lang-pill active" data-lang="en" aria-pressed="true" data-i18n="lang.en">English</button>
+        <button class="lang-pill" data-lang="sp" aria-pressed="false" data-i18n="lang.sp">Spanish</button>
       </div>
       <audio id="welcome-audio-en" preload="auto" src="audio/welcome-en.mp3"></audio>
       <audio id="welcome-audio-sp" preload="auto" src="audio/welcome-sp.mp3"></audio>
     </div>
 
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hs-val">7</div><div class="hs-lbl">Conference Days</div></div>
-      <div class="hero-stat"><div class="hs-val">3</div><div class="hs-lbl">Leadership Tracks</div></div>
-      <div class="hero-stat"><div class="hs-val">59</div><div class="hs-lbl">Sessions</div></div>
-      <div class="hero-stat"><div class="hs-val">15+</div><div class="hs-lbl">Speakers</div></div>
+      <div class="hero-stat"><div class="hs-val">7</div><div class="hs-lbl" data-i18n="stats.days">Conference Days</div></div>
+      <div class="hero-stat"><div class="hs-val">3</div><div class="hs-lbl" data-i18n="stats.tracks">Leadership Tracks</div></div>
+      <div class="hero-stat"><div class="hs-val">59</div><div class="hs-lbl" data-i18n="stats.sessions">Sessions</div></div>
+      <div class="hero-stat"><div class="hs-val">15+</div><div class="hs-lbl" data-i18n="stats.speakers">Speakers</div></div>
     </div>
 
 
@@ -869,14 +869,14 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 
   <div class="day-nav">
     <div class="day-nav-inner">
-      <button class="day-nav-btn active" onclick="switchDay26('sun26',this)"><span class="dn-day">Sun</span><span class="dn-date">May 17</span><span class="dn-sub">Arrival</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('mon26',this)"><span class="dn-day">Mon</span><span class="dn-date">May 18</span><span class="dn-sub">Opening</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('tracks26',this)"><span class="dn-day">Tue–Thu</span><span class="dn-date">19–21</span><span class="dn-sub">Tracks</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('fri26',this)"><span class="dn-day">Fri</span><span class="dn-date">May 22</span><span class="dn-sub">IFE-CASA</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('sat26',this)"><span class="dn-day">Sat</span><span class="dn-date">May 23</span><span class="dn-sub">Closing</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('vendor26',this)"><span class="dn-day">Vendor</span><span class="dn-date">Expo</span><span class="dn-sub">All Days</span></button>
-      <button class="day-nav-btn" onclick="switchDay26('announce26',this)"><span class="dn-day">📣 Info</span><span class="dn-date">Notes</span><span class="dn-sub">Announcements</span></button>
-      <div id="live-users-badge" class="day-nav-btn day-nav-info" aria-label="App users so far"><span class="live-dot"></span><span class="dn-day">App Users</span><span class="dn-date"><span id="unique-user-count">—</span></span><span class="dn-sub">Live</span></div>
+      <button class="day-nav-btn active" onclick="switchDay26('sun26',this)"><span class="dn-day" data-i18n="daynav.sun.day">Sun</span><span class="dn-date" data-i18n="daynav.sun.date">May 17</span><span class="dn-sub" data-i18n="daynav.sun.sub">Arrival</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('mon26',this)"><span class="dn-day" data-i18n="daynav.mon.day">Mon</span><span class="dn-date" data-i18n="daynav.mon.date">May 18</span><span class="dn-sub" data-i18n="daynav.mon.sub">Opening</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('tracks26',this)"><span class="dn-day" data-i18n="daynav.tracks.day">Tue–Thu</span><span class="dn-date" data-i18n="daynav.tracks.date">19–21</span><span class="dn-sub" data-i18n="daynav.tracks.sub">Tracks</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('fri26',this)"><span class="dn-day" data-i18n="daynav.fri.day">Fri</span><span class="dn-date" data-i18n="daynav.fri.date">May 22</span><span class="dn-sub" data-i18n="daynav.fri.sub">IFE-CASA</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('sat26',this)"><span class="dn-day" data-i18n="daynav.sat.day">Sat</span><span class="dn-date" data-i18n="daynav.sat.date">May 23</span><span class="dn-sub" data-i18n="daynav.sat.sub">Closing</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('vendor26',this)"><span class="dn-day" data-i18n="daynav.vendor.day">Vendor</span><span class="dn-date" data-i18n="daynav.vendor.date">Expo</span><span class="dn-sub" data-i18n="daynav.vendor.sub">All Days</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('announce26',this)"><span class="dn-day" data-i18n="daynav.info.day">📣 Info</span><span class="dn-date" data-i18n="daynav.info.date">Notes</span><span class="dn-sub" data-i18n="daynav.info.sub">Announcements</span></button>
+      <div id="live-users-badge" class="day-nav-btn day-nav-info" aria-label="App users so far"><span class="live-dot"></span><span class="dn-day" data-i18n="daynav.users.day">App Users</span><span class="dn-date"><span id="unique-user-count">—</span></span><span class="dn-sub" data-i18n="daynav.users.sub">Live</span></div>
     </div>
   </div>
 
@@ -886,16 +886,16 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- ANNOUNCEMENTS -->
       <div class="day-section" id="day-announce26">
         <div class="day-header">
-          <div class="day-title">Announcements & Requirements</div>
-          <div class="day-date">Dress code · Attendee checklist · Contact</div>
+          <div class="day-title" data-i18n="sec.announce.title">Announcements & Requirements</div>
+          <div class="day-date" data-i18n="sec.announce.date">Dress code · Attendee checklist · Contact</div>
         </div>
 
         <!-- ════ STRATEGIC PLAN SURVEY REMINDER ════ -->
         <a href="https://form.jotform.com/261301889219057" target="_blank" rel="noopener" class="strategic-banner">
-          <div class="strategic-banner-eyebrow">📋 Action Required · All CAFC Members</div>
-          <h2 class="strategic-banner-title">Complete the CAFC Strategic Plan Survey</h2>
-          <p class="strategic-banner-desc">Your input shapes the future of the Caribbean Association of Fire Chiefs. Please complete the Member Officer Feedback Instrument before the conference begins.</p>
-          <span class="strategic-banner-cta">Take the Survey Now <span class="strategic-banner-arrow">→</span></span>
+          <div class="strategic-banner-eyebrow" data-i18n="strategic.eyebrow">📋 Action Required · All CAFC Members</div>
+          <h2 class="strategic-banner-title" data-i18n="strategic.title">Complete the CAFC Strategic Plan Survey</h2>
+          <p class="strategic-banner-desc" data-i18n="strategic.desc">Your input shapes the future of the Caribbean Association of Fire Chiefs. Please complete the Member Officer Feedback Instrument before the conference begins.</p>
+          <span class="strategic-banner-cta"><span data-i18n="strategic.cta">Take the Survey Now</span> <span class="strategic-banner-arrow">→</span></span>
         </a>
 
         <div style="background:linear-gradient(135deg,#8b0000,var(--red));border-radius:16px;padding:36px 40px;margin-bottom:40px;color:#fff;position:relative;overflow:hidden;">
@@ -963,7 +963,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- SUNDAY -->
       <div class="day-section active" id="day-sun26">
         <div class="day-header">
-          <div class="day-title">Sunday, May 17 — Arrival & Registration</div>
+          <div class="day-title" data-i18n="sec.sun.title">Sunday, May 17 — Arrival & Registration</div>
           <div class="day-date">Conference opens · Hotel check-in</div>
         </div>
         <table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
@@ -976,7 +976,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- MONDAY -->
       <div class="day-section" id="day-mon26">
         <div class="day-header">
-          <div class="day-title">Monday, May 18 — Opening Day</div>
+          <div class="day-title" data-i18n="sec.mon.title">Monday, May 18 — Opening Day</div>
           <div class="day-date">Opening Ceremony · Business Meeting · Meet & Greet</div>
         </div>
         <table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
@@ -994,7 +994,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- TUE-THU TRACKS -->
       <div class="day-section" id="day-tracks26">
         <div class="day-header">
-          <div class="day-title">Tuesday–Thursday, May 19–21 — Leadership Academies</div>
+          <div class="day-title" data-i18n="sec.tracks.title">Tuesday–Thursday, May 19–21 — Leadership Academies</div>
           <div class="day-date">Three parallel tracks running simultaneously · Select your track below</div>
         </div>
         <div class="track-tabs">
@@ -1065,7 +1065,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- FRIDAY -->
       <div class="day-section" id="day-fri26">
         <div class="day-header">
-          <div class="day-title">Friday, May 22 — IFE-CASA Incident Command Program & Business Meeting</div>
+          <div class="day-title" data-i18n="sec.fri.title">Friday, May 22 — IFE-CASA Incident Command Program & Business Meeting</div>
           <div class="day-date">IFE-CASA Program · Business Meeting conclusion · Executive Meeting</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
@@ -1099,8 +1099,8 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- VENDOR SCHEDULE -->
       <div class="day-section" id="day-vendor26">
         <div class="day-header">
-          <div class="day-title">Vendor Exhibit Schedule — May 19–21 (Daily)</div>
-          <div class="day-date">Vendor presentations and exhibits during conference sessions</div>
+          <div class="day-title" data-i18n="sec.vendor.title">Vendor Exhibit Schedule — May 19–21 (Daily)</div>
+          <div class="day-date" data-i18n="sec.vendor.date">Vendor presentations and exhibits during conference sessions</div>
         </div>
         <table class="sched-table"><thead><tr><th>Time</th><th>Activity</th></tr></thead><tbody>
           <tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Morning Vendor Presentation</div></td></tr>
@@ -1113,7 +1113,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <!-- SATURDAY -->
       <div class="day-section" id="day-sat26">
         <div class="day-header">
-          <div class="day-title">Saturday, May 23 — Closing Ceremony</div>
+          <div class="day-title" data-i18n="sec.sat.title">Saturday, May 23 — Closing Ceremony</div>
           <div class="day-date">Final day · Closing Gala</div>
         </div>
         <table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody>
@@ -1434,7 +1434,16 @@ document.addEventListener('keydown',function(e){
 .partners-title em{font-style:normal;color:#a06e1f;}
 .partners-tier{margin-bottom:24px;}
 .partners-tier:last-child{margin-bottom:0;}
-.partners-tier-label{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#7a6649;margin-bottom:12px;}
+.partners-tier-label{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#7a6649;margin-bottom:16px;}
+.partners-tier[data-tier="diamond"] .partners-tier-label{color:#a06e1f;text-shadow:0 0 18px rgba(212,168,67,0.25);}
+.partners-tier[data-tier="platinum"] .partners-tier-label{color:#455A64;}
+.partners-tier[data-tier="gold"] .partners-tier-label{color:#9a7000;}
+.partners-tier[data-tier="silver"] .partners-tier-label{color:#455A64;}
+.partners-tier[data-tier="bronze"] .partners-tier-label{color:#7D3C1A;}
+.partners-tier[data-tier="exhibitor"] .partners-tier-label{color:#5d4a36;}
+@media(max-width:520px){
+  .partners-tier-label{font-size:0.98rem;letter-spacing:0.16em;margin-bottom:14px;}
+}
 .partners-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px;}
 .partner-logo{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(13,9,5,0.08);border-radius:10px;padding:12px 16px;box-shadow:0 2px 8px rgba(13,9,5,0.06);transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;}
 .partner-logo:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(13,9,5,0.12);border-color:rgba(160,110,31,0.35);}
@@ -1646,11 +1655,11 @@ if ('serviceWorker' in navigator) {
     var box = document.createElement('div');
     box.className = 'overall-eval-box';
     box.innerHTML =
-      '<div class="overall-eval-eyebrow">Closing the Conference</div>' +
-      '<h3 class="overall-eval-title">Overall Conference Evaluation</h3>' +
-      '<p class="overall-eval-desc">Tell us how the 2026 CAFC Conference went overall. Your feedback shapes 2027.</p>' +
+      '<div class="overall-eval-eyebrow" data-i18n="overall.eyebrow">Closing the Conference</div>' +
+      '<h3 class="overall-eval-title" data-i18n="overall.title">Overall Conference Evaluation</h3>' +
+      '<p class="overall-eval-desc" data-i18n="overall.desc">Tell us how the 2026 CAFC Conference went overall. Your feedback shapes 2027.</p>' +
       '<a class="overall-eval-btn" href="https://form.jotform.com/' + OVERALL_FORM_ID + '" target="_blank" rel="noopener">' +
-      '<span class="star">★</span> Submit Conference Evaluation <span class="eval-count overall-eval-count" id="overall-eval-count">…</span></a>';
+      '<span data-i18n="overall.btn">★ Submit Conference Evaluation</span> <span class="eval-count overall-eval-count" id="overall-eval-count">…</span></a>';
     fri.appendChild(box);
 
     var overallEl = box.querySelector('#overall-eval-count');
@@ -1786,11 +1795,11 @@ if ('serviceWorker' in navigator) {
 
 <!-- ═══ PARTNERS STRIP ═══ -->
 <section class="partners-strip">
-  <div class="partners-eyebrow">2026 Conference Partners</div>
-  <h3 class="partners-title">Thank You to Our <em>Sponsors</em></h3>
+  <div class="partners-eyebrow" data-i18n="partners.eyebrow">2026 Conference Partners</div>
+  <h3 class="partners-title" data-i18n-html="partners.title">Thank You to Our <em>Sponsors</em></h3>
 
   <div class="partners-tier" data-tier="diamond">
-    <div class="partners-tier-label">💎 Diamond</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.diamond">💎 Diamond</div>
     <div class="partners-row">
       <a href="https://www.rosenbauer.com/" target="_blank" rel="noopener" class="partner-logo partner-diamond"><img src="images/sponsors/rosenbauer.png" alt="Rosenbauer" loading="lazy"></a>
       <a href="https://indocomlimited.com/" target="_blank" rel="noopener" class="partner-logo partner-diamond"><img src="images/sponsors/indocom.jpg" alt="Indocom Ltd." loading="lazy"></a>
@@ -1798,7 +1807,7 @@ if ('serviceWorker' in navigator) {
   </div>
 
   <div class="partners-tier" data-tier="platinum">
-    <div class="partners-tier-label">🏆 Platinum</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.platinum">🏆 Platinum</div>
     <div class="partners-row">
       <div class="partner-logo partner-platinum" title="Geomatica y Technologia"><img src="images/sponsors/geomatica.jpg" alt="Geomatica y Technologia" loading="lazy"></div>
       <a href="https://www.esri.com/en-us/home" target="_blank" rel="noopener" class="partner-logo partner-platinum"><img src="images/sponsors/esri.png" alt="ESRI" loading="lazy"></a>
@@ -1806,7 +1815,7 @@ if ('serviceWorker' in navigator) {
   </div>
 
   <div class="partners-tier" data-tier="gold">
-    <div class="partners-tier-label">🥇 Gold</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.gold">🥇 Gold</div>
     <div class="partners-row">
       <a href="https://allenandco.ca/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/allen-co.gif" alt="Allen &amp; Co" loading="lazy"></a>
       <a href="https://angloco.co.uk/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/angloco.jpg" alt="Angloco" loading="lazy"></a>
@@ -1816,21 +1825,21 @@ if ('serviceWorker' in navigator) {
   </div>
 
   <div class="partners-tier" data-tier="silver">
-    <div class="partners-tier-label">🥈 Silver</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.silver">🥈 Silver</div>
     <div class="partners-row">
       <a href="https://www.holmatro.com/en" target="_blank" rel="noopener" class="partner-logo partner-silver"><img src="images/sponsors/holmatro.png" alt="Holmatro" loading="lazy"></a>
     </div>
   </div>
 
   <div class="partners-tier" data-tier="bronze">
-    <div class="partners-tier-label">🥉 Bronze</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.bronze">🥉 Bronze</div>
     <div class="partners-row">
       <div class="partner-logo partner-bronze" title="Eagle International Group of Companies"><img src="images/sponsors/eagle.png" alt="Eagle International Group of Companies" loading="lazy"></div>
     </div>
   </div>
 
   <div class="partners-tier" data-tier="exhibitor">
-    <div class="partners-tier-label">🏷️ Exhibitor</div>
+    <div class="partners-tier-label" data-i18n="partners.tier.exhibitor">🏷️ Exhibitor</div>
     <div class="partners-row">
       <a href="https://www.aluminium-boats.com/" target="_blank" rel="noopener" class="partner-logo partner-exhibitor partner-text">Aluminium Marine Consultants Ltd.</a>
     </div>
@@ -1840,15 +1849,15 @@ if ('serviceWorker' in navigator) {
 <div style="text-align:center;padding:20px 16px 14px;font-family:'Barlow',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:rgba(13,9,5,0.5);text-transform:uppercase;">
   &copy; 2026 Caribbean Association of Fire Chiefs ·
   <span style="display:none;" id="visitor-wrap"><span id="visitor-counter">—</span> visits</span>
-  · <a href="#" onclick="event.preventDefault();openHelp();" style="color:var(--red);text-decoration:none;font-weight:700;letter-spacing:0.08em;">Help</a>
+  · <a href="#" onclick="event.preventDefault();openHelp();" style="color:var(--red);text-decoration:none;font-weight:700;letter-spacing:0.08em;" data-i18n="footer.help">Help</a>
 </div>
 <div style="text-align:center;padding:0 16px 36px;font-family:'Barlow',sans-serif;font-size:0.78rem;letter-spacing:0.05em;color:rgba(13,9,5,0.6);line-height:1.9;">
-  Designed by <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:none;">Global Emergency Services Consulting Group, LLC</a><br>
+  <span data-i18n="footer.designed">Designed by</span> <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:none;">Global Emergency Services Consulting Group, LLC</a><br>
   🌐 <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:underline;text-underline-offset:3px;">www.gescg.org</a>
   <span class="gescg-counter" title="Total visits to gescg.org from this app"><span class="gescg-eye">👁</span> <span class="gescg-count">—</span></span>
   <br>
   <a href="https://wa.me/13213322331" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 16px;background:#25D366;color:#fff !important;text-decoration:none;font-weight:700;font-size:0.78rem;letter-spacing:0.04em;border-radius:20px;box-shadow:0 3px 10px rgba(37,211,102,0.35);">
-    💬 Chat on WhatsApp: +1 (321) 332-2331
+    <span data-i18n="footer.wa">💬 Chat on WhatsApp: +1 (321) 332-2331</span>
   </a>
 </div>
 
@@ -1859,13 +1868,13 @@ if ('serviceWorker' in navigator) {
 <div id="voice-modal" class="voice-modal" onclick="if(event.target===this)closeVoiceSearch();" role="dialog" aria-hidden="true">
   <div class="voice-modal-content">
     <button class="voice-close" onclick="closeVoiceSearch()" aria-label="Close">×</button>
-    <div class="voice-eyebrow">Voice Search</div>
-    <h2 class="voice-title">Say a day or topic</h2>
-    <p class="voice-hint">Examples: <em>"Tuesday"</em>, <em>"EMS"</em>, <em>"Friday"</em>, <em>"Senior leadership"</em>, <em>"announcements"</em>, <em>"vendor expo"</em>, <em>"help"</em></p>
+    <div class="voice-eyebrow" data-i18n="voice.eyebrow">Voice Search</div>
+    <h2 class="voice-title" data-i18n="voice.title">Say a day or topic</h2>
+    <p class="voice-hint" data-i18n-html="voice.hint">Examples: <em>"Tuesday"</em>, <em>"EMS"</em>, <em>"Friday"</em>, <em>"Senior leadership"</em>, <em>"announcements"</em>, <em>"vendor expo"</em>, <em>"help"</em></p>
     <div class="voice-mic-wrap">
       <button id="voice-mic-btn" class="voice-mic-btn" aria-label="Start listening">🎤</button>
     </div>
-    <div id="voice-status" class="voice-status">Tap the mic to start listening</div>
+    <div id="voice-status" class="voice-status" data-i18n="voice.status.tap">Tap the mic to start listening</div>
     <div id="voice-transcript" class="voice-transcript"></div>
   </div>
 </div>
@@ -1873,11 +1882,11 @@ if ('serviceWorker' in navigator) {
 <!-- ═══ ROSE-ANNETTE AI ASSISTANT (floating, bottom-left) ═══ -->
 <button id="ra-fab" class="ra-fab" aria-label="Chat with Rose-Annette" onclick="toggleRoseAnnette()" title="Rose-Annette — CAFC AI Assistant">
   <span class="ra-fab-icon">💬</span>
-  <span class="ra-fab-name">Rose-Annette</span>
+  <span class="ra-fab-name" data-i18n="ra.name">Rose-Annette</span>
 </button>
 <div id="ra-chat" class="ra-chat" aria-hidden="true">
   <div class="ra-chat-header">
-    <span class="ra-chat-title">Rose-Annette · CAFC Assistant</span>
+    <span class="ra-chat-title" data-i18n="ra.title">Rose-Annette · CAFC Assistant</span>
     <button class="ra-chat-close" onclick="toggleRoseAnnette()" aria-label="Close">×</button>
   </div>
   <iframe
@@ -1899,12 +1908,12 @@ if ('serviceWorker' in navigator) {
 <div id="help-modal" class="help-modal" onclick="if(event.target===this)closeHelp();" role="dialog" aria-labelledby="help-modal-title" aria-hidden="true">
   <div class="help-modal-content">
     <button class="help-close" onclick="closeHelp()" aria-label="Close help">×</button>
-    <div class="help-eyebrow">CAFC 2026 Conference App</div>
-    <h2 id="help-modal-title" class="help-title">How to Use This App</h2>
+    <div class="help-eyebrow" data-i18n="help.eyebrow">CAFC 2026 Conference App</div>
+    <h2 id="help-modal-title" class="help-title" data-i18n="help.title">How to Use This App</h2>
 
     <section class="help-section">
-      <h3><span class="help-step">1</span> Install on Your Phone</h3>
-      <p>Make the app work offline at the venue:</p>
+      <h3><span class="help-step">1</span> <span data-i18n="help.s1.h">Install on Your Phone</span></h3>
+      <p data-i18n-html="help.s1.p">Make the app work offline at the venue:</p>
       <ul>
         <li><strong>iPhone (Safari):</strong> tap <strong>Share</strong> (□↑) → <strong>Add to Home Screen</strong> → <strong>Add</strong></li>
         <li><strong>Android (Chrome):</strong> tap <strong>⋮</strong> menu → <strong>Add to Home screen</strong> → <strong>Add</strong></li>
@@ -1913,60 +1922,60 @@ if ('serviceWorker' in navigator) {
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">2</span> Navigate the Agenda</h3>
-      <p>Tap any of the 7 boxes at the top to switch days. The selected day turns <strong style="color:#2e9e4a;">green</strong>. The <strong style="color:#2e9e4a;">App Users</strong> box on the right shows live unique-user count.</p>
+      <h3><span class="help-step">2</span> <span data-i18n="help.s2.h">Navigate the Agenda</span></h3>
+      <p data-i18n-html="help.s2.p">Tap any of the 7 boxes at the top to switch days. The selected day turns <strong style="color:#2e9e4a;">green</strong>. The <strong style="color:#2e9e4a;">App Users</strong> box on the right shows live unique-user count.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">3</span> Take the Strategic Plan Survey</h3>
-      <p>Open the <strong>📣 Info Notes</strong> tab and tap the big <strong>gold banner</strong> at the top to complete the CAFC Member Officer Feedback Instrument.</p>
+      <h3><span class="help-step">3</span> <span data-i18n="help.s3.h">Take the Strategic Plan Survey</span></h3>
+      <p data-i18n-html="help.s3.p">Open the <strong>📣 Info Notes</strong> tab and tap the big <strong>gold banner</strong> at the top to complete the CAFC Member Officer Feedback Instrument.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">4</span> Evaluate Sessions</h3>
-      <p>On <strong>Tuesday–Friday</strong>, every lecture has a <span class="help-pill">★ Evaluate</span> pill. Tap it — your session name and speaker are pre-filled. The number badge shows responses so far. The pill color shifts <strong>red → yellow → green</strong> as it nears the target of 20 responses.</p>
+      <h3><span class="help-step">4</span> <span data-i18n="help.s4.h">Evaluate Sessions</span></h3>
+      <p data-i18n-html="help.s4.p">On <strong>Tuesday–Friday</strong>, every lecture has a <span class="help-pill">★ Evaluate</span> pill. Tap it — your session name and speaker are pre-filled. The number badge shows responses so far. The pill color shifts <strong>red → yellow → green</strong> as it nears the target of 20 responses.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">5</span> Overall Conference Evaluation</h3>
-      <p>On <strong>Friday</strong>, after the last session, you'll see a large <strong>gold "Overall Conference Evaluation"</strong> button. Please complete it before you leave the Dominican Republic — your feedback shapes 2027.</p>
+      <h3><span class="help-step">5</span> <span data-i18n="help.s5.h">Overall Conference Evaluation</span></h3>
+      <p data-i18n-html="help.s5.p">On <strong>Friday</strong>, after the last session, you'll see a large <strong>gold "Overall Conference Evaluation"</strong> button. Please complete it before you leave the Dominican Republic — your feedback shapes 2027.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">6</span> Sponsors & Partners</h3>
-      <p>Scroll to the bottom of any view to see all <strong>2026 sponsors</strong> by tier. Tap any logo to visit their website.</p>
+      <h3><span class="help-step">6</span> <span data-i18n="help.s6.h">Sponsors & Partners</span></h3>
+      <p data-i18n-html="help.s6.p">Scroll to the bottom of any view to see all <strong>2026 sponsors</strong> by tier. Tap any logo to visit their website.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">7</span> Listen to Sessions 🔊</h3>
-      <p>Every session has a small <strong>🔊</strong> button next to its name. Tap it to have the session title and speaker read aloud — handy hands-free or for accessibility. Tap again to stop.</p>
+      <h3><span class="help-step">7</span> <span data-i18n="help.s7.h">Listen to Sessions 🔊</span></h3>
+      <p data-i18n-html="help.s7.p">Every session has a small <strong>🔊</strong> button next to its name. Tap it to have the session title and speaker read aloud — handy hands-free or for accessibility. Tap again to stop.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">8</span> Voice Search 🎤</h3>
-      <p>Tap the <strong>blue 🎤 button</strong> (above the Help button) and speak a day or topic — e.g., <em>"Friday"</em>, <em>"EMS"</em>, <em>"announcements"</em>. The app jumps to that section.</p>
+      <h3><span class="help-step">8</span> <span data-i18n="help.s8.h">Voice Search 🎤</span></h3>
+      <p data-i18n-html="help.s8.p">Tap the <strong>blue 🎤 button</strong> (above the Help button) and speak a day or topic — e.g., <em>"Friday"</em>, <em>"EMS"</em>, <em>"announcements"</em>. The app jumps to that section.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">9</span> Chat with Rose-Annette 💬</h3>
-      <p>Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She's the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.</p>
+      <h3><span class="help-step">9</span> <span data-i18n="help.s9.h">Chat with Rose-Annette 💬</span></h3>
+      <p data-i18n-html="help.s9.p">Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She's the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.</p>
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">10</span> Offline Use</h3>
-      <p>Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
+      <h3><span class="help-step">10</span> <span data-i18n="help.s10.h">Offline Use</span></h3>
+      <p data-i18n-html="help.s10.p">Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
     </section>
 
     <div class="help-footer">
       <p>Questions? Contact the CAFC Secretariat: <a href="mailto:secretariat@caribbeanfirechiefs.com">secretariat@caribbeanfirechiefs.com</a></p>
       <p style="margin-top:8px;font-size:0.75rem;opacity:0.7;">#CAFC2026 · Caribbean Association of Fire Chiefs</p>
       <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(13,9,5,0.1);font-size:0.82rem;line-height:1.85;">
-        🛠️ Designed by <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:none;">Global Emergency Services Consulting Group, LLC</a><br>
+        🛠️ <span data-i18n="footer.designed">Designed by</span> <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:none;">Global Emergency Services Consulting Group, LLC</a><br>
         🌐 <a href="https://www.gescg.org" target="_blank" rel="noopener" class="gescg-link" style="color:#a06e1f;font-weight:700;text-decoration:underline;text-underline-offset:3px;">www.gescg.org</a>
         <span class="gescg-counter"><span class="gescg-eye">👁</span> <span class="gescg-count">—</span></span>
         <br>
         <a href="https://wa.me/13213322331" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 18px;background:#25D366;color:#fff !important;text-decoration:none;font-weight:700;font-size:0.82rem;letter-spacing:0.04em;border-radius:22px;box-shadow:0 3px 12px rgba(37,211,102,0.4);">
-          💬 Chat on WhatsApp: +1 (321) 332-2331
+          <span data-i18n="footer.wa">💬 Chat on WhatsApp: +1 (321) 332-2331</span>
         </a>
       </div>
     </div>
@@ -1979,6 +1988,149 @@ function closeHelp(){ var m=document.getElementById('help-modal'); m.classList.r
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape'){ closeHelp(); closeVoiceSearch(); }
 });
+
+// ── i18n: runtime translation engine ──
+window.TRANSLATIONS = {
+  // Hero
+  'hero.eyebrow': { en:'Annual Conference Program', sp:'Programa del Congreso Anual' },
+  'hero.title':   { en:'Conference <em>Agenda</em>', sp:'Agenda del <em>Congreso</em>' },
+  'hero.dates':   { en:'May 17 – 24, 2026', sp:'17 – 24 de mayo de 2026' },
+  'hero.location.short': { en:'◆ Dominican Republic', sp:'◆ República Dominicana' },
+  'hero.venue':   {
+    en:'📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026',
+    sp:'📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, República Dominicana &nbsp;|&nbsp; 17–23 de mayo de 2026'
+  },
+  // Stats
+  'stats.days':     { en:'Conference Days',  sp:'Días del Congreso' },
+  'stats.tracks':   { en:'Leadership Tracks', sp:'Academias de Liderazgo' },
+  'stats.sessions': { en:'Sessions',         sp:'Sesiones' },
+  'stats.speakers': { en:'Speakers',         sp:'Conferencistas' },
+  // Welcome strip
+  'welcome.eyebrow': { en:'Welcome Message', sp:'Mensaje de Bienvenida' },
+  'welcome.line':    { en:'Tap ▶ to hear a quick welcome and survey reminder', sp:'Toque ▶ para escuchar la bienvenida y un recordatorio de encuestas' },
+  'lang.en': { en:'English', sp:'Inglés' },
+  'lang.sp': { en:'Spanish', sp:'Español' },
+  // Day-nav buttons (day / date / sub)
+  'daynav.sun.day':  { en:'Sun',     sp:'Dom' },
+  'daynav.sun.date': { en:'May 17',  sp:'17 may' },
+  'daynav.sun.sub':  { en:'Arrival', sp:'Llegada' },
+  'daynav.mon.day':  { en:'Mon',     sp:'Lun' },
+  'daynav.mon.date': { en:'May 18',  sp:'18 may' },
+  'daynav.mon.sub':  { en:'Opening', sp:'Apertura' },
+  'daynav.tracks.day':  { en:'Tue–Thu', sp:'Mar–Jue' },
+  'daynav.tracks.date': { en:'19–21',   sp:'19–21' },
+  'daynav.tracks.sub':  { en:'Tracks',  sp:'Academias' },
+  'daynav.fri.day':  { en:'Fri',      sp:'Vie' },
+  'daynav.fri.date': { en:'May 22',   sp:'22 may' },
+  'daynav.fri.sub':  { en:'IFE-CASA', sp:'IFE-CASA' },
+  'daynav.sat.day':  { en:'Sat',     sp:'Sáb' },
+  'daynav.sat.date': { en:'May 23',  sp:'23 may' },
+  'daynav.sat.sub':  { en:'Closing', sp:'Clausura' },
+  'daynav.vendor.day':  { en:'Vendor',   sp:'Vendedor' },
+  'daynav.vendor.date': { en:'Expo',     sp:'Expo' },
+  'daynav.vendor.sub':  { en:'All Days', sp:'Todos los Días' },
+  'daynav.info.day':  { en:'📣 Info',       sp:'📣 Info' },
+  'daynav.info.date': { en:'Notes',         sp:'Notas' },
+  'daynav.info.sub':  { en:'Announcements', sp:'Anuncios' },
+  'daynav.users.day':  { en:'App Users', sp:'Usuarios' },
+  'daynav.users.sub':  { en:'Live',      sp:'En Vivo' },
+  // Day section headers
+  'sec.announce.title': { en:'Announcements & Requirements', sp:'Anuncios y Requisitos' },
+  'sec.announce.date':  { en:'Dress code · Attendee checklist · Contact', sp:'Código de vestimenta · Lista de verificación · Contacto' },
+  'sec.sun.title':  { en:'Sunday, May 17 — Arrival & Registration', sp:'Domingo, 17 de mayo — Llegada e Inscripción' },
+  'sec.mon.title':  { en:'Monday, May 18 — Opening Day', sp:'Lunes, 18 de mayo — Día de Apertura' },
+  'sec.tracks.title': { en:'Tuesday–Thursday, May 19–21 — Leadership Academies', sp:'Martes a Jueves, 19–21 de mayo — Academias de Liderazgo' },
+  'sec.fri.title':  { en:'Friday, May 22 — IFE-CASA Incident Command Program & Business Meeting', sp:'Viernes, 22 de mayo — Programa de Comando de Incidentes IFE-CASA y Reunión de Negocios' },
+  'sec.sat.title':  { en:'Saturday, May 23 — Closing Ceremony', sp:'Sábado, 23 de mayo — Ceremonia de Clausura' },
+  'sec.vendor.title': { en:'Vendor Exhibit Schedule — May 19–21 (Daily)', sp:'Horario de Exhibición de Vendedores — 19–21 de mayo (Diario)' },
+  'sec.vendor.date':  { en:'Vendor presentations and exhibits during conference sessions', sp:'Presentaciones y exhibiciones de vendedores durante las sesiones del congreso' },
+  // Strategic Plan banner
+  'strategic.eyebrow': { en:'📋 Action Required · All CAFC Members', sp:'📋 Acción Requerida · Todos los Miembros CAFC' },
+  'strategic.title':   { en:'Complete the CAFC Strategic Plan Survey', sp:'Complete la Encuesta del Plan Estratégico de CAFC' },
+  'strategic.desc':    { en:'Your input shapes the future of the Caribbean Association of Fire Chiefs. Please complete the Member Officer Feedback Instrument before the conference begins.', sp:'Su opinión define el futuro de la Asociación Caribeña de Jefes de Bomberos. Por favor complete el Instrumento de Retroalimentación de Oficiales Miembros antes del inicio del congreso.' },
+  'strategic.cta':     { en:'Take the Survey Now', sp:'Tome la Encuesta Ahora' },
+  // Overall conference evaluation
+  'overall.eyebrow': { en:'Closing the Conference', sp:'Cierre del Congreso' },
+  'overall.title':   { en:'Overall Conference Evaluation', sp:'Evaluación General del Congreso' },
+  'overall.desc':    { en:'Tell us how the 2026 CAFC Conference went overall. Your feedback shapes 2027.', sp:'Cuéntenos cómo fue el Congreso CAFC 2026 en general. Su retroalimentación define el 2027.' },
+  'overall.btn':     { en:'★ Submit Conference Evaluation', sp:'★ Enviar Evaluación del Congreso' },
+  // Eval pill
+  'pill.evaluate':   { en:'★ End-of-Session Evaluation', sp:'★ Evaluación de Fin de Sesión' },
+  // Sponsor strip
+  'partners.eyebrow':       { en:'2026 Conference Partners', sp:'Patrocinadores del Congreso 2026' },
+  'partners.title':         { en:'Thank You to Our <em>Sponsors</em>', sp:'Gracias a Nuestros <em>Patrocinadores</em>' },
+  'partners.tier.diamond':  { en:'💎 Diamond',   sp:'💎 Diamante' },
+  'partners.tier.platinum': { en:'🏆 Platinum',  sp:'🏆 Platino' },
+  'partners.tier.gold':     { en:'🥇 Gold',      sp:'🥇 Oro' },
+  'partners.tier.silver':   { en:'🥈 Silver',    sp:'🥈 Plata' },
+  'partners.tier.bronze':   { en:'🥉 Bronze',    sp:'🥉 Bronce' },
+  'partners.tier.exhibitor':{ en:'🏷️ Exhibitor', sp:'🏷️ Expositor' },
+  // Footer
+  'footer.help':    { en:'Help', sp:'Ayuda' },
+  'footer.designed':{ en:'Designed by', sp:'Diseñado por' },
+  'footer.wa':      { en:'<span data-i18n="footer.wa">💬 Chat on WhatsApp: +1 (321) 332-2331</span>', sp:'💬 Chatea por WhatsApp: +1 (321) 332-2331' },
+  // Voice search
+  'voice.eyebrow':   { en:'Voice Search', sp:'Búsqueda por Voz' },
+  'voice.title':     { en:'Say a day or topic', sp:'Diga un día o tema' },
+  'voice.hint':      { en:'Examples: <em>"Tuesday"</em>, <em>"EMS"</em>, <em>"Friday"</em>, <em>"Senior leadership"</em>, <em>"announcements"</em>, <em>"vendor expo"</em>, <em>"help"</em>', sp:'Ejemplos: <em>"Martes"</em>, <em>"EMS"</em>, <em>"Viernes"</em>, <em>"Liderazgo Senior"</em>, <em>"anuncios"</em>, <em>"exhibición"</em>, <em>"ayuda"</em>' },
+  'voice.status.tap':{ en:'Tap the mic to start listening', sp:'Toque el micrófono para empezar a escuchar' },
+  // Rose-Annette
+  'ra.name':  { en:'Rose-Annette', sp:'Rose-Annette' },
+  'ra.title': { en:'Rose-Annette · CAFC Assistant', sp:'Rose-Annette · Asistente CAFC' },
+  // Help modal
+  'help.eyebrow': { en:'CAFC 2026 Conference App', sp:'App del Congreso CAFC 2026' },
+  'help.title':   { en:'How to Use This App', sp:'Cómo Usar Esta App' },
+  'help.s1.h': { en:'Install on Your Phone', sp:'Instale en su Teléfono' },
+  'help.s1.p': { en:'Make the app work offline at the venue:', sp:'Haga que la app funcione sin conexión en el lugar:' },
+  'help.s1.iphone': { en:'<strong>iPhone (Safari):</strong> tap <strong>Share</strong> (□↑) → <strong>Add to Home Screen</strong> → <strong>Add</strong>', sp:'<strong>iPhone (Safari):</strong> toque <strong>Compartir</strong> (□↑) → <strong>Agregar a Pantalla de Inicio</strong> → <strong>Agregar</strong>' },
+  'help.s1.android':{ en:'<strong>Android (Chrome):</strong> tap <strong>⋮</strong> menu → <strong>Add to Home screen</strong> → <strong>Add</strong>', sp:'<strong>Android (Chrome):</strong> toque el menú <strong>⋮</strong> → <strong>Agregar a la pantalla de inicio</strong> → <strong>Agregar</strong>' },
+  'help.s1.note': { en:'A red CAFC icon will appear on your home screen.', sp:'Un ícono rojo CAFC aparecerá en su pantalla de inicio.' },
+  'help.s2.h': { en:'Navigate the Agenda', sp:'Navegue la Agenda' },
+  'help.s2.p': { en:'Tap any of the 7 boxes at the top to switch days. The selected day turns <strong style="color:#2e9e4a;">green</strong>. The <strong style="color:#2e9e4a;">App Users</strong> box on the right shows live unique-user count.', sp:'Toque cualquiera de las 7 casillas en la parte superior para cambiar de día. El día seleccionado se vuelve <strong style="color:#2e9e4a;">verde</strong>. La casilla <strong style="color:#2e9e4a;">Usuarios</strong> a la derecha muestra el conteo de usuarios únicos en vivo.' },
+  'help.s3.h': { en:'Take the Strategic Plan Survey', sp:'Tome la Encuesta del Plan Estratégico' },
+  'help.s3.p': { en:'Open the <strong>📣 Info Notes</strong> tab and tap the big <strong>gold banner</strong> at the top to complete the CAFC Member Officer Feedback Instrument.', sp:'Abra la pestaña <strong>📣 Info Notas</strong> y toque el gran <strong>banner dorado</strong> arriba para completar el Instrumento de Retroalimentación de Oficiales Miembros CAFC.' },
+  'help.s4.h': { en:'Evaluate Sessions', sp:'Evalúe las Sesiones' },
+  'help.s4.p': { en:'On <strong>Tuesday–Friday</strong>, every lecture has a <span class="help-pill">★ Evaluate</span> pill. Tap it — your session name and speaker are pre-filled. The number badge shows responses so far. The pill color shifts <strong>red → yellow → green</strong> as it nears the target of 20 responses.', sp:'De <strong>martes a viernes</strong>, cada conferencia tiene una píldora <span class="help-pill">★ Evaluar</span>. Tóquela — su nombre de sesión y conferencista se llenan automáticamente. La insignia numérica muestra las respuestas hasta ahora. El color cambia <strong>rojo → amarillo → verde</strong> al acercarse a 20 respuestas.' },
+  'help.s5.h': { en:'Overall Conference Evaluation', sp:'Evaluación General del Congreso' },
+  'help.s5.p': { en:'On <strong>Friday</strong>, after the last session, you\'ll see a large <strong>gold "Overall Conference Evaluation"</strong> button. Please complete it before you leave the Dominican Republic — your feedback shapes 2027.', sp:'El <strong>viernes</strong>, después de la última sesión, verá un gran botón dorado <strong>"Evaluación General del Congreso"</strong>. Por favor complétela antes de irse de la República Dominicana — su retroalimentación define el 2027.' },
+  'help.s6.h': { en:'Sponsors & Partners', sp:'Patrocinadores y Socios' },
+  'help.s6.p': { en:'Scroll to the bottom of any view to see all <strong>2026 sponsors</strong> by tier. Tap any logo to visit their website.', sp:'Desplácese al final de cualquier vista para ver todos los <strong>patrocinadores 2026</strong> por nivel. Toque cualquier logo para visitar su sitio web.' },
+  'help.s7.h': { en:'Listen to Sessions 🔊', sp:'Escuche las Sesiones 🔊' },
+  'help.s7.p': { en:'Every session has a small <strong>🔊</strong> button next to its name. Tap it to have the session title and speaker read aloud — handy hands-free or for accessibility. Tap again to stop.', sp:'Cada sesión tiene un pequeño botón <strong>🔊</strong> al lado del nombre. Tóquelo para que el título de la sesión y el conferencista se lean en voz alta — útil sin manos o para accesibilidad. Toque otra vez para detener.' },
+  'help.s8.h': { en:'Voice Search 🎤', sp:'Búsqueda por Voz 🎤' },
+  'help.s8.p': { en:'Tap the <strong>blue 🎤 button</strong> (above the Help button) and speak a day or topic — e.g., <em>"Friday"</em>, <em>"EMS"</em>, <em>"announcements"</em>. The app jumps to that section.', sp:'Toque el <strong>botón azul 🎤</strong> (arriba del botón de Ayuda) y diga un día o tema — ej. <em>"Viernes"</em>, <em>"EMS"</em>, <em>"anuncios"</em>. La app salta a esa sección.' },
+  'help.s9.h': { en:'Chat with Rose-Annette 💬', sp:'Chatee con Rose-Annette 💬' },
+  'help.s9.p': { en:'Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She\'s the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.', sp:'Toque el <strong>botón morado 💬 Rose-Annette</strong> (abajo-izquierda). Ella es la asistente IA de CAFC — pregúntele sobre horarios, conferencistas, el lugar, o cualquier cosa del congreso. Voz o texto, ambos funcionan.' },
+  'help.s10.h': { en:'Offline Use', sp:'Uso sin Conexión' },
+  'help.s10.p': { en:'Once you\'ve opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)', sp:'Una vez que abra la app con WiFi, la agenda se guarda en su teléfono — funciona sin conexión. (Las evaluaciones y conteos en vivo necesitan WiFi o datos.)' },
+  'help.footer.q':  { en:'Questions? Contact the CAFC Secretariat:', sp:'¿Preguntas? Contacte al Secretariado CAFC:' }
+};
+
+function t(key){
+  var lang = localStorage.getItem('cafc-2026-welcome-lang') || 'en';
+  var entry = window.TRANSLATIONS[key];
+  return (entry && entry[lang]) || (entry && entry.en) || key;
+}
+
+function applyTranslations(lang){
+  document.documentElement.lang = (lang === 'sp') ? 'es' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    var entry = window.TRANSLATIONS[key];
+    if (entry && entry[lang]) el.textContent = entry[lang];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    var key = el.getAttribute('data-i18n-html');
+    var entry = window.TRANSLATIONS[key];
+    if (entry && entry[lang]) el.innerHTML = entry[lang];
+  });
+  // Update dynamically-injected eval pill text
+  document.querySelectorAll('.eval-btn').forEach(function(b){
+    b.innerHTML = (lang === 'sp')
+      ? '<span class="star">★</span> Evaluación de Fin de Sesión'
+      : '<span class="star">★</span> End-of-Session Evaluation';
+  });
+}
 
 // ── Welcome message (real audio files: English + Spanish) ──
 (function(){
@@ -2000,6 +2152,8 @@ document.addEventListener('keydown', function(e){
       p.classList.toggle('active', on);
       p.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+    // Apply translations across the whole app
+    if (typeof applyTranslations === 'function') applyTranslations(lang);
     // If switching while playing, stop the other and restart in chosen language
     if (!audio().paused) { stop(); play(); }
   }
