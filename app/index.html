@@ -1250,6 +1250,59 @@ document.addEventListener('keydown',function(e){
 .overall-eval-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(192,39,45,0.45);}
 .overall-eval-btn .star{font-size:1.1rem;}
 .overall-eval-count{background:#fff;border:1.5px solid #fff;color:#c0272d;min-width:30px;height:26px;font-size:0.82rem;}
+/* ── HELP BUTTON + MODAL ── */
+.help-fab{
+  position:fixed;bottom:24px;right:24px;z-index:900;
+  width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#c0272d,#8b1a1e);color:#fff;
+  font-family:'Cinzel',serif;font-size:1.6rem;font-weight:900;line-height:54px;
+  box-shadow:0 6px 22px rgba(192,39,45,0.45),0 0 0 4px rgba(255,255,255,0.6);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.help-fab:hover{transform:scale(1.06);box-shadow:0 10px 30px rgba(192,39,45,0.6),0 0 0 4px rgba(255,255,255,0.7);}
+.help-fab:active{transform:scale(0.96);}
+.help-modal{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;
+  background:rgba(13,9,5,0.78);backdrop-filter:blur(6px);
+  align-items:flex-start;justify-content:center;
+  padding:env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+  overflow-y:auto;
+}
+.help-modal.open{display:flex;}
+.help-modal-content{
+  position:relative;width:100%;max-width:640px;margin:32px auto;
+  background:linear-gradient(180deg,#fff 0%,#fbf7ec 100%);
+  border-radius:18px;padding:36px 30px 28px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+  font-family:'Barlow',sans-serif;color:#0d0905;
+}
+.help-close{
+  position:absolute;top:14px;right:14px;
+  width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(13,9,5,0.08);color:#0d0905;
+  font-size:1.5rem;line-height:1;font-weight:300;
+  transition:background 0.15s;
+}
+.help-close:hover{background:rgba(13,9,5,0.18);}
+.help-eyebrow{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#a06e1f;text-align:center;margin-bottom:8px;}
+.help-title{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:#8b1a1e;text-align:center;margin:0 0 26px;letter-spacing:0.02em;}
+.help-section{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(13,9,5,0.08);}
+.help-section:last-of-type{border-bottom:none;}
+.help-section h3{display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:1.02rem;font-weight:700;color:#0d0905;margin:0 0 10px;letter-spacing:0.02em;}
+.help-step{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#c0272d,#8b1a1e);color:#fff;font-size:0.82rem;font-weight:900;flex-shrink:0;}
+.help-section p{font-size:0.94rem;line-height:1.6;color:rgba(13,9,5,0.78);margin:0 0 8px;}
+.help-section ul{margin:8px 0 0;padding-left:22px;}
+.help-section li{font-size:0.92rem;line-height:1.65;color:rgba(13,9,5,0.78);margin-bottom:4px;}
+.help-note{font-size:0.85rem !important;color:rgba(13,9,5,0.55) !important;font-style:italic;margin-top:8px !important;}
+.help-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;background:linear-gradient(135deg,#c0272d,#8b1a1e);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:12px;}
+.help-footer{margin-top:8px;text-align:center;font-size:0.85rem;color:rgba(13,9,5,0.65);line-height:1.6;}
+.help-footer a{color:#c0272d;text-decoration:none;font-weight:600;}
+@media(max-width:520px){
+  .help-fab{bottom:18px;right:18px;width:48px;height:48px;font-size:1.4rem;line-height:48px;}
+  .help-modal-content{padding:30px 22px 24px;margin:16px auto;}
+  .help-title{font-size:1.25rem;}
+  .help-section h3{font-size:0.95rem;}
+}
 /* ── PARTNERS STRIP ── */
 .partners-strip{background:linear-gradient(180deg,#fbf7ec 0%,#f3ecdc 100%);border-top:1px solid rgba(160,110,31,0.25);padding:40px 18px 36px;text-align:center;}
 .partners-eyebrow{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:#a06e1f;margin-bottom:8px;}
@@ -1583,7 +1636,71 @@ if ('serviceWorker' in navigator) {
 <div style="text-align:center;padding:20px 16px 40px;font-family:'Barlow',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:rgba(13,9,5,0.5);text-transform:uppercase;">
   &copy; 2026 Caribbean Association of Fire Chiefs ·
   <span style="display:none;" id="visitor-wrap"><span id="visitor-counter">—</span> visits</span>
+  · <a href="#" onclick="event.preventDefault();openHelp();" style="color:var(--red);text-decoration:none;font-weight:700;letter-spacing:0.08em;">Help</a>
 </div>
+
+<!-- ═══ HELP BUTTON (floating) ═══ -->
+<button id="help-fab" class="help-fab" aria-label="Help" onclick="openHelp()">?</button>
+
+<!-- ═══ HELP MODAL ═══ -->
+<div id="help-modal" class="help-modal" onclick="if(event.target===this)closeHelp();" role="dialog" aria-labelledby="help-modal-title" aria-hidden="true">
+  <div class="help-modal-content">
+    <button class="help-close" onclick="closeHelp()" aria-label="Close help">×</button>
+    <div class="help-eyebrow">CAFC 2026 Conference App</div>
+    <h2 id="help-modal-title" class="help-title">How to Use This App</h2>
+
+    <section class="help-section">
+      <h3><span class="help-step">1</span> Install on Your Phone</h3>
+      <p>Make the app work offline at the venue:</p>
+      <ul>
+        <li><strong>iPhone (Safari):</strong> tap <strong>Share</strong> (□↑) → <strong>Add to Home Screen</strong> → <strong>Add</strong></li>
+        <li><strong>Android (Chrome):</strong> tap <strong>⋮</strong> menu → <strong>Add to Home screen</strong> → <strong>Add</strong></li>
+      </ul>
+      <p class="help-note">A red CAFC icon will appear on your home screen.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">2</span> Navigate the Agenda</h3>
+      <p>Tap any of the 7 boxes at the top to switch days. The selected day turns <strong style="color:#2e9e4a;">green</strong>. The <strong style="color:#2e9e4a;">App Users</strong> box on the right shows live unique-user count.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">3</span> Take the Strategic Plan Survey</h3>
+      <p>Open the <strong>📣 Info Notes</strong> tab and tap the big <strong>gold banner</strong> at the top to complete the CAFC Member Officer Feedback Instrument.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">4</span> Evaluate Sessions</h3>
+      <p>On <strong>Tuesday–Friday</strong>, every lecture has a <span class="help-pill">★ Evaluate</span> pill. Tap it — your session name and speaker are pre-filled. The number badge shows responses so far. The pill color shifts <strong>red → yellow → green</strong> as it nears the target of 20 responses.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">5</span> Overall Conference Evaluation</h3>
+      <p>On <strong>Friday</strong>, after the last session, you'll see a large <strong>gold "Overall Conference Evaluation"</strong> button. Please complete it before you leave the Dominican Republic — your feedback shapes 2027.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">6</span> Sponsors & Partners</h3>
+      <p>Scroll to the bottom of any view to see all <strong>2026 sponsors</strong> by tier. Tap any logo to visit their website.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">7</span> Offline Use</h3>
+      <p>Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
+    </section>
+
+    <div class="help-footer">
+      <p>Questions? Contact the CAFC Secretariat: <a href="mailto:secretariat@caribbeanfirechiefs.com">secretariat@caribbeanfirechiefs.com</a></p>
+      <p style="margin-top:8px;font-size:0.75rem;opacity:0.7;">#CAFC2026 · Caribbean Association of Fire Chiefs</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openHelp(){ var m=document.getElementById('help-modal'); m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeHelp(){ var m=document.getElementById('help-modal'); m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeHelp(); });
+</script>
 
 </body>
 </html>
