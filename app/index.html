@@ -837,6 +837,16 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     </div>
     <p class="location-tag">📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026</p>
 
+    <div id="welcome-strip" class="welcome-strip">
+      <button id="welcome-play" class="welcome-play" aria-label="Play welcome message">
+        <span class="welcome-icon">▶</span>
+      </button>
+      <div class="welcome-text">
+        <div class="welcome-eyebrow">Welcome Message</div>
+        <div class="welcome-line">Tap ▶ to hear a quick welcome and survey reminder</div>
+      </div>
+    </div>
+
     <div class="hero-stats">
       <div class="hero-stat"><div class="hs-val">7</div><div class="hs-lbl">Conference Days</div></div>
       <div class="hero-stat"><div class="hs-val">3</div><div class="hs-lbl">Leadership Tracks</div></div>
@@ -1258,6 +1268,58 @@ document.addEventListener('keydown',function(e){
 /* ── GESCG click counter ── */
 .gescg-counter{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:3px 10px;background:rgba(160,110,31,0.12);border:1px solid rgba(160,110,31,0.35);color:#a06e1f;font-family:'Barlow',sans-serif;font-size:0.7rem;font-weight:700;border-radius:12px;letter-spacing:0.04em;vertical-align:middle;line-height:1.4;}
 .gescg-counter .gescg-eye{font-size:0.78rem;}
+/* ── WELCOME STRIP ── */
+.welcome-strip{display:flex;align-items:center;gap:14px;max-width:520px;margin:22px auto 0;padding:14px 18px;background:linear-gradient(135deg,rgba(255,255,255,0.16),rgba(255,255,255,0.06));border:1.5px solid rgba(232,190,90,0.45);border-radius:50px;backdrop-filter:blur(6px);text-align:left;}
+.welcome-play{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#c4922a,#a06e1f);color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(160,110,31,0.45);transition:transform 0.15s;}
+.welcome-play:hover{transform:scale(1.06);}
+.welcome-play:active{transform:scale(0.96);}
+.welcome-play.playing{background:linear-gradient(135deg,#c0272d,#8b1a1e);box-shadow:0 4px 14px rgba(192,39,45,0.5);animation:welcomePulse 1.4s infinite;}
+.welcome-play.playing .welcome-icon::before{content:'\\25A0';}
+@keyframes welcomePulse{0%,100%{box-shadow:0 0 0 0 rgba(192,39,45,0.6);}50%{box-shadow:0 0 0 10px rgba(192,39,45,0);}}
+.welcome-text{flex:1;}
+.welcome-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#f0c040;}
+.welcome-line{font-family:'Barlow',sans-serif;font-size:0.88rem;color:#f8f5f0;line-height:1.4;margin-top:2px;}
+@media(max-width:520px){
+  .welcome-strip{margin:18px 12px 0;padding:12px 14px;border-radius:18px;}
+  .welcome-play{width:42px;height:42px;}
+  .welcome-line{font-size:0.82rem;}
+}
+
+/* ── VOICE SEARCH ── */
+.voice-fab{position:fixed;bottom:88px;right:24px;z-index:900;width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#1976d2,#0d47a1);color:#fff;font-size:1.4rem;line-height:54px;box-shadow:0 6px 22px rgba(13,71,161,0.45),0 0 0 4px rgba(255,255,255,0.6);transition:transform 0.2s,box-shadow 0.2s;}
+.voice-fab:hover{transform:scale(1.06);box-shadow:0 10px 30px rgba(13,71,161,0.6),0 0 0 4px rgba(255,255,255,0.7);}
+.voice-fab:active{transform:scale(0.96);}
+.voice-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;background:rgba(13,9,5,0.78);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;}
+.voice-modal.open{display:flex;}
+.voice-modal-content{position:relative;width:100%;max-width:480px;background:linear-gradient(180deg,#fff 0%,#fbf7ec 100%);border-radius:18px;padding:32px 26px 30px;box-shadow:0 20px 60px rgba(0,0,0,0.45);text-align:center;}
+.voice-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:rgba(13,9,5,0.08);font-size:1.5rem;line-height:1;font-weight:300;}
+.voice-eyebrow{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#1976d2;margin-bottom:6px;}
+.voice-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:900;color:#0d47a1;margin:0 0 12px;}
+.voice-hint{font-family:'Barlow',sans-serif;font-size:0.84rem;color:rgba(13,9,5,0.65);line-height:1.55;margin:0 0 20px;}
+.voice-hint em{color:#1976d2;font-style:italic;}
+.voice-mic-wrap{display:flex;justify-content:center;margin:10px 0 18px;}
+.voice-mic-btn{width:88px;height:88px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#1976d2,#0d47a1);color:#fff;font-size:2.4rem;line-height:88px;box-shadow:0 8px 30px rgba(13,71,161,0.4);transition:transform 0.15s,box-shadow 0.15s;}
+.voice-mic-btn:hover{transform:scale(1.04);}
+.voice-mic-btn.listening{background:linear-gradient(135deg,#c0272d,#8b1a1e);box-shadow:0 0 0 0 rgba(192,39,45,0.6);animation:voicePulse 1.4s infinite;}
+@keyframes voicePulse{0%,100%{box-shadow:0 0 0 0 rgba(192,39,45,0.55);}50%{box-shadow:0 0 0 18px rgba(192,39,45,0);}}
+.voice-status{font-family:'Barlow',sans-serif;font-size:0.92rem;color:rgba(13,9,5,0.7);min-height:24px;}
+.voice-transcript{margin-top:12px;font-family:'Barlow',sans-serif;font-size:1rem;font-weight:700;color:#0d47a1;min-height:24px;}
+
+/* ── ROSE-ANNETTE AI ASSISTANT ── */
+.ra-fab{position:fixed;bottom:24px;left:24px;z-index:900;display:inline-flex;align-items:center;gap:8px;padding:10px 16px 10px 12px;height:54px;border:none;cursor:pointer;border-radius:30px;background:linear-gradient(135deg,#7c3aed,#4f1d99);color:#fff;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;box-shadow:0 6px 22px rgba(76,29,149,0.45),0 0 0 4px rgba(255,255,255,0.6);transition:transform 0.2s,box-shadow 0.2s;}
+.ra-fab:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(76,29,149,0.6),0 0 0 4px rgba(255,255,255,0.7);}
+.ra-fab .ra-fab-icon{font-size:1.4rem;line-height:1;}
+.ra-chat{display:none;position:fixed;bottom:90px;left:24px;z-index:999;width:380px;height:520px;max-height:calc(100vh - 120px);border-radius:18px;overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,0.4);background:#fff;}
+.ra-chat.open{display:block;}
+.ra-chat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(135deg,#7c3aed,#4f1d99);color:#fff;}
+.ra-chat-title{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;}
+.ra-chat-close{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;padding:0 6px;line-height:1;}
+@media(max-width:640px){
+  .ra-fab{padding:10px 14px 10px 10px;font-size:0.7rem;}
+  .ra-fab .ra-fab-name{display:none;}
+  .ra-chat{width:calc(100vw - 24px);left:12px;right:12px;}
+}
+
 /* ── HELP BUTTON + MODAL ── */
 .help-fab{
   position:fixed;bottom:24px;right:24px;z-index:900;
@@ -1736,6 +1798,46 @@ if ('serviceWorker' in navigator) {
   </a>
 </div>
 
+<!-- ═══ VOICE SEARCH BUTTON (floating, bottom-right above Help) ═══ -->
+<button id="voice-fab" class="voice-fab" aria-label="Voice search" onclick="openVoiceSearch()" title="Voice search — say a day or topic">🎤</button>
+
+<!-- ═══ VOICE SEARCH MODAL ═══ -->
+<div id="voice-modal" class="voice-modal" onclick="if(event.target===this)closeVoiceSearch();" role="dialog" aria-hidden="true">
+  <div class="voice-modal-content">
+    <button class="voice-close" onclick="closeVoiceSearch()" aria-label="Close">×</button>
+    <div class="voice-eyebrow">Voice Search</div>
+    <h2 class="voice-title">Say a day or topic</h2>
+    <p class="voice-hint">Examples: <em>"Tuesday"</em>, <em>"EMS"</em>, <em>"Friday"</em>, <em>"Senior leadership"</em>, <em>"announcements"</em>, <em>"vendor expo"</em>, <em>"help"</em></p>
+    <div class="voice-mic-wrap">
+      <button id="voice-mic-btn" class="voice-mic-btn" aria-label="Start listening">🎤</button>
+    </div>
+    <div id="voice-status" class="voice-status">Tap the mic to start listening</div>
+    <div id="voice-transcript" class="voice-transcript"></div>
+  </div>
+</div>
+
+<!-- ═══ ROSE-ANNETTE AI ASSISTANT (floating, bottom-left) ═══ -->
+<button id="ra-fab" class="ra-fab" aria-label="Chat with Rose-Annette" onclick="toggleRoseAnnette()" title="Rose-Annette — CAFC AI Assistant">
+  <span class="ra-fab-icon">💬</span>
+  <span class="ra-fab-name">Rose-Annette</span>
+</button>
+<div id="ra-chat" class="ra-chat" aria-hidden="true">
+  <div class="ra-chat-header">
+    <span class="ra-chat-title">Rose-Annette · CAFC Assistant</span>
+    <button class="ra-chat-close" onclick="toggleRoseAnnette()" aria-label="Close">×</button>
+  </div>
+  <iframe
+    title="Rose-Annette: CAFC AI Assistant"
+    allowtransparency="true"
+    allow="geolocation; microphone; camera; fullscreen"
+    src="about:blank"
+    data-src="https://agent.jotform.com/01954aa6c95375a1b93b25f7a4284cf4f57f/voice?embedMode=iframe&autofocus=0&background=1&shadow=1"
+    frameborder="0"
+    id="ra-iframe"
+    style="width:100%;height:calc(100% - 44px);border:none;background:#fff;">
+  </iframe>
+</div>
+
 <!-- ═══ HELP BUTTON (floating) ═══ -->
 <button id="help-fab" class="help-fab" aria-label="Help" onclick="openHelp()">?</button>
 
@@ -1787,7 +1889,17 @@ if ('serviceWorker' in navigator) {
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">8</span> Offline Use</h3>
+      <h3><span class="help-step">8</span> Voice Search 🎤</h3>
+      <p>Tap the <strong>blue 🎤 button</strong> (above the Help button) and speak a day or topic — e.g., <em>"Friday"</em>, <em>"EMS"</em>, <em>"announcements"</em>. The app jumps to that section.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">9</span> Chat with Rose-Annette 💬</h3>
+      <p>Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She's the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">10</span> Offline Use</h3>
       <p>Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
     </section>
 
@@ -1810,7 +1922,114 @@ if ('serviceWorker' in navigator) {
 <script>
 function openHelp(){ var m=document.getElementById('help-modal'); m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
 function closeHelp(){ var m=document.getElementById('help-modal'); m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeHelp(); });
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape'){ closeHelp(); closeVoiceSearch(); }
+});
+
+// ── Welcome message (TTS) ──
+(function(){
+  if (!('speechSynthesis' in window)) return;
+  var WELCOME_KEY = 'cafc-2026-welcome-played';
+  var WELCOME_TEXT = "Welcome to the 2026 Caribbean Association of Fire Chiefs Annual Conference in the Dominican Republic. " +
+    "Please remember to complete the Strategic Plan Survey on the Announcements page, " +
+    "the End-of-Session Evaluation after each lecture, " +
+    "and the Overall Conference Evaluation on Friday after the last session. " +
+    "Your feedback helps us improve future conferences. Enjoy your time with us.";
+  var btn = document.getElementById('welcome-play');
+  if (!btn) return;
+  var playing = false;
+  function play(){
+    if (playing) { window.speechSynthesis.cancel(); playing=false; btn.classList.remove('playing'); btn.querySelector('.welcome-icon').textContent='▶'; return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(WELCOME_TEXT);
+    u.lang='en-US'; u.rate=0.96; u.pitch=1;
+    u.onend = function(){ playing=false; btn.classList.remove('playing'); btn.querySelector('.welcome-icon').textContent='▶'; localStorage.setItem(WELCOME_KEY,'1'); };
+    u.onerror = u.onend;
+    btn.classList.add('playing'); btn.querySelector('.welcome-icon').textContent='■';
+    playing = true;
+    window.speechSynthesis.speak(u);
+  }
+  btn.addEventListener('click', play);
+  // Auto-play once per device on first interaction
+  if (!localStorage.getItem(WELCOME_KEY)){
+    var triggered = false;
+    function autoTrigger(){
+      if (triggered) return; triggered = true;
+      setTimeout(play, 600);
+    }
+    document.addEventListener('click', autoTrigger, { once:true });
+    document.addEventListener('touchstart', autoTrigger, { once:true, passive:true });
+  }
+})();
+
+// ── Voice search ──
+function openVoiceSearch(){
+  var m = document.getElementById('voice-modal');
+  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  // Auto-start listening
+  setTimeout(function(){ document.getElementById('voice-mic-btn').click(); }, 400);
+}
+function closeVoiceSearch(){
+  var m = document.getElementById('voice-modal');
+  m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+  if (window._voiceRec) { try { window._voiceRec.stop(); } catch(e){} }
+}
+(function(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var btn = document.getElementById('voice-mic-btn');
+  var status = document.getElementById('voice-status');
+  var transcriptEl = document.getElementById('voice-transcript');
+  if (!btn) return;
+  if (!SR) {
+    btn.addEventListener('click', function(){ status.textContent = 'Voice search not supported on this browser. Try Chrome on Android or Safari on iOS.'; });
+    return;
+  }
+  var rec = new SR();
+  rec.lang = 'en-US';
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+  window._voiceRec = rec;
+  rec.onstart = function(){ btn.classList.add('listening'); status.textContent='Listening…'; transcriptEl.textContent=''; };
+  rec.onend   = function(){ btn.classList.remove('listening'); };
+  rec.onerror = function(e){ status.textContent = 'Error: ' + e.error; btn.classList.remove('listening'); };
+  rec.onresult = function(e){
+    var text = e.results[0][0].transcript.toLowerCase();
+    transcriptEl.textContent = '"' + e.results[0][0].transcript + '"';
+    var action = matchAction(text);
+    if (action) {
+      status.textContent = 'Going to: ' + action.label;
+      setTimeout(function(){ action.run(); closeVoiceSearch(); }, 700);
+    } else {
+      status.textContent = 'No matching day or topic — try again.';
+    }
+  };
+  btn.addEventListener('click', function(){
+    try { rec.start(); } catch(e) { /* already running */ }
+  });
+})();
+function matchAction(text){
+  function go(day, label){ return { label:label, run:function(){ var b=Array.prototype.find.call(document.querySelectorAll('.day-nav-btn'),function(x){return /switchDay26\('?'+day+/.test(x.getAttribute('onclick')||'');}); if(b) b.click(); else { var sec=document.getElementById('day-'+day); if(sec){ document.querySelectorAll('.day-section').forEach(function(s){s.classList.remove('active');}); sec.classList.add('active'); } } window.scrollTo({top:document.querySelector('.day-nav').offsetTop-10,behavior:'smooth'}); } }; }
+  if (/help|how|instruction/.test(text)) return { label:'Help', run:openHelp };
+  if (/announce|info|survey|strategic/.test(text)) return go('announce26','Announcements');
+  if (/sunday/.test(text)) return go('sun26','Sunday May 17');
+  if (/monday|german/.test(text)) return go('mon26','Monday May 18');
+  if (/tuesday|wednesday|thursday|track|leadership|senior|junior|ems/.test(text)) return go('tracks26','Tue–Thu Tracks');
+  if (/friday|ife|casa|incident command/.test(text)) return go('fri26','Friday May 22');
+  if (/saturday|closing/.test(text)) return go('sat26','Saturday May 23');
+  if (/vendor|expo/.test(text)) return go('vendor26','Vendor Expo');
+  return null;
+}
+
+// ── Rose-Annette ──
+function toggleRoseAnnette(){
+  var chat = document.getElementById('ra-chat');
+  var iframe = document.getElementById('ra-iframe');
+  var open = chat.classList.toggle('open');
+  chat.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if (open && iframe.src === 'about:blank') {
+    iframe.src = iframe.getAttribute('data-src');
+  }
+}
 </script>
 
 </body>
