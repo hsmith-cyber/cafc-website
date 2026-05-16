@@ -1,10 +1,20 @@
-const CACHE_NAME = 'cafc-2026-agenda-v1';
+const CACHE_NAME = 'cafc-2026-agenda-v2';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/icon-512.png',
+  './images/sponsors/rosenbauer.png',
+  './images/sponsors/indocom.jpg',
+  './images/sponsors/geomatica.jpg',
+  './images/sponsors/esri.png',
+  './images/sponsors/allen-co.gif',
+  './images/sponsors/angloco.jpg',
+  './images/sponsors/paladius.png',
+  './images/sponsors/irp.png',
+  './images/sponsors/holmatro.png',
+  './images/sponsors/eagle.png'
 ];
 
 self.addEventListener('install', (event) => {

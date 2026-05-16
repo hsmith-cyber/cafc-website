@@ -627,20 +627,60 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 /* DAY NAV */
 .day-nav{
   background:#fff;border-bottom:2px solid rgba(13,9,5,0.08);
-  position:sticky;top:64px;z-index:90;
+  position:sticky;top:0;z-index:90;
   box-shadow:0 2px 16px rgba(13,9,5,0.07);
 }
-.day-nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;}
-.day-nav-inner::-webkit-scrollbar{display:none;}
-.day-nav-btn{
-  padding:16px 28px;cursor:pointer;white-space:nowrap;
-  font-family:'Barlow',sans-serif;font-size:0.78rem;font-weight:700;
-  letter-spacing:0.12em;text-transform:uppercase;color:rgba(13,9,5,0.45);
-  border:none;background:transparent;border-bottom:3px solid transparent;
-  transition:color 0.2s,border-color 0.2s;flex-shrink:0;
+.day-nav-inner{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  padding:16px 14px;
+  max-width:760px;
+  margin:0 auto;
 }
-.day-nav-btn.active{color:var(--red);border-bottom-color:var(--red);}
-.day-nav-btn:hover:not(.active){color:rgba(13,9,5,0.75);}
+.day-nav-btn{
+  padding:12px 6px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  min-height:84px;
+  background:linear-gradient(135deg,#c0272d,#8b1a1e);
+  border:1.5px solid #8b1a1e;
+  border-radius:12px;
+  font-family:'Cinzel',serif;
+  box-shadow:0 3px 10px rgba(139,26,30,0.25);
+  transition:transform 0.15s,filter 0.15s,box-shadow 0.2s,background 0.25s,border-color 0.25s;
+}
+.day-nav-btn .dn-day{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.95);text-transform:uppercase;line-height:1;}
+.day-nav-btn .dn-date{font-size:1.5rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+.day-nav-btn .dn-sub{font-size:0.6rem;font-weight:700;letter-spacing:0.16em;color:#f7d99a;text-transform:uppercase;line-height:1;opacity:0.95;}
+.day-nav-btn:hover:not(.active):not(.day-nav-info){filter:brightness(1.08);transform:translateY(-1px);}
+.day-nav-btn.active{
+  background:linear-gradient(135deg,#2e9e4a,#1b6e30);
+  border-color:#1b6e30;
+  box-shadow:0 6px 18px rgba(46,158,74,0.4);
+  transform:translateY(-1px);
+}
+.day-nav-btn.active .dn-sub{color:#d9f3e0;}
+.day-nav-info{
+  cursor:default;
+  background:linear-gradient(135deg,#2e9e4a,#1b6e30);
+  border-color:#1b6e30;
+  box-shadow:0 6px 18px rgba(46,158,74,0.4);
+  position:relative;
+}
+.day-nav-info .dn-sub{color:#d9f3e0;}
+.day-nav-info .live-dot{
+  position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;
+  background:#a8ffba;box-shadow:0 0 0 0 rgba(168,255,186,0.7);
+  animation:livePulse 1.6s infinite;
+}
+@media(max-width:640px){
+  .day-nav-inner{grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 10px;}
+  .day-nav-btn{min-height:74px;padding:10px 4px;}
+  .day-nav-btn .dn-date{font-size:1.25rem;}
+}
+@media(max-width:380px){
+  .day-nav-inner{grid-template-columns:repeat(2,1fr);}
+}
 
 /* DAY SECTIONS */
 .day-section{display:none;padding:60px 0 80px;}
@@ -804,11 +844,6 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="hero-stat"><div class="hs-val">15+</div><div class="hs-lbl">Speakers</div></div>
     </div>
 
-    <div id="live-users-badge" class="live-users-badge" style="display:none;">
-      <span class="live-dot"></span>
-      <span class="live-lbl">App Users</span>
-      <span class="live-count"><span id="unique-user-count">—</span></span>
-    </div>
 
     </div>
 </section>
@@ -817,14 +852,15 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 <div class="year-panel year-panel-only active" id="year-2026">
 
   <div class="day-nav">
-    <div class="day-nav-inner container">
-      <button class="day-nav-btn" onclick="switchDay26('announce26',this)">📣 Announcements</button>
-      <button class="day-nav-btn active" onclick="switchDay26('sun26',this)">Sun May 17</button>
-      <button class="day-nav-btn" onclick="switchDay26('mon26',this)">Mon May 18</button>
-      <button class="day-nav-btn" onclick="switchDay26('tracks26',this)">Tue–Thu · Sessions</button>
-      <button class="day-nav-btn" onclick="switchDay26('fri26',this)">Fri May 22 · IFE-CASA</button>
-      <button class="day-nav-btn" onclick="switchDay26('vendor26',this)">Vendor Schedule</button>
-      <button class="day-nav-btn" onclick="switchDay26('sat26',this)">Sat May 23 · Closing</button>
+    <div class="day-nav-inner">
+      <button class="day-nav-btn active" onclick="switchDay26('sun26',this)"><span class="dn-day">Sun</span><span class="dn-date">May 17</span><span class="dn-sub">Arrival</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('mon26',this)"><span class="dn-day">Mon</span><span class="dn-date">May 18</span><span class="dn-sub">Opening</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('tracks26',this)"><span class="dn-day">Tue–Thu</span><span class="dn-date">19–21</span><span class="dn-sub">Tracks</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('fri26',this)"><span class="dn-day">Fri</span><span class="dn-date">May 22</span><span class="dn-sub">IFE-CASA</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('sat26',this)"><span class="dn-day">Sat</span><span class="dn-date">May 23</span><span class="dn-sub">Closing</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('vendor26',this)"><span class="dn-day">Vendor</span><span class="dn-date">Expo</span><span class="dn-sub">All Days</span></button>
+      <button class="day-nav-btn" onclick="switchDay26('announce26',this)"><span class="dn-day">📣 Info</span><span class="dn-date">Notes</span><span class="dn-sub">Announcements</span></button>
+      <div id="live-users-badge" class="day-nav-btn day-nav-info" aria-label="App users so far"><span class="live-dot"></span><span class="dn-day">App Users</span><span class="dn-date"><span id="unique-user-count">—</span></span><span class="dn-sub">Live</span></div>
     </div>
   </div>
 
@@ -1214,6 +1250,40 @@ document.addEventListener('keydown',function(e){
 .overall-eval-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(192,39,45,0.45);}
 .overall-eval-btn .star{font-size:1.1rem;}
 .overall-eval-count{background:#fff;border:1.5px solid #fff;color:#c0272d;min-width:30px;height:26px;font-size:0.82rem;}
+/* ── PARTNERS STRIP ── */
+.partners-strip{background:linear-gradient(180deg,#fbf7ec 0%,#f3ecdc 100%);border-top:1px solid rgba(160,110,31,0.25);padding:40px 18px 36px;text-align:center;}
+.partners-eyebrow{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:#a06e1f;margin-bottom:8px;}
+.partners-title{font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:#8b1a1e;margin:0 0 28px;letter-spacing:0.02em;}
+.partners-title em{font-style:normal;color:#a06e1f;}
+.partners-tier{margin-bottom:24px;}
+.partners-tier:last-child{margin-bottom:0;}
+.partners-tier-label{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#7a6649;margin-bottom:12px;}
+.partners-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px;}
+.partner-logo{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(13,9,5,0.08);border-radius:10px;padding:12px 16px;box-shadow:0 2px 8px rgba(13,9,5,0.06);transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;}
+.partner-logo:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(13,9,5,0.12);border-color:rgba(160,110,31,0.35);}
+.partner-logo img{display:block;object-fit:contain;}
+.partner-diamond{padding:26px 32px;border:2px solid rgba(212,168,67,0.55);box-shadow:0 6px 24px rgba(212,168,67,0.22),0 2px 10px rgba(13,9,5,0.08);}
+.partner-diamond img{max-width:340px;max-height:170px;}
+.partner-platinum{padding:22px 26px;border:1.5px solid rgba(142,158,171,0.5);}
+.partner-platinum img{max-width:280px;max-height:140px;}
+.partner-gold{padding:20px 22px;border:1.5px solid rgba(200,153,26,0.45);}
+.partner-gold img{max-width:220px;max-height:110px;}
+.partner-silver{padding:18px 20px;border:1.5px solid rgba(142,158,171,0.4);}
+.partner-silver img{max-width:200px;max-height:100px;}
+.partner-bronze{padding:18px 20px;border:1.5px solid rgba(160,82,45,0.35);}
+.partner-bronze img{max-width:200px;max-height:100px;}
+.partner-exhibitor.partner-text{padding:18px 28px;font-family:'Cinzel',serif;font-size:0.92rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5d4a36;text-decoration:none;border:1px solid rgba(93,74,54,0.3);}
+@media(max-width:520px){
+  .partner-diamond{padding:20px 22px;}
+  .partner-diamond img{max-width:260px;max-height:130px;}
+  .partner-platinum{padding:18px 20px;}
+  .partner-platinum img{max-width:220px;max-height:110px;}
+  .partner-gold{padding:16px 18px;}
+  .partner-gold img{max-width:170px;max-height:88px;}
+  .partner-silver,.partner-bronze{padding:14px 16px;}
+  .partner-silver img,.partner-bronze img{max-width:160px;max-height:80px;}
+  .partners-row{gap:14px;}
+}
 .strategic-banner{display:block;text-decoration:none;margin-bottom:32px;padding:36px 32px;background:linear-gradient(135deg,#a06e1f 0%,#c4922a 60%,#e8be5a 100%);border-radius:18px;color:#fff !important;box-shadow:0 14px 36px rgba(160,110,31,0.4),inset 0 1px 0 rgba(255,255,255,0.2);position:relative;overflow:hidden;text-align:center;border:3px solid rgba(255,255,255,0.25);transition:transform 0.2s,box-shadow 0.2s;animation:strategicPulse 2.5s ease-in-out infinite;}
 .strategic-banner::before{content:'';position:absolute;top:-40%;left:-40%;width:180%;height:180%;background:radial-gradient(circle,rgba(255,255,255,0.18) 0%,transparent 55%);pointer-events:none;}
 .strategic-banner:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(160,110,31,0.55),inset 0 1px 0 rgba(255,255,255,0.25);}
@@ -1440,8 +1510,6 @@ if ('serviceWorker' in navigator) {
     if (d && typeof d.count !== 'undefined') {
       var elU = document.getElementById('unique-user-count');
       if (elU) elU.textContent = d.count.toLocaleString();
-      var liveBadge = document.getElementById('live-users-badge');
-      if (liveBadge) liveBadge.style.display = 'inline-flex';
     }
   }).catch(function(){});
 
@@ -1458,6 +1526,59 @@ if ('serviceWorker' in navigator) {
     }).catch(function(){});
 })();
 </script>
+
+<!-- ═══ PARTNERS STRIP ═══ -->
+<section class="partners-strip">
+  <div class="partners-eyebrow">2026 Conference Partners</div>
+  <h3 class="partners-title">Thank You to Our <em>Sponsors</em></h3>
+
+  <div class="partners-tier" data-tier="diamond">
+    <div class="partners-tier-label">💎 Diamond</div>
+    <div class="partners-row">
+      <a href="https://www.rosenbauer.com/" target="_blank" rel="noopener" class="partner-logo partner-diamond"><img src="images/sponsors/rosenbauer.png" alt="Rosenbauer" loading="lazy"></a>
+      <a href="https://indocomlimited.com/" target="_blank" rel="noopener" class="partner-logo partner-diamond"><img src="images/sponsors/indocom.jpg" alt="Indocom Ltd." loading="lazy"></a>
+    </div>
+  </div>
+
+  <div class="partners-tier" data-tier="platinum">
+    <div class="partners-tier-label">🏆 Platinum</div>
+    <div class="partners-row">
+      <div class="partner-logo partner-platinum" title="Geomatica y Technologia"><img src="images/sponsors/geomatica.jpg" alt="Geomatica y Technologia" loading="lazy"></div>
+      <a href="https://www.esri.com/en-us/home" target="_blank" rel="noopener" class="partner-logo partner-platinum"><img src="images/sponsors/esri.png" alt="ESRI" loading="lazy"></a>
+    </div>
+  </div>
+
+  <div class="partners-tier" data-tier="gold">
+    <div class="partners-tier-label">🥇 Gold</div>
+    <div class="partners-row">
+      <a href="https://allenandco.ca/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/allen-co.gif" alt="Allen &amp; Co" loading="lazy"></a>
+      <a href="https://angloco.co.uk/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/angloco.jpg" alt="Angloco" loading="lazy"></a>
+      <a href="https://www.paladius.com/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/paladius.png" alt="Paladius" loading="lazy"></a>
+      <a href="https://irpltd.com/" target="_blank" rel="noopener" class="partner-logo partner-gold"><img src="images/sponsors/irp.png" alt="IRP Fire &amp; Safety" loading="lazy"></a>
+    </div>
+  </div>
+
+  <div class="partners-tier" data-tier="silver">
+    <div class="partners-tier-label">🥈 Silver</div>
+    <div class="partners-row">
+      <a href="https://www.holmatro.com/en" target="_blank" rel="noopener" class="partner-logo partner-silver"><img src="images/sponsors/holmatro.png" alt="Holmatro" loading="lazy"></a>
+    </div>
+  </div>
+
+  <div class="partners-tier" data-tier="bronze">
+    <div class="partners-tier-label">🥉 Bronze</div>
+    <div class="partners-row">
+      <div class="partner-logo partner-bronze" title="Eagle International Group of Companies"><img src="images/sponsors/eagle.png" alt="Eagle International Group of Companies" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="partners-tier" data-tier="exhibitor">
+    <div class="partners-tier-label">🏷️ Exhibitor</div>
+    <div class="partners-row">
+      <a href="https://www.aluminium-boats.com/" target="_blank" rel="noopener" class="partner-logo partner-exhibitor partner-text">Aluminium Marine Consultants Ltd.</a>
+    </div>
+  </div>
+</section>
 
 <div style="text-align:center;padding:20px 16px 40px;font-family:'Barlow',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:rgba(13,9,5,0.5);text-transform:uppercase;">
   &copy; 2026 Caribbean Association of Fire Chiefs ·
