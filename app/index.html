@@ -846,8 +846,8 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <div class="welcome-line">Tap ▶ to hear a quick welcome and survey reminder</div>
       </div>
       <div class="welcome-lang" role="group" aria-label="Language">
-        <button class="lang-pill active" data-lang="en" aria-pressed="true">EN</button>
-        <button class="lang-pill" data-lang="sp" aria-pressed="false">SP</button>
+        <button class="lang-pill active" data-lang="en" aria-pressed="true">English</button>
+        <button class="lang-pill" data-lang="sp" aria-pressed="false">Spanish</button>
       </div>
       <audio id="welcome-audio-en" preload="auto" src="audio/welcome-en.mp3"></audio>
       <audio id="welcome-audio-sp" preload="auto" src="audio/welcome-sp.mp3"></audio>
@@ -1286,7 +1286,7 @@ document.addEventListener('keydown',function(e){
 .welcome-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#f0c040;}
 .welcome-line{font-family:'Barlow',sans-serif;font-size:0.88rem;color:#f8f5f0;line-height:1.4;margin-top:2px;}
 .welcome-lang{display:inline-flex;gap:4px;flex-shrink:0;background:rgba(0,0,0,0.25);border:1px solid rgba(232,190,90,0.35);border-radius:30px;padding:3px;}
-.lang-pill{padding:5px 11px;border:none;background:transparent;color:rgba(248,245,240,0.75);font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;border-radius:20px;cursor:pointer;transition:background 0.2s,color 0.2s;}
+.lang-pill{padding:6px 14px;border:none;background:transparent;color:rgba(248,245,240,0.75);font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:20px;cursor:pointer;transition:background 0.2s,color 0.2s;}
 .lang-pill.active{background:linear-gradient(135deg,#c4922a,#a06e1f);color:#fff;box-shadow:0 2px 6px rgba(160,110,31,0.4);}
 .lang-pill:not(.active):hover{color:#f0c040;}
 @media(max-width:520px){
