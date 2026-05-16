@@ -7,11 +7,11 @@
   <meta http-equiv="Content-Language" content="en"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
   <title>CAFC 2026 Agenda</title>
-  <meta name="theme-color" content="#0d0905"/>
+  <meta name="theme-color" content="#c0272d"/>
   <link rel="manifest" href="manifest.json"/>
   <link rel="apple-touch-icon" href="icons/icon-192.png"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
   <meta name="apple-mobile-web-app-title" content="CAFC 2026"/>
   <meta name="author" content="Global Emergency Services Consulting Group (GESCG) — www.gescg.org"/>
 <meta name="description" content="Full agenda for the 2026 CAFC Annual Conference in the Dominican Republic — leadership academies, EMS training, firefighter challenges, and more."/>
@@ -35,17 +35,17 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --red:#e8454b;
-  --red-dk:#c0272d;
-  --red-lt:#ff6b70;
-  --gold:#d4a23c;
-  --gold-lt:#e8be5a;
-  --dark:#0d0905;
-  --dark2:#1a120a;
-  --dark3:#241910;
-  --mid:#3d2e1f;
-  --white:#f8f5f0;
-  --muted:rgba(13,9,5,0.72);
+  --red:#c0272d;
+  --red-dk:#8b1a1e;
+  --red-lt:#e8454b;
+  --gold:#a06e1f;
+  --gold-lt:#c4922a;
+  --dark:#f8f5f0;
+  --dark2:#eee9e0;
+  --dark3:#e5dfd5;
+  --mid:#d4cdc4;
+  --white:#0d0905;
+  --muted:rgba(13,9,5,0.65);
 }
 
 html{scroll-behavior:smooth}
@@ -63,7 +63,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:72px;
-  background:rgba(13,9,5,0.97);
+  background:rgba(248,245,240,0.97);
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(192,39,45,0.25);box-shadow:0 2px 16px rgba(0,0,0,0.08);
   transition:all 0.3s;
@@ -74,7 +74,7 @@ nav{
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{
   font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:rgba(248,245,240,0.85);text-decoration:none;font-weight:600;
+  color:rgba(13,9,5,0.85);text-decoration:none;font-weight:600;
   transition:color 0.2s;position:relative;padding-bottom:4px;
 }
 .nav-links a::after{
@@ -90,7 +90,7 @@ nav{
 .nav-dropdown>a{display:flex;align-items:center}
 .nav-dropdown-menu{
   display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  min-width:160px;background:var(--dark2);border-radius:8px;
+  min-width:160px;background:#fff;border-radius:8px;
   box-shadow:0 8px 32px rgba(0,0,0,0.12);padding:8px 0;padding-top:16px;margin-top:0;
   list-style:none;z-index:1000;
 }
@@ -99,11 +99,11 @@ nav{
 }
 .nav-dropdown-menu::after{
   content:'';position:absolute;top:16px;left:50%;transform:translateX(-50%) translateY(-100%);
-  border:8px solid transparent;border-bottom-color:var(--dark2);
+  border:8px solid transparent;border-bottom-color:#fff;
 }
 .nav-dropdown-menu li a{
   display:block;padding:8px 20px;font-size:0.72rem;letter-spacing:0.15em;
-  text-transform:uppercase;color:rgba(248,245,240,0.85);text-decoration:none;
+  text-transform:uppercase;color:rgba(13,9,5,0.85);text-decoration:none;
   font-weight:600;transition:color 0.2s,background 0.2s;white-space:nowrap;
 }
 .nav-dropdown-menu li a:hover{color:var(--red);background:rgba(160,110,31,0.06)}
@@ -120,7 +120,7 @@ body>.skiptranslate{display:none !important;}
   font-family:'Barlow',sans-serif !important;font-size:0.68rem !important;
   font-weight:600 !important;letter-spacing:0.08em !important;
   text-transform:uppercase !important;
-  background:var(--dark2);border:1px solid var(--gold,#a06e1f);color:var(--text,#0d0905);
+  background:#fff;border:1px solid var(--gold,#a06e1f);color:var(--text,#0d0905);
   padding:6px 10px;border-radius:4px;cursor:pointer;outline:none;
   -webkit-appearance:auto;appearance:auto;
 }
@@ -159,21 +159,21 @@ body>.skiptranslate{display:none !important;}
 .nav-search-btn{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;}
 .nav-search-btn:hover{opacity:0.7;}
 .nav-search-btn svg{width:20px;height:20px;stroke:var(--white,#0d0905);stroke-width:2;fill:none;}
-.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,245,240,0.85);backdrop-filter:blur(8px);z-index:200;align-items:flex-start;justify-content:center;padding-top:120px;}
+.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,9,5,0.85);backdrop-filter:blur(8px);z-index:200;align-items:flex-start;justify-content:center;padding-top:120px;}
 .search-overlay.open{display:flex;}
 .search-box{width:90%;max-width:560px;position:relative;}
-.search-box input{width:100%;padding:16px 48px 16px 20px;font-family:'Barlow',sans-serif;font-size:1rem;font-weight:500;border:2px solid var(--gold,#a06e1f);border-radius:8px;background:rgba(13,9,5,0.97);color:var(--white);outline:none;letter-spacing:0.02em;}
-.search-box input::placeholder{color:rgba(248,245,240,0.45);}
+.search-box input{width:100%;padding:16px 48px 16px 20px;font-family:'Barlow',sans-serif;font-size:1rem;font-weight:500;border:2px solid var(--gold,#a06e1f);border-radius:8px;background:rgba(248,245,240,0.97);color:#0d0905;outline:none;letter-spacing:0.02em;}
+.search-box input::placeholder{color:rgba(13,9,5,0.45);}
 .search-box input:focus{border-color:var(--red,#c0272d);box-shadow:0 0 0 3px rgba(192,39,45,0.15);}
-.search-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.3rem;color:rgba(248,245,240,0.5);transition:color 0.2s;}
+.search-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.3rem;color:rgba(13,9,5,0.5);transition:color 0.2s;}
 .search-close:hover{color:var(--red,#c0272d);}
-.search-results{margin-top:12px;background:rgba(13,9,5,0.97);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
-.search-results a{display:flex;align-items:center;gap:12px;padding:14px 20px;text-decoration:none;color:var(--white);font-weight:500;font-size:0.92rem;border-bottom:1px solid rgba(248,245,240,0.08);transition:background 0.15s;}
+.search-results{margin-top:12px;background:rgba(248,245,240,0.97);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+.search-results a{display:flex;align-items:center;gap:12px;padding:14px 20px;text-decoration:none;color:#0d0905;font-weight:500;font-size:0.92rem;border-bottom:1px solid rgba(13,9,5,0.08);transition:background 0.15s;}
 .search-results a:last-child{border-bottom:none;}
 .search-results a:hover{background:rgba(192,39,45,0.08);}
 .search-results a .sr-icon{font-size:1.1rem;flex-shrink:0;}
 .search-results a .sr-label{letter-spacing:0.02em;}
-.search-results .no-results{padding:14px 20px;color:rgba(248,245,240,0.5);font-size:0.92rem;}
+.search-results .no-results{padding:14px 20px;color:rgba(13,9,5,0.5);font-size:0.92rem;}
 
 
 /* ── COUNTDOWN BANNER ── */
@@ -198,7 +198,7 @@ body>.skiptranslate{display:none !important;}
 .countdown-timer{display:flex;gap:6px;align-items:center;}
 .countdown-unit{
   display:flex;flex-direction:column;align-items:center;
-  background:rgba(13,9,5,0.08);border-radius:6px;padding:4px 10px;min-width:48px;
+  background:rgba(248,245,240,0.08);border-radius:6px;padding:4px 10px;min-width:48px;
 }
 .countdown-num{
   font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#f8f5f0;
@@ -206,9 +206,9 @@ body>.skiptranslate{display:none !important;}
 }
 .countdown-lbl{
   font-family:'Barlow',sans-serif;font-size:0.55rem;font-weight:600;
-  letter-spacing:0.12em;text-transform:uppercase;color:rgba(13,9,5,0.5);
+  letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,245,240,0.5);
 }
-.countdown-sep{color:rgba(13,9,5,0.3);font-size:1.1rem;font-weight:700;margin:0 2px;}
+.countdown-sep{color:rgba(248,245,240,0.3);font-size:1.1rem;font-weight:700;margin:0 2px;}
 .countdown-cta{
   font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;
@@ -254,7 +254,7 @@ body>.skiptranslate{display:none !important;}
   clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
 }
 .btn-outline:hover{background:rgba(160,110,31,0.1);transform:translateY(-2px);box-shadow:0 8px 32px rgba(160,110,31,0.2)}
-.btn-white{background:var(--dark2);color:var(--red-dk);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-white{background:#fff;color:var(--red-dk);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
 .btn-white:hover{background:#f0ece7;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
 
 /* ══════════════════════════════
@@ -352,7 +352,7 @@ section{padding:100px 0}
 .page-hero-sub{
   font-weight:300;font-size:clamp(0.85rem,1.6vw,1.05rem);
   letter-spacing:0.16em;text-transform:uppercase;
-  color:rgba(13,9,5,0.7);
+  color:rgba(248,245,240,0.7);
   animation:fadeUp 0.9s ease 0.7s both;
 }
 
@@ -382,7 +382,7 @@ section{padding:100px 0}
 /* ── TIER GROUPS ── */
 .tier-group{margin-bottom:64px;}
 .tier-group:last-child{margin-bottom:0;}
-.tier-heading{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(248,245,240,0.12);}
+.tier-heading{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(13,9,5,0.12);}
 .tier-heading-icon{font-size:2rem;line-height:1;}
 .tier-heading-label{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;}
 .tier-heading-diamond .tier-heading-label{color:var(--gold);text-shadow:0 0 20px rgba(212,168,67,0.3);}
@@ -411,10 +411,10 @@ section{padding:100px 0}
   padding:28px 20px;
   overflow:hidden;
 }
-.flip-card-front{background:var(--dark2);border:1px solid rgba(248,245,240,0.08);box-shadow:0 4px 20px rgba(248,245,240,0.08);}
+.flip-card-front{background:#fff;border:1px solid rgba(13,9,5,0.08);box-shadow:0 4px 20px rgba(13,9,5,0.08);}
 .flip-card-back{background:var(--red);color:#fff;transform:rotateY(180deg);-webkit-transform:rotateY(180deg);}
 .flip-card-back .sponsor-name{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:18px;text-align:center;line-height:1.3;}
-.flip-card-back .visit-btn{background:var(--dark2);color:var(--red);padding:12px 28px;font-size:0.8rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:opacity 0.2s;}
+.flip-card-back .visit-btn{background:#fff;color:var(--red);padding:12px 28px;font-size:0.8rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:opacity 0.2s;}
 .flip-card-back .visit-btn:hover{opacity:0.85;}
 
 /* ── TIER BADGE ── */
@@ -433,7 +433,7 @@ section{padding:100px 0}
 /* ── CARD FRONT ACCENTS BY TIER ── */
 .tier-grid-diamond .flip-card-front{
   border:1px solid rgba(212,168,67,0.28);
-  box-shadow:0 0 0 1px rgba(212,168,67,0.1),0 4px 24px rgba(248,245,240,0.1),0 0 40px rgba(212,168,67,0.07);
+  box-shadow:0 0 0 1px rgba(212,168,67,0.1),0 4px 24px rgba(13,9,5,0.1),0 0 40px rgba(212,168,67,0.07);
 }
 .tier-grid-diamond .flip-card-front::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red),var(--gold));border-radius:14px 14px 0 0;}
 .tier-grid-gold .flip-card-front::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#C8991A;border-radius:14px 14px 0 0;}
@@ -472,7 +472,7 @@ section{padding:100px 0}
 }
 .thankyou-text{
   font-weight:300;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.9;
-  color:rgba(248,245,240,0.82);font-style:italic;margin-bottom:36px;
+  color:rgba(13,9,5,0.82);font-style:italic;margin-bottom:36px;
 }
 .thankyou-rule{
   width:40px;height:1px;background:linear-gradient(90deg,var(--gold),var(--red));
@@ -542,7 +542,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   padding-top:16px;border-top:1px solid rgba(26,20,16,0.1);
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
 }
-.footer-bottom p{font-size:0.8rem;color:rgba(248,245,240,0.55);letter-spacing:0.05em;font-weight:500}
+.footer-bottom p{font-size:0.8rem;color:rgba(13,9,5,0.55);letter-spacing:0.05em;font-weight:500}
 .social-links{display:flex;gap:12px}
 .social-link{
   width:34px;height:34px;border:1px solid rgba(26,20,16,0.25);
@@ -605,14 +605,14 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 .agenda-hero .eyebrow{display:inline-block;font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.35);padding:6px 20px;border-radius:20px;margin-bottom:22px;}
 .agenda-hero h1{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:#f8f5f0;letter-spacing:0.04em;line-height:1.15;margin-bottom:14px;}
 .agenda-hero h1 em{color:var(--gold);font-style:normal;}
-.agenda-hero .location-tag{font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(13,9,5,0.55);margin-bottom:36px;letter-spacing:0.05em;}
-.agenda-hero .location-tag strong{color:rgba(13,9,5,0.85);}
+.agenda-hero .location-tag{font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(248,245,240,0.55);margin-bottom:36px;letter-spacing:0.05em;}
+.agenda-hero .location-tag strong{color:rgba(248,245,240,0.85);}
 
 /* YEAR TABS */
 .year-tabs{display:inline-flex;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:50px;padding:5px;gap:4px;}
-.year-tab{padding:13px 44px;border-radius:50px;cursor:pointer;font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(13,9,5,0.45);border:none;background:transparent;transition:all 0.25s;}
+.year-tab{padding:13px 44px;border-radius:50px;cursor:pointer;font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(248,245,240,0.45);border:none;background:transparent;transition:all 0.25s;}
 .year-tab.active{background:var(--red);color:#fff;box-shadow:0 4px 20px rgba(192,39,45,0.4);}
-.year-tab:not(.active):hover{color:rgba(13,9,5,0.85);}
+.year-tab:not(.active):hover{color:rgba(248,245,240,0.85);}
 
 /* EVENT OVERVIEW BAND */
 .overview-band{background:var(--red);padding:32px 0;}
@@ -628,42 +628,42 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 
 /* DAY NAV */
 .day-nav{
-  background:var(--dark2);border-bottom:2px solid rgba(248,245,240,0.08);
+  background:#fff;border-bottom:2px solid rgba(13,9,5,0.08);
   position:sticky;top:64px;z-index:90;
-  box-shadow:0 2px 16px rgba(248,245,240,0.07);
+  box-shadow:0 2px 16px rgba(13,9,5,0.07);
 }
 .day-nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;}
 .day-nav-inner::-webkit-scrollbar{display:none;}
 .day-nav-btn{
   padding:16px 28px;cursor:pointer;white-space:nowrap;
   font-family:'Barlow',sans-serif;font-size:0.78rem;font-weight:700;
-  letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,245,240,0.45);
+  letter-spacing:0.12em;text-transform:uppercase;color:rgba(13,9,5,0.45);
   border:none;background:transparent;border-bottom:3px solid transparent;
   transition:color 0.2s,border-color 0.2s;flex-shrink:0;
 }
 .day-nav-btn.active{color:var(--red);border-bottom-color:var(--red);}
-.day-nav-btn:hover:not(.active){color:rgba(248,245,240,0.75);}
+.day-nav-btn:hover:not(.active){color:rgba(13,9,5,0.75);}
 
 /* DAY SECTIONS */
 .day-section{display:none;padding:60px 0 80px;}
 .day-section.active{display:block;}
 .day-header{margin-bottom:40px;}
 .day-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;color:var(--white);letter-spacing:0.04em;}
-.day-date{font-family:'Barlow',sans-serif;font-size:0.82rem;color:rgba(248,245,240,0.5);letter-spacing:0.1em;margin-top:4px;}
+.day-date{font-family:'Barlow',sans-serif;font-size:0.82rem;color:rgba(13,9,5,0.5);letter-spacing:0.1em;margin-top:4px;}
 
 /* SCHEDULE TABLE */
-.sched-table{width:100%;border-collapse:collapse;background:var(--dark2);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(248,245,240,0.08);}
-.sched-table thead th{padding:14px 20px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(248,245,240,0.5);text-align:left;background:rgba(248,245,240,0.03);border-bottom:2px solid rgba(248,245,240,0.08);}
-.sched-table tbody tr{border-bottom:1px solid rgba(248,245,240,0.06);transition:background 0.15s;}
+.sched-table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(13,9,5,0.08);}
+.sched-table thead th{padding:14px 20px;font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(13,9,5,0.5);text-align:left;background:rgba(13,9,5,0.03);border-bottom:2px solid rgba(13,9,5,0.08);}
+.sched-table tbody tr{border-bottom:1px solid rgba(13,9,5,0.06);transition:background 0.15s;}
 .sched-table tbody tr:last-child{border-bottom:none;}
 .sched-table tbody tr:hover{background:rgba(192,39,45,0.025);}
-.sched-table td{padding:14px 20px;font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(248,245,240,0.75);vertical-align:top;}
-.sched-table .td-time{white-space:nowrap;font-weight:700;color:var(--white);min-width:140px;font-size:1rem;}
-.sched-table .td-session{font-weight:600;color:var(--white);font-size:1.1rem;}
-.sched-table .td-speaker{color:rgba(248,245,240,0.55);font-style:italic;font-size:0.95rem;}
+.sched-table td{padding:14px 20px;font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(13,9,5,0.75);vertical-align:top;}
+.sched-table .td-time{white-space:nowrap;font-weight:700;color:#0d0905;min-width:140px;font-size:1rem;}
+.sched-table .td-session{font-weight:600;color:#0d0905;font-size:1.1rem;}
+.sched-table .td-speaker{color:rgba(13,9,5,0.55);font-style:italic;font-size:0.95rem;}
 .td-virtual{display:inline-flex;align-items:center;gap:6px;background:#1a8aa3;color:#fff;font-weight:700;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;}
 .td-virtual svg{width:12px;height:12px;fill:currentColor;}
-.sched-table .td-note{color:rgba(248,245,240,0.55);font-size:0.85rem;margin-top:4px;}
+.sched-table .td-note{color:rgba(13,9,5,0.55);font-size:0.85rem;margin-top:4px;}
 
 /* TRACK TABS */
 .track-tabs{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
@@ -671,7 +671,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   padding:11px 24px;border-radius:6px;cursor:pointer;
   font-family:'Barlow',sans-serif;font-size:0.78rem;font-weight:800;
   letter-spacing:0.15em;text-transform:uppercase;border:2px solid transparent;
-  transition:all 0.2s;background:rgba(248,245,240,0.05);color:rgba(248,245,240,0.55);
+  transition:all 0.2s;background:rgba(13,9,5,0.05);color:rgba(13,9,5,0.55);
 }
 .track-tab.track-senior{border-color:var(--track-senior);color:var(--track-senior);}
 .track-tab.track-junior{border-color:var(--track-junior);color:var(--track-junior);}
@@ -687,7 +687,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 .track-day.active{display:block;}
 
 /* TRACK HEADER */
-.track-header{border-radius:14px;overflow:hidden;margin-bottom:28px;box-shadow:0 4px 24px rgba(248,245,240,0.1);}
+.track-header{border-radius:14px;overflow:hidden;margin-bottom:28px;box-shadow:0 4px 24px rgba(13,9,5,0.1);}
 .track-header-top{padding:28px 32px;color:#fff;}
 .track-header-top.senior{background:linear-gradient(135deg,#8b0000,var(--track-senior));}
 .track-header-top.junior{background:linear-gradient(135deg,#8a6510,var(--track-junior));}
@@ -702,39 +702,39 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
   padding:9px 22px;border-radius:6px;cursor:pointer;
   font-family:'Barlow',sans-serif;font-size:0.75rem;font-weight:700;
   letter-spacing:0.12em;text-transform:uppercase;
-  background:rgba(248,245,240,0.05);color:rgba(248,245,240,0.5);border:none;
+  background:rgba(13,9,5,0.05);color:rgba(13,9,5,0.5);border:none;
   transition:all 0.2s;
 }
 .day-sub-tab.active{background:var(--red);color:#fff;}
 
 /* VENDOR CARD */
-.vendor-card{background:var(--dark2);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(248,245,240,0.08);margin-bottom:32px;}
+.vendor-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(13,9,5,0.08);margin-bottom:32px;}
 .vendor-card-header{background:linear-gradient(135deg,#3d2c00,#6b4c00);padding:22px 28px;border-bottom:3px solid var(--gold);}
 .vendor-card-header h3{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin:0;}
 
 /* CHALLENGE CARDS */
 .challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;}
-.challenge-card{background:var(--dark2);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(248,245,240,0.08);}
+.challenge-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(13,9,5,0.08);}
 .challenge-card-header{padding:22px 28px;color:#fff;}
 .challenge-card-header.ems{background:linear-gradient(135deg,#0d3a80,var(--track-ems));}
 .challenge-card-header.fire{background:linear-gradient(135deg,#8b0000,var(--track-senior));}
 .challenge-card-header h3{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0;}
 .challenge-body{padding:22px 28px;}
-.challenge-detail{font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;}
-.challenge-detail strong{color:var(--white);}
+.challenge-detail{font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;}
+.challenge-detail strong{color:#0d0905;}
 .station-list{list-style:none;padding:0;margin:0;}
-.station-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(248,245,240,0.06);font-family:'Barlow',sans-serif;font-size:0.83rem;color:rgba(248,245,240,0.72);}
+.station-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(13,9,5,0.06);font-family:'Barlow',sans-serif;font-size:0.83rem;color:rgba(13,9,5,0.72);}
 .station-list li:last-child{border-bottom:none;}
 .station-num{background:var(--red);color:#fff;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 
 /* ANNOUNCEMENTS */
 .announce-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
-.announce-card{background:var(--dark2);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(248,245,240,0.07);}
+.announce-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(13,9,5,0.07);}
 .announce-card-header{background:linear-gradient(135deg,#0d0905,#1f0e05);padding:18px 24px;border-bottom:2px solid var(--red);}
 .announce-card-header h3{font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;color:#f8f5f0;letter-spacing:0.2em;text-transform:uppercase;margin:0;}
 .announce-card-body{padding:20px 24px;}
 .announce-card-body ul{list-style:none;padding:0;margin:0;}
-.announce-card-body ul li{font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(248,245,240,0.72);padding:8px 0;border-bottom:1px solid rgba(248,245,240,0.06);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+.announce-card-body ul li{font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(13,9,5,0.72);padding:8px 0;border-bottom:1px solid rgba(13,9,5,0.06);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
 .announce-card-body ul li:last-child{border-bottom:none;}
 .announce-card-body ul li::before{content:'›';color:var(--red);font-weight:900;flex-shrink:0;font-size:1rem;}
 
@@ -743,21 +743,21 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 .placeholder-icon{font-size:4rem;margin-bottom:24px;}
 .placeholder-2026 h2{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--white);letter-spacing:0.04em;margin-bottom:16px;}
 .placeholder-2026 h2 em{color:var(--gold);font-style:normal;}
-.placeholder-2026 p{font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(248,245,240,0.6);max-width:540px;margin:0 auto 40px;line-height:1.75;}
+.placeholder-2026 p{font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(13,9,5,0.6);max-width:540px;margin:0 auto 40px;line-height:1.75;}
 .track-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:52px 0;text-align:left;}
-.track-preview-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(248,245,240,0.08);}
+.track-preview-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(13,9,5,0.08);}
 .track-preview-header{padding:24px 24px 18px;color:#fff;}
 .track-preview-header.senior{background:linear-gradient(135deg,#8b0000,var(--track-senior));}
 .track-preview-header.junior{background:linear-gradient(135deg,#8a6510,var(--track-junior));}
 .track-preview-header.ems{background:linear-gradient(135deg,#0d3a80,var(--track-ems));}
 .track-preview-header .tp-icon{font-size:1.8rem;margin-bottom:8px;}
 .track-preview-header h3{font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0;}
-.track-preview-body{background:var(--dark2);padding:20px 24px;}
-.track-preview-body p{font-family:'Barlow',sans-serif;font-size:0.83rem;color:rgba(248,245,240,0.65);line-height:1.65;margin:0;}
+.track-preview-body{background:#fff;padding:20px 24px;}
+.track-preview-body p{font-family:'Barlow',sans-serif;font-size:0.83rem;color:rgba(13,9,5,0.65);line-height:1.65;margin:0;}
 .coming-soon-badge{display:inline-block;background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.35);color:var(--gold);font-family:'Barlow',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.28em;text-transform:uppercase;padding:6px 20px;border-radius:20px;margin-bottom:28px;}
 .reg-cta-btn{display:inline-block;background:var(--red);color:#fff;padding:15px 40px;font-family:'Barlow',sans-serif;font-size:0.82rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:opacity 0.2s;margin:8px;}
 .reg-cta-btn:hover{opacity:0.87;}
-.reg-cta-btn.outline{background:transparent;color:var(--white);border:2px solid rgba(248,245,240,0.2);}
+.reg-cta-btn.outline{background:transparent;color:var(--white);border:2px solid rgba(13,9,5,0.2);}
 .reg-cta-btn.outline:hover{border-color:var(--red);color:var(--red);}
 
 @media(max-width:900px){
@@ -777,7 +777,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
 .nav-hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
 .nav-hamburger.open span:nth-child(2){opacity:0;}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
-.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,9,5,0.98);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,245,240,0.98);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
 .nav-mobile.open{display:flex;}
 .nav-mobile a{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);transition:color 0.2s;text-decoration:none;}
 .nav-mobile a:hover{color:var(--red);}
@@ -1271,10 +1271,10 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="track-audience">Senior-level leaders: Chief Fire Officers, EMS Chief Officers, Fire Commissioners, Deputy Chiefs, Senior Emergency Management & Military Officers</div>
     </div>
   </div>
-  <div style="margin-bottom:2rem;padding:1.2rem;background:var(--dark2);border-left:6px solid var(--red);border-radius:10px;box-shadow:0 2px 12px rgba(248,245,240,0.06);">
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Goals:</span> Develop strategic leadership skills for high-level disaster and fire/EMS operations. Enhance decision-making and crisis management for large-scale incidents. Strengthen understanding of legal responsibilities in leadership. Improve operational command and coordination in multi-agency responses.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Objectives:</span> Analyze executive-level strategies and decision-making processes. Evaluate legal considerations affecting senior leadership. Apply incident command principles for complex, large-scale emergencies. Demonstrate crisis leadership and public communication strategies.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;"><span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will develop strong command presence and crisis leadership abilities. Senior officers will gain insights into legal frameworks affecting their roles. Attendees will be better prepared to lead during multi-agency situations. Graduates will leave with actionable leadership strategies for their organizations.</p>
+  <div style="margin-bottom:2rem;padding:1.2rem;background:#fff;border-left:6px solid var(--red);border-radius:10px;box-shadow:0 2px 12px rgba(13,9,5,0.06);">
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Goals:</span> Develop strategic leadership skills for high-level disaster and fire/EMS operations. Enhance decision-making and crisis management for large-scale incidents. Strengthen understanding of legal responsibilities in leadership. Improve operational command and coordination in multi-agency responses.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Objectives:</span> Analyze executive-level strategies and decision-making processes. Evaluate legal considerations affecting senior leadership. Apply incident command principles for complex, large-scale emergencies. Demonstrate crisis leadership and public communication strategies.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;"><span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will develop strong command presence and crisis leadership abilities. Senior officers will gain insights into legal frameworks affecting their roles. Attendees will be better prepared to lead during multi-agency situations. Graduates will leave with actionable leadership strategies for their organizations.</p>
   </div>
   <div class="day-sub-tabs"><button class="day-sub-tab active" onclick="switchSubDay26('senior26-tue','senior26',this)">Tuesday May 19</button><button class="day-sub-tab" onclick="switchSubDay26('senior26-wed','senior26',this)">Wednesday May 20</button><button class="day-sub-tab" onclick="switchSubDay26('senior26-thu','senior26',this)">Thursday May 21</button></div>
   <div class="track-day active" id="senior26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 8:30 AM</td><td><div class="td-session">Opening Remarks & Presentation of Flags</div><div class="td-speaker">CFO Kenrick Hackett (Turks &amp; Caicos)</div></td></tr><tr><td class="td-time">8:30 AM – 9:15 AM</td><td><div class="td-session">Lessons Learned: Hurricane Melissa Response</div><div class="td-speaker">CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">9:15 AM – 10:00 AM</td><td><div class="td-session">Command Presence — Panel Discussion</div><div class="td-speaker">CFO Errol Maynard (Barbados, Facilitator), CFO Kenrick Hackett (Turks &amp; Caicos), CFO Kevin Haughton (Jamaica), CFO Ditney Downes (St. Lucia)</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">CAFC Strategic Planning and Leadership (Bring your laptops)</div><div class="td-speaker">CFO Errol Maynard (Barbados), CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Part II — CAFC Strategic Planning and Leadership <em>(Bring your laptops)</em></div><div class="td-speaker">CFO Kendrick Hackett, CFO Errol Maynard (Barbados), CFO Kevin Haughton (Jamaica); CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Risk Mitigation</div><div class="td-speaker">CFO Pauletta Silvanco (Sint Maarten)</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
@@ -1290,10 +1290,10 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="track-audience">Junior-level leaders: Cadet & Divisional Officers, Leading Firefighters, Section Leaders, Sergeants, Station & Sub-Station Officers, Junior Military Officers</div>
     </div>
   </div>
-  <div style="margin-bottom:2rem;padding:1.2rem;background:var(--dark2);border-left:6px solid var(--gold);border-radius:10px;box-shadow:0 2px 12px rgba(248,245,240,0.06);">
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--gold);">Goals:</span> Equip junior officers with foundational leadership skills. Enhance understanding of legal responsibilities and HR policies for officers. Develop tactical decision-making abilities for fireground operations. Foster team leadership and a positive department culture.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--gold);">Objectives:</span> Identify key traits for transitioning from a junior officer to senior leadership. Understand legal responsibilities, liability, and HR management. Demonstrate incident command, tactical size-up skills and decision-making. Implement strategies for crew management, morale, and performance.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;"><span style="font-weight:700;color:var(--gold);">Outcomes:</span> Participants will gain confidence in their leadership roles. Attendees will develop critical thinking and decision-making skills. Officers will understand legal compliance and risk mitigation strategies. Graduates will be prepared to lead effectively in various situations.</p>
+  <div style="margin-bottom:2rem;padding:1.2rem;background:#fff;border-left:6px solid var(--gold);border-radius:10px;box-shadow:0 2px 12px rgba(13,9,5,0.06);">
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--gold);">Goals:</span> Equip junior officers with foundational leadership skills. Enhance understanding of legal responsibilities and HR policies for officers. Develop tactical decision-making abilities for fireground operations. Foster team leadership and a positive department culture.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--gold);">Objectives:</span> Identify key traits for transitioning from a junior officer to senior leadership. Understand legal responsibilities, liability, and HR management. Demonstrate incident command, tactical size-up skills and decision-making. Implement strategies for crew management, morale, and performance.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;"><span style="font-weight:700;color:var(--gold);">Outcomes:</span> Participants will gain confidence in their leadership roles. Attendees will develop critical thinking and decision-making skills. Officers will understand legal compliance and risk mitigation strategies. Graduates will be prepared to lead effectively in various situations.</p>
   </div>
   <div class="day-sub-tabs"><button class="day-sub-tab active" onclick="switchSubDay26('junior26-tue','junior26',this)">Tuesday May 19</button><button class="day-sub-tab" onclick="switchSubDay26('junior26-wed','junior26',this)">Wednesday May 20</button><button class="day-sub-tab" onclick="switchSubDay26('junior26-thu','junior26',this)">Thursday May 21</button></div>
   <div class="track-day active" id="junior26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 8:30 AM</td><td><div class="td-session">Opening Remarks & Presentation of Flags</div><div class="td-speaker">CFO Kenrick Hackett (Turks &amp; Caicos)</div></td></tr><tr><td class="td-time">8:30 AM – 9:15 AM</td><td><div class="td-session">Lessons Learned: Hurricane Melissa Response</div><div class="td-speaker">CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">9:15 AM – 10:00 AM</td><td><div class="td-session">Command Presence — Panel Discussion</div><div class="td-speaker">CFO Errol Maynard (Barbados, Facilitator), CFO Kenrick Hackett (Turks &amp; Caicos), CFO Kevin Haughton (Jamaica), CFO Ditney Downes (St. Lucia)</div></td></tr><tr><td class="td-time">10:00 AM – 10:30 AM</td><td><div class="td-session">Visit Exhibit Area & Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">Incident Management & Safety</div><div class="td-speaker">Divisional Officer Marlon Small (Barbados)</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Strategic Planning Responsibilities for Junior Officers</div><div class="td-speaker">CFO Kendrick Hackett</div></td></tr><tr><td class="td-time">2:30 PM – 3:00 PM</td><td><div class="td-session">Visit Exhibit Area & Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">DISC Assessment</div><div class="td-speaker">CFO Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
@@ -1309,10 +1309,10 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <div class="track-audience">EMS personnel at all levels: EMTs, Advanced EMTs, Drivers, Ambulance Attendants, First Responders, Paramedics, Military Medics</div>
     </div>
   </div>
-  <div style="margin-bottom:2rem;padding:1.2rem;background:var(--dark2);border-left:6px solid #1a6faa;border-radius:10px;box-shadow:0 2px 12px rgba(248,245,240,0.06);">
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:#1a6faa;">Goals:</span> Enhance leadership capabilities in EMS operations and system management. Address mental health and stress management in high-pressure EMS environments. Develop operational knowledge of data management and fire-based EMS models. Prepare EMS providers for crisis response, mass casualty incidents, and emerging technologies.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:#1a6faa;">Objectives:</span> Examine EMS system integration for effective pre-hospital care. Understand the impact of stress, PTSD, burnout in EMS and mitigation strategies. Analyze EMS operations and mass casualty response in fire service models. Assess legal considerations, compliance, and risk management in EMS leadership.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.7);line-height:1.7;"><span style="font-weight:700;color:#1a6faa;">Outcomes:</span> EMS personnel will be better equipped to manage stress and prevent burnout. Leaders will develop data-driven EMS decision-making skills. Participants will gain insights into crisis leadership and mass casualty management. Graduates will be prepared to implement EMS leadership pipelines and mentorship.</p>
+  <div style="margin-bottom:2rem;padding:1.2rem;background:#fff;border-left:6px solid #1a6faa;border-radius:10px;box-shadow:0 2px 12px rgba(13,9,5,0.06);">
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:#1a6faa;">Goals:</span> Enhance leadership capabilities in EMS operations and system management. Address mental health and stress management in high-pressure EMS environments. Develop operational knowledge of data management and fire-based EMS models. Prepare EMS providers for crisis response, mass casualty incidents, and emerging technologies.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:#1a6faa;">Objectives:</span> Examine EMS system integration for effective pre-hospital care. Understand the impact of stress, PTSD, burnout in EMS and mitigation strategies. Analyze EMS operations and mass casualty response in fire service models. Assess legal considerations, compliance, and risk management in EMS leadership.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;"><span style="font-weight:700;color:#1a6faa;">Outcomes:</span> EMS personnel will be better equipped to manage stress and prevent burnout. Leaders will develop data-driven EMS decision-making skills. Participants will gain insights into crisis leadership and mass casualty management. Graduates will be prepared to implement EMS leadership pipelines and mentorship.</p>
   </div>
   <div class="day-sub-tabs"><button class="day-sub-tab active" onclick="switchSubDay26('ems26-tue','ems26',this)">Tuesday May 19</button><button class="day-sub-tab" onclick="switchSubDay26('ems26-wed','ems26',this)">Wednesday May 20</button><button class="day-sub-tab" onclick="switchSubDay26('ems26-thu','ems26',this)">Thursday May 21</button></div>
   <div class="track-day active" id="ems26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 8:30 AM</td><td><div class="td-session">Opening Remarks & Presentation of Flags</div><div class="td-speaker">CFO Kenrick Hackett (Turks &amp; Caicos)</div></td></tr><tr><td class="td-time">8:30 AM – 9:15 AM</td><td><div class="td-session">Lessons Learned: Hurricane Melissa Response</div><div class="td-speaker">CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">9:15 AM – 10:00 AM</td><td><div class="td-session">Command Presence — Panel Discussion</div><div class="td-speaker">CFO Errol Maynard (Barbados, Facilitator), CFO Kenrick Hackett (Turks &amp; Caicos), CFO Kevin Haughton (Jamaica), CFO Ditney Downes (St. Lucia)</div></td></tr><tr><td class="td-time">10:00 AM – 10:30 AM</td><td><div class="td-session">Visit Exhibit Area & Break</div></td></tr><tr><td class="td-time">10:30 AM – 11:15 AM</td><td><div class="td-session">Research 101</div><div class="td-speaker">Dr. Winston R. Warren (Barbados/US)</div></td></tr><tr><td class="td-time">11:15 AM – 12:00 PM</td><td><div class="td-session">Trauma & Medical Assessment Scenarios</div><div class="td-speaker">Dr. Winston R. Warren (Barbados/US)</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Back to the Basics: EMS Topics / Airway Management Skills</div><div class="td-speaker">Dr. Winston R. Warren (Barbados/US)</div></td></tr><tr><td class="td-time">2:30 PM – 3:00 PM</td><td><div class="td-session">Visit Exhibit Area & Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">EMS Strategic Planning</div><div class="td-speaker">Dr. Winston R. Warren (Barbados/US), CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
@@ -1405,12 +1405,12 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         </div>
 
         <!-- Hotel Hero Image -->
-        <div style="border-radius:18px;overflow:hidden;margin-bottom:28px;box-shadow:0 8px 40px rgba(248,245,240,0.15);position:relative;">
+        <div style="border-radius:18px;overflow:hidden;margin-bottom:28px;box-shadow:0 8px 40px rgba(13,9,5,0.15);position:relative;">
           <img src="https://www.hodelpa.com/wp-content/uploads/2020/04/garden-suites-juan-dolio-fachada.jpg"
                onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80';this.onerror=null;"
                alt="Hodelpa Garden Suites, Golf & Convention Center — Playa Juan Dolio, Dominican Republic"
                style="width:100%;height:320px;object-fit:cover;display:block;">
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px;background:linear-gradient(to top,rgba(248,245,240,0.85),transparent);">
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px;background:linear-gradient(to top,rgba(13,9,5,0.85),transparent);">
             <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:2px;">Hodelpa Garden Suites, Golf &amp; Convention Center</div>
             <div style="font-family:'Barlow',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Autovia del Este · Blvd de Juan Dolio · Playa Juan Dolio, Dominican Republic</div>
           </div>
@@ -1420,13 +1420,13 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;">
 
           <!-- Getting There -->
-          <div style="background:var(--dark2);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(248,245,240,0.07);">
+          <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(13,9,5,0.07);">
             <div style="background:linear-gradient(135deg,#8b0000,var(--red));padding:22px 28px;color:#fff;">
               <div style="font-size:2rem;margin-bottom:8px;">✈️</div>
               <h4 style="font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0;">Getting There</h4>
             </div>
             <div style="padding:24px 28px;">
-              <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(248,245,240,0.75);line-height:1.75;margin:0 0 16px;">Fly into <strong>Las Américas International Airport</strong> in Santo Domingo, Dominican Republic.</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.75);line-height:1.75;margin:0 0 16px;">Fly into <strong>Las Américas International Airport</strong> in Santo Domingo, Dominican Republic.</p>
               <div style="display:flex;align-items:center;gap:10px;background:rgba(192,39,45,0.06);border-radius:10px;padding:12px 16px;">
                 <span style="font-size:1.4rem;">🛬</span>
                 <div>
@@ -1434,12 +1434,12 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
                   <div style="font-family:'Barlow',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);">SDQ — Santo Domingo</div>
                 </div>
               </div>
-              <p style="font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(248,245,240,0.5);line-height:1.6;margin:14px 0 0;">The hotel is approximately 45 minutes east of SDQ via Autovia del Este.</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(13,9,5,0.5);line-height:1.6;margin:14px 0 0;">The hotel is approximately 45 minutes east of SDQ via Autovia del Este.</p>
             </div>
           </div>
 
           <!-- Hotel Contact -->
-          <div style="background:var(--dark2);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(248,245,240,0.07);">
+          <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(13,9,5,0.07);">
             <div style="background:linear-gradient(135deg,#7a5a00,var(--gold));padding:22px 28px;color:#fff;">
               <div style="font-size:2rem;margin-bottom:8px;">🏨</div>
               <h4 style="font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0;">Official Conference Hotel</h4>
@@ -1447,7 +1447,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
             <div style="padding:24px 28px;">
               <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:4px;">Hodelpa Garden Suites</div>
               <div style="font-family:'Barlow',sans-serif;font-size:0.8rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Golf &amp; Convention Center</div>
-              <div style="font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(248,245,240,0.65);line-height:1.8;margin-bottom:14px;">
+              <div style="font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(13,9,5,0.65);line-height:1.8;margin-bottom:14px;">
                 📞 809-399-9555 ext. 2820<br>
                 📧 <a href="mailto:ccano@hodelpa.com" style="color:var(--red);text-decoration:none;font-weight:600;">ccano@hodelpa.com</a> &nbsp;/&nbsp; <a href="mailto:reservas.emotions@hodelpa.com" style="color:var(--red);text-decoration:none;font-weight:600;">reservas.emotions@hodelpa.com</a>
               </div>
@@ -1507,7 +1507,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:0.04em;margin:0;">2026 Leadership <em style="color:var(--gold);font-style:normal;">Tracks</em></h3>
       </div>
 
-      <style>a.track-preview-card{display:block;text-decoration:none;color:inherit;cursor:pointer;transition:transform .15s,box-shadow .15s}a.track-preview-card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(248,245,240,.15)}a.track-preview-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}</style>
+      <style>a.track-preview-card{display:block;text-decoration:none;color:inherit;cursor:pointer;transition:transform .15s,box-shadow .15s}a.track-preview-card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(13,9,5,.15)}a.track-preview-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}</style>
       <div class="track-preview-grid">
         <a class="track-preview-card" href="#track-senior26" onclick="var el=document.getElementById('track-senior26');if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}">
           <div class="track-preview-header senior">
@@ -1531,7 +1531,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
           <div class="track-preview-body"><p>EMS system integration, mass casualty response, mental health, legal compliance, and emerging technology for pre-hospital care providers.</p></div>
         </a>
       </div>
-      <p style="font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(248,245,240,0.45);margin-top:16px;">Plus: IFE-CASA Incident Command Program · Vendor Expo</p>
+      <p style="font-family:'Barlow',sans-serif;font-size:0.85rem;color:rgba(13,9,5,0.45);margin-top:16px;">Plus: IFE-CASA Incident Command Program · Vendor Expo</p>
     </div>
   </div>
 </div>
@@ -1588,7 +1588,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Caribbean Association of Fire Chiefs. All rights reserved.</p>
+      <p>&copy; 2026 Caribbean Association of Fire Chiefs. All rights reserved. <span style="display:none;opacity:0.7;margin-left:8px"><span id="visitor-counter">—</span> visits</span></p>
       <div class="social-links">
         <a href="https://www.instagram.com/caribbeanfirechiefs" target="_blank" rel="noopener" class="social-link">IG</a>
         <a href="https://www.facebook.com/caribbeanfirechiefs" target="_blank" rel="noopener" class="social-link">FB</a>
@@ -1623,7 +1623,7 @@ function googleTranslateElementInit(){
 <div id="jf-chat-btn" onclick="toggleJfChat()" style="position:fixed;bottom:32px;right:32px;z-index:998;width:52px;height:52px;border-radius:50%;background:var(--red,#c0272d);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:transform 0.2s;" title="Chat with Rose-Annette">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </div>
-<div id="jf-chat-box" style="display:none;position:fixed;bottom:96px;right:32px;z-index:999;width:360px;height:440px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:var(--dark2);">
+<div id="jf-chat-box" style="display:none;position:fixed;bottom:96px;right:32px;z-index:999;width:360px;height:440px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:#fff;">
   <div style="background:var(--red,#c0272d);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
     <span style="color:#fff;font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;">Rose-Annette | CAFC</span>
     <button onclick="toggleJfChat()" style="background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:0 4px;line-height:1;">&times;</button>
@@ -1765,7 +1765,7 @@ document.addEventListener('keydown',function(e){
 <div id="jf-chat-btn" onclick="toggleJfChat()" style="position:fixed;bottom:32px;right:100px;z-index:998;width:56px;height:56px;border-radius:50%;background:var(--red,#c0272d);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:transform 0.2s,background 0.2s;font-size:1.4rem;" title="Chat with us">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </div>
-<div id="jf-chat-box" style="display:none;position:fixed;bottom:100px;right:32px;z-index:999;width:380px;height:520px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:var(--dark2);">
+<div id="jf-chat-box" style="display:none;position:fixed;bottom:100px;right:32px;z-index:999;width:380px;height:520px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:#fff;">
   <div style="background:var(--red,#c0272d);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
     <span style="color:#fff;font-family:'Cinzel',serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;">Rose-Annette | CAFC</span>
     <button onclick="toggleJfChat()" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;padding:0 4px;">&times;</button>
@@ -1789,11 +1789,27 @@ document.addEventListener('keydown',function(e){
 </script>
 
 <script>
+// Service worker for offline support
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js').catch(() => {});
   });
 }
+
+// Visitor counter (anonymous, free, no signup)
+(function(){
+  var KEY = 'cafc-2026-counted-session';
+  var shouldIncrement = !sessionStorage.getItem(KEY);
+  var url = 'https://api.counterapi.dev/v1/cafc2026/visits/' + (shouldIncrement ? 'up' : '');
+  fetch(url).then(function(r){return r.json();}).then(function(d){
+    if (shouldIncrement) sessionStorage.setItem(KEY, '1');
+    var el = document.getElementById('visitor-counter');
+    if (el && d && typeof d.count !== 'undefined') {
+      el.textContent = d.count.toLocaleString();
+      el.parentElement.style.display = 'inline-block';
+    }
+  }).catch(function(){});
+})();
 </script>
 
 </body>
