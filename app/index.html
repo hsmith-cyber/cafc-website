@@ -838,7 +838,7 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     <p class="location-tag" data-i18n-html="hero.venue">📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026</p>
 
     <div id="welcome-strip" class="welcome-strip">
-      <button id="welcome-play" class="welcome-play" aria-label="Play welcome message">
+      <button type="button" id="welcome-play" class="welcome-play" aria-label="Play welcome message">
         <span class="welcome-icon">▶</span>
       </button>
       <div class="welcome-text">
@@ -846,8 +846,8 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <div class="welcome-line" data-i18n="welcome.line">Tap ▶ to hear a quick welcome and survey reminder</div>
       </div>
       <div class="welcome-lang" role="group" aria-label="Language">
-        <button class="lang-pill active" data-lang="en" aria-pressed="true" data-i18n="lang.en">English</button>
-        <button class="lang-pill" data-lang="sp" aria-pressed="false" data-i18n="lang.sp">Spanish</button>
+        <button type="button" class="lang-pill active" data-lang="en" aria-pressed="true" data-i18n="lang.en">English</button>
+        <button type="button" class="lang-pill" data-lang="sp" aria-pressed="false" data-i18n="lang.sp">Spanish</button>
       </div>
       <audio id="welcome-audio-en" preload="auto" src="audio/welcome-en.mp3"></audio>
       <audio id="welcome-audio-sp" preload="auto" src="audio/welcome-sp.mp3"></audio>
@@ -901,15 +901,15 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         <div style="background:linear-gradient(135deg,#8b0000,var(--red));border-radius:16px;padding:36px 40px;margin-bottom:40px;color:#fff;position:relative;overflow:hidden;">
           <div style="position:absolute;top:-20px;right:-20px;font-size:8rem;opacity:0.08;line-height:1;">📣</div>
           <div style="position:relative;z-index:1;">
-            <div style="font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;opacity:0.75;margin-bottom:10px;">📣 Welcome Announcement · #CAFC2026</div>
+            <div data-i18n="announce.welcome.eyebrow" style="font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;opacity:0.75;margin-bottom:10px;">📣 Welcome Announcement · #CAFC2026</div>
             <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;letter-spacing:0.04em;margin:0 0 20px;line-height:1.3;">Let Us Begin Showing Our Pride, Professionalism & Unity</h2>
-            <div style="font-family:'Barlow',sans-serif;font-size:1rem;line-height:1.8;opacity:0.92;margin-bottom:18px;">
+            <div style="font-family:'Barlow',sans-serif;font-size:1rem;line-height:1.8;opacity:0.92;margin-bottom:18px;" data-i18n="announce.welcome.intro">
               Formal attire is required for Monday's Group Photos. Business attire is required for all conference sessions.
             </div>
-            <div style="background:rgba(255,255,255,0.12);border-left:4px solid rgba(255,255,255,0.5);border-radius:0 10px 10px 0;padding:16px 20px;font-family:'Barlow',sans-serif;font-size:0.95rem;line-height:1.75;">
+            <div style="background:rgba(255,255,255,0.12);border-left:4px solid rgba(255,255,255,0.5);border-radius:0 10px 10px 0;padding:16px 20px;font-family:'Barlow',sans-serif;font-size:0.95rem;line-height:1.75;" data-i18n="announce.welcome.dress">
               Dress Code: Department-issued dress uniforms are required for all Fire/EMS personnel participating in the #CAFC2026 Group Photo. Professional dress is required for all others who wish to participate in the Group Picture.
             </div>
-            <div style="margin-top:18px;font-family:'Barlow',sans-serif;font-size:0.95rem;opacity:0.85;font-style:italic;">
+            <div style="margin-top:18px;font-family:'Barlow',sans-serif;font-size:0.95rem;opacity:0.85;font-style:italic;" data-i18n-html="announce.welcome.tagline">
               Let us begin the conference showing our pride, professionalism, and unity. <strong style="opacity:1;font-style:normal;">#CAFC2026</strong>
             </div>
           </div>
@@ -1012,9 +1012,9 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
     </div>
   </div>
   <div style="margin-bottom:2rem;padding:1.2rem;background:#fff;border-left:6px solid var(--red);border-radius:10px;box-shadow:0 2px 12px rgba(13,9,5,0.06);">
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Goals:</span> Develop strategic leadership skills for high-level disaster and fire/EMS operations. Enhance decision-making and crisis management for large-scale incidents. Strengthen understanding of legal responsibilities in leadership. Improve operational command and coordination in multi-agency responses.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;"><span style="font-weight:700;color:var(--red);">Objectives:</span> Analyze executive-level strategies and decision-making processes. Evaluate legal considerations affecting senior leadership. Apply incident command principles for complex, large-scale emergencies. Demonstrate crisis leadership and public communication strategies.</p>
-    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;"><span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will develop strong command presence and crisis leadership abilities. Senior officers will gain insights into legal frameworks affecting their roles. Attendees will be better prepared to lead during multi-agency situations. Graduates will leave with actionable leadership strategies for their organizations.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;" data-i18n-html="track.senior.goals" data-i18n-html="track.junior.goals" data-i18n-html="track.ems.goals"><span style="font-weight:700;color:var(--red);">Goals:</span> Develop strategic leadership skills for high-level disaster and fire/EMS operations. Enhance decision-making and crisis management for large-scale incidents. Strengthen understanding of legal responsibilities in leadership. Improve operational command and coordination in multi-agency responses.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;margin-bottom:12px;" data-i18n-html="track.senior.objectives" data-i18n-html="track.junior.objectives" data-i18n-html="track.ems.objectives"><span style="font-weight:700;color:var(--red);">Objectives:</span> Analyze executive-level strategies and decision-making processes. Evaluate legal considerations affecting senior leadership. Apply incident command principles for complex, large-scale emergencies. Demonstrate crisis leadership and public communication strategies.</p>
+    <p style="font-family:'Barlow',sans-serif;font-size:0.95rem;color:rgba(13,9,5,0.7);line-height:1.7;" data-i18n-html="track.senior.outcomes" data-i18n-html="track.junior.outcomes" data-i18n-html="track.ems.outcomes"><span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will develop strong command presence and crisis leadership abilities. Senior officers will gain insights into legal frameworks affecting their roles. Attendees will be better prepared to lead during multi-agency situations. Graduates will leave with actionable leadership strategies for their organizations.</p>
   </div>
   <div class="day-sub-tabs"><button class="day-sub-tab active" onclick="switchSubDay26('senior26-tue','senior26',this)">Tuesday May 19</button><button class="day-sub-tab" onclick="switchSubDay26('senior26-wed','senior26',this)">Wednesday May 20</button><button class="day-sub-tab" onclick="switchSubDay26('senior26-thu','senior26',this)">Thursday May 21</button></div>
   <div class="track-day active" id="senior26-tue"><table class="sched-table"><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td class="td-time">8:00 AM – 8:30 AM</td><td><div class="td-session">Opening Remarks</div><div class="td-speaker">CFO Kenrick Hackett (Turks &amp; Caicos)</div></td></tr><tr><td class="td-time">8:30 AM – 9:15 AM</td><td><div class="td-session">Lessons Learned: Hurricane Melissa Response</div><div class="td-speaker">CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">9:15 AM – 10:00 AM</td><td><div class="td-session">Command Presence — Panel Discussion</div><div class="td-speaker">CFO Errol Maynard (Barbados, Facilitator), CFO Kenrick Hackett (Turks &amp; Caicos), CFO Kevin Haughton (Jamaica), CFO Ditney Downes (St. Lucia)</div></td></tr><tr><td class="td-time">10:00 AM – 10:20 AM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">10:20 AM – 10:30 AM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">10:30 AM – 12:00 PM</td><td><div class="td-session">CAFC Strategic Planning and Leadership (Bring your laptops)</div><div class="td-speaker">CFO Errol Maynard (Barbados), CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">12:00 PM – 1:00 PM</td><td><div class="td-session">Lunch</div></td></tr><tr><td class="td-time">1:00 PM – 2:30 PM</td><td><div class="td-session">Part II — CAFC Strategic Planning and Leadership <em>(Bring your laptops)</em></div><div class="td-speaker">CFO Kendrick Hackett, CFO Errol Maynard (Barbados), CFO Kevin Haughton (Jamaica); CFO Dr. Hezedean A. Smith (Jamaica)</div></td></tr><tr><td class="td-time">2:30 PM – 2:50 PM</td><td><div class="td-session">Vendor Presentation</div></td></tr><tr><td class="td-time">2:50 PM – 3:00 PM</td><td><div class="td-session">Break</div></td></tr><tr><td class="td-time">3:00 PM – 4:00 PM</td><td><div class="td-session">Risk Mitigation</div><div class="td-speaker">CFO Pauletta Silvanco (Sint Maarten)</div></td></tr><tr><td class="td-time">4:00 PM</td><td><div class="td-session">End of Day</div></td></tr></tbody></table></div>
@@ -1670,33 +1670,66 @@ if ('serviceWorker' in navigator) {
   }
 })();
 
-// ── Read-aloud (text-to-speech) buttons on every session ──
+// ── Read-aloud buttons (ElevenLabs MP3 with TTS fallback) ──
 (function(){
-  if (!('speechSynthesis' in window)) return; // unsupported
-
   var SKIP = /^(break|tea\s*break|breakfast|lunch|cocktail|reception|end of day|free time|hotel check[\s-]?(in|out)|departure|arrival|tba|tbd|safe travels.*)$/i;
 
+  // Must match the Python slugify in scripts/generate-session-audio.py
+  function slugify(text){
+    var s = (text || '').toLowerCase();
+    s = s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return s.slice(0, 64) || 'x';
+  }
+
   var currentBtn = null;
+  var currentAudio = null;
+
   function stop(){
     if (currentBtn) currentBtn.classList.remove('speaking');
-    window.speechSynthesis.cancel();
+    if (currentAudio) { try { currentAudio.pause(); currentAudio.currentTime = 0; } catch(e){} }
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
     currentBtn = null;
+    currentAudio = null;
   }
-  function speak(text, btn){
-    if (currentBtn === btn){ stop(); return; }
-    stop();
+
+  function speakTTS(text, btn){
+    if (!('speechSynthesis' in window)) { btn.classList.remove('speaking'); return; }
     var u = new SpeechSynthesisUtterance(text);
     u.lang = 'en-US';
     u.rate = 0.98;
     u.pitch = 1;
-    u.onend = function(){
-      btn.classList.remove('speaking');
-      if (currentBtn === btn) currentBtn = null;
-    };
+    u.onend = function(){ btn.classList.remove('speaking'); if (currentBtn === btn) currentBtn = null; };
     u.onerror = u.onend;
+    window.speechSynthesis.speak(u);
+  }
+
+  function play(session, text, btn){
+    if (currentBtn === btn){ stop(); return; }
+    stop();
     btn.classList.add('speaking');
     currentBtn = btn;
-    window.speechSynthesis.speak(u);
+    // Try the pre-generated ElevenLabs MP3 first
+    var src = 'audio/sessions/' + slugify(session) + '.mp3';
+    var a = new Audio(src);
+    a.preload = 'auto';
+    currentAudio = a;
+    var fellBack = false;
+    a.addEventListener('ended', function(){
+      btn.classList.remove('speaking');
+      if (currentBtn === btn) currentBtn = null;
+    });
+    a.addEventListener('error', function(){
+      if (fellBack) return;
+      fellBack = true;
+      // No MP3 yet — fall back to browser TTS
+      speakTTS(text, btn);
+    });
+    var p = a.play();
+    if (p && p.catch) p.catch(function(){
+      if (fellBack) return;
+      fellBack = true;
+      speakTTS(text, btn);
+    });
   }
 
   document.querySelectorAll('.sched-table tbody tr').forEach(function(tr){
@@ -1708,9 +1741,7 @@ if ('serviceWorker' in navigator) {
 
     var speakerEl = tr.querySelector('.td-speaker');
     var speaker = speakerEl ? speakerEl.textContent.trim().replace(/\s+/g,' ') : '';
-    var timeEl = tr.querySelector('.td-time');
-    var time = timeEl ? timeEl.textContent.trim().replace(/\s+/g,' ') : '';
-    var text = (time ? time + '. ' : '') + session + (speaker ? '. Presented by ' + speaker : '') + '.';
+    var fallbackText = session + (speaker ? '. Presented by ' + speaker : '') + '.';
 
     var btn = document.createElement('button');
     btn.className = 'tts-btn';
@@ -1721,7 +1752,7 @@ if ('serviceWorker' in navigator) {
     btn.addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
-      speak(text, btn);
+      play(session, fallbackText, btn);
     });
     sessionEl.appendChild(btn);
   });
@@ -2104,6 +2135,128 @@ window.TRANSLATIONS = {
   'help.s10.h': { en:'Offline Use', sp:'Uso sin Conexión' },
   'help.s10.p': { en:'Once you\'ve opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)', sp:'Una vez que abra la app con WiFi, la agenda se guarda en su teléfono — funciona sin conexión. (Las evaluaciones y conteos en vivo necesitan WiFi o datos.)' },
   'help.footer.q':  { en:'Questions? Contact the CAFC Secretariat:', sp:'¿Preguntas? Contacte al Secretariado CAFC:' }
+
+  'announce.welcome.eyebrow': { en:'📣 Welcome Announcement · #CAFC2026', sp:'📣 Anuncio de Bienvenida · #CAFC2026' },
+  'announce.welcome.title': { en:'Let Us Begin Showing Our Pride, Professionalism &amp; Unity', sp:'Comencemos Mostrando Nuestro Orgullo, Profesionalismo y Unidad' },
+  'announce.welcome.intro': { en:'Formal attire is required for Monday\'s Group Photos. Business attire is required for all conference sessions.', sp:'Se requiere atuendo formal para las fotos grupales del lunes. Se requiere atuendo de negocios para todas las sesiones del congreso.' },
+  'announce.welcome.dress': { en:'Dress Code: Department-issued dress uniforms are required for all Fire/EMS personnel participating in the #CAFC2026 Group Photo. Professional dress is required for all others who wish to participate in the Group Picture.', sp:'Código de Vestimenta: Se requieren uniformes formales emitidos por el departamento para todo el personal de Bomberos/EMS participando en la Foto Grupal #CAFC2026. Vestimenta profesional es requerida para todos los demás que deseen participar en la Foto Grupal.' },
+  'announce.welcome.tagline': { en:'Let us begin the conference showing our pride, professionalism, and unity. <strong style="opacity:1;font-style:normal;">#CAFC2026</strong>', sp:'Comencemos el congreso mostrando nuestro orgullo, profesionalismo y unidad. <strong style="opacity:1;font-style:normal;">#CAFC2026</strong>' },
+  'track.senior.goals': { en:'<span style="font-weight:700;color:var(--red);">Goals:</span> Develop strategic leadership skills for high-level disaster and fire/EMS operations. Enhance decision-making and crisis management for large-scale incidents. Strengthen understanding of legal responsibilities in leadership. Improve operational command and coordination in multi-agency responses.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Generales:</span> Desarrollar habilidades de liderazgo estratégico para operaciones de desastres y bomberos/EMS de alto nivel. Mejorar la toma de decisiones y gestión de crisis para incidentes a gran escala. Fortalecer la comprensión de las responsabilidades legales en liderazgo. Mejorar el comando operacional y la coordinación en respuestas multi-agencia.' },
+  'track.senior.objectives': { en:'<span style="font-weight:700;color:var(--red);">Objectives:</span> Analyze executive-level strategies and decision-making processes. Evaluate legal considerations affecting senior leadership. Apply incident command principles for complex, large-scale emergencies. Demonstrate crisis leadership and public communication strategies.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Específicos:</span> Analizar estrategias y procesos de toma de decisiones a nivel ejecutivo. Evaluar consideraciones legales que afectan el liderazgo senior. Aplicar principios de comando de incidentes para emergencias complejas a gran escala. Demostrar estrategias de liderazgo en crisis y comunicación pública.' },
+  'track.senior.outcomes': { en:'<span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will develop strong command presence and crisis leadership abilities. Senior officers will gain insights into legal frameworks affecting their roles. Attendees will be better prepared to lead during multi-agency situations. Graduates will leave with actionable leadership strategies for their organizations.', sp:'<span style="font-weight:700;color:var(--red);">Resultados:</span> Los participantes desarrollarán una sólida presencia de mando y habilidades de liderazgo en crisis. Los oficiales senior obtendrán conocimiento sobre los marcos legales que afectan sus roles. Los asistentes estarán mejor preparados para liderar durante situaciones multi-agencia. Los graduados se llevarán estrategias de liderazgo accionables para sus organizaciones.' },
+  'track.junior.goals': { en:'<span style="font-weight:700;color:var(--red);">Goals:</span> Equip junior officers with foundational leadership skills. Enhance understanding of legal responsibilities and HR policies for officers. Develop tactical decision-making abilities for fireground operations. Foster team leadership and a positive department culture.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Generales:</span> Equipar a los oficiales junior con habilidades fundamentales de liderazgo. Mejorar la comprensión de las responsabilidades legales y políticas de RR.HH. para oficiales. Desarrollar habilidades de toma de decisiones tácticas para operaciones en la escena del incendio. Fomentar el liderazgo de equipo y una cultura departamental positiva.' },
+  'track.junior.objectives': { en:'<span style="font-weight:700;color:var(--red);">Objectives:</span> Identify key traits for transitioning from a junior officer to senior leadership. Understand legal responsibilities, liability, and HR management. Demonstrate incident command, tactical size-up skills and decision-making. Implement strategies for crew management, morale, and performance.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Específicos:</span> Identificar características clave para la transición de oficial junior a liderazgo senior. Comprender las responsabilidades legales, la responsabilidad civil y la gestión de RR.HH. Demostrar el comando de incidentes, habilidades tácticas de evaluación y toma de decisiones. Implementar estrategias para gestión del personal, moral y desempeño.' },
+  'track.junior.outcomes': { en:'<span style="font-weight:700;color:var(--red);">Outcomes:</span> Participants will gain confidence in their leadership roles. Attendees will develop critical thinking and decision-making skills. Officers will understand legal compliance and risk mitigation strategies. Graduates will be prepared to lead effectively in various situations.', sp:'<span style="font-weight:700;color:var(--red);">Resultados:</span> Los participantes ganarán confianza en sus roles de liderazgo. Los asistentes desarrollarán habilidades de pensamiento crítico y toma de decisiones. Los oficiales comprenderán el cumplimiento legal y las estrategias de mitigación de riesgos. Los graduados estarán preparados para liderar eficazmente en diversas situaciones.' },
+  'track.ems.goals': { en:'<span style="font-weight:700;color:var(--red);">Goals:</span> Enhance leadership capabilities in EMS operations and system management. Address mental health and stress management in high-pressure EMS environments. Develop operational knowledge of data management and fire-based EMS models. Prepare EMS providers for crisis response, mass casualty incidents, and emerging technologies.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Generales:</span> Mejorar las capacidades de liderazgo en operaciones EMS y gestión del sistema. Abordar la salud mental y manejo del estrés en entornos EMS de alta presión. Desarrollar conocimiento operacional sobre gestión de datos y modelos EMS basados en bomberos. Preparar a los proveedores de EMS para respuesta a crisis, incidentes con múltiples víctimas y tecnologías emergentes.' },
+  'track.ems.objectives': { en:'<span style="font-weight:700;color:var(--red);">Objectives:</span> Examine EMS system integration for effective pre-hospital care. Understand the impact of stress, PTSD, burnout in EMS and mitigation strategies. Analyze EMS operations and mass casualty response in fire service models. Assess legal considerations, compliance, and risk management in EMS leadership.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Específicos:</span> Examinar la integración del sistema EMS para una atención prehospitalaria eficaz. Comprender el impacto del estrés, TEPT y agotamiento en EMS y estrategias de mitigación. Analizar las operaciones EMS y respuesta a víctimas masivas en modelos del servicio de bomberos. Evaluar consideraciones legales, cumplimiento y gestión de riesgos en liderazgo EMS.' },
+  'track.ems.outcomes': { en:'<span style="font-weight:700;color:var(--red);">Outcomes:</span> EMS personnel will be better equipped to manage stress and prevent burnout. Leaders will develop data-driven EMS decision-making skills. Participants will gain insights into crisis leadership and mass casualty management. Graduates will be prepared to implement EMS leadership pipelines and mentorship.', sp:'<span style="font-weight:700;color:var(--red);">Resultados:</span> El personal de EMS estará mejor equipado para manejar el estrés y prevenir el agotamiento. Los líderes desarrollarán habilidades de toma de decisiones EMS basadas en datos. Los participantes obtendrán conocimientos sobre liderazgo en crisis y gestión de víctimas masivas. Los graduados estarán preparados para implementar canales de liderazgo y mentoría en EMS.' },
+};
+
+window.CONTENT_TRANSLATIONS = {
+  'Afternoon Vendor Presentation': 'Presentación Vespertina de Vendedor',
+  'Back to the Basics: EMS Topics / Airway Management Skills': 'Lo Básico: Temas de EMS / Manejo de Vía Aérea',
+  'Best Practices in EMS': 'Mejores Prácticas en EMS',
+  'Break': 'Receso',
+  'Breakfast': 'Desayuno',
+  'Business Meeting': 'Reunión de Negocios',
+  'Business Meeting (cont.)': 'Reunión de Negocios (continuación)',
+  'Business Meeting Conclusion': 'Conclusión de la Reunión de Negocios',
+  'CAFC Emergency Services Registry — Credentialing': 'Registro de Servicios de Emergencia CAFC — Certificación',
+  'CAFC Strategic Planning Final Presentation & Wrap Up': 'Presentación Final y Cierre del Plan Estratégico CAFC',
+  'CAFC Strategic Planning and Leadership (Bring your laptops)': 'Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Closing Ceremony': 'Ceremonia de Clausura',
+  'Command Presence — Panel Discussion': 'Presencia de Mando — Panel de Discusión',
+  'Conference Registration': 'Inscripción al Congreso',
+  'DISC Assessment': 'Evaluación DISC',
+  'Day 2 Overview': 'Resumen del Día 2',
+  'Day 3 Overview': 'Resumen del Día 3',
+  'Day 3 Overview / Tabletop EMS Scenarios': 'Resumen del Día 3 / Escenarios EMS de Mesa',
+  'Dinner': 'Cena',
+  'EMS Operations in Mass Shootings / MCIs / EMS TableTop Scenarios': 'Operaciones EMS en Tiroteos Masivos / Incidentes con Múltiples Víctimas / Escenarios EMS de Mesa',
+  'EMS Strategic Planning': 'Planificación Estratégica de EMS',
+  'End of Day': 'Fin del Día',
+  'Executive Meeting': 'Reunión Ejecutiva',
+  'Expectations & Professionalism of Officers': 'Expectativas y Profesionalismo de los Oficiales',
+  'Fire Scene Management – The St. Lucia Experience': 'Gestión de la Escena del Incendio – La Experiencia de Santa Lucía',
+  'Fire Service Innovation & Future Trends': 'Innovación del Servicio de Bomberos y Tendencias Futuras',
+  'Fundamentals of Incident Command System': 'Fundamentos del Sistema de Comando de Incidentes',
+  'High-Level Communication & Political Acumen': 'Comunicación de Alto Nivel y Astucia Política',
+  'Hotel Check-In': 'Registro en el Hotel',
+  'Hotel Check-Out (tomorrow) / Check-in for flights': 'Salida del Hotel (mañana) / Registro para vuelos',
+  'Hotel Check-Out · Safe travels! #CAFC2026': 'Salida del Hotel · ¡Buen viaje! #CAFC2026',
+  'IFECASA Credentialing Overview': 'Resumen de Certificación IFECASA',
+  'Incident Management & Safety': 'Gestión de Incidentes y Seguridad',
+  'Leading in a Toxic Environment': 'Liderar en un Entorno Tóxico',
+  'Lessons Learned: Hurricane Melissa Response': 'Lecciones Aprendidas: Respuesta al Huracán Melissa',
+  'Lunch': 'Almuerzo',
+  'Maximizing EMS Effectiveness in Resource-Limited Environments': 'Maximizando la Eficacia del EMS en Entornos con Recursos Limitados',
+  'Meet & Greet': 'Encuentro y Saludo',
+  'Morning Vendor Presentation': 'Presentación Matutina de Vendedor',
+  'NEMSMA Credentialing Overview': 'Resumen de Certificación NEMSMA',
+  'Opening Ceremony & Group Photo': 'Ceremonia de Apertura y Foto Grupal',
+  'Opening Remarks': 'Palabras de Apertura',
+  'Part II — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte II — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Part III — CAFC Strategic Planning for Senior Chiefs (Day 2) (Bring your laptops)': 'Parte III — Planificación Estratégica CAFC para Jefes Senior (Día 2) (Traiga su computadora)',
+  'Part IV — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte IV — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Part V — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte V — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Presentation by German Delegation': 'Presentación de la Delegación Alemana',
+  'ProBoard Update': 'Actualización de ProBoard',
+  'Research 101': 'Introducción a la Investigación',
+  'Risk Mitigation': 'Mitigación de Riesgos',
+  'Strategic Planning Responsibilities for Junior Officers': 'Responsabilidades de Planificación Estratégica para Oficiales Junior',
+  'The Fire Service in 2026: Forging the Future Virtual': 'El Servicio de Bomberos en 2026: Forjando el Futuro (Virtual)',
+  'The Impact of GIS in the Caribbean': 'El Impacto del SIG en el Caribe',
+  'Training & Development in EMS': 'Capacitación y Desarrollo en EMS',
+  'Transitioning from Junior Officer to Senior Officer': 'Transición de Oficial Junior a Oficial Senior',
+  'Trauma & Medical Assessment Scenarios': 'Escenarios de Trauma y Evaluación Médica',
+  'Vendor Exhibits Open': 'Exhibiciones de Vendedores Abiertas',
+  'Vendor Presentation': 'Presentación de Vendedor',
+  'Vision Alignment for Leaders': 'Alineación de Visión para Líderes',
+  'Visit Exhibit Area & Break': 'Visite el Área de Exhibición y Receso',
+  'Women in Emergency Services': 'Mujeres en Servicios de Emergencia',
+  'Women in Emergency Services / Building an EMS System Pipeline': 'Mujeres en Servicios de Emergencia / Construyendo un Sistema EMS',
+  'Audience: Dominican Republic Stakeholders': 'Audiencia: Partes Interesadas de República Dominicana',
+  'Caribbean Senior Disaster & Emergency Leadership Academy': 'Academia Caribeña Senior de Liderazgo en Desastres y Emergencias',
+  'Caribbean Junior Disaster & Emergency Leadership Academy': 'Academia Caribeña Junior de Liderazgo en Desastres y Emergencias',
+  'Caribbean EMS Leadership Academy': 'Academia Caribeña de Liderazgo en EMS',
+  'Senior-level leaders: Chief Fire Officers, EMS Chief Officers, Fire Commissioners, Deputy Chiefs, Senior Emergency Management & Military Officers': 'Líderes de nivel Senior: Jefes de Bomberos, Jefes de EMS, Comisionados de Bomberos, Subjefes, Oficiales Superiores de Gestión de Emergencias y Militares',
+  'Junior-level leaders: Cadet & Divisional Officers, Leading Firefighters, Section Leaders, Sergeants, Station & Sub-Station Officers, Junior Military Officers': 'Líderes de nivel Junior: Cadetes y Oficiales Divisionales, Bomberos Líderes, Jefes de Sección, Sargentos, Oficiales de Estación y Subestación, Oficiales Militares Junior',
+  'EMS personnel at all levels: EMTs, Advanced EMTs, Drivers, Ambulance Attendants, First Responders, Paramedics, Military Medics': 'Personal de EMS de todos los niveles: TEMs, TEMs Avanzados, Conductores, Asistentes de Ambulancia, Primeros Respondedores, Paramédicos, Médicos Militares',
+  'Tuesday May 19': 'Martes 19 de Mayo',
+  'Wednesday May 20': 'Miércoles 20 de Mayo',
+  'Thursday May 21': 'Jueves 21 de Mayo',
+  'Time': 'Hora',
+  'Session': 'Sesión',
+  'Activity': 'Actividad',
+  'Sunday, May 24 — Departure': 'Domingo, 24 de Mayo — Salida',
+
+  'Dress Code': 'Código de Vestimenta',
+  'What to Bring': 'Qué Traer',
+  'Conference Location': 'Ubicación del Congreso',
+  'Contact & Support': 'Contacto y Soporte',
+  'Formal attire required for Monday group photo': 'Atuendo formal requerido para foto grupal del lunes',
+  'Department-issued dress uniforms required for Fire/EMS personnel in group photo': 'Uniforme formal del departamento requerido para personal de Bomberos/EMS en foto grupal',
+  'Business attire for all conference sessions': 'Atuendo de negocios para todas las sesiones del congreso',
+  'Professional dress for others in group photo': 'Vestimenta profesional para otros en foto grupal',
+  'Formal attire required for Saturday closing ceremony': 'Atuendo formal requerido para ceremonia de clausura del sábado',
+  'Business cards for networking': 'Tarjetas de presentación para networking',
+  'QR contact codes': 'Códigos QR de contacto',
+  'Coins, pins, and department souvenirs for Meet & Greet': 'Monedas, pines y recuerdos del departamento para Encuentro y Saludo',
+  'Playa Juan Dolio, Dominican Republic': 'Playa Juan Dolio, República Dominicana',
+  'May 17–23, 2026': '17–23 de mayo de 2026',
+  '📍 Level 5, GPO Building, Bridgetown, Barbados': '📍 Nivel 5, Edificio GPO, Bridgetown, Barbados',
+  'Conference opens · Hotel check-in': 'Apertura del congreso · Registro en el hotel',
+  'Opening Ceremony · Business Meeting · Meet & Greet': 'Ceremonia de Apertura · Reunión de Negocios · Encuentro y Saludo',
+  'Three parallel tracks running simultaneously · Select your track below': 'Tres academias paralelas simultáneas · Seleccione su academia abajo',
+  'IFE-CASA Program · Business Meeting conclusion · Executive Meeting': 'Programa IFE-CASA · Conclusión de Reunión de Negocios · Reunión Ejecutiva',
+  'Final day · Closing Gala': 'Último día · Gala de Clausura',
+  '🔴 Senior Leadership': '🔴 Liderazgo Senior',
+  '🔵 Junior Leadership': '🔵 Liderazgo Junior',
+  '🟢 EMS Leadership': '🟢 Liderazgo EMS',
+  'IFE-CASA Incident Command Program': 'Programa de Comando de Incidentes IFE-CASA',
+  'Business Meeting & Executive Session': 'Reunión de Negocios y Sesión Ejecutiva',
+  'Saturday, May 23 — Closing Ceremony': 'Sábado, 23 de Mayo — Ceremonia de Clausura',
+  'Virtual': 'Virtual',
 };
 
 function t(key){
@@ -2113,90 +2266,56 @@ function t(key){
 }
 
 function applyTranslations(lang){
-  document.documentElement.lang = (lang === 'sp') ? 'es' : 'en';
-  document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var key = el.getAttribute('data-i18n');
-    var entry = window.TRANSLATIONS[key];
-    if (entry && entry[lang]) el.textContent = entry[lang];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
-    var key = el.getAttribute('data-i18n-html');
-    var entry = window.TRANSLATIONS[key];
-    if (entry && entry[lang]) el.innerHTML = entry[lang];
-  });
-  // Update dynamically-injected eval pill text
-  document.querySelectorAll('.eval-btn').forEach(function(b){
-    b.innerHTML = (lang === 'sp')
-      ? '<span class="star">★</span> Evaluación de Fin de Sesión'
-      : '<span class="star">★</span> End-of-Session Evaluation';
-  });
+  try {
+    document.documentElement.lang = (lang === 'sp') ? 'es' : 'en';
+
+    // 1. Static UI strings via data-i18n / data-i18n-html
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
+      if (entry && entry[lang]) el.textContent = entry[lang];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
+      if (entry && entry[lang]) el.innerHTML = entry[lang];
+    });
+
+    // 2. Eval pill text (dynamically injected)
+    document.querySelectorAll('.eval-btn').forEach(function(b){
+      b.innerHTML = (lang === 'sp')
+        ? '<span class="star">★</span> Evaluación de Fin de Sesión'
+        : '<span class="star">★</span> End-of-Session Evaluation';
+    });
+  } catch (err) {
+    console.error('applyTranslations error:', err);
+  }
 }
 
-// ── Welcome message (real audio files: English + Spanish) ──
-(function(){
-  var WELCOME_KEY = 'cafc-2026-welcome-played';
-  var LANG_KEY = 'cafc-2026-welcome-lang';
-  var btn = document.getElementById('welcome-play');
-  var iconEl = btn ? btn.querySelector('.welcome-icon') : null;
-  var audioEn = document.getElementById('welcome-audio-en');
-  var audioSp = document.getElementById('welcome-audio-sp');
-  if (!btn || !audioEn || !audioSp) return;
-
-  var langPills = document.querySelectorAll('.welcome-lang .lang-pill');
-  var current = localStorage.getItem(LANG_KEY) || 'en';
-  function setLang(lang){
-    current = lang;
-    localStorage.setItem(LANG_KEY, lang);
-    langPills.forEach(function(p){
-      var on = p.getAttribute('data-lang') === lang;
-      p.classList.toggle('active', on);
-      p.setAttribute('aria-pressed', on ? 'true' : 'false');
+// Deferred content-translation pass: runs after DOM is settled.
+// Kept separate so any error here can't block the main applyTranslations or UI handlers.
+function applyContentTranslations(lang){
+  try {
+    var dict = window.CONTENT_TRANSLATIONS || {};
+    if (!dict || Object.keys(dict).length === 0) return;
+    var SELECTORS = ['.td-session', '.td-note', '.day-sub-tab', '.track-name', '.track-audience', '.day-date', '.announce-card-header h3', '.announce-card-body li', '.track-tab', '.sched-table thead th'];
+    SELECTORS.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        if (el.dataset.origHtml === undefined) el.dataset.origHtml = el.innerHTML;
+        var tmp = document.createElement('div');
+        tmp.innerHTML = el.dataset.origHtml;
+        var key = tmp.textContent.replace(/\s+/g,' ').trim();
+        if (lang === 'sp' && dict[key]) {
+          el.textContent = dict[key];
+        } else {
+          el.innerHTML = el.dataset.origHtml;
+        }
+      });
     });
-    // Apply translations across the whole app
-    if (typeof applyTranslations === 'function') applyTranslations(lang);
-    // If switching while playing, stop the other and restart in chosen language
-    if (!audio().paused) { stop(); play(); }
+  } catch (err) {
+    console.error('applyContentTranslations error:', err);
   }
-  function audio(){ return current === 'sp' ? audioSp : audioEn; }
-  function setPlaying(on){
-    btn.classList.toggle('playing', on);
-    if (iconEl) iconEl.textContent = on ? '■' : '▶';
-  }
-  function stop(){
-    audioEn.pause(); audioEn.currentTime = 0;
-    audioSp.pause(); audioSp.currentTime = 0;
-    setPlaying(false);
-  }
-  function play(){
-    var a = audio();
-    if (!a.paused) { stop(); return; }
-    // Stop the other-language track if it's playing
-    var other = (current === 'sp') ? audioEn : audioSp;
-    other.pause(); other.currentTime = 0;
-    var p = a.play();
-    if (p && p.catch) p.catch(function(){ setPlaying(false); });
-    setPlaying(true);
-  }
-  audioEn.addEventListener('ended', function(){ setPlaying(false); localStorage.setItem(WELCOME_KEY,'1'); });
-  audioSp.addEventListener('ended', function(){ setPlaying(false); localStorage.setItem(WELCOME_KEY,'1'); });
-  audioEn.addEventListener('error', function(){ setPlaying(false); });
-  audioSp.addEventListener('error', function(){ setPlaying(false); });
-
-  btn.addEventListener('click', play);
-  langPills.forEach(function(p){ p.addEventListener('click', function(){ setLang(p.getAttribute('data-lang')); }); });
-  setLang(current);
-
-  // Auto-play once per device on first interaction
-  if (!localStorage.getItem(WELCOME_KEY)){
-    var triggered = false;
-    function autoTrigger(){
-      if (triggered) return; triggered = true;
-      setTimeout(play, 700);
-    }
-    document.addEventListener('click', autoTrigger, { once:true });
-    document.addEventListener('touchstart', autoTrigger, { once:true, passive:true });
-  }
-})();
+}
 
 // ── Voice search ──
 function openVoiceSearch(){
@@ -2266,6 +2385,67 @@ function toggleRoseAnnette(){
     iframe.src = iframe.getAttribute('data-src');
   }
 }
+</script>
+
+<!-- Welcome-strip handlers (isolated so JS errors above can't block them) -->
+<script>
+(function(){
+  try {
+    var btn = document.getElementById('welcome-play');
+    var audioEn = document.getElementById('welcome-audio-en');
+    var audioSp = document.getElementById('welcome-audio-sp');
+    var pills = document.querySelectorAll('.welcome-lang .lang-pill');
+    if (!btn || !audioEn || !audioSp) return;
+
+    var LANG_KEY = 'cafc-2026-welcome-lang';
+    var current = localStorage.getItem(LANG_KEY) || 'en';
+    var iconEl = btn.querySelector('.welcome-icon');
+    function audio(){ return current === 'sp' ? audioSp : audioEn; }
+    function setPlaying(on){
+      btn.classList.toggle('playing', on);
+      if (iconEl) iconEl.textContent = on ? '■' : '▶';
+    }
+    function stop(){
+      audioEn.pause(); audioEn.currentTime = 0;
+      audioSp.pause(); audioSp.currentTime = 0;
+      setPlaying(false);
+    }
+    function play(){
+      var a = audio();
+      if (!a.paused) { stop(); return; }
+      (current === 'sp' ? audioEn : audioSp).pause();
+      var p = a.play();
+      if (p && p.catch) p.catch(function(e){ console.error('play rejected', e); setPlaying(false); });
+      setPlaying(true);
+    }
+    function setLang(lang){
+      current = lang;
+      localStorage.setItem(LANG_KEY, lang);
+      pills.forEach(function(p){
+        var on = p.getAttribute('data-lang') === lang;
+        p.classList.toggle('active', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      // Translation calls are wrapped so they never block the UI
+      try { if (typeof applyTranslations === 'function') applyTranslations(lang); } catch(e){ console.error('applyTranslations failed:', e); }
+      setTimeout(function(){
+        try { if (typeof applyContentTranslations === 'function') applyContentTranslations(lang); } catch(e){ console.error('applyContentTranslations failed:', e); }
+      }, 0);
+    }
+    audioEn.addEventListener('ended', function(){ setPlaying(false); });
+    audioSp.addEventListener('ended', function(){ setPlaying(false); });
+    audioEn.addEventListener('error', function(){ setPlaying(false); });
+    audioSp.addEventListener('error', function(){ setPlaying(false); });
+
+    btn.addEventListener('click', play);
+    pills.forEach(function(p){
+      p.addEventListener('click', function(){ setLang(p.getAttribute('data-lang')); });
+    });
+    setLang(current);
+  } catch (err) {
+    console.error('welcome-strip init error:', err);
+  }
+})();
 </script>
 
 </body>
