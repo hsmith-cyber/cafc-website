@@ -1236,6 +1236,11 @@ document.addEventListener('keydown',function(e){
   .hero-stat:nth-child(odd){border-right:1px solid rgba(255,255,255,0.12);}
   .hero-stat:nth-last-child(-n+2){border-bottom:none;}
 }
+.tts-btn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-left:8px;border-radius:50%;border:1.5px solid rgba(13,9,5,0.18);background:#fff;color:rgba(13,9,5,0.6);cursor:pointer;font-size:0.88rem;line-height:1;padding:0;vertical-align:middle;transition:border-color 0.15s,background 0.15s,color 0.15s,transform 0.15s;}
+.tts-btn:hover{border-color:var(--red);color:var(--red);transform:scale(1.08);}
+.tts-btn:active{transform:scale(0.95);}
+.tts-btn.speaking{background:var(--red);color:#fff;border-color:var(--red);animation:ttsPulse 1.4s infinite;}
+@keyframes ttsPulse{0%,100%{box-shadow:0 0 0 0 rgba(192,39,45,0.55);}50%{box-shadow:0 0 0 7px rgba(192,39,45,0);}}
 .eval-wrap{display:inline-flex;align-items:center;gap:6px;margin-top:8px;}
 .eval-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:linear-gradient(135deg,hsl(0,78%,50%),hsl(12,82%,38%));color:#fff !important;font-family:'Barlow',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:transform 0.15s,box-shadow 0.15s,background 0.5s ease;text-shadow:0 1px 2px rgba(0,0,0,0.22);}
 .eval-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
@@ -1540,6 +1545,66 @@ if ('serviceWorker' in navigator) {
   }
 })();
 
+// ── Read-aloud (text-to-speech) buttons on every session ──
+(function(){
+  if (!('speechSynthesis' in window)) return; // unsupported
+
+  var SKIP = /^(break|tea\s*break|breakfast|lunch|cocktail|reception|end of day|free time|hotel check[\s-]?(in|out)|departure|arrival|tba|tbd|safe travels.*)$/i;
+
+  var currentBtn = null;
+  function stop(){
+    if (currentBtn) currentBtn.classList.remove('speaking');
+    window.speechSynthesis.cancel();
+    currentBtn = null;
+  }
+  function speak(text, btn){
+    if (currentBtn === btn){ stop(); return; }
+    stop();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.98;
+    u.pitch = 1;
+    u.onend = function(){
+      btn.classList.remove('speaking');
+      if (currentBtn === btn) currentBtn = null;
+    };
+    u.onerror = u.onend;
+    btn.classList.add('speaking');
+    currentBtn = btn;
+    window.speechSynthesis.speak(u);
+  }
+
+  document.querySelectorAll('.sched-table tbody tr').forEach(function(tr){
+    var sessionEl = tr.querySelector('.td-session');
+    if (!sessionEl) return;
+    var session = sessionEl.textContent.trim().replace(/\s+/g,' ');
+    if (!session || SKIP.test(session)) return;
+    if (sessionEl.querySelector('.tts-btn')) return;
+
+    var speakerEl = tr.querySelector('.td-speaker');
+    var speaker = speakerEl ? speakerEl.textContent.trim().replace(/\s+/g,' ') : '';
+    var timeEl = tr.querySelector('.td-time');
+    var time = timeEl ? timeEl.textContent.trim().replace(/\s+/g,' ') : '';
+    var text = (time ? time + '. ' : '') + session + (speaker ? '. Presented by ' + speaker : '') + '.';
+
+    var btn = document.createElement('button');
+    btn.className = 'tts-btn';
+    btn.type = 'button';
+    btn.title = 'Read this session aloud';
+    btn.setAttribute('aria-label', 'Read aloud: ' + session);
+    btn.textContent = '🔊';
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      speak(text, btn);
+    });
+    sessionEl.appendChild(btn);
+  });
+
+  window.addEventListener('beforeunload', stop);
+  window.addEventListener('pagehide', stop);
+})();
+
 // ── Unique user tracking ──
 // Each device gets a persistent ID in localStorage. The unique-users counter is
 // incremented ONLY the first time we see a new device (so reloads do not
@@ -1717,7 +1782,12 @@ if ('serviceWorker' in navigator) {
     </section>
 
     <section class="help-section">
-      <h3><span class="help-step">7</span> Offline Use</h3>
+      <h3><span class="help-step">7</span> Listen to Sessions 🔊</h3>
+      <p>Every session has a small <strong>🔊</strong> button next to its name. Tap it to have the session title and speaker read aloud — handy hands-free or for accessibility. Tap again to stop.</p>
+    </section>
+
+    <section class="help-section">
+      <h3><span class="help-step">8</span> Offline Use</h3>
       <p>Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
     </section>
 
