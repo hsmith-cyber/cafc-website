@@ -796,20 +796,25 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <span style="font-family:'Barlow',sans-serif;font-size:clamp(0.9rem,2vw,1.2rem);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c4922a;margin-left:12px;">&#x25C6; Dominican Republic</span>
     </div>
     <p class="location-tag">📍 <strong>2026:</strong> Hodelpa Garden Suites, Golf &amp; Convention Center · Playa Juan Dolio, Dominican Republic &nbsp;|&nbsp; May 17–23, 2026</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-val">7</div><div class="hs-lbl">Conference Days</div></div>
+      <div class="hero-stat"><div class="hs-val">3</div><div class="hs-lbl">Leadership Tracks</div></div>
+      <div class="hero-stat"><div class="hs-val">59</div><div class="hs-lbl">Sessions</div></div>
+      <div class="hero-stat"><div class="hs-val">15+</div><div class="hs-lbl">Speakers</div></div>
+    </div>
+
+    <div id="live-users-badge" class="live-users-badge" style="display:none;">
+      <span class="live-dot"></span>
+      <span class="live-lbl">App Users</span>
+      <span class="live-count"><span id="unique-user-count">—</span></span>
+    </div>
+
     </div>
 </section>
 
 <!-- ════ 2026 PANEL ════ -->
 <div class="year-panel year-panel-only active" id="year-2026">
-
-  <div class="overview-band">
-    <div class="overview-inner">
-      <div class="ov-item"><div class="ov-val">7</div><div class="ov-lbl">Conference Days</div></div>
-      <div class="ov-item"><div class="ov-val">3</div><div class="ov-lbl">Leadership Tracks</div></div>
-      <div class="ov-item"><div class="ov-val">TBD</div><div class="ov-lbl">Sessions</div></div>
-      <div class="ov-item"><div class="ov-val">TBD</div><div class="ov-lbl">Speakers</div></div>
-    </div>
-  </div>
 
   <div class="day-nav">
     <div class="day-nav-inner container">
@@ -832,6 +837,15 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
           <div class="day-title">Announcements & Requirements</div>
           <div class="day-date">Dress code · Attendee checklist · Contact</div>
         </div>
+
+        <!-- ════ STRATEGIC PLAN SURVEY REMINDER ════ -->
+        <a href="https://form.jotform.com/261301889219057" target="_blank" rel="noopener" class="strategic-banner">
+          <div class="strategic-banner-eyebrow">📋 Action Required · All CAFC Members</div>
+          <h2 class="strategic-banner-title">Complete the CAFC Strategic Plan Survey</h2>
+          <p class="strategic-banner-desc">Your input shapes the future of the Caribbean Association of Fire Chiefs. Please complete the Member Officer Feedback Instrument before the conference begins.</p>
+          <span class="strategic-banner-cta">Take the Survey Now <span class="strategic-banner-arrow">→</span></span>
+        </a>
+
         <div style="background:linear-gradient(135deg,#8b0000,var(--red));border-radius:16px;padding:36px 40px;margin-bottom:40px;color:#fff;position:relative;overflow:hidden;">
           <div style="position:absolute;top:-20px;right:-20px;font-size:8rem;opacity:0.08;line-height:1;">📣</div>
           <div style="position:relative;z-index:1;">
@@ -1170,6 +1184,57 @@ document.addEventListener('keydown',function(e){
 })();
 </script>
 
+<style>
+.live-users-badge{align-items:center;gap:10px;margin:20px auto 0;padding:8px 18px;background:linear-gradient(135deg,rgba(46,125,50,0.18),rgba(46,125,50,0.08));border:1px solid rgba(120,200,140,0.45);border-radius:30px;font-family:'Barlow',sans-serif;font-size:0.82rem;font-weight:600;color:#dfe9d8;letter-spacing:0.06em;text-transform:uppercase;backdrop-filter:blur(4px);}
+.live-users-badge .live-dot{width:9px;height:9px;border-radius:50%;background:#4dd97a;box-shadow:0 0 0 0 rgba(77,217,122,0.7);animation:livePulse 1.6s infinite;}
+.live-users-badge .live-lbl{opacity:0.85;}
+.live-users-badge .live-count{display:inline-flex;align-items:center;justify-content:center;min-width:32px;padding:3px 10px;background:rgba(77,217,122,0.22);border:1px solid rgba(77,217,122,0.4);border-radius:14px;color:#bff0c5;font-weight:800;letter-spacing:0.04em;font-size:0.88rem;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(77,217,122,0.7);}70%{box-shadow:0 0 0 8px rgba(77,217,122,0);}100%{box-shadow:0 0 0 0 rgba(77,217,122,0);}}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin-top:28px;background:rgba(255,255,255,0.07);border:1px solid rgba(232,190,90,0.25);border-radius:12px;padding:6px;backdrop-filter:blur(4px);max-width:720px;margin-left:auto;margin-right:auto;}
+.hero-stat{flex:1 1 120px;padding:14px 18px;text-align:center;border-right:1px solid rgba(255,255,255,0.12);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat .hs-val{font-family:'Cinzel',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:900;color:#f0c040;line-height:1;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,0.4);}
+.hero-stat .hs-lbl{font-family:'Cinzel',serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(248,245,240,0.78);}
+@media(max-width:520px){
+  .hero-stat{flex:1 1 45%;border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .hero-stat:nth-child(odd){border-right:1px solid rgba(255,255,255,0.12);}
+  .hero-stat:nth-last-child(-n+2){border-bottom:none;}
+}
+.eval-wrap{display:inline-flex;align-items:center;gap:6px;margin-top:8px;}
+.eval-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:linear-gradient(135deg,hsl(0,78%,50%),hsl(12,82%,38%));color:#fff !important;font-family:'Barlow',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:transform 0.15s,box-shadow 0.15s,background 0.5s ease;text-shadow:0 1px 2px rgba(0,0,0,0.22);}
+.eval-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+.eval-btn:active{transform:translateY(0);}
+.eval-btn .star{font-size:0.85rem;line-height:1;}
+.eval-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:22px;padding:0 7px;background:#fff;border:1.5px solid hsl(0,70%,45%);color:hsl(0,75%,35%);font-family:'Barlow',sans-serif;font-size:0.72rem;font-weight:700;border-radius:11px;line-height:1;transition:border-color 0.5s ease,color 0.5s ease;}
+.overall-eval-box{margin:40px auto 0;max-width:640px;text-align:center;padding:32px 28px;background:linear-gradient(135deg,#fff 0%,#fbf7ec 100%);border:1.5px solid #c4922a;border-radius:18px;box-shadow:0 8px 28px rgba(160,110,31,0.15);}
+.overall-eval-eyebrow{font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#a06e1f;margin-bottom:8px;}
+.overall-eval-title{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:900;color:#8b1a1e;margin:0 0 10px;letter-spacing:0.02em;}
+.overall-eval-desc{font-family:'Barlow',sans-serif;font-size:0.92rem;color:rgba(13,9,5,0.7);line-height:1.55;margin:0 0 22px;}
+.overall-eval-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#c0272d,#8b1a1e);color:#fff !important;font-family:'Cinzel',serif;font-size:0.88rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:30px;box-shadow:0 6px 18px rgba(192,39,45,0.35);transition:transform 0.15s,box-shadow 0.15s;}
+.overall-eval-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(192,39,45,0.45);}
+.overall-eval-btn .star{font-size:1.1rem;}
+.overall-eval-count{background:#fff;border:1.5px solid #fff;color:#c0272d;min-width:30px;height:26px;font-size:0.82rem;}
+.strategic-banner{display:block;text-decoration:none;margin-bottom:32px;padding:36px 32px;background:linear-gradient(135deg,#a06e1f 0%,#c4922a 60%,#e8be5a 100%);border-radius:18px;color:#fff !important;box-shadow:0 14px 36px rgba(160,110,31,0.4),inset 0 1px 0 rgba(255,255,255,0.2);position:relative;overflow:hidden;text-align:center;border:3px solid rgba(255,255,255,0.25);transition:transform 0.2s,box-shadow 0.2s;animation:strategicPulse 2.5s ease-in-out infinite;}
+.strategic-banner::before{content:'';position:absolute;top:-40%;left:-40%;width:180%;height:180%;background:radial-gradient(circle,rgba(255,255,255,0.18) 0%,transparent 55%);pointer-events:none;}
+.strategic-banner:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(160,110,31,0.55),inset 0 1px 0 rgba(255,255,255,0.25);}
+.strategic-banner-eyebrow{position:relative;z-index:1;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;opacity:0.95;margin-bottom:14px;}
+.strategic-banner-title{position:relative;z-index:1;font-family:'Cinzel',serif;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:900;letter-spacing:0.02em;line-height:1.15;margin:0 0 14px;text-shadow:0 2px 12px rgba(0,0,0,0.25);}
+.strategic-banner-desc{position:relative;z-index:1;font-family:'Barlow',sans-serif;font-size:clamp(0.95rem,2vw,1.08rem);font-weight:500;line-height:1.6;max-width:640px;margin:0 auto 22px;opacity:0.96;}
+.strategic-banner-cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:#fff;color:#8b1a1e !important;font-family:'Cinzel',serif;font-size:0.92rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;border-radius:30px;box-shadow:0 8px 22px rgba(0,0,0,0.25);transition:transform 0.15s,box-shadow 0.15s;}
+.strategic-banner:hover .strategic-banner-cta{transform:scale(1.04);box-shadow:0 12px 28px rgba(0,0,0,0.32);}
+.strategic-banner-arrow{font-size:1.2rem;line-height:1;transition:transform 0.2s;}
+.strategic-banner:hover .strategic-banner-arrow{transform:translateX(4px);}
+@keyframes strategicPulse{0%,100%{box-shadow:0 14px 36px rgba(160,110,31,0.4),inset 0 1px 0 rgba(255,255,255,0.2);}50%{box-shadow:0 18px 44px rgba(160,110,31,0.6),0 0 0 4px rgba(232,190,90,0.18),inset 0 1px 0 rgba(255,255,255,0.25);}}
+@media(max-width:600px){
+  .strategic-banner{padding:28px 20px;margin-bottom:24px;}
+  .strategic-banner-cta{padding:12px 22px;font-size:0.8rem;}
+}
+@media(max-width:600px){
+  .overall-eval-box{margin:32px 12px 0;padding:24px 18px;}
+  .overall-eval-title{font-size:1.15rem;}
+  .overall-eval-btn{padding:12px 20px;font-size:0.78rem;}
+}
+</style>
 <script>
 // Service worker for offline support
 if ('serviceWorker' in navigator) {
@@ -1178,19 +1243,219 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Visitor counter (anonymous, free, no signup)
+// Inject "Evaluate" links — Tue–Fri lectures/presentations only, with click counter
 (function(){
-  var KEY = 'cafc-2026-counted-session';
-  var shouldIncrement = !sessionStorage.getItem(KEY);
-  var url = 'https://api.counterapi.dev/v1/cafc2026/visits/' + (shouldIncrement ? 'up' : '');
-  fetch(url).then(function(r){return r.json();}).then(function(d){
-    if (shouldIncrement) sessionStorage.setItem(KEY, '1');
-    var el = document.getElementById('visitor-counter');
-    if (el && d && typeof d.count !== 'undefined') {
-      el.textContent = d.count.toLocaleString();
-      el.parentElement.style.display = 'inline';
+  var SESSION_FORM_ID  = '261353818221049';
+  var OVERALL_FORM_ID  = '261354506303045';
+  var COUNTER_NS       = 'cafc2026';
+
+  // Skip everything that isn't a lecture or presentation
+  var SKIP = /^(breakfast|break|tea\s*break|lunch|cocktail|reception|end of day|free time|hotel check[\s-]?(in|out)|visit exhibit area.*|departure|arrival|registration|tba|tbd|opening remarks|closing|wrap[\s-]?up|day\s*\d+\s*(overview|recap)|vendor presentation|business meeting.*|executive meeting|q&a,?\s*closing.*)$/i;
+
+  var dayLabelFromId = {
+    'day-fri26':'Friday, May 22'
+  };
+  var trackDayLabel = {
+    'tue':'Tuesday, May 19', 'wed':'Wednesday, May 20', 'thu':'Thursday, May 21'
+  };
+  var trackLabel = {
+    'senior':'Senior Leadership', 'junior':'Junior Leadership', 'ems':'EMS Leadership'
+  };
+
+  // Tue/Wed/Thu come from .track-day; Friday is in day-fri26. Everything else is skipped.
+  // Exceptions: specific session names that should always be evaluable regardless of day.
+  var INCLUDE_BY_NAME = /Presentation by German Delegation/i;
+
+  function getContext(row, sessionName){
+    var trackDay = row.closest('.track-day');
+    if (trackDay && trackDay.id) {
+      var parts = trackDay.id.match(/^(senior|junior|ems)26-(tue|wed|thu)$/);
+      if (parts) return {day:trackDayLabel[parts[2]], track:trackLabel[parts[1]], eligible:true};
+    }
+    var section = row.closest('.day-section');
+    if (section && section.id === 'day-fri26') {
+      return {day:'Friday, May 22', track:'Plenary / Friday', eligible:true};
+    }
+    // Whitelist exceptions outside Tue–Fri
+    if (sessionName && INCLUDE_BY_NAME.test(sessionName)) {
+      var dayLabel = '';
+      if (section) {
+        if (section.id === 'day-mon26') dayLabel = 'Monday, May 18';
+        else if (section.id === 'day-sun26') dayLabel = 'Sunday, May 17';
+        else if (section.id === 'day-sat26') dayLabel = 'Saturday, May 23';
+      }
+      return {day:dayLabel, track:'Special Presentation', eligible:true};
+    }
+    return {eligible:false};
+  }
+
+  function slug(s){
+    return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,48);
+  }
+
+  function buildEvalUrl(session, speaker, day, track){
+    var p = new URLSearchParams();
+    p.set('sessionName', session);
+    if (speaker) p.set('speakerPresenter', speaker);
+    if (day) p.set('day', day);
+    if (track) p.set('track', track);
+    return 'https://form.jotform.com/' + SESSION_FORM_ID + '?' + p.toString();
+  }
+
+  // Heatmap: red (0 responses) → orange → yellow → green (target reached).
+  function heatmapForCount(count, target){
+    var pct = Math.max(0, Math.min(count / target, 1));
+    // Hue interpolates 0 (red) → 130 (green) through orange/yellow.
+    var h1 = Math.round(0 + (130 * pct));
+    var s1 = 78 - (12 * pct);           // 78 → 66
+    var l1 = 50 - (8 * pct);            // 50 → 42
+    var h2 = Math.min(140, h1 + 12);
+    var s2 = s1 + 4;
+    var l2 = Math.max(28, l1 - 12);
+    return 'linear-gradient(135deg, hsl('+h1+','+s1+'%,'+l1+'%), hsl('+h2+','+s2+'%,'+l2+'%))';
+  }
+
+  function applyPillColor(pill, countEl, count, target){
+    pill.style.background = heatmapForCount(count, target);
+    // Sync count badge border with the same hue
+    if (countEl) {
+      var pct = Math.max(0, Math.min(count / target, 1));
+      var h = Math.round(0 + (130 * pct));
+      countEl.style.borderColor = 'hsl('+h+', 70%, 45%)';
+      countEl.style.color = 'hsl('+h+', 75%, 35%)';
+    }
+  }
+
+  function fetchCount(key, el, pill, target){
+    fetch('https://api.counterapi.dev/v1/' + COUNTER_NS + '/' + key + '/')
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d && typeof d.count !== 'undefined'){
+          el.textContent = d.count;
+          if (pill) applyPillColor(pill, el, d.count, target);
+        }
+      })
+      .catch(function(){});
+  }
+
+  function incrementCount(key, el, pill, target){
+    fetch('https://api.counterapi.dev/v1/' + COUNTER_NS + '/' + key + '/up')
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d && typeof d.count !== 'undefined'){
+          el.textContent = d.count;
+          if (pill) applyPillColor(pill, el, d.count, target);
+        }
+      })
+      .catch(function(){});
+  }
+
+  document.querySelectorAll('.sched-table tbody tr').forEach(function(tr){
+    var sessionEl = tr.querySelector('.td-session');
+    if (!sessionEl) return;
+    var session = sessionEl.textContent.trim().replace(/\s+/g,' ');
+    if (!session || SKIP.test(session)) return;
+    if (tr.querySelector('.eval-btn')) return;
+
+    var ctx = getContext(tr, session);
+    if (!ctx.eligible) return;
+
+    var speakerEl = tr.querySelector('.td-speaker');
+    var speaker = speakerEl ? speakerEl.textContent.trim().replace(/\s+/g,' ') : '';
+    var url = buildEvalUrl(session, speaker, ctx.day, ctx.track);
+    var key = 'eval-' + slug(ctx.day + '-' + session);
+
+    var wrap = document.createElement('span');
+    wrap.className = 'eval-wrap';
+
+    var a = document.createElement('a');
+    a.className = 'eval-btn';
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML = '<span class="star">★</span> Evaluate';
+
+    var count = document.createElement('span');
+    count.className = 'eval-count';
+    count.textContent = '…';
+    count.title = 'Responses so far';
+
+    var TARGET = 20; // 20 expected responses per Junior/Senior/EMS session
+    // Initialize color at 0
+    applyPillColor(a, count, 0, TARGET);
+    a.addEventListener('click', function(){ incrementCount(key, count, a, TARGET); });
+    fetchCount(key, count, a, TARGET);
+
+    wrap.appendChild(a);
+    wrap.appendChild(count);
+    sessionEl.parentNode.appendChild(wrap);
+  });
+
+  // ─── Friday-only Overall Conference Evaluation button ───
+  var fri = document.getElementById('day-fri26');
+  if (fri) {
+    var overallKey = 'overall-conference-eval';
+
+    var box = document.createElement('div');
+    box.className = 'overall-eval-box';
+    box.innerHTML =
+      '<div class="overall-eval-eyebrow">Closing the Conference</div>' +
+      '<h3 class="overall-eval-title">Overall Conference Evaluation</h3>' +
+      '<p class="overall-eval-desc">Tell us how the 2026 CAFC Conference went overall. Your feedback shapes 2027.</p>' +
+      '<a class="overall-eval-btn" href="https://form.jotform.com/' + OVERALL_FORM_ID + '" target="_blank" rel="noopener">' +
+      '<span class="star">★</span> Submit Conference Evaluation <span class="eval-count overall-eval-count" id="overall-eval-count">…</span></a>';
+    fri.appendChild(box);
+
+    var overallEl = box.querySelector('#overall-eval-count');
+    var overallA  = box.querySelector('.overall-eval-btn');
+    // Overall conference target — higher since whole conference responds
+    fetchCount(overallKey, overallEl, null, 60);
+    overallA.addEventListener('click', function(){ incrementCount(overallKey, overallEl, null, 60); });
+  }
+})();
+
+// ── Unique user tracking ──
+// Each device gets a persistent ID in localStorage. The unique-users counter is
+// incremented ONLY the first time we see a new device (so reloads do not
+// double-count). A separate visits counter still tracks raw visits per session.
+(function(){
+  var UID_KEY = 'cafc-2026-uid';
+  var VISIT_KEY = 'cafc-2026-counted-session';
+
+  function makeId(){
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'u-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+  }
+
+  var uid = localStorage.getItem(UID_KEY);
+  var isNewUser = !uid;
+  if (isNewUser) {
+    uid = makeId();
+    localStorage.setItem(UID_KEY, uid);
+  }
+
+  // Unique users counter
+  var uniqueUrl = 'https://api.counterapi.dev/v1/cafc2026/unique-users/' + (isNewUser ? 'up' : '');
+  fetch(uniqueUrl).then(function(r){return r.json();}).then(function(d){
+    if (d && typeof d.count !== 'undefined') {
+      var elU = document.getElementById('unique-user-count');
+      if (elU) elU.textContent = d.count.toLocaleString();
+      var liveBadge = document.getElementById('live-users-badge');
+      if (liveBadge) liveBadge.style.display = 'inline-flex';
     }
   }).catch(function(){});
+
+  // Per-session visits counter (existing)
+  var shouldIncrement = !sessionStorage.getItem(VISIT_KEY);
+  fetch('https://api.counterapi.dev/v1/cafc2026/visits/' + (shouldIncrement ? 'up' : ''))
+    .then(function(r){return r.json();}).then(function(d){
+      if (shouldIncrement) sessionStorage.setItem(VISIT_KEY, '1');
+      var el = document.getElementById('visitor-counter');
+      if (el && d && typeof d.count !== 'undefined') {
+        el.textContent = d.count.toLocaleString();
+        el.parentElement.style.display = 'inline';
+      }
+    }).catch(function(){});
 })();
 </script>
 
