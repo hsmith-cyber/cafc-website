@@ -1595,6 +1595,17 @@ document.addEventListener('keydown',function(e){
 .help-section li{font-size:0.92rem;line-height:1.65;color:rgba(13,9,5,0.78);margin-bottom:4px;}
 .help-note{font-size:0.85rem !important;color:rgba(13,9,5,0.55) !important;font-style:italic;margin-top:8px !important;}
 .help-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;background:linear-gradient(135deg,#c0272d,#8b1a1e);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:12px;}
+.share-app-section{text-align:center;}
+.share-app-qr-wrap{display:flex;justify-content:center;padding:14px;background:#fff;border:2px solid #c4922a;border-radius:14px;margin:12px auto;max-width:300px;box-shadow:0 6px 22px rgba(160,110,31,0.25);}
+.share-app-qr{width:100%;max-width:260px;height:auto;display:block;}
+.share-app-url{font-family:monospace;font-size:0.78rem;color:#a06e1f;word-break:break-all;background:#fbf7ec;padding:8px 12px;border-radius:8px;border:1px dashed rgba(160,110,31,0.4);margin:8px auto 14px;display:inline-block;}
+.share-app-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;}
+.share-app-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:22px;border:1.5px solid #c4922a;background:#fff;color:#a06e1f;font-family:'Barlow',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background 0.15s,transform 0.1s;}
+.share-app-btn:hover{background:#fbf7ec;}
+.share-app-btn:active{transform:scale(0.97);}
+.share-app-btn.share-app-wa{background:#25D366;color:#fff !important;border-color:#1faa54;}
+.share-app-btn.share-app-wa:hover{background:#1faa54;}
+.share-app-hint{font-size:0.76rem;color:rgba(13,9,5,0.55);font-style:italic;}
 .help-footer{margin-top:8px;text-align:center;font-size:0.85rem;color:rgba(13,9,5,0.65);line-height:1.6;}
 .help-footer a{color:#c0272d;text-decoration:none;font-weight:600;}
 @media(max-width:520px){
@@ -2173,6 +2184,21 @@ if ('serviceWorker' in navigator) {
       <p data-i18n-html="help.s10.p">Once you've opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)</p>
     </section>
 
+    <section class="help-section share-app-section">
+      <h3><span class="help-step">📤</span> <span data-i18n="help.share.h">Share This App</span></h3>
+      <p data-i18n="help.share.p">Share the CAFC 2026 app with a colleague by scanning this QR or copying the link.</p>
+      <div class="share-app-qr-wrap">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https%3A%2F%2Fhsmith-cyber.github.io%2Fcafc-website%2Fapp%2F" alt="CAFC 2026 App QR" class="share-app-qr">
+      </div>
+      <div class="share-app-url">https://hsmith-cyber.github.io/cafc-website/app/</div>
+      <div class="share-app-actions">
+        <button type="button" id="share-app-copy" class="share-app-btn" data-i18n="help.share.copy">📋 Copy link</button>
+        <a id="share-app-whatsapp" class="share-app-btn share-app-wa" href="https://wa.me/?text=Join%20us%20at%20%23CAFC2026%20%E2%80%94%20open%20the%20conference%20app%3A%20https%3A%2F%2Fhsmith-cyber.github.io%2Fcafc-website%2Fapp%2F" target="_blank" rel="noopener" data-i18n="help.share.whatsapp">💬 Share on WhatsApp</a>
+        <button type="button" id="share-app-save" class="share-app-btn" data-i18n="help.share.save">💾 Save QR image</button>
+      </div>
+      <p class="share-app-hint" data-i18n="help.share.hint">Tip: long-press the QR on mobile to save it, or right-click on desktop.</p>
+    </section>
+
     <div class="help-footer">
       <p>Questions? Contact the CAFC Secretariat: <a href="mailto:secretariat@caribbeanfirechiefs.com">secretariat@caribbeanfirechiefs.com</a></p>
       <p style="margin-top:8px;font-size:0.75rem;opacity:0.7;">#CAFC2026 · Caribbean Association of Fire Chiefs</p>
@@ -2192,6 +2218,36 @@ if ('serviceWorker' in navigator) {
 <script>
 function openHelp(){ var m=document.getElementById('help-modal'); m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
 function closeHelp(){ var m=document.getElementById('help-modal'); m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+// ── Share App QR helpers ──
+(function(){
+  var APP_URL = 'https://hsmith-cyber.github.io/cafc-website/app/';
+  var copyBtn = document.getElementById('share-app-copy');
+  var saveBtn = document.getElementById('share-app-save');
+  if (copyBtn) copyBtn.addEventListener('click', function(){
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(APP_URL).then(function(){
+        var orig = copyBtn.innerHTML;
+        copyBtn.innerHTML = '✓ Copied!';
+        setTimeout(function(){ copyBtn.innerHTML = orig; }, 1500);
+      });
+    } else {
+      prompt('Copy this link:', APP_URL);
+    }
+  });
+  if (saveBtn) saveBtn.addEventListener('click', function(){
+    var img = document.querySelector('.share-app-qr');
+    if (!img) return;
+    var a = document.createElement('a');
+    a.href = img.src;
+    a.download = 'cafc-2026-app-qr.png';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+})();
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape'){ closeHelp(); closeVoiceSearch(); }
 });
@@ -2443,6 +2499,12 @@ window.TRANSLATIONS = {
   'help.s9.h': { en:'Chat with Rose-Annette 💬', sp:'Chatee con Rose-Annette 💬' },
   'help.s9.p': { en:'Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She\'s the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.', sp:'Toque el <strong>botón morado 💬 Rose-Annette</strong> (abajo-izquierda). Ella es la asistente IA de CAFC — pregúntele sobre horarios, conferencistas, el lugar, o cualquier cosa del congreso. Voz o texto, ambos funcionan.' },
   'help.s10.h': { en:'Offline Use', sp:'Uso sin Conexión' },
+  'help.share.h':        { en:'Share This App', sp:'Comparta Esta App' },
+  'help.share.p':        { en:'Share the CAFC 2026 app with a colleague by scanning this QR or copying the link.', sp:'Comparta la app CAFC 2026 con un colega escaneando este QR o copiando el enlace.' },
+  'help.share.copy':     { en:'📋 Copy link', sp:'📋 Copiar enlace' },
+  'help.share.whatsapp': { en:'💬 Share on WhatsApp', sp:'💬 Compartir por WhatsApp' },
+  'help.share.save':     { en:'💾 Save QR image', sp:'💾 Guardar imagen QR' },
+  'help.share.hint':     { en:'Tip: long-press the QR on mobile to save it, or right-click on desktop.', sp:'Consejo: mantenga presionado el QR en móvil para guardarlo, o haga clic derecho en computadora.' },
   'help.s10.p': { en:'Once you\'ve opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)', sp:'Una vez que abra la app con WiFi, la agenda se guarda en su teléfono — funciona sin conexión. (Las evaluaciones y conteos en vivo necesitan WiFi o datos.)' },
   'help.footer.q':  { en:'Questions? Contact the CAFC Secretariat:', sp:'¿Preguntas? Contacte al Secretariado CAFC:' },
   // Live chat
