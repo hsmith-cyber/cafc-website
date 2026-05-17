@@ -2829,16 +2829,29 @@ if (toggle && panel) {
   if (transferClose) transferClose.addEventListener('click', closeTransferModal);
   if (transferModal) transferModal.addEventListener('click', (e) => { if (e.target === transferModal) closeTransferModal(); });
 
-  // ── Auto-pickup of ?profile= URL parameter (other device just scanned the QR) ──
+  // ── Inbound ?profile= URL parameter ──
+  // Always strip the parameter from the URL so it can't be forwarded further
+  // (and so other people loading the app from a shared link don't get someone
+  // else's name prefilled). Then ask explicit confirmation before prefilling.
   try {
     const params = new URLSearchParams(location.search);
     const inboundProfile = params.get('profile');
-    if (inboundProfile && !getProfile()) {
-      const decoded = JSON.parse(decodeURIComponent(escape(atob(inboundProfile))));
-      // Open sign-in modal pre-filled (they still need a fresh selfie)
-      setTimeout(() => openSignIn(decoded), 400);
+    if (inboundProfile) {
+      // Sanitize the URL — profile data should never persist in shareable form
+      const cleanUrl = location.pathname + location.hash;
+      try { history.replaceState({}, '', cleanUrl); } catch(e){}
+
+      if (!getProfile()) {
+        try {
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(inboundProfile))));
+          const who = ((decoded.firstName || '') + ' ' + (decoded.lastName || '')).trim();
+          if (confirm('A profile was passed in for "' + who + '". Use this profile? Tap Cancel to sign in as yourself.')) {
+            setTimeout(() => openSignIn(decoded), 200);
+          }
+        } catch(e) { /* ignore */ }
+      }
     }
-  } catch(e) { console.warn('Could not parse inbound profile:', e); }
+  } catch(e) { /* ignore */ }
 
   goBtn.addEventListener('click', () => {
     const f = firstIn.value.trim(), l = lastIn.value.trim(), r = rankIn.value.trim(), c = countryIn.value.trim();
