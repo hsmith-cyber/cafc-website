@@ -874,8 +874,22 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
         </div>
         <div class="chat-meta-row">
           <span id="chat-status" class="chat-meta"></span>
+          <button type="button" id="chat-transfer-btn" class="chat-meta-link" data-i18n="chat.transfer">📱 transfer</button>
           <button type="button" id="chat-edit-profile" class="chat-meta-link" data-i18n="chat.edit">edit name</button>
         </div>
+      </div>
+    </div>
+
+    <!-- Chat profile transfer modal -->
+    <div id="chat-transfer-modal" class="chat-signin-modal" style="display:none;">
+      <div class="chat-signin-content">
+        <h3 class="chat-signin-title" data-i18n="chat.transfer.title">Transfer to other device</h3>
+        <p class="chat-signin-sub" data-i18n="chat.transfer.sub">Scan this code with your phone camera. It pre-fills your name, rank and country — you'll just need to snap a fresh selfie on the new device.</p>
+        <div class="chat-qr-wrap">
+          <img id="chat-qr-img" class="chat-qr-img" alt="QR code">
+        </div>
+        <div id="chat-transfer-link" class="chat-transfer-link" style="display:none;"></div>
+        <button type="button" id="chat-transfer-close" class="chat-signin-btn" data-i18n="chat.transfer.done">Done</button>
       </div>
     </div>
 
@@ -1420,6 +1434,9 @@ document.addEventListener('keydown',function(e){
 .chat-signin-photo-btn.primary:hover{background:linear-gradient(135deg,#d12d34,#a01f25);}
 .chat-signin-photo-remove{background:none;border:none;color:#c0272d;font-family:'Barlow',sans-serif;font-size:0.74rem;text-decoration:underline;cursor:pointer;padding:2px 8px;}
 .chat-signin-photo-hint{font-family:'Barlow',sans-serif;font-size:0.76rem;color:rgba(13,9,5,0.6);text-align:center;line-height:1.4;font-style:italic;}
+.chat-qr-wrap{display:flex;justify-content:center;align-items:center;padding:14px;background:#fff;border-radius:14px;margin:10px 0 14px;border:2px solid #c4922a;}
+.chat-qr-img{width:240px;height:240px;display:block;}
+.chat-transfer-link{font-family:monospace;font-size:0.7rem;color:rgba(13,9,5,0.55);word-break:break-all;background:rgba(13,9,5,0.05);padding:8px 10px;border-radius:8px;margin-bottom:12px;}
 .chat-msg-avatar{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(232,190,90,0.2);border:1.5px solid rgba(232,190,90,0.45);overflow:hidden;display:inline-flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:700;font-family:'Cinzel',serif;color:#f0c040;}
 .chat-msg-avatar img{width:100%;height:100%;object-fit:cover;}
 .chat-msg{display:flex;gap:10px;align-items:flex-start;}
@@ -2441,6 +2458,10 @@ window.TRANSLATIONS = {
   'chat.signin.selfie': { en:'📸 Take selfie', sp:'📸 Tomar selfie' },
   'chat.signin.photo':  { en:'🖼️ Choose photo', sp:'🖼️ Elegir foto' },
   'chat.signin.photo.hint': { en:'A photo is required so attendees can recognize each other.', sp:'Se requiere una foto para que los asistentes puedan reconocerse.' },
+  'chat.transfer':         { en:'📱 transfer', sp:'📱 transferir' },
+  'chat.transfer.title':   { en:'Transfer to other device', sp:'Transferir a otro dispositivo' },
+  'chat.transfer.sub':     { en:"Scan this code with your phone camera. It pre-fills your name, rank and country — you'll just need to snap a fresh selfie on the new device.", sp:'Escanee este código con la cámara de su teléfono. Pre-llena su nombre, rango y país — solo necesitará tomar una nueva selfie en el otro dispositivo.' },
+  'chat.transfer.done':    { en:'Done', sp:'Hecho' },
 
   'announce.welcome.eyebrow': { en:'📣 Welcome Announcement · #CAFC2026', sp:'📣 Anuncio de Bienvenida · #CAFC2026' },
   'announce.welcome.title': { en:'Let Us Begin Showing Our Pride, Professionalism &amp; Unity', sp:'Comencemos Mostrando Nuestro Orgullo, Profesionalismo y Unidad' },
@@ -2613,6 +2634,11 @@ const photoInput  = $('chat-signin-photo');
 const selfieInput = $('chat-signin-selfie');
 const photoPrev   = $('chat-signin-photo-preview');
 const photoRemove = $('chat-signin-photo-remove');
+const transferBtn   = $('chat-transfer-btn');
+const transferModal = $('chat-transfer-modal');
+const transferImg   = $('chat-qr-img');
+const transferLink  = $('chat-transfer-link');
+const transferClose = $('chat-transfer-close');
 let pendingAvatar = null;  // base64 data URL while user is in the sign-in modal
 
 if (toggle && panel) {
@@ -2719,6 +2745,38 @@ if (toggle && panel) {
   cancelBtn.addEventListener('click', closeSignIn);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeSignIn(); });
   editLink.addEventListener('click', () => openSignIn(getProfile()));
+
+  // ── Profile transfer (QR code) ──
+  function openTransferModal(){
+    const p = getProfile();
+    if (!p) { alert('Sign in first, then you can transfer your profile.'); openSignIn(); return; }
+    // Encode profile WITHOUT the selfie (too big for a QR) into URL
+    const slim = { firstName: p.firstName, lastName: p.lastName, rank: p.rank, country: p.country };
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(slim))));
+    // Always use the LIVE app URL so the QR works from any device's camera
+    // (a file:// URL from local testing won't open on a phone).
+    const LIVE_URL = 'https://hsmith-cyber.github.io/cafc-website/app/';
+    const baseUrl = location.protocol === 'file:' ? LIVE_URL : (location.origin + location.pathname);
+    const transferUrl = baseUrl + '?profile=' + encoded;
+    transferImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=' + encodeURIComponent(transferUrl);
+    if (transferLink) transferLink.textContent = transferUrl;
+    transferModal.style.display = 'flex';
+  }
+  function closeTransferModal(){ transferModal.style.display = 'none'; }
+  if (transferBtn)   transferBtn.addEventListener('click', openTransferModal);
+  if (transferClose) transferClose.addEventListener('click', closeTransferModal);
+  if (transferModal) transferModal.addEventListener('click', (e) => { if (e.target === transferModal) closeTransferModal(); });
+
+  // ── Auto-pickup of ?profile= URL parameter (other device just scanned the QR) ──
+  try {
+    const params = new URLSearchParams(location.search);
+    const inboundProfile = params.get('profile');
+    if (inboundProfile && !getProfile()) {
+      const decoded = JSON.parse(decodeURIComponent(escape(atob(inboundProfile))));
+      // Open sign-in modal pre-filled (they still need a fresh selfie)
+      setTimeout(() => openSignIn(decoded), 400);
+    }
+  } catch(e) { console.warn('Could not parse inbound profile:', e); }
 
   goBtn.addEventListener('click', () => {
     const f = firstIn.value.trim(), l = lastIn.value.trim(), r = rankIn.value.trim(), c = countryIn.value.trim();
