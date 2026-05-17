@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cafc-2026-agenda-v6';
+const CACHE_NAME = 'cafc-2026-agenda-v7';
 const ASSETS = [
   './',
   './index.html',
