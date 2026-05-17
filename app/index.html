@@ -2021,6 +2021,140 @@ document.addEventListener('keydown', function(e){
 });
 
 // ── i18n: runtime translation engine ──
+
+
+
+
+function t(key){
+  var lang = localStorage.getItem('cafc-2026-welcome-lang') || 'en';
+  var entry = window.TRANSLATIONS[key];
+  return (entry && entry[lang]) || (entry && entry.en) || key;
+}
+
+function applyTranslations(lang){
+  try {
+    document.documentElement.lang = (lang === 'sp') ? 'es' : 'en';
+
+    // 1. Static UI strings via data-i18n / data-i18n-html
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
+      if (entry && entry[lang]) el.textContent = entry[lang];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
+      if (entry && entry[lang]) el.innerHTML = entry[lang];
+    });
+
+    // 2. Eval pill text (dynamically injected)
+    document.querySelectorAll('.eval-btn').forEach(function(b){
+      b.innerHTML = (lang === 'sp')
+        ? '<span class="star">★</span> Evaluación de Fin de Sesión'
+        : '<span class="star">★</span> End-of-Session Evaluation';
+    });
+  } catch (err) {
+    console.error('applyTranslations error:', err);
+  }
+}
+
+// Deferred content-translation pass: runs after DOM is settled.
+// Kept separate so any error here can't block the main applyTranslations or UI handlers.
+function applyContentTranslations(lang){
+  try {
+    var dict = window.CONTENT_TRANSLATIONS || {};
+    if (!dict || Object.keys(dict).length === 0) return;
+    var SELECTORS = ['.td-session', '.td-note', '.day-sub-tab', '.track-name', '.track-audience', '.day-date', '.announce-card-header h3', '.announce-card-body li', '.track-tab', '.sched-table thead th'];
+    SELECTORS.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        if (el.dataset.origHtml === undefined) el.dataset.origHtml = el.innerHTML;
+        var tmp = document.createElement('div');
+        tmp.innerHTML = el.dataset.origHtml;
+        var key = tmp.textContent.replace(/\s+/g,' ').trim();
+        if (lang === 'sp' && dict[key]) {
+          el.textContent = dict[key];
+        } else {
+          el.innerHTML = el.dataset.origHtml;
+        }
+      });
+    });
+  } catch (err) {
+    console.error('applyContentTranslations error:', err);
+  }
+}
+
+// ── Voice search ──
+function openVoiceSearch(){
+  var m = document.getElementById('voice-modal');
+  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  // Auto-start listening
+  setTimeout(function(){ document.getElementById('voice-mic-btn').click(); }, 400);
+}
+function closeVoiceSearch(){
+  var m = document.getElementById('voice-modal');
+  m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+  if (window._voiceRec) { try { window._voiceRec.stop(); } catch(e){} }
+}
+(function(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var btn = document.getElementById('voice-mic-btn');
+  var status = document.getElementById('voice-status');
+  var transcriptEl = document.getElementById('voice-transcript');
+  if (!btn) return;
+  if (!SR) {
+    btn.addEventListener('click', function(){ status.textContent = 'Voice search not supported on this browser. Try Chrome on Android or Safari on iOS.'; });
+    return;
+  }
+  var rec = new SR();
+  rec.lang = 'en-US';
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+  window._voiceRec = rec;
+  rec.onstart = function(){ btn.classList.add('listening'); status.textContent='Listening…'; transcriptEl.textContent=''; };
+  rec.onend   = function(){ btn.classList.remove('listening'); };
+  rec.onerror = function(e){ status.textContent = 'Error: ' + e.error; btn.classList.remove('listening'); };
+  rec.onresult = function(e){
+    var text = e.results[0][0].transcript.toLowerCase();
+    transcriptEl.textContent = '"' + e.results[0][0].transcript + '"';
+    var action = matchAction(text);
+    if (action) {
+      status.textContent = 'Going to: ' + action.label;
+      setTimeout(function(){ action.run(); closeVoiceSearch(); }, 700);
+    } else {
+      status.textContent = 'No matching day or topic — try again.';
+    }
+  };
+  btn.addEventListener('click', function(){
+    try { rec.start(); } catch(e) { /* already running */ }
+  });
+})();
+function matchAction(text){
+  function go(day, label){ return { label:label, run:function(){ var b=Array.prototype.find.call(document.querySelectorAll('.day-nav-btn'),function(x){return /switchDay26\('?'+day+/.test(x.getAttribute('onclick')||'');}); if(b) b.click(); else { var sec=document.getElementById('day-'+day); if(sec){ document.querySelectorAll('.day-section').forEach(function(s){s.classList.remove('active');}); sec.classList.add('active'); } } window.scrollTo({top:document.querySelector('.day-nav').offsetTop-10,behavior:'smooth'}); } }; }
+  if (/help|how|instruction/.test(text)) return { label:'Help', run:openHelp };
+  if (/announce|info|survey|strategic/.test(text)) return go('announce26','Announcements');
+  if (/sunday/.test(text)) return go('sun26','Sunday May 17');
+  if (/monday|german/.test(text)) return go('mon26','Monday May 18');
+  if (/tuesday|wednesday|thursday|track|leadership|senior|junior|ems/.test(text)) return go('tracks26','Tue–Thu Tracks');
+  if (/friday|ife|casa|incident command/.test(text)) return go('fri26','Friday May 22');
+  if (/saturday|closing/.test(text)) return go('sat26','Saturday May 23');
+  if (/vendor|expo/.test(text)) return go('vendor26','Vendor Expo');
+  return null;
+}
+
+// ── Rose-Annette ──
+function toggleRoseAnnette(){
+  var chat = document.getElementById('ra-chat');
+  var iframe = document.getElementById('ra-iframe');
+  var open = chat.classList.toggle('open');
+  chat.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if (open && iframe.src === 'about:blank') {
+    iframe.src = iframe.getAttribute('data-src');
+  }
+}
+</script>
+
+<!-- i18n dictionaries (isolated so they load regardless of main-script errors) -->
+<script>
 window.TRANSLATIONS = {
   // Hero
   'hero.eyebrow': { en:'Annual Conference Program', sp:'Programa del Congreso Anual' },
@@ -2151,7 +2285,116 @@ window.TRANSLATIONS = {
   'track.ems.objectives': { en:'<span style="font-weight:700;color:var(--red);">Objectives:</span> Examine EMS system integration for effective pre-hospital care. Understand the impact of stress, PTSD, burnout in EMS and mitigation strategies. Analyze EMS operations and mass casualty response in fire service models. Assess legal considerations, compliance, and risk management in EMS leadership.', sp:'<span style="font-weight:700;color:var(--red);">Objetivos Específicos:</span> Examinar la integración del sistema EMS para una atención prehospitalaria eficaz. Comprender el impacto del estrés, TEPT y agotamiento en EMS y estrategias de mitigación. Analizar las operaciones EMS y respuesta a víctimas masivas en modelos del servicio de bomberos. Evaluar consideraciones legales, cumplimiento y gestión de riesgos en liderazgo EMS.' },
   'track.ems.outcomes': { en:'<span style="font-weight:700;color:var(--red);">Outcomes:</span> EMS personnel will be better equipped to manage stress and prevent burnout. Leaders will develop data-driven EMS decision-making skills. Participants will gain insights into crisis leadership and mass casualty management. Graduates will be prepared to implement EMS leadership pipelines and mentorship.', sp:'<span style="font-weight:700;color:var(--red);">Resultados:</span> El personal de EMS estará mejor equipado para manejar el estrés y prevenir el agotamiento. Los líderes desarrollarán habilidades de toma de decisiones EMS basadas en datos. Los participantes obtendrán conocimientos sobre liderazgo en crisis y gestión de víctimas masivas. Los graduados estarán preparados para implementar canales de liderazgo y mentoría en EMS.' },
 };
+window.CONTENT_TRANSLATIONS = {
+  'Afternoon Vendor Presentation': 'Presentación Vespertina de Vendedor',
+  'Back to the Basics: EMS Topics / Airway Management Skills': 'Lo Básico: Temas de EMS / Manejo de Vía Aérea',
+  'Best Practices in EMS': 'Mejores Prácticas en EMS',
+  'Break': 'Receso',
+  'Breakfast': 'Desayuno',
+  'Business Meeting': 'Reunión de Negocios',
+  'Business Meeting (cont.)': 'Reunión de Negocios (continuación)',
+  'Business Meeting Conclusion': 'Conclusión de la Reunión de Negocios',
+  'CAFC Emergency Services Registry — Credentialing': 'Registro de Servicios de Emergencia CAFC — Certificación',
+  'CAFC Strategic Planning Final Presentation & Wrap Up': 'Presentación Final y Cierre del Plan Estratégico CAFC',
+  'CAFC Strategic Planning and Leadership (Bring your laptops)': 'Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Closing Ceremony': 'Ceremonia de Clausura',
+  'Command Presence — Panel Discussion': 'Presencia de Mando — Panel de Discusión',
+  'Conference Registration': 'Inscripción al Congreso',
+  'DISC Assessment': 'Evaluación DISC',
+  'Day 2 Overview': 'Resumen del Día 2',
+  'Day 3 Overview': 'Resumen del Día 3',
+  'Day 3 Overview / Tabletop EMS Scenarios': 'Resumen del Día 3 / Escenarios EMS de Mesa',
+  'Dinner': 'Cena',
+  'EMS Operations in Mass Shootings / MCIs / EMS TableTop Scenarios': 'Operaciones EMS en Tiroteos Masivos / Incidentes con Múltiples Víctimas / Escenarios EMS de Mesa',
+  'EMS Strategic Planning': 'Planificación Estratégica de EMS',
+  'End of Day': 'Fin del Día',
+  'Executive Meeting': 'Reunión Ejecutiva',
+  'Expectations & Professionalism of Officers': 'Expectativas y Profesionalismo de los Oficiales',
+  'Fire Scene Management – The St. Lucia Experience': 'Gestión de la Escena del Incendio – La Experiencia de Santa Lucía',
+  'Fire Service Innovation & Future Trends': 'Innovación del Servicio de Bomberos y Tendencias Futuras',
+  'Fundamentals of Incident Command System': 'Fundamentos del Sistema de Comando de Incidentes',
+  'High-Level Communication & Political Acumen': 'Comunicación de Alto Nivel y Astucia Política',
+  'Hotel Check-In': 'Registro en el Hotel',
+  'Hotel Check-Out (tomorrow) / Check-in for flights': 'Salida del Hotel (mañana) / Registro para vuelos',
+  'Hotel Check-Out · Safe travels! #CAFC2026': 'Salida del Hotel · ¡Buen viaje! #CAFC2026',
+  'IFECASA Credentialing Overview': 'Resumen de Certificación IFECASA',
+  'Incident Management & Safety': 'Gestión de Incidentes y Seguridad',
+  'Leading in a Toxic Environment': 'Liderar en un Entorno Tóxico',
+  'Lessons Learned: Hurricane Melissa Response': 'Lecciones Aprendidas: Respuesta al Huracán Melissa',
+  'Lunch': 'Almuerzo',
+  'Maximizing EMS Effectiveness in Resource-Limited Environments': 'Maximizando la Eficacia del EMS en Entornos con Recursos Limitados',
+  'Meet & Greet': 'Encuentro y Saludo',
+  'Morning Vendor Presentation': 'Presentación Matutina de Vendedor',
+  'NEMSMA Credentialing Overview': 'Resumen de Certificación NEMSMA',
+  'Opening Ceremony & Group Photo': 'Ceremonia de Apertura y Foto Grupal',
+  'Opening Remarks': 'Palabras de Apertura',
+  'Part II — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte II — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Part III — CAFC Strategic Planning for Senior Chiefs (Day 2) (Bring your laptops)': 'Parte III — Planificación Estratégica CAFC para Jefes Senior (Día 2) (Traiga su computadora)',
+  'Part IV — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte IV — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Part V — CAFC Strategic Planning and Leadership (Bring your laptops)': 'Parte V — Planificación Estratégica y Liderazgo CAFC (Traiga su computadora)',
+  'Presentation by German Delegation': 'Presentación de la Delegación Alemana',
+  'ProBoard Update': 'Actualización de ProBoard',
+  'Research 101': 'Introducción a la Investigación',
+  'Risk Mitigation': 'Mitigación de Riesgos',
+  'Strategic Planning Responsibilities for Junior Officers': 'Responsabilidades de Planificación Estratégica para Oficiales Junior',
+  'The Fire Service in 2026: Forging the Future Virtual': 'El Servicio de Bomberos en 2026: Forjando el Futuro (Virtual)',
+  'The Impact of GIS in the Caribbean': 'El Impacto del SIG en el Caribe',
+  'Training & Development in EMS': 'Capacitación y Desarrollo en EMS',
+  'Transitioning from Junior Officer to Senior Officer': 'Transición de Oficial Junior a Oficial Senior',
+  'Trauma & Medical Assessment Scenarios': 'Escenarios de Trauma y Evaluación Médica',
+  'Vendor Exhibits Open': 'Exhibiciones de Vendedores Abiertas',
+  'Vendor Presentation': 'Presentación de Vendedor',
+  'Vision Alignment for Leaders': 'Alineación de Visión para Líderes',
+  'Visit Exhibit Area & Break': 'Visite el Área de Exhibición y Receso',
+  'Women in Emergency Services': 'Mujeres en Servicios de Emergencia',
+  'Women in Emergency Services / Building an EMS System Pipeline': 'Mujeres en Servicios de Emergencia / Construyendo un Sistema EMS',
+  'Audience: Dominican Republic Stakeholders': 'Audiencia: Partes Interesadas de República Dominicana',
+  'Caribbean Senior Disaster & Emergency Leadership Academy': 'Academia Caribeña Senior de Liderazgo en Desastres y Emergencias',
+  'Caribbean Junior Disaster & Emergency Leadership Academy': 'Academia Caribeña Junior de Liderazgo en Desastres y Emergencias',
+  'Caribbean EMS Leadership Academy': 'Academia Caribeña de Liderazgo en EMS',
+  'Senior-level leaders: Chief Fire Officers, EMS Chief Officers, Fire Commissioners, Deputy Chiefs, Senior Emergency Management & Military Officers': 'Líderes de nivel Senior: Jefes de Bomberos, Jefes de EMS, Comisionados de Bomberos, Subjefes, Oficiales Superiores de Gestión de Emergencias y Militares',
+  'Junior-level leaders: Cadet & Divisional Officers, Leading Firefighters, Section Leaders, Sergeants, Station & Sub-Station Officers, Junior Military Officers': 'Líderes de nivel Junior: Cadetes y Oficiales Divisionales, Bomberos Líderes, Jefes de Sección, Sargentos, Oficiales de Estación y Subestación, Oficiales Militares Junior',
+  'EMS personnel at all levels: EMTs, Advanced EMTs, Drivers, Ambulance Attendants, First Responders, Paramedics, Military Medics': 'Personal de EMS de todos los niveles: TEMs, TEMs Avanzados, Conductores, Asistentes de Ambulancia, Primeros Respondedores, Paramédicos, Médicos Militares',
+  'Tuesday May 19': 'Martes 19 de Mayo',
+  'Wednesday May 20': 'Miércoles 20 de Mayo',
+  'Thursday May 21': 'Jueves 21 de Mayo',
+  'Time': 'Hora',
+  'Session': 'Sesión',
+  'Activity': 'Actividad',
+  'Sunday, May 24 — Departure': 'Domingo, 24 de Mayo — Salida',
 
+  'Dress Code': 'Código de Vestimenta',
+  'What to Bring': 'Qué Traer',
+  'Conference Location': 'Ubicación del Congreso',
+  'Contact & Support': 'Contacto y Soporte',
+  'Formal attire required for Monday group photo': 'Atuendo formal requerido para foto grupal del lunes',
+  'Department-issued dress uniforms required for Fire/EMS personnel in group photo': 'Uniforme formal del departamento requerido para personal de Bomberos/EMS en foto grupal',
+  'Business attire for all conference sessions': 'Atuendo de negocios para todas las sesiones del congreso',
+  'Professional dress for others in group photo': 'Vestimenta profesional para otros en foto grupal',
+  'Formal attire required for Saturday closing ceremony': 'Atuendo formal requerido para ceremonia de clausura del sábado',
+  'Business cards for networking': 'Tarjetas de presentación para networking',
+  'QR contact codes': 'Códigos QR de contacto',
+  'Coins, pins, and department souvenirs for Meet & Greet': 'Monedas, pines y recuerdos del departamento para Encuentro y Saludo',
+  'Playa Juan Dolio, Dominican Republic': 'Playa Juan Dolio, República Dominicana',
+  'May 17–23, 2026': '17–23 de mayo de 2026',
+  '📍 Level 5, GPO Building, Bridgetown, Barbados': '📍 Nivel 5, Edificio GPO, Bridgetown, Barbados',
+  'Conference opens · Hotel check-in': 'Apertura del congreso · Registro en el hotel',
+  'Opening Ceremony · Business Meeting · Meet & Greet': 'Ceremonia de Apertura · Reunión de Negocios · Encuentro y Saludo',
+  'Three parallel tracks running simultaneously · Select your track below': 'Tres academias paralelas simultáneas · Seleccione su academia abajo',
+  'IFE-CASA Program · Business Meeting conclusion · Executive Meeting': 'Programa IFE-CASA · Conclusión de Reunión de Negocios · Reunión Ejecutiva',
+  'Final day · Closing Gala': 'Último día · Gala de Clausura',
+  '🔴 Senior Leadership': '🔴 Liderazgo Senior',
+  '🔵 Junior Leadership': '🔵 Liderazgo Junior',
+  '🟢 EMS Leadership': '🟢 Liderazgo EMS',
+  'IFE-CASA Incident Command Program': 'Programa de Comando de Incidentes IFE-CASA',
+  'Business Meeting & Executive Session': 'Reunión de Negocios y Sesión Ejecutiva',
+  'Saturday, May 23 — Closing Ceremony': 'Sábado, 23 de Mayo — Ceremonia de Clausura',
+  'Virtual': 'Virtual',
+};
+</script>
+
+<!-- Welcome-strip handlers (isolated so JS errors above can't block them) -->
+<script>
 window.CONTENT_TRANSLATIONS = {
   'Afternoon Vendor Presentation': 'Presentación Vespertina de Vendedor',
   'Back to the Basics: EMS Topics / Airway Management Skills': 'Lo Básico: Temas de EMS / Manejo de Vía Aérea',
@@ -2259,136 +2502,6 @@ window.CONTENT_TRANSLATIONS = {
   'Virtual': 'Virtual',
 };
 
-function t(key){
-  var lang = localStorage.getItem('cafc-2026-welcome-lang') || 'en';
-  var entry = window.TRANSLATIONS[key];
-  return (entry && entry[lang]) || (entry && entry.en) || key;
-}
-
-function applyTranslations(lang){
-  try {
-    document.documentElement.lang = (lang === 'sp') ? 'es' : 'en';
-
-    // 1. Static UI strings via data-i18n / data-i18n-html
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var key = el.getAttribute('data-i18n');
-      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
-      if (entry && entry[lang]) el.textContent = entry[lang];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
-      var key = el.getAttribute('data-i18n-html');
-      var entry = window.TRANSLATIONS && window.TRANSLATIONS[key];
-      if (entry && entry[lang]) el.innerHTML = entry[lang];
-    });
-
-    // 2. Eval pill text (dynamically injected)
-    document.querySelectorAll('.eval-btn').forEach(function(b){
-      b.innerHTML = (lang === 'sp')
-        ? '<span class="star">★</span> Evaluación de Fin de Sesión'
-        : '<span class="star">★</span> End-of-Session Evaluation';
-    });
-  } catch (err) {
-    console.error('applyTranslations error:', err);
-  }
-}
-
-// Deferred content-translation pass: runs after DOM is settled.
-// Kept separate so any error here can't block the main applyTranslations or UI handlers.
-function applyContentTranslations(lang){
-  try {
-    var dict = window.CONTENT_TRANSLATIONS || {};
-    if (!dict || Object.keys(dict).length === 0) return;
-    var SELECTORS = ['.td-session', '.td-note', '.day-sub-tab', '.track-name', '.track-audience', '.day-date', '.announce-card-header h3', '.announce-card-body li', '.track-tab', '.sched-table thead th'];
-    SELECTORS.forEach(function(sel){
-      document.querySelectorAll(sel).forEach(function(el){
-        if (el.dataset.origHtml === undefined) el.dataset.origHtml = el.innerHTML;
-        var tmp = document.createElement('div');
-        tmp.innerHTML = el.dataset.origHtml;
-        var key = tmp.textContent.replace(/\s+/g,' ').trim();
-        if (lang === 'sp' && dict[key]) {
-          el.textContent = dict[key];
-        } else {
-          el.innerHTML = el.dataset.origHtml;
-        }
-      });
-    });
-  } catch (err) {
-    console.error('applyContentTranslations error:', err);
-  }
-}
-
-// ── Voice search ──
-function openVoiceSearch(){
-  var m = document.getElementById('voice-modal');
-  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
-  // Auto-start listening
-  setTimeout(function(){ document.getElementById('voice-mic-btn').click(); }, 400);
-}
-function closeVoiceSearch(){
-  var m = document.getElementById('voice-modal');
-  m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow='';
-  if (window._voiceRec) { try { window._voiceRec.stop(); } catch(e){} }
-}
-(function(){
-  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  var btn = document.getElementById('voice-mic-btn');
-  var status = document.getElementById('voice-status');
-  var transcriptEl = document.getElementById('voice-transcript');
-  if (!btn) return;
-  if (!SR) {
-    btn.addEventListener('click', function(){ status.textContent = 'Voice search not supported on this browser. Try Chrome on Android or Safari on iOS.'; });
-    return;
-  }
-  var rec = new SR();
-  rec.lang = 'en-US';
-  rec.interimResults = false;
-  rec.maxAlternatives = 1;
-  window._voiceRec = rec;
-  rec.onstart = function(){ btn.classList.add('listening'); status.textContent='Listening…'; transcriptEl.textContent=''; };
-  rec.onend   = function(){ btn.classList.remove('listening'); };
-  rec.onerror = function(e){ status.textContent = 'Error: ' + e.error; btn.classList.remove('listening'); };
-  rec.onresult = function(e){
-    var text = e.results[0][0].transcript.toLowerCase();
-    transcriptEl.textContent = '"' + e.results[0][0].transcript + '"';
-    var action = matchAction(text);
-    if (action) {
-      status.textContent = 'Going to: ' + action.label;
-      setTimeout(function(){ action.run(); closeVoiceSearch(); }, 700);
-    } else {
-      status.textContent = 'No matching day or topic — try again.';
-    }
-  };
-  btn.addEventListener('click', function(){
-    try { rec.start(); } catch(e) { /* already running */ }
-  });
-})();
-function matchAction(text){
-  function go(day, label){ return { label:label, run:function(){ var b=Array.prototype.find.call(document.querySelectorAll('.day-nav-btn'),function(x){return /switchDay26\('?'+day+/.test(x.getAttribute('onclick')||'');}); if(b) b.click(); else { var sec=document.getElementById('day-'+day); if(sec){ document.querySelectorAll('.day-section').forEach(function(s){s.classList.remove('active');}); sec.classList.add('active'); } } window.scrollTo({top:document.querySelector('.day-nav').offsetTop-10,behavior:'smooth'}); } }; }
-  if (/help|how|instruction/.test(text)) return { label:'Help', run:openHelp };
-  if (/announce|info|survey|strategic/.test(text)) return go('announce26','Announcements');
-  if (/sunday/.test(text)) return go('sun26','Sunday May 17');
-  if (/monday|german/.test(text)) return go('mon26','Monday May 18');
-  if (/tuesday|wednesday|thursday|track|leadership|senior|junior|ems/.test(text)) return go('tracks26','Tue–Thu Tracks');
-  if (/friday|ife|casa|incident command/.test(text)) return go('fri26','Friday May 22');
-  if (/saturday|closing/.test(text)) return go('sat26','Saturday May 23');
-  if (/vendor|expo/.test(text)) return go('vendor26','Vendor Expo');
-  return null;
-}
-
-// ── Rose-Annette ──
-function toggleRoseAnnette(){
-  var chat = document.getElementById('ra-chat');
-  var iframe = document.getElementById('ra-iframe');
-  var open = chat.classList.toggle('open');
-  chat.setAttribute('aria-hidden', open ? 'false' : 'true');
-  if (open && iframe.src === 'about:blank') {
-    iframe.src = iframe.getAttribute('data-src');
-  }
-}
-</script>
-
-<!-- Welcome-strip handlers (isolated so JS errors above can't block them) -->
-<script>
 (function(){
   try {
     var btn = document.getElementById('welcome-play');
@@ -2418,6 +2531,46 @@ function toggleRoseAnnette(){
       if (p && p.catch) p.catch(function(e){ console.error('play rejected', e); setPlaying(false); });
       setPlaying(true);
     }
+    // Inline content-translation (independent of other scripts).
+    function applyContentInline(lang){
+      var dict = window.CONTENT_TRANSLATIONS || {};
+      if (!dict || Object.keys(dict).length === 0) return;
+      var SELECTORS = ['.td-session', '.td-note', '.day-sub-tab', '.track-name', '.track-audience', '.day-date', '.announce-card-header h3', '.announce-card-body li', '.track-tab', '.sched-table thead th'];
+
+      function extractKey(html){
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        // Strip out injected interactive elements before computing the key
+        tmp.querySelectorAll('.tts-btn, .eval-wrap, .eval-btn, .eval-count').forEach(function(b){ b.remove(); });
+        return tmp.textContent.replace(/\s+/g,' ').trim();
+      }
+
+      function replaceTextKeepChildren(el, newText){
+        var preserved = [];
+        Array.prototype.slice.call(el.childNodes).forEach(function(node){
+          if (node.nodeType === 1 && (node.classList.contains('tts-btn') || node.classList.contains('eval-wrap'))) {
+            preserved.push(node);
+          }
+        });
+        el.textContent = newText;
+        preserved.forEach(function(c){ el.appendChild(c); });
+      }
+
+      SELECTORS.forEach(function(sel){
+        document.querySelectorAll(sel).forEach(function(el){
+          // Skip elements already handled by data-i18n / data-i18n-html
+          if (el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html')) return;
+          if (el.dataset.origHtml === undefined) el.dataset.origHtml = el.innerHTML;
+          var key = extractKey(el.dataset.origHtml);
+          if (lang === 'sp' && dict[key]) {
+            replaceTextKeepChildren(el, dict[key]);
+          } else {
+            el.innerHTML = el.dataset.origHtml;
+          }
+        });
+      });
+    }
+
     function setLang(lang){
       current = lang;
       localStorage.setItem(LANG_KEY, lang);
@@ -2426,11 +2579,10 @@ function toggleRoseAnnette(){
         p.classList.toggle('active', on);
         p.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-      // Translation calls are wrapped so they never block the UI
+      // Apply UI chrome translations (try external function first, fall back gracefully)
       try { if (typeof applyTranslations === 'function') applyTranslations(lang); } catch(e){ console.error('applyTranslations failed:', e); }
-      setTimeout(function(){
-        try { if (typeof applyContentTranslations === 'function') applyContentTranslations(lang); } catch(e){ console.error('applyContentTranslations failed:', e); }
-      }, 0);
+      // Apply content (sessions/track/etc.) — inline, runs regardless of other scripts
+      try { applyContentInline(lang); } catch(e){ console.error('applyContentInline failed:', e); }
     }
     audioEn.addEventListener('ended', function(){ setPlaying(false); });
     audioSp.addEventListener('ended', function(){ setPlaying(false); });
