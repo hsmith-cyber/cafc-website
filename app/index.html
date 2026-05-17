@@ -853,6 +853,70 @@ footer{background:var(--dark3);border-top:1px solid rgba(192,39,45,0.2);padding:
       <audio id="welcome-audio-sp" preload="auto" src="audio/welcome-sp.mp3"></audio>
     </div>
 
+    <!-- ═══ LIVE CHAT ═══ -->
+    <div id="chat-card" class="chat-card">
+      <button type="button" id="chat-toggle" class="chat-toggle" aria-expanded="false">
+        <span class="chat-toggle-icon">💬</span>
+        <span class="chat-toggle-label" data-i18n="chat.title">Live Chat</span>
+        <span id="chat-count" class="chat-count">0</span>
+        <span class="chat-toggle-chev">▾</span>
+      </button>
+      <div id="chat-panel" class="chat-panel" style="display:none;">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Type your message…" maxlength="280" />
+          <button type="button" id="chat-send" class="chat-send" data-i18n="chat.send">Send</button>
+        </div>
+        <div class="chat-meta-row">
+          <span id="chat-status" class="chat-meta"></span>
+          <button type="button" id="chat-edit-profile" class="chat-meta-link" data-i18n="chat.edit">edit name</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat sign-in modal -->
+    <div id="chat-signin-modal" class="chat-signin-modal" style="display:none;">
+      <div class="chat-signin-content">
+        <h3 class="chat-signin-title" data-i18n="chat.signin.title">Join the chat</h3>
+        <p class="chat-signin-sub" data-i18n="chat.signin.sub">Tell us who you are so others know who's posting.</p>
+        <input type="text" id="chat-signin-first" class="chat-signin-input" placeholder="First name" autocomplete="given-name" />
+        <input type="text" id="chat-signin-last" class="chat-signin-input" placeholder="Last name" autocomplete="family-name" />
+        <input type="text" id="chat-signin-rank" class="chat-signin-input" placeholder="Rank or Title (e.g., Chief Officer)" autocomplete="organization-title" />
+        <input type="text" id="chat-signin-country" class="chat-signin-input" placeholder="Country" list="chat-country-list" autocomplete="country-name" />
+        <datalist id="chat-country-list">
+          <option value="Antigua and Barbuda"></option>
+          <option value="Bahamas"></option>
+          <option value="Barbados"></option>
+          <option value="Belize"></option>
+          <option value="British Virgin Islands"></option>
+          <option value="Cayman Islands"></option>
+          <option value="Cuba"></option>
+          <option value="Curaçao"></option>
+          <option value="Dominica"></option>
+          <option value="Dominican Republic"></option>
+          <option value="Germany"></option>
+          <option value="Grenada"></option>
+          <option value="Guyana"></option>
+          <option value="Haiti"></option>
+          <option value="Jamaica"></option>
+          <option value="Montserrat"></option>
+          <option value="Puerto Rico"></option>
+          <option value="Saint Kitts and Nevis"></option>
+          <option value="Saint Lucia"></option>
+          <option value="Saint Vincent and the Grenadines"></option>
+          <option value="Sint Maarten"></option>
+          <option value="Suriname"></option>
+          <option value="Trinidad and Tobago"></option>
+          <option value="Turks and Caicos Islands"></option>
+          <option value="United Kingdom"></option>
+          <option value="United States"></option>
+        </datalist>
+        <button type="button" id="chat-signin-go" class="chat-signin-btn" data-i18n="chat.signin.go">Start chatting</button>
+        <button type="button" id="chat-signin-cancel" class="chat-signin-cancel" data-i18n="chat.signin.cancel">Cancel</button>
+      </div>
+    </div>
+
+
     <div class="hero-stats">
       <div class="hero-stat"><div class="hs-val">7</div><div class="hs-lbl" data-i18n="stats.days">Conference Days</div></div>
       <div class="hero-stat"><div class="hs-val">3</div><div class="hs-lbl" data-i18n="stats.tracks">Leadership Tracks</div></div>
@@ -1274,6 +1338,50 @@ document.addEventListener('keydown',function(e){
 /* ── GESCG click counter ── */
 .gescg-counter{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:3px 10px;background:rgba(160,110,31,0.12);border:1px solid rgba(160,110,31,0.35);color:#a06e1f;font-family:'Barlow',sans-serif;font-size:0.7rem;font-weight:700;border-radius:12px;letter-spacing:0.04em;vertical-align:middle;line-height:1.4;}
 .gescg-counter .gescg-eye{font-size:0.78rem;}
+/* ── LIVE CHAT ── */
+.chat-card{max-width:620px;margin:18px auto 12px;border:1.5px solid rgba(232,190,90,0.45);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05));backdrop-filter:blur(6px);overflow:hidden;}
+.chat-toggle{display:flex;align-items:center;gap:10px;width:100%;padding:12px 16px;border:none;background:transparent;color:#f8f5f0;font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-align:left;}
+.chat-toggle-icon{font-size:1.2rem;}
+.chat-toggle-label{flex:1;}
+.chat-toggle-chev{font-size:0.9rem;color:#f0c040;transition:transform 0.2s;}
+.chat-toggle[aria-expanded="true"] .chat-toggle-chev{transform:rotate(180deg);}
+.chat-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:2px 8px;background:#2e9e4a;color:#fff;font-family:'Barlow',sans-serif;font-size:0.7rem;font-weight:700;border-radius:11px;letter-spacing:0.04em;}
+.chat-panel{padding:0 14px 14px;border-top:1px solid rgba(232,190,90,0.25);}
+.chat-panel.is-collapsed{display:none !important;}
+.chat-messages{max-height:280px;min-height:120px;overflow-y:auto;padding:12px 4px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{background:rgba(0,0,0,0.22);border:1px solid rgba(232,190,90,0.18);border-radius:12px;padding:8px 12px;font-family:'Barlow',sans-serif;font-size:0.88rem;color:#f8f5f0;line-height:1.45;animation:chatFade 0.25s ease;}
+@keyframes chatFade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+.chat-msg .chat-msg-head{display:flex;align-items:baseline;gap:8px;margin-bottom:3px;}
+.chat-msg .chat-msg-name{font-family:'Cinzel',serif;font-size:0.74rem;font-weight:700;letter-spacing:0.1em;color:#f0c040;text-transform:uppercase;}
+.chat-msg .chat-msg-rank{font-size:0.68rem;color:#bff0c5;background:rgba(46,158,74,0.22);border:1px solid rgba(77,217,122,0.4);padding:1px 7px;border-radius:8px;letter-spacing:0.03em;font-weight:600;}
+.chat-msg .chat-msg-country{font-size:0.7rem;color:rgba(248,245,240,0.6);}
+.chat-msg .chat-msg-time{font-size:0.66rem;color:rgba(248,245,240,0.45);margin-left:auto;}
+.chat-msg .chat-msg-body{word-break:break-word;}
+.chat-empty{text-align:center;color:rgba(248,245,240,0.5);font-style:italic;font-size:0.85rem;padding:24px 8px;}
+.chat-input-row{display:flex;gap:8px;margin-top:8px;}
+.chat-input{flex:1;padding:9px 14px;border-radius:22px;border:1px solid rgba(232,190,90,0.35);background:rgba(0,0,0,0.3);color:#f8f5f0;font-family:'Barlow',sans-serif;font-size:0.92rem;outline:none;transition:border-color 0.2s;}
+.chat-input::placeholder{color:rgba(248,245,240,0.5);}
+.chat-input:focus{border-color:#f0c040;}
+.chat-send{padding:9px 20px;border:none;border-radius:22px;background:linear-gradient(135deg,#2e9e4a,#1b6e30);color:#fff;font-family:'Cinzel',serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 3px 12px rgba(46,158,74,0.35);transition:transform 0.15s;}
+.chat-send:hover{transform:scale(1.03);}
+.chat-send:active{transform:scale(0.97);}
+.chat-send:disabled{opacity:0.5;cursor:not-allowed;}
+.chat-meta-row{display:flex;align-items:center;gap:8px;margin-top:6px;font-family:'Barlow',sans-serif;font-size:0.72rem;color:rgba(248,245,240,0.5);}
+.chat-meta{flex:1;}
+.chat-meta-link{background:none;border:none;color:#f0c040;cursor:pointer;font-size:0.72rem;text-decoration:underline;padding:0;font-family:inherit;}
+.chat-signin-modal{position:fixed;top:0;left:0;right:0;bottom:0;z-index:1500;background:rgba(13,9,5,0.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;}
+.chat-signin-content{width:100%;max-width:380px;background:linear-gradient(180deg,#fff,#fbf7ec);border-radius:18px;padding:30px 26px;box-shadow:0 20px 60px rgba(0,0,0,0.45);text-align:center;}
+.chat-signin-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:900;color:#8b1a1e;margin:0 0 8px;}
+.chat-signin-sub{font-family:'Barlow',sans-serif;font-size:0.88rem;color:rgba(13,9,5,0.65);margin:0 0 18px;line-height:1.5;}
+.chat-signin-input{display:block;width:100%;padding:11px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid rgba(13,9,5,0.15);font-family:'Barlow',sans-serif;font-size:0.95rem;color:#0d0905;background:#fff;outline:none;transition:border-color 0.2s;}
+.chat-signin-input:focus{border-color:#c0272d;}
+.chat-signin-btn{display:block;width:100%;margin-top:4px;padding:12px;border:none;border-radius:24px;background:linear-gradient(135deg,#2e9e4a,#1b6e30);color:#fff;font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 16px rgba(46,158,74,0.35);}
+.chat-signin-cancel{display:block;width:100%;margin-top:8px;padding:6px;border:none;background:none;color:rgba(13,9,5,0.55);font-family:'Barlow',sans-serif;font-size:0.8rem;cursor:pointer;}
+@media(max-width:520px){
+  .chat-card{margin:14px 12px 8px;}
+  .chat-messages{max-height:240px;}
+}
+
 /* ── WELCOME STRIP ── */
 .welcome-strip{
   display:flex;align-items:center;gap:16px;
@@ -2268,7 +2376,17 @@ window.TRANSLATIONS = {
   'help.s9.p': { en:'Tap the <strong>purple 💬 Rose-Annette button</strong> (bottom-left). She\'s the CAFC AI assistant — ask her about schedules, speakers, the venue, or anything else about the conference. Voice or text both work.', sp:'Toque el <strong>botón morado 💬 Rose-Annette</strong> (abajo-izquierda). Ella es la asistente IA de CAFC — pregúntele sobre horarios, conferencistas, el lugar, o cualquier cosa del congreso. Voz o texto, ambos funcionan.' },
   'help.s10.h': { en:'Offline Use', sp:'Uso sin Conexión' },
   'help.s10.p': { en:'Once you\'ve opened the app on WiFi, the agenda is cached on your phone — it works without connectivity. (Evaluations and live counts still need WiFi or data.)', sp:'Una vez que abra la app con WiFi, la agenda se guarda en su teléfono — funciona sin conexión. (Las evaluaciones y conteos en vivo necesitan WiFi o datos.)' },
-  'help.footer.q':  { en:'Questions? Contact the CAFC Secretariat:', sp:'¿Preguntas? Contacte al Secretariado CAFC:' }
+  'help.footer.q':  { en:'Questions? Contact the CAFC Secretariat:', sp:'¿Preguntas? Contacte al Secretariado CAFC:' },
+  // Live chat
+  'chat.title':         { en:'Live Chat',    sp:'Chat en Vivo' },
+  'chat.send':          { en:'Send',         sp:'Enviar' },
+  'chat.edit':          { en:'edit name',    sp:'editar nombre' },
+  'chat.placeholder':   { en:'Type your message…', sp:'Escribe tu mensaje…' },
+  'chat.empty':         { en:'No messages yet — be the first to say hello!', sp:'Aún no hay mensajes — ¡sé el primero en saludar!' },
+  'chat.signin.title':  { en:'Join the Live Chat', sp:'Únete al Chat en Vivo' },
+  'chat.signin.sub':    { en:"Tell us who you are so other attendees know who's posting.", sp:'Cuéntenos quién es usted para que los demás asistentes sepan quién publica.' },
+  'chat.signin.go':     { en:'Start chatting', sp:'Comenzar a chatear' },
+  'chat.signin.cancel': { en:'Cancel',         sp:'Cancelar' },
 
   'announce.welcome.eyebrow': { en:'📣 Welcome Announcement · #CAFC2026', sp:'📣 Anuncio de Bienvenida · #CAFC2026' },
   'announce.welcome.title': { en:'Let Us Begin Showing Our Pride, Professionalism &amp; Unity', sp:'Comencemos Mostrando Nuestro Orgullo, Profesionalismo y Unidad' },
@@ -2391,6 +2509,187 @@ window.CONTENT_TRANSLATIONS = {
   'Saturday, May 23 — Closing Ceremony': 'Sábado, 23 de Mayo — Ceremonia de Clausura',
   'Virtual': 'Virtual',
 };
+</script>
+
+<!-- ═══ FIREBASE LIVE CHAT (isolated module) ═══ -->
+<script type="module">
+const firebaseConfig = {
+  apiKey: "AIzaSyBRd-MqDwqHNK3AAwZeCZhV7BQiYMqmK_U",
+  authDomain: "cafc-2026.firebaseapp.com",
+  databaseURL: "https://cafc-2026-default-rtdb.firebaseio.com",
+  projectId: "cafc-2026",
+  storageBucket: "cafc-2026.firebasestorage.app",
+  messagingSenderId: "565630260135",
+  appId: "1:565630260135:web:b2237db76daee449df9c82",
+  measurementId: "G-FK06HJ57ZF"
+};
+
+const COUNTRY_FLAG = {
+  'Antigua and Barbuda':'🇦🇬','Bahamas':'🇧🇸','Barbados':'🇧🇧','Belize':'🇧🇿',
+  'British Virgin Islands':'🇻🇬','Cayman Islands':'🇰🇾','Cuba':'🇨🇺','Curaçao':'🇨🇼',
+  'Dominica':'🇩🇲','Dominican Republic':'🇩🇴','Germany':'🇩🇪','Grenada':'🇬🇩',
+  'Guyana':'🇬🇾','Haiti':'🇭🇹','Jamaica':'🇯🇲','Montserrat':'🇲🇸',
+  'Puerto Rico':'🇵🇷','Saint Kitts and Nevis':'🇰🇳','Saint Lucia':'🇱🇨',
+  'Saint Vincent and the Grenadines':'🇻🇨','Sint Maarten':'🇸🇽','Suriname':'🇸🇷',
+  'Trinidad and Tobago':'🇹🇹','Turks and Caicos Islands':'🇹🇨',
+  'United Kingdom':'🇬🇧','United States':'🇺🇸'
+};
+const PROFILE_KEY = 'cafc-2026-chat-profile';
+
+const $ = (id) => document.getElementById(id);
+const toggle      = $('chat-toggle');
+const panel       = $('chat-panel');
+const msgsEl      = $('chat-messages');
+const input       = $('chat-input');
+const sendBtn     = $('chat-send');
+const countBadge  = $('chat-count');
+const statusEl    = $('chat-status');
+const editLink    = $('chat-edit-profile');
+const modal       = $('chat-signin-modal');
+const firstIn     = $('chat-signin-first');
+const lastIn      = $('chat-signin-last');
+const rankIn      = $('chat-signin-rank');
+const countryIn   = $('chat-signin-country');
+const goBtn       = $('chat-signin-go');
+const cancelBtn   = $('chat-signin-cancel');
+
+if (toggle && panel) {
+  // ───────── UI handlers (work even if Firebase fails) ─────────
+  let msgsRef = null;
+  let pushFn = null;
+  let serverTimestampFn = null;
+  let opened = false;
+  let msgCount = 0;
+  const seenIds = new Set();
+
+  const getProfile = () => { try { return JSON.parse(localStorage.getItem(PROFILE_KEY) || 'null'); } catch(e) { return null; } };
+  const setProfile = (p) => { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); refreshStatus(); };
+  function refreshStatus(){
+    const p = getProfile();
+    if (statusEl) statusEl.textContent = p ? (p.firstName + ' ' + p.lastName + (p.rank ? ' · ' + p.rank : '') + ' · ' + (COUNTRY_FLAG[p.country] || '🌎') + ' ' + p.country) : 'Not signed in';
+  }
+  refreshStatus();
+
+  function openSignIn(prefill){
+    if (prefill) {
+      firstIn.value   = prefill.firstName || '';
+      lastIn.value    = prefill.lastName  || '';
+      rankIn.value    = prefill.rank      || '';
+      countryIn.value = prefill.country   || '';
+    }
+    modal.style.display = 'flex';
+    setTimeout(() => firstIn.focus(), 50);
+  }
+  function closeSignIn(){ modal.style.display = 'none'; }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = panel.style.display !== 'none';
+    panel.style.display = isOpen ? 'none' : 'block';
+    opened = !isOpen;
+    toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    if (opened) {
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      if (input) input.focus();
+    }
+  });
+  cancelBtn.addEventListener('click', closeSignIn);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeSignIn(); });
+  editLink.addEventListener('click', () => openSignIn(getProfile()));
+
+  goBtn.addEventListener('click', () => {
+    const f = firstIn.value.trim(), l = lastIn.value.trim(), r = rankIn.value.trim(), c = countryIn.value.trim();
+    if (!f || !l || !r || !c) { alert('Please enter first name, last name, rank, and country.'); return; }
+    setProfile({ firstName: f, lastName: l, rank: r, country: c });
+    closeSignIn();
+    if (input.value.trim()) sendMessage();
+  });
+
+  function sendMessage(){
+    const text = input.value.trim();
+    if (!text) return;
+    const p = getProfile();
+    if (!p) { openSignIn(); return; }
+    if (!msgsRef || !pushFn) { alert('Chat is offline — please try again in a moment.'); return; }
+    sendBtn.disabled = true;
+    pushFn(msgsRef, {
+      firstName: p.firstName,
+      lastName:  p.lastName,
+      rank:      p.rank || '',
+      country:   p.country,
+      message:   text,
+      timestamp: serverTimestampFn()
+    }).then(() => {
+      input.value = '';
+      sendBtn.disabled = false;
+      input.focus();
+    }).catch((err) => {
+      sendBtn.disabled = false;
+      alert('Could not send: ' + err.message);
+    });
+  }
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"\']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"\'":'&#39;'})[c]);
+  }
+  function fmtTime(ts){
+    if (!ts) return '';
+    try { return new Date(ts).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); }
+    catch(e){ return ''; }
+  }
+  function renderMessage(snap){
+    const id = snap.key;
+    if (seenIds.has(id)) return;
+    seenIds.add(id);
+    const v = snap.val() || {};
+    const name = (v.firstName || '?') + ' ' + (v.lastName || '');
+    const flag = COUNTRY_FLAG[v.country] || '🌎';
+    const rank = v.rank ? '<span class="chat-msg-rank">' + escapeHtml(v.rank) + '</span>' : '';
+    const empty = msgsEl.querySelector('.chat-empty'); if (empty) empty.remove();
+    const div = document.createElement('div');
+    div.className = 'chat-msg';
+    div.innerHTML =
+      '<div class="chat-msg-head">' +
+        '<span class="chat-msg-name">' + escapeHtml(name) + '</span>' +
+        rank +
+        '<span class="chat-msg-country">' + flag + ' ' + escapeHtml(v.country || '') + '</span>' +
+        '<span class="chat-msg-time">' + fmtTime(v.timestamp) + '</span>' +
+      '</div>' +
+      '<div class="chat-msg-body">' + escapeHtml(v.message || '') + '</div>';
+    msgsEl.appendChild(div);
+    msgsEl.scrollTop = msgsEl.scrollHeight;
+    msgCount++;
+    if (countBadge) countBadge.textContent = String(msgCount);
+  }
+
+  // Initial empty placeholder
+  if (msgsEl && msgsEl.children.length === 0) {
+    const ph = document.createElement('div');
+    ph.className = 'chat-empty';
+    ph.textContent = 'No messages yet — be the first to say hello!';
+    msgsEl.appendChild(ph);
+  }
+
+  // ───────── Firebase init (may fail; UI still works) ─────────
+  try {
+    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js");
+    const fb = await import("https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js");
+    const app = initializeApp(firebaseConfig);
+    const db  = fb.getDatabase(app);
+    msgsRef = fb.ref(db, 'chat/messages');
+    pushFn = fb.push;
+    serverTimestampFn = fb.serverTimestamp;
+    fb.onChildAdded(fb.query(msgsRef, fb.limitToLast(100)), renderMessage, (err) => {
+      if (statusEl) statusEl.textContent = 'Chat offline — ' + err.message;
+    });
+  } catch (err) {
+    console.error('Firebase chat init failed:', err);
+    if (statusEl) statusEl.textContent = 'Chat offline: ' + err.message;
+  }
+}
 </script>
 
 <!-- Welcome-strip handlers (isolated so JS errors above can't block them) -->
