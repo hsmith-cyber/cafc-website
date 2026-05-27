@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAFC · Strategic Plan 2026–2031 · Editorial Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf7f0;
+  --paper-deep:#f3ede0;
+  --ink:#1a1a1a;
+  --ink-soft:#3a3a3a;
+  --ink-faint:#6a6358;
+  --rule:#d9d2bd;
+  --gold:#a07a1e;
+  --gold-bright:#c8962e;
+  --navy:#14213d;
+  --red:#9a1a36;
+  --green:#2d6a4f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);font-family:'Source Serif 4',Georgia,serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;font-feature-settings:"liga","kern","onum"}
+
+/* DRAFT ribbon */
+.draft-ribbon{position:fixed;top:30px;right:-58px;z-index:100;background:var(--red);color:#fff;font-family:'Cinzel',serif;font-weight:700;letter-spacing:5px;font-size:11px;padding:7px 70px;transform:rotate(45deg);box-shadow:0 4px 14px rgba(154,26,54,0.4);text-transform:uppercase}
+@media(max-width:640px){.draft-ribbon{top:14px;right:-66px;font-size:9.5px;letter-spacing:3px;padding:5px 70px}}
+
+/* ===== COVER ===== */
+.cover{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:48px 8vw 36px;border-bottom:1px solid var(--rule);position:relative;background:var(--paper)}
+.cover-top{display:flex;justify-content:space-between;align-items:baseline;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:4px;color:var(--ink-faint);text-transform:uppercase;border-bottom:1px solid var(--rule);padding-bottom:18px}
+.cover-top em{font-style:normal;color:var(--gold);font-weight:700}
+.cover-main{display:flex;flex-direction:column;justify-content:center;padding:8vh 0}
+.cover-eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:32px;font-weight:700}
+.cover-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(72px,14vw,180px);line-height:0.88;letter-spacing:-3px;color:var(--ink)}
+.cover-title .word2{display:block;padding-left:0.1em}
+.cover-title em{font-style:italic;color:var(--gold);font-weight:900}
+.cover-years{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(38px,7vw,72px);color:var(--navy);margin-top:18px;letter-spacing:-1px}
+.cover-sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(17px,2vw,21px);color:var(--ink-soft);margin-top:36px;max-width:640px;line-height:1.5}
+.cover-bottom{display:flex;justify-content:space-between;align-items:flex-end;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--ink-faint);text-transform:uppercase;border-top:1px solid var(--rule);padding-top:18px;gap:24px;flex-wrap:wrap}
+.cover-bottom .left,.cover-bottom .right{max-width:48%}
+.cover-bottom strong{color:var(--ink);font-weight:700}
+
+/* ===== Image plates ===== */
+.plate{margin:0;padding:0;background:var(--paper)}
+.plate img{display:block;width:100%;max-width:1100px;margin:0 auto;height:auto}
+.plate.full img{max-width:1400px}
+.plate-cap{max-width:760px;margin:14px auto 0;padding:0 24px;font-family:'Cinzel',serif;font-style:italic;font-size:12px;letter-spacing:1.5px;color:var(--ink-faint);text-align:center;text-transform:uppercase}
+
+/* ===== Article structure ===== */
+.article{max-width:760px;margin:0 auto;padding:80px 28px}
+.article > * + *{margin-top:24px}
+
+.dept{font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;font-weight:700;text-align:center;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-top:0}
+.headline{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,5.5vw,64px);line-height:1.05;letter-spacing:-1.5px;color:var(--ink);text-align:center;margin-top:18px}
+.headline em{font-style:italic;color:var(--gold)}
+.deck{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--ink-soft);text-align:center;max-width:620px;margin:18px auto 0}
+.byline{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--ink-faint);text-transform:uppercase;text-align:center;margin:24px 0 8px}
+.section-rule{border:0;height:1px;background:var(--rule);margin:36px auto;width:120px}
+.section-rule.gold{background:linear-gradient(90deg,transparent,var(--gold),transparent);height:2px;width:80px}
+
+/* Body paragraph */
+.article p{font-size:18.5px;line-height:1.78;color:var(--ink);margin:0 0 22px;font-feature-settings:"liga","kern","onum"}
+.article p:first-of-type::first-letter{font-family:'Playfair Display',serif;font-weight:900;float:left;font-size:84px;line-height:0.85;padding:6px 14px 0 0;color:var(--gold);font-style:normal}
+.article .nodropcap p:first-of-type::first-letter{font-family:'Source Serif 4',serif;font-weight:400;float:none;font-size:inherit;line-height:inherit;padding:0;color:inherit}
+.article p strong{font-weight:700;color:var(--ink)}
+.article p em{font-style:italic;color:var(--ink-soft)}
+
+/* Pull quote */
+.pullquote{margin:48px -40px;padding:36px 40px;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);text-align:center;background:var(--paper)}
+@media(max-width:640px){.pullquote{margin:36px 0;padding:28px 0}}
+.pullquote .q{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(24px,3.2vw,34px);line-height:1.35;color:var(--ink);quotes:"\201C" "\201D"}
+.pullquote .q::before{content:open-quote;color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-0.35em;margin-right:0.08em}
+.pullquote .q::after{content:close-quote;color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-0.55em;margin-left:0.08em}
+.pullquote .attrib{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--ink-faint);text-transform:uppercase;margin-top:18px}
+
+/* President portrait */
+.president-portrait{float:right;width:180px;height:180px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);margin:6px 0 18px 28px;shape-outside:circle()}
+@media(max-width:540px){.president-portrait{float:none;display:block;margin:0 auto 20px}}
+
+/* Signature block */
+.signoff{margin-top:30px;padding-top:26px;border-top:1px solid var(--rule);text-align:left}
+.signoff .name{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:24px;color:var(--ink)}
+.signoff .role{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-top:6px}
+.signoff .org{font-family:'Source Serif 4',serif;font-style:italic;font-size:14.5px;color:var(--ink-faint);margin-top:4px}
+
+/* Statement panels (Mission / Vision) */
+.statement-panel{background:var(--navy);color:var(--paper);padding:90px 8vw;text-align:center;position:relative;overflow:hidden}
+.statement-panel.vision{background:#0d1731}
+.statement-panel::before,.statement-panel::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:48px;height:1px;background:var(--gold-bright)}
+.statement-panel::before{top:40px}
+.statement-panel::after{bottom:40px}
+.statement-panel .label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:8px;color:var(--gold-bright);font-weight:700;text-transform:uppercase;margin-bottom:36px}
+.statement-panel .body{font-family:'Playfair Display',serif;font-weight:400;font-style:italic;font-size:clamp(22px,3vw,34px);line-height:1.5;max-width:880px;margin:0 auto;color:#fff;letter-spacing:-0.3px}
+
+/* Values — three columns */
+.values-spread{background:var(--paper-deep);padding:80px 28px}
+.values-inner{max-width:1140px;margin:0 auto}
+.values-spread .dept{color:var(--gold)}
+.values-spread .headline{margin-bottom:46px}
+.values-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:24px}
+@media(max-width:880px){.values-cols{grid-template-columns:1fr;gap:24px}}
+.values-col h3{font-family:'Cinzel',serif;font-size:13px;letter-spacing:5px;color:var(--gold);font-weight:700;text-transform:uppercase;padding-bottom:10px;border-bottom:2px solid var(--gold);margin-bottom:18px}
+.values-col .col-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--ink-faint);margin-bottom:18px;display:block}
+.values-col dl{margin:0}
+.values-col dt{font-family:'Playfair Display',serif;font-weight:900;font-size:21px;color:var(--ink);margin-top:20px;letter-spacing:-0.3px}
+.values-col dt:first-of-type{margin-top:0}
+.values-col dd{font-size:15px;line-height:1.6;color:var(--ink-soft);margin-top:5px;margin-left:0}
+
+/* SWOT — editorial spread */
+.swot-spread{padding:80px 28px;background:var(--paper)}
+.swot-spread .inner{max-width:1140px;margin:0 auto}
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+@media(max-width:780px){.swot-grid{grid-template-columns:1fr;gap:30px}}
+.swot-col h4{font-family:'Cinzel',serif;font-size:13px;letter-spacing:5px;font-weight:700;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid;margin-bottom:14px}
+.swot-col.s h4{color:var(--green);border-color:var(--green)}
+.swot-col.w h4{color:var(--red);border-color:var(--red)}
+.swot-col.o h4{color:var(--gold);border-color:var(--gold)}
+.swot-col.t h4{color:#5d2030;border-color:#5d2030}
+.swot-col p{font-size:15px;line-height:1.6;color:var(--ink-soft);margin-bottom:10px;padding-left:18px;position:relative}
+.swot-col p::before{content:'\2014';position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
+
+/* Issues — narrative clusters */
+.issues-spread{background:var(--paper);padding:80px 28px}
+.issues-inner{max-width:760px;margin:0 auto}
+.cluster-block{margin:40px 0}
+.cluster-label{display:flex;align-items:baseline;gap:14px;padding-bottom:8px;border-bottom:1px solid var(--rule);margin-bottom:18px}
+.cluster-label .roman{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:32px;color:var(--gold)}
+.cluster-label .name{font-family:'Cinzel',serif;font-size:14px;letter-spacing:4px;color:var(--ink);font-weight:700;text-transform:uppercase}
+.issue{margin-bottom:18px;padding:18px 22px 16px 56px;background:var(--paper-deep);border-radius:4px;position:relative}
+.issue .n{position:absolute;left:18px;top:18px;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--gold);font-style:italic}
+.issue .iname{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--ink);margin-bottom:5px}
+.issue .idesc{font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+
+/* Six Initiatives — full spread per initiative */
+.initiative-spread{padding:90px 28px;border-top:1px solid var(--rule)}
+.initiative-spread:nth-of-type(even){background:var(--paper-deep)}
+.initiative-spread.dark{background:var(--navy);color:#fff}
+.initiative-spread.dark .num{color:var(--gold-bright)}
+.initiative-spread.dark .pillar{color:var(--gold-bright)}
+.initiative-spread.dark .ititle{color:#fff}
+.initiative-spread.dark .igoal{border-color:var(--gold-bright);color:#f5efe2}
+.initiative-spread.dark p,.initiative-spread.dark .iwhy{color:#d8d2c5}
+.initiative-spread.dark .obj-num{color:var(--gold-bright)}
+.initiative-spread.dark .obj-title{color:#fff}
+.initiative-spread.dark .obj-time{color:#a8a08f}
+.initiative-spread.dark .obj-tasks li{color:#c8c2b3}
+.initiative-spread.dark .obj-tasks li::before{background:var(--gold-bright)}
+.initiative-spread.dark details summary{color:var(--gold-bright)}
+.initiative-spread.dark details{border-color:rgba(232,190,90,0.2)}
+.init-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:140px 1fr;gap:40px;align-items:start}
+@media(max-width:720px){.init-inner{grid-template-columns:1fr;gap:14px}}
+.init-meta .num{font-family:'Playfair Display',serif;font-weight:900;font-size:120px;line-height:0.85;color:var(--gold);font-style:italic}
+@media(max-width:720px){.init-meta .num{font-size:80px}}
+.init-meta .pillar{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-top:8px;line-height:1.4}
+.ititle{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;color:var(--ink);letter-spacing:-0.5px;margin-bottom:16px}
+.igoal{padding:18px 22px;border-left:3px solid var(--gold);background:rgba(200,150,46,0.07);font-family:'Playfair Display',serif;font-style:italic;font-size:17px;line-height:1.55;color:var(--ink);margin:18px 0}
+.iscope{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:2.5px;color:var(--ink-faint);text-transform:uppercase;margin:14px 0 10px}
+.iscope strong{color:var(--gold);font-weight:700}
+.iwhy{font-size:15.5px;line-height:1.7;color:var(--ink-soft);font-style:italic;margin-bottom:14px}
+.iwhy strong{color:var(--ink);font-style:normal}
+.initiative-spread details{margin-top:16px;border-top:1px solid var(--rule);padding-top:14px}
+.initiative-spread summary{cursor:pointer;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;outline:none;padding:4px 0}
+.initiative-spread summary:hover{color:var(--ink)}
+.obj{margin:18px 0}
+.obj-num{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold);font-size:14px;letter-spacing:1px;display:inline-block;margin-right:4px}
+.obj-title{font-family:'Playfair Display',serif;font-weight:700;font-size:16.5px;line-height:1.4;color:var(--ink);margin-bottom:4px;display:inline}
+.obj-time{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-top:6px}
+.obj-tasks{list-style:none;padding-left:0;margin:6px 0 4px}
+.obj-tasks li{font-size:14px;line-height:1.55;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:3px}
+.obj-tasks li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:1px;background:var(--gold)}
+
+/* Implementation panel */
+.impl-spread{background:var(--paper-deep);padding:80px 28px}
+.impl-inner{max-width:880px;margin:0 auto}
+.impl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:32px}
+.impl-card{background:var(--paper);border:1px solid var(--rule);padding:24px 22px;border-radius:4px}
+.impl-card .when{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:22px;color:var(--gold);letter-spacing:-0.5px}
+.impl-card .what{font-family:'Source Serif 4',serif;font-size:14.5px;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+
+/* Owners — editorial table */
+.owners-spread{background:var(--paper);padding:80px 28px}
+.owners-inner{max-width:980px;margin:0 auto}
+.owner-block{padding:28px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:90px 1fr;gap:30px;align-items:start}
+@media(max-width:640px){.owner-block{grid-template-columns:1fr;gap:8px}}
+.owner-num{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:72px;color:var(--gold);line-height:0.85}
+.owner-title{font-family:'Playfair Display',serif;font-weight:900;font-size:23px;color:var(--ink);line-height:1.2;margin-bottom:10px}
+.owner-roles{font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
+.owner-roles .role-lab{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-right:4px}
+
+/* Member territories — chips reimagined */
+.territories{display:flex;flex-wrap:wrap;gap:8px 12px;margin:20px 0}
+.territories span{font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--ink-soft);text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:2px}
+
+/* Member journey timeline */
+.phases-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:30px 0}
+@media(max-width:780px){.phases-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.phases-row{grid-template-columns:1fr}}
+.phase-item{border-top:2px solid var(--gold);padding-top:16px}
+.phase-item .pnum{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase}
+.phase-item h4{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--ink);margin:8px 0 8px;letter-spacing:-0.3px}
+.phase-item p{font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin:0}
+.phase-item p:first-of-type::first-letter{font-family:inherit;font-weight:400;float:none;font-size:inherit;line-height:inherit;padding:0;color:inherit}
+
+/* Reading actions */
+.actions{display:flex;justify-content:center;gap:14px;margin:60px 0 80px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);text-decoration:none;font-family:'Cinzel',serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Footer / colophon */
+.colophon{background:var(--ink);color:var(--paper);padding:50px 28px;text-align:center}
+.colophon .cn{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:32px;color:var(--paper)}
+.colophon .ct{font-family:'Cinzel',serif;font-size:11px;letter-spacing:5px;color:var(--gold-bright);text-transform:uppercase;margin-top:14px}
+.colophon .cnote{font-family:'Source Serif 4',serif;font-style:italic;font-size:14px;color:rgba(250,247,240,0.6);margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto}
+.colophon a{color:var(--gold-bright);text-decoration:none;border-bottom:1px solid var(--gold-bright)}
+
+@media print{
+  .draft-ribbon{display:none}
+  body{background:#fff}
+  .statement-panel,.initiative-spread.dark,.colophon{background:#fff!important;color:#000!important}
+  .statement-panel .body,.initiative-spread.dark p,.initiative-spread.dark .ititle{color:#000!important}
+  details{display:block}
+  details[open] summary{display:none}
+  details > *:not(summary){display:block!important}
+  .article{padding:24px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="draft-ribbon">Draft v 5.27.2026</div>
+
+<!-- ===== COVER ===== -->
+<section class="cover">
+  <div class="cover-top">
+    <div>Caribbean Association of Fire Chiefs</div>
+    <div><em>Strategic Plan</em></div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-eyebrow">A Five-Year Strategic Plan</div>
+    <h1 class="cover-title">Strategic<span class="word2">Plan<em>.</em></span></h1>
+    <div class="cover-years">2026 — 2031</div>
+    <p class="cover-sub">A plan built by the chiefs, for the chiefs — across three working days at the 2026 Annual Conference in the Dominican Republic.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="left"><strong>Adopted</strong> · May 21, 2026 · Hodelpa Garden Suites, Playa Juan Dolio, Dominican Republic</div>
+    <div class="right"><strong>Facilitated by</strong> · Global Emergency Services Consulting Group</div>
+  </div>
+</section>
+
+<!-- Cover image plate -->
+<figure class="plate full">
+  <img src="images/strategic_plan_2026/cover_head_table.jpg" alt="CAFC senior chief officers at the 2026 Annual Conference, Playa Juan Dolio, Dominican Republic">
+  <figcaption class="plate-cap">CAFC senior chief officers · 2026 Annual Conference · Playa Juan Dolio, Dominican Republic</figcaption>
+</figure>
+
+<!-- ===== LETTER ===== -->
+<article class="article" id="letter">
+  <div class="dept">From the President</div>
+  <h2 class="headline">A plan, built <em>together</em>.</h2>
+  <p class="deck">An open letter from Chief Kenrick Hackett to the members and partners of the Caribbean Association of Fire Chiefs.</p>
+  <div class="byline">By Chief Kenrick Hackett · 22 May 2026</div>
+  <hr class="section-rule gold">
+
+  <img class="president-portrait" src="images/strategic_plan_2026/president_hackett.jpg" alt="Chief Kenrick Hackett, President of the Caribbean Association of Fire Chiefs">
+
+  <p>This strategic plan is yours. It was built across three working days at the 2026 Annual Conference in the Dominican Republic by over 56 stakeholders — including conference sponsors and vendors, senior chief officers, junior officers, and Emergency Medical Services officers from member islands and territories collectively representing Fire suppression, Emergency Medical Services, and integrated Emergency Services agencies. The plan you hold reflects what those stakeholders told us they need from CAFC over the next five years, and what they have committed CAFC to deliver.</p>
+
+  <p>Several things distinguish this plan from prior efforts. It begins with feedback collected from members <em>before</em> the conference — not with a draft circulated by the executive. It was authored, debated, and adopted by the stakeholders themselves, with the facilitation team holding only the discipline of the process. Every component is anchored in evidence: chief-officer feedback, the workshop SWOT, the issues-and-gaps consensus, and the goal statements submitted by stakeholders across the membership.</p>
+
+  <div class="pullquote">
+    <div class="q">This plan does not gather dust. It is the working agenda of the association until 2031.</div>
+    <div class="attrib">Chief Kenrick Hackett · President, CAFC</div>
+  </div>
+
+  <p>Equally important is what comes next. Each strategic initiative has a named senior chief officer as owner and a support team. Each owner has accepted the responsibility publicly. Quarterly reporting is built into the framework. Annual review at the conference is built into the framework. A mid-cycle review at Year 3 is built into the framework.</p>
+
+  <p>To the chiefs who completed the pre-conference feedback instrument, to those who carried the work across three days in Playa Juan Dolio, and to those who now carry the work back to their islands and into the implementation period — <strong>thank you</strong>. The next five years belong to CAFC because we built the plan together.</p>
+
+  <div class="signoff">
+    <div class="name">Chief Kenrick Hackett</div>
+    <div class="role">President · Caribbean Association of Fire Chiefs</div>
+    <div class="org">Turks &amp; Caicos Airport Authority</div>
+  </div>
+</article>
+
+<!-- ===== ABOUT ===== -->
+<article class="article nodropcap" id="about">
+  <hr class="section-rule">
+  <div class="dept">Article I · Who We Are</div>
+  <h2 class="headline">About <em>CAFC</em>.</h2>
+  <hr class="section-rule gold">
+  <p>The Caribbean Association of Fire Chiefs (CAFC) is the regional professional association for chief officers leading Fire, Emergency Medical Services, and integrated Emergency Services agencies across the Caribbean. The association exists to advance the standards, capabilities, and professional development of its member chiefs and the agencies they lead — and to provide a unified regional voice for Fire and Emergency Services across the islands and territories it serves.</p>
+  <p>CAFC member agencies span the full range of disciplines that protect Caribbean communities from Fire, medical emergencies, hazardous incidents, and disasters: Fire suppression and prevention, Emergency Medical Services, integrated Fire and Emergency Services, and search and rescue. Member chiefs lead agencies of varying sizes and structures, serving populations from small territorial communities to large national jurisdictions — across a region united by shared geography, shared risks, and a shared commitment to professional excellence in service of the public.</p>
+
+  <h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:700;margin:32px 0 12px">Member Islands &amp; Territories</h3>
+  <div class="territories">
+    <span>Antigua &amp; Barbuda</span><span>Anguilla</span><span>Aruba</span><span>Barbados</span><span>Cayman Islands</span><span>Dominica</span><span>Dominican Republic</span><span>French Guiana</span><span>Guyana</span><span>Jamaica</span><span>Montserrat</span><span>Saint Kitts &amp; Nevis</span><span>Saint Lucia</span><span>Sint Maarten</span><span>Turks &amp; Caicos Islands</span><span>U.S. Virgin Islands</span>
+  </div>
+</article>
+
+<!-- ===== METHODOLOGY ===== -->
+<article class="article nodropcap" id="development">
+  <hr class="section-rule">
+  <div class="dept">Article II · Method</div>
+  <h2 class="headline">How this plan was <em>built</em>.</h2>
+  <p class="deck">The Caribbean Chiefs-Driven Strategic Plan methodology, developed for CAFC by Global Emergency Services Consulting Group.</p>
+  <hr class="section-rule gold">
+  <p>This strategic plan was developed using the <strong>Caribbean Chiefs-Driven Strategic Plan</strong> — a planning methodology designed for CAFC by Global Emergency Services Consulting Group. The methodology recognizes that CAFC's foundational stakeholder voice is not a single jurisdiction's external community, but the chief officers, stakeholders, and partners of each member island and territory.</p>
+
+  <div class="phases-row">
+    <div class="phase-item"><div class="pnum">Phase 1</div><h4>Feedback Collection</h4><p>Every chief officer was invited to complete the Chief-Officer Feedback Instrument capturing expectations, concerns, recognized strengths, and community signals.</p></div>
+    <div class="phase-item"><div class="pnum">Phase 2</div><h4>Feedback Processing</h4><p>Responses processed anonymously; ranked sections weighted and verbatim sections themed by topic and audience.</p></div>
+    <div class="phase-item"><div class="pnum">Phase 3</div><h4>Planning Conference</h4><p>22 senior chiefs and a parallel cohort of 10 junior/EMS officers built the plan across six sessions, May 19–21, 2026.</p></div>
+    <div class="phase-item"><div class="pnum">Phase 4</div><h4>Publication</h4><p>Following adoption, the plan was formalized and distributed; implementation began immediately with named owners.</p></div>
+  </div>
+</article>
+
+<!-- Working session plate -->
+<figure class="plate">
+  <img src="images/strategic_plan_2026/working_session_utable.jpg" alt="Senior chief officers in working session at the 2026 strategic planning conference">
+  <figcaption class="plate-cap">Component 3 · The strategic planning stakeholder team at work, Hodelpa Garden Suites</figcaption>
+</figure>
+
+<!-- ===== MISSION PANEL ===== -->
+<section class="statement-panel" id="mission">
+  <div class="label">Mission</div>
+  <div class="body">To strengthen Fire and Emergency Services across the Caribbean by advancing professional standards, advocating for member services and the communities they protect, and promoting best practices in Fire suppression, Emergency Medical Services, Fire protection, search and rescue, and the safeguarding of life, property, and the environment.</div>
+</section>
+
+<article class="article nodropcap">
+  <p>This mission speaks directly to the integrated nature of modern Fire and Emergency Services in the Caribbean. CAFC's reach extends beyond Fire suppression alone to include Emergency Medical Services, Fire protection and prevention, and search and rescue. Each discipline is named explicitly because each is essential to the work our member agencies do every day. The standard we hold ourselves to is not minimum compliance, but <strong>best practices</strong> — identified, advocated for, and advanced across every member agency so that every community we collectively serve is better protected.</p>
+</article>
+
+<figure class="plate">
+  <img src="images/strategic_plan_2026/mission_wall_work.jpg" alt="Chiefs reviewing the draft mission at the wall station">
+  <figcaption class="plate-cap">Component 2 · Chiefs reviewing the draft mission at the Mission &amp; Values wall station</figcaption>
+</figure>
+
+<!-- ===== VISION PANEL ===== -->
+<section class="statement-panel vision" id="vision">
+  <div class="label">Vision</div>
+  <div class="body">To create a united, resilient Caribbean Emergency Services system that safeguards life, property, and the environment across the region.</div>
+</section>
+
+<article class="article nodropcap">
+  <p>When this vision is realized, Fire and Emergency Services chiefs across the Caribbean will work as a unified regional community rather than as separate national or territorial actors. Standards and professional practices will be aligned, with the highest expectations consistently met across member agencies regardless of jurisdiction size or resource base. Every life touched by a CAFC member agency — whether through Fire, medical emergency, search and rescue, or disaster response — will be served with the same standard of professional excellence. The vision is <em>aspirational by design</em>. Five years from now we will not have closed every gap, but we will be measurably further along the path.</p>
+</article>
+
+<!-- ===== VALUES ===== -->
+<section class="values-spread" id="values">
+  <div class="values-inner">
+    <div class="dept">Article III · Character</div>
+    <h2 class="headline">Our core <em>values</em>.</h2>
+    <p class="deck" style="text-align:center;margin-top:18px">Thirteen values · three families · synthesized from the chiefs' own words.</p>
+    <div class="values-cols">
+      <div class="values-col">
+        <h3>Family I · Mission</h3>
+        <span class="col-tag">Why CAFC exists</span>
+        <dl>
+          <dt>Service Excellence</dt><dd>Delivering the highest standard of professional response to every community CAFC member agencies protect.</dd>
+          <dt>Public Safety</dt><dd>The protection of life, property, and the environment as the purpose of the regional Emergency Services system.</dd>
+          <dt>Risk Reduction</dt><dd>Proactive prevention, code enforcement, and community education that prevents incidents from occurring in the first place.</dd>
+          <dt>Life-Safety</dt><dd>Every decision tested against its effect on the lives of responders and the public.</dd>
+        </dl>
+      </div>
+      <div class="values-col">
+        <h3>Family II · Capability</h3>
+        <span class="col-tag">How CAFC delivers</span>
+        <dl>
+          <dt>Interoperability</dt><dd>Member services able to operate together across borders, disciplines, and incident types.</dd>
+          <dt>Professionalism</dt><dd>Conduct, competence, and ethics that earn the trust of communities, governments, and partner agencies.</dd>
+          <dt>Accreditation Standards</dt><dd>A defensible regional credential architecture that elevates Caribbean Fire and EMS to international parity.</dd>
+          <dt>Leadership</dt><dd>Senior chief officers who develop the next generation while leading their own agencies with vision and accountability.</dd>
+          <dt>Readiness</dt><dd>Personnel, equipment, doctrine, and partnerships prepared in advance of the next call.</dd>
+        </dl>
+      </div>
+      <div class="values-col">
+        <h3>Family III · Community</h3>
+        <span class="col-tag">Who CAFC is together</span>
+        <dl>
+          <dt>Collaboration</dt><dd>Working across agencies, disciplines, and borders to multiply the capability of any single member service.</dd>
+          <dt>Trust</dt><dd>Relationships of confidence among chiefs that allow honest information sharing and mutual support in crisis.</dd>
+          <dt>Diversity</dt><dd>Representation across nationalities, ranks, disciplines, and generations.</dd>
+          <dt>Mutual Aid</dt><dd>Reciprocal commitment among member services to respond beyond borders when capability is needed.</dd>
+          <dt>Cultural Respect</dt><dd>Recognition that the Caribbean is one region with many distinct cultures, languages, and operational traditions.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SWOT ===== -->
+<section class="swot-spread" id="swot">
+  <div class="inner">
+    <div class="dept">Article IV · Honest Assessment</div>
+    <h2 class="headline">Where we <em>stand</em>.</h2>
+    <p class="deck" style="text-align:center">An honest, two-team SWOT consensus, built at four wall stations on the first day of the conference.</p>
+    <div class="swot-grid">
+      <div class="swot-col s"><h4>Strengths</h4>
+        <p>Established regional lobbying access to member governments, donors, and stakeholders.</p>
+        <p>Demonstrated convening authority — 22 senior leaders across 12 islands engaged directly.</p>
+        <p>Cross-discipline scope covering Fire, EMS, integrated services, and regional coordination.</p>
+        <p>Existing institutional relationships with regional training providers ready for operationalization.</p>
+        <p>Credible regional source of research and education on emerging hazards.</p>
+        <p>Organizational legitimacy — every workshop issue rated within CAFC's sphere of meaningful influence.</p>
+      </div>
+      <div class="swot-col w"><h4>Weaknesses</h4>
+        <p>No full-time Secretariat staff, leaving regional chiefs to carry the administrative load.</p>
+        <p>Heavy dependence on voluntarism for member participation.</p>
+        <p>Incomplete member representation and lack of formal government ratification in some states.</p>
+        <p>Member retention vulnerability — risk of country disbandment.</p>
+        <p>Documented lack of action between conferences.</p>
+        <p>Absence of an accredited regional training architecture and dedicated EMS pathway.</p>
+        <p>No regional procurement database; no communications interoperability standard.</p>
+      </div>
+      <div class="swot-col o"><h4>Opportunities</h4>
+        <p>Technology-enabled participation models for financially constrained member states.</p>
+        <p>Existing regional training institutions ready to be operationalized rather than built.</p>
+        <p>Government and donor appetite for organized regional advocacy.</p>
+        <p>Growing international attention to climate resilience and disaster recovery investment.</p>
+        <p>Available pathways for ministerial-level CAFC ratification in member states.</p>
+        <p>Vendor markets responsive to consolidated regional demand.</p>
+        <p>International accreditation frameworks (NFPA, NREMT, ICAO 9137, OTAR) ready for adoption.</p>
+      </div>
+      <div class="swot-col t"><h4>Threats</h4>
+        <p>Climate change and increasing frequency of natural disasters on member services.</p>
+        <p>Persistent financial constraints across small-island economies.</p>
+        <p>Aging equipment and infrastructure without national capital replacement budgets.</p>
+        <p>Manpower shortages driven by regional labor market dynamics outside CAFC control.</p>
+        <p>Evolving emergency threats outpacing doctrine, equipment, and training.</p>
+        <p>Risk of further country disbandment if value-of-membership is not visibly demonstrated.</p>
+        <p>Continued government inaction on formal CAFC membership ratification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ISSUES ===== -->
+<section class="issues-spread" id="issues">
+  <div class="issues-inner">
+    <div class="dept">Article V · The Sixteen</div>
+    <h2 class="headline">Strategic issues <em>&amp;</em> gaps.</h2>
+    <p class="deck" style="text-align:center">Sixteen issues, in five thematic clusters. Every one passed the Influence Filter — within CAFC's sphere of meaningful influence.</p>
+    <hr class="section-rule gold">
+
+    <div class="cluster-block">
+      <div class="cluster-label"><span class="roman">I.</span><span class="name">Resource &amp; Funding Pressures</span></div>
+      <div class="issue"><span class="n">1.</span><div class="iname">Persistent national budget constraints across member states.</div><div class="idesc">Small-island economies face structural fiscal limits that suppress national investment in Fire and EMS.</div></div>
+      <div class="issue"><span class="n">2.</span><div class="iname">Aging equipment and infrastructure without capital replacement budgets.</div><div class="idesc">Member services operate beyond design life with no funded replacement plan.</div></div>
+      <div class="issue"><span class="n">3.</span><div class="iname">Disaster recovery costs competing with operational budgets.</div><div class="idesc">Hurricane and flood recovery expenditures crowd out routine Fire and EMS spending.</div></div>
+    </div>
+
+    <div class="cluster-block">
+      <div class="cluster-label"><span class="roman">II.</span><span class="name">Training &amp; Capability Gaps</span></div>
+      <div class="issue"><span class="n">4.</span><div class="iname">Absence of an accredited regional training architecture.</div><div class="idesc">No CAFC-recognized accreditation pathway exists for Caribbean Fire and EMS training programs.</div></div>
+      <div class="issue"><span class="n">5.</span><div class="iname">Unmet need for a regional training hub and dedicated EMS pathway.</div><div class="idesc">Existing institutions are underutilized; no consolidated EMT-level certification pathway.</div></div>
+    </div>
+
+    <div class="cluster-block">
+      <div class="cluster-label"><span class="roman">III.</span><span class="name">Governance, Membership &amp; Continuity</span></div>
+      <div class="issue"><span class="n">6.</span><div class="iname">No full-time Secretariat to drive action between conferences.</div><div class="idesc">The documented cause of slow project completion.</div></div>
+      <div class="issue"><span class="n">7.</span><div class="iname">Heavy dependence on voluntarism limiting member engagement.</div><div class="idesc">Skews decisions toward better-resourced jurisdictions.</div></div>
+      <div class="issue"><span class="n">8.</span><div class="iname">Incomplete member representation and lack of formal ratification.</div><div class="idesc">Membership held by individual chiefs rather than sovereign governments.</div></div>
+      <div class="issue"><span class="n">9.</span><div class="iname">Member retention vulnerability and risk of further country exit.</div><div class="idesc">CAFC has experienced country disengagement and faces continuing risk if value of membership is not demonstrated.</div></div>
+      <div class="issue"><span class="n">10.</span><div class="iname">Documented lack of action between conferences.</div><div class="idesc">The bottleneck flag — action items lose momentum within weeks of conference close.</div></div>
+    </div>
+
+    <div class="cluster-block">
+      <div class="cluster-label"><span class="roman">IV.</span><span class="name">Operational Interoperability</span></div>
+      <div class="issue"><span class="n">11.</span><div class="iname">No regional standard for communication equipment interoperability.</div><div class="idesc">Incompatible radio platforms limiting joint operational capability.</div></div>
+      <div class="issue"><span class="n">12.</span><div class="iname">No regional procurement database to consolidate buying power.</div><div class="idesc">PPE, fleet, and equipment purchased agency by agency.</div></div>
+      <div class="issue"><span class="n">13.</span><div class="iname">Insufficient documentation infrastructure for government sign-off and funding.</div><div class="idesc">Standing cannot be converted into formal government action without the supporting materials.</div></div>
+    </div>
+
+    <div class="cluster-block">
+      <div class="cluster-label"><span class="roman">V.</span><span class="name">Climate &amp; Emerging Threats</span></div>
+      <div class="issue"><span class="n">14.</span><div class="iname">Climate change and rising disaster frequency outpacing capability.</div><div class="idesc">Hurricane intensity, flooding, wildland Fire, and complex disasters increasing in frequency and severity.</div></div>
+      <div class="issue"><span class="n">15.</span><div class="iname">Evolving emergency threats outpacing operational doctrine.</div><div class="idesc">Electric vehicle fires, lithium-ion incidents, and other emerging hazards.</div></div>
+      <div class="issue"><span class="n">16.</span><div class="iname">Workforce supply outside CAFC direct control.</div><div class="idesc">Defines the boundary of where association action can move the needle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INITIATIVES ===== -->
+
+<!-- Initiative 1 -->
+<section class="initiative-spread" id="init-1">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">01</div>
+      <div class="pillar">Pillar I · Training Standardization</div>
+    </div>
+    <div>
+      <h3 class="ititle">Establish CAFC as the Regional Accrediting Authority for Fire and EMS Training.</h3>
+      <div class="igoal">By December 2031, CAFC will function as the recognized regional accrediting authority for Fire, EMS, and integrated Emergency Services training delivered across the Caribbean — with a published accreditation standard, an active program of training-provider accreditation, and member-state recognition of CAFC-accredited credentials.</div>
+      <div class="iscope"><strong>Scope</strong> · Fire suppression · EMS · Integrated Emergency Services</div>
+      <div class="iwhy"><strong>Why this matters.</strong> Addresses Cluster II directly. Nine of the eighteen Component 5B goal submissions named training and credentialing as the highest-priority area — the largest convergence in the data.</div>
+      <details>
+        <summary>Six objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">1.1</span> <span class="obj-title">Publish the CAFC Regional Training Accreditation Standard by December 2027.</span><ul class="obj-tasks"><li>Constitute a Training Standardization Working Group with at least 8 member states.</li><li>Draft the standard: governance &amp; ethics, curriculum &amp; competency, instructor &amp; facility.</li><li>Conduct two public-comment rounds before adoption.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">1.2</span> <span class="obj-title">Accredit at least four regional training providers by December 2028.</span><ul class="obj-tasks"><li>Develop application package and fee structure.</li><li>Recruit and train a regional assessor cadre of 8 senior chief officers.</li><li>Conduct site visits and credentialing decisions.</li></ul><div class="obj-time">Q1 2028 – Q4 2028</div></div>
+        <div class="obj"><span class="obj-num">1.3</span> <span class="obj-title">Achieve 85% of active-duty Caribbean Fire personnel holding FREC or equivalent EMT certification by December 2027.</span><ul class="obj-tasks"><li>Confirm current certification numbers across member services.</li><li>Coordinate regional cohort delivery through accredited providers.</li><li>Publish quarterly progress.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">1.4</span> <span class="obj-title">Establish a regional instructor development pathway by June 2028 — at least 40 CAFC-credentialed instructors.</span><ul class="obj-tasks"><li>Define instructor competency tiers.</li><li>Develop a candidate pipeline.</li><li>Deliver three regional instructor academies.</li></ul><div class="obj-time">Q1 2027 – Q2 2028</div></div>
+        <div class="obj"><span class="obj-num">1.5</span> <span class="obj-title">Embed mental-health, climate-resilience, and emerging-threat modules into the curriculum by June 2029.</span><ul class="obj-tasks"><li>Coordinate with Goal 5 on K10/WHO-5 wellness modules.</li><li>Coordinate with Goal 6 on hurricane, lithium-ion, and EV Fire modules.</li><li>Conduct provider re-accreditation against the updated standard.</li></ul><div class="obj-time">Q3 2028 – Q2 2029</div></div>
+        <div class="obj"><span class="obj-num">1.6</span> <span class="obj-title">Achieve formal recognition of CAFC-accredited credentials by at least seven member-state governments by December 2030.</span><ul class="obj-tasks"><li>Prepare country-by-country recognition packets.</li><li>Coordinate with Goal 4 on diplomatic outreach.</li><li>Track recognition status quarterly.</li></ul><div class="obj-time">Q1 2029 – Q4 2030</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Initiative 2 -->
+<section class="initiative-spread dark" id="init-2">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">02</div>
+      <div class="pillar">Pillar III · Organizational Governance</div>
+    </div>
+    <div>
+      <h3 class="ititle">Strengthen Governance, Continuity, and Government Recognition.</h3>
+      <div class="igoal">By December 2030, CAFC will operate under a documented governance framework with a sustainable Secretariat function, an active program of work between annual conferences, and formal recognition of CAFC membership by at least eight member-state governments.</div>
+      <div class="iscope"><strong>Scope</strong> · Cross-discipline coordination at the association level</div>
+      <div class="iwhy"><strong>Why this matters.</strong> Addresses Cluster III in full. The plenary flag — lack of action between conferences — makes governance the precondition for every other initiative.</div>
+      <details>
+        <summary>Eight objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">2.1</span> <span class="obj-title">Adopt a documented CAFC Governance Framework by December 2026 (Haughton target).</span><ul class="obj-tasks"><li>Constitute a Governance Working Group.</li><li>Draft, circulate, and adopt through a special membership vote.</li><li>Publish to the membership and website.</li></ul><div class="obj-time">Q3 2026 – Q4 2026</div></div>
+        <div class="obj"><span class="obj-num">2.2</span> <span class="obj-title">Stand up a sustainable Secretariat function by June 2027 with three years of committed funding.</span><ul class="obj-tasks"><li>Define Secretariat scope: administration, member relations, project tracking, communications.</li><li>Identify funding sources blending member dues, sponsor revenue, and donor support.</li><li>Recruit and onboard initial Secretariat staff or contracted support.</li></ul><div class="obj-time">Q1 2027 – Q2 2027</div></div>
+        <div class="obj"><span class="obj-num">2.3</span> <span class="obj-title">Stand up five regional technical committees by June 2027.</span><ul class="obj-tasks"><li>Recruit committee chairs.</li><li>Publish each committee's charter and 2027 work plan.</li><li>Establish reporting cadence to CAFC leadership.</li></ul><div class="obj-time">Q3 2026 – Q2 2027</div></div>
+        <div class="obj"><span class="obj-num">2.4</span> <span class="obj-title">Achieve a 30% increase in active membership participation by December 2028.</span><ul class="obj-tasks"><li>Baseline participation rates.</li><li>Publish member value-proposition materials.</li><li>Implement technology-enabled participation pathways.</li></ul><div class="obj-time">Q1 2027 – Q4 2028</div></div>
+        <div class="obj"><span class="obj-num">2.5</span> <span class="obj-title">Achieve formal ratification by at least eight member-state governments by December 2030.</span><ul class="obj-tasks"><li>Develop a ministerial-level ratification packet for each state.</li><li>Conduct in-country engagement led by the senior chief.</li><li>Track and publish ratification status quarterly.</li></ul><div class="obj-time">Q1 2027 – Q4 2030</div></div>
+        <div class="obj"><span class="obj-num">2.6</span> <span class="obj-title">Implement the CAFC government-recognized membership-fee model (Richardson target) by June 2029.</span><ul class="obj-tasks"><li>Benchmark against the CDEMA membership architecture.</li><li>Negotiate fee schedules with at least six member states.</li><li>Operationalize collection through the Secretariat.</li></ul><div class="obj-time">Q3 2028 – Q2 2029</div></div>
+        <div class="obj"><span class="obj-num">2.7</span> <span class="obj-title">Publish a quarterly CAFC Implementation Progress Report beginning Q4 2026.</span><ul class="obj-tasks"><li>Build the live issues tracker as the Secretariat reporting backbone.</li><li>Standardize the quarterly report template.</li><li>Distribute to the membership and post on the CAFC website.</li></ul><div class="obj-time">Q4 2026 onward</div></div>
+        <div class="obj"><span class="obj-num">2.8</span> <span class="obj-title">Conduct a mid-cycle plan review at the 2029 Annual Conference.</span><ul class="obj-tasks"><li>Audit each goal against its milestones.</li><li>Conduct a feedback survey.</li><li>Publish the mid-cycle review report.</li></ul><div class="obj-time">Q1 2029 – Q3 2029</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Initiative 3 -->
+<section class="initiative-spread" id="init-3">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">03</div>
+      <div class="pillar">Pillar II · Mutual Aid &amp; Sourcing</div>
+    </div>
+    <div>
+      <h3 class="ititle">Build a Regional Mutual Aid and Interoperability Framework.</h3>
+      <div class="igoal">By December 2030, CAFC will publish and operationalize a regional mutual-aid framework, adopt a communications interoperability standard, and stand up a regional procurement database accessible to all member services.</div>
+      <div class="iscope"><strong>Scope</strong> · Fire suppression · EMS · Integrated Emergency Services</div>
+      <div class="iwhy"><strong>Why this matters.</strong> Addresses Cluster IV in full. Climate threats cannot be answered without regional mutual aid in place.</div>
+      <details>
+        <summary>Six objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">3.1</span> <span class="obj-title">Publish the CAFC Regional Mutual Aid Framework by December 2027, with signed MOUs from at least eight member services.</span><ul class="obj-tasks"><li>Draft the framework covering activation, command, logistics, cost recovery.</li><li>Conduct two regional consultation rounds with CDEMA.</li><li>Execute MOUs with participating services.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">3.2</span> <span class="obj-title">Adopt a Regional Communications Interoperability Standard by June 2028.</span><ul class="obj-tasks"><li>Inventory current platforms across member services.</li><li>Draft the standard with regional vendor input.</li><li>Adopt through CAFC leadership and publish.</li></ul><div class="obj-time">Q1 2027 – Q2 2028</div></div>
+        <div class="obj"><span class="obj-num">3.3</span> <span class="obj-title">Stand up a Regional Procurement Database by December 2027.</span><ul class="obj-tasks"><li>Survey member services on procurement volumes.</li><li>Develop database structure and data-sharing protocols.</li><li>Execute pilot consolidated purchasing for one category.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">3.4</span> <span class="obj-title">Execute at least three CAFC-coordinated consolidated procurement rounds by December 2030.</span><ul class="obj-tasks"><li>Identify target equipment categories.</li><li>Aggregate member-service demand and conduct vendor negotiations.</li><li>Track and publish cost-savings outcomes.</li></ul><div class="obj-time">Q1 2028 – Q4 2030</div></div>
+        <div class="obj"><span class="obj-num">3.5</span> <span class="obj-title">Conduct at least one regional mutual-aid exercise per year beginning 2027.</span><ul class="obj-tasks"><li>Plan annual exercise scenarios.</li><li>Coordinate logistics with host service and CDEMA.</li><li>Publish after-action reports.</li></ul><div class="obj-time">Annual, 2027 onward</div></div>
+        <div class="obj"><span class="obj-num">3.6</span> <span class="obj-title">Integrate the mutual-aid framework with CDEMA regional disaster mechanisms by December 2028.</span><ul class="obj-tasks"><li>Conduct joint CAFC-CDEMA technical sessions.</li><li>Execute MOU with CDEMA.</li><li>Conduct one joint CAFC-CDEMA exercise.</li></ul><div class="obj-time">Q1 2027 – Q4 2028</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Initiative 4 -->
+<section class="initiative-spread dark" id="init-4">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">04</div>
+      <div class="pillar">Pillar IV · Strategic Advocacy</div>
+    </div>
+    <div>
+      <h3 class="ititle">Position CAFC as the Regional Voice for Fire and Emergency Services Funding and Advocacy.</h3>
+      <div class="igoal">By December 2030, CAFC will be recognized by CARICOM, CDEMA, CARPHA, PAHO, and at least three bilateral donors as the regional voice for Fire and Emergency Services funding and policy.</div>
+      <div class="iscope"><strong>Scope</strong> · Fire · EMS · Integrated · Cross-discipline</div>
+      <div class="iwhy"><strong>Why this matters.</strong> Addresses Cluster I by targeting the upstream constraint of national budget capacity. CAFC's lobbying access is unrealized capacity until converted into measurable funding outcomes.</div>
+      <details>
+        <summary>Five objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">4.1</span> <span class="obj-title">Secure formal partnership status with CARICOM by December 2027.</span><ul class="obj-tasks"><li>Submit the CAFC partnership packet.</li><li>Conduct heads-of-government engagement.</li><li>Execute the partnership memorandum.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">4.2</span> <span class="obj-title">Secure formal partnership status with CDEMA by December 2027.</span><ul class="obj-tasks"><li>Build on Goal 3 mutual-aid work.</li><li>Execute the partnership memorandum.</li><li>Establish quarterly technical coordination.</li></ul><div class="obj-time">Q1 2027 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">4.3</span> <span class="obj-title">Secure formal partnership status with PAHO and CARPHA by December 2028.</span><ul class="obj-tasks"><li>Submit EMS-focused partnership packet.</li><li>Engagement led by the regional EMS technical committee.</li><li>Execute the partnership memoranda.</li></ul><div class="obj-time">Q1 2027 – Q4 2028</div></div>
+        <div class="obj"><span class="obj-num">4.4</span> <span class="obj-title">Secure at least three bilateral donor commitments by December 2030 — cumulative US$3M+.</span><ul class="obj-tasks"><li>Identify priority donors aligned with the six goals.</li><li>Develop donor-ready project packages.</li><li>Conduct donor engagement and execute funding agreements.</li></ul><div class="obj-time">Q1 2027 – Q4 2030</div></div>
+        <div class="obj"><span class="obj-num">4.5</span> <span class="obj-title">Publish the annual CAFC State of the Regional Fire and Emergency Services Report beginning 2027.</span><ul class="obj-tasks"><li>Design the report covering capability, workforce, incidents, capital state.</li><li>Build the annual data-collection instrument.</li><li>Distribute to member governments and partners.</li></ul><div class="obj-time">Annual, 2027 onward</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Initiative 5 -->
+<section class="initiative-spread" id="init-5">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">05</div>
+      <div class="pillar">Pillar V · Workforce Wellness</div>
+    </div>
+    <div>
+      <h3 class="ititle">Protect the Mental Health and Wellness of the Regional Emergency Services Workforce.</h3>
+      <div class="igoal">By December 2030, CAFC will operate a Caribbean Critical Incident Stress Management (CISM) protocol, will have completed a regional K10 and WHO-5 baseline assessment, and will have integrated mental health and wellness standards into the regional accreditation architecture under Goal 1.</div>
+      <div class="iscope"><strong>Scope</strong> · Fire · EMS · Integrated, with particular attention to first responders</div>
+      <div class="iwhy"><strong>Why this matters.</strong> Anchored in the Smith, Akogun, Byer, and Warren (2025) CARICOM cross-sectional study documenting elevated psychological distress and reduced wellbeing among Caribbean Fire and EMS personnel.</div>
+      <details>
+        <summary>Nine objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">5.1</span> <span class="obj-title">Complete a regional K10 and WHO-5 baseline assessment by December 2027.</span><ul class="obj-tasks"><li>Define the sampling frame across 8+ services.</li><li>Execute with appropriate ethics review.</li><li>Publish baseline findings.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">5.2</span> <span class="obj-title">Publish the Caribbean CISM Protocol by June 2028.</span><ul class="obj-tasks"><li>Adapt Mitchell &amp; Everly CISM framework to the Caribbean context.</li><li>Consult with ICISF, regional clinicians, and chief officers.</li><li>Adopt and publish to the membership.</li></ul><div class="obj-time">Q1 2027 – Q2 2028</div></div>
+        <div class="obj"><span class="obj-num">5.3</span> <span class="obj-title">Train and deploy regional CISM peer-support teams in 8+ services by December 2029.</span><ul class="obj-tasks"><li>Define team composition, training, activation protocols.</li><li>Deliver regional peer-support training cohorts annually.</li><li>Track team activations and outcomes.</li></ul><div class="obj-time">Q3 2027 – Q4 2029</div></div>
+        <div class="obj"><span class="obj-num">5.4</span> <span class="obj-title">Establish a regional CISM activation pathway by June 2028.</span><ul class="obj-tasks"><li>Define activation triggers across incident types.</li><li>Stand up a 24-hour activation channel.</li><li>Document after-action care expectations and clinical escalation.</li></ul><div class="obj-time">Q3 2027 – Q2 2028</div></div>
+        <div class="obj"><span class="obj-num">5.5</span> <span class="obj-title">Integrate mental health and wellness modules into the CAFC accreditation curriculum (Goal 1) by June 2029.</span><ul class="obj-tasks"><li>Coordinate with Goal 1 lead on curriculum integration.</li><li>Develop instructor materials and assessment criteria.</li><li>Roll modules into the provider re-accreditation cycle.</li></ul><div class="obj-time">Q3 2028 – Q2 2029</div></div>
+        <div class="obj"><span class="obj-num">5.6</span> <span class="obj-title">Secure clinical escalation pathways in 8+ services by December 2030, with CARPHA.</span><ul class="obj-tasks"><li>Engage CARPHA and ministry-of-health counterparts.</li><li>Document pathway protocols specific to first responders.</li><li>Track utilization while protecting confidentiality.</li></ul><div class="obj-time">Q1 2028 – Q4 2030</div></div>
+        <div class="obj"><span class="obj-num">5.7</span> <span class="obj-title">Conduct a follow-up K10 and WHO-5 assessment by December 2030.</span><ul class="obj-tasks"><li>Replicate the baseline sampling frame.</li><li>Execute the follow-up assessment.</li><li>Publish findings to inform the next planning cycle.</li></ul><div class="obj-time">Q1 2030 – Q4 2030</div></div>
+        <div class="obj"><span class="obj-num">5.8</span> <span class="obj-title">Publish family-wellness and suicide-prevention guidance by December 2028.</span><ul class="obj-tasks"><li>Develop materials for responder families and command staff.</li><li>Conduct member-service consultation rounds.</li><li>Publish and distribute through the Secretariat.</li></ul><div class="obj-time">Q3 2027 – Q4 2028</div></div>
+        <div class="obj"><span class="obj-num">5.9</span> <span class="obj-title">Establish a regional mental-health research agenda by June 2029.</span><ul class="obj-tasks"><li>Define priority questions emerging from the baseline.</li><li>Engage a research partner through formal procurement.</li><li>Publish the agenda and seek donor support through Goal 4.</li></ul><div class="obj-time">Q3 2028 – Q2 2029</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Initiative 6 -->
+<section class="initiative-spread dark" id="init-6">
+  <div class="init-inner">
+    <div class="init-meta">
+      <div class="num">06</div>
+      <div class="pillar">Pillar VI · Climate Resilience</div>
+    </div>
+    <div>
+      <h3 class="ititle">Embed Climate Resilience and Emerging-Threat Preparedness in Regional Doctrine.</h3>
+      <div class="igoal">By December 2030, CAFC will publish regional doctrine, training modules, and equipment guidance for climate-driven incidents and emerging hazards — delivered through the accreditation architecture under Goal 1 and the operational framework under Goal 3.</div>
+      <div class="iscope"><strong>Scope</strong> · Fire · EMS · Integrated · Cross-discipline</div>
+      <div class="iwhy"><strong>Why this matters.</strong> All Component 3 stakeholder respondents converged on climate as a strategic priority, and both Component 4 teams independently identified climate change as the dominant external threat.</div>
+      <details>
+        <summary>Five objectives &amp; critical tasks</summary>
+        <div class="obj"><span class="obj-num">6.1</span> <span class="obj-title">Publish the CAFC Regional Hurricane Response Doctrine by December 2027.</span><ul class="obj-tasks"><li>Synthesize after-action lessons from Hurricane Melissa and prior events.</li><li>Conduct regional consultation rounds.</li><li>Adopt and publish through the Goal 1 accreditation pathway.</li></ul><div class="obj-time">Q3 2026 – Q4 2027</div></div>
+        <div class="obj"><span class="obj-num">6.2</span> <span class="obj-title">Publish regional doctrine and training modules on lithium-ion and EV Fire response by December 2028.</span><ul class="obj-tasks"><li>Synthesize current international guidance for the Caribbean context.</li><li>Develop training modules and instructor materials.</li><li>Roll into the Goal 1 curriculum.</li></ul><div class="obj-time">Q1 2027 – Q4 2028</div></div>
+        <div class="obj"><span class="obj-num">6.3</span> <span class="obj-title">Publish the CAFC Wildland-Urban Interface (WUI) Response Framework by December 2029.</span><ul class="obj-tasks"><li>Inventory WUI risk profiles across member services.</li><li>Develop framework covering prevention, response, and recovery.</li><li>Roll into Goal 1 curriculum and Goal 3 operations.</li></ul><div class="obj-time">Q1 2028 – Q4 2029</div></div>
+        <div class="obj"><span class="obj-num">6.4</span> <span class="obj-title">Establish climate-resilience equipment guidance for four major categories by December 2029.</span><ul class="obj-tasks"><li>Survey current equipment vulnerabilities.</li><li>Publish equipment standards reflecting Caribbean conditions.</li><li>Roll into the Goal 3 procurement framework.</li></ul><div class="obj-time">Q3 2027 – Q4 2029</div></div>
+        <div class="obj"><span class="obj-num">6.5</span> <span class="obj-title">Coordinate annual climate-resilience tabletops with CDEMA beginning 2027.</span><ul class="obj-tasks"><li>Plan annual scenarios.</li><li>Coordinate with Goal 3 mutual-aid exercise calendar.</li><li>Publish after-action reports and roll lessons into doctrine.</li></ul><div class="obj-time">Annual, 2027 onward</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPLEMENTATION ===== -->
+<section class="impl-spread" id="implementation">
+  <div class="impl-inner">
+    <div class="dept">Article VI · Discipline</div>
+    <h2 class="headline">Built to be <em>executed</em>.</h2>
+    <p class="deck" style="text-align:center">Named owners. Quarterly reporting. Annual review. Mid-cycle audit. This plan is not a shelf document.</p>
+    <div class="impl-grid">
+      <div class="impl-card"><div class="when">July 2026</div><div class="what">First post-conference checkpoint, +60 days from adoption.</div></div>
+      <div class="impl-card"><div class="when">Q4 2026</div><div class="what">First quarterly Implementation Progress Report begins.</div></div>
+      <div class="impl-card"><div class="when">2027 – 2031</div><div class="what">Annual review at each conference.</div></div>
+      <div class="impl-card"><div class="when">2029</div><div class="what">Mid-cycle plan review and adjustment recommendations.</div></div>
+      <div class="impl-card"><div class="when">2031</div><div class="what">Full completion and launch of the next planning cycle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OWNERSHIP ===== -->
+<section class="owners-spread" id="owners">
+  <div class="owners-inner">
+    <div class="dept">Article VII · The Owners</div>
+    <h2 class="headline">Named owners. <em>Accepted</em> publicly.</h2>
+    <p class="deck" style="text-align:center">37 ownership assignments across six goals. Each goal carries an Executive Board member, one or more Leads, and a team of Contributors.</p>
+    <hr class="section-rule gold">
+
+    <div class="owner-block"><div class="owner-num">01</div><div><div class="owner-title">Establish CAFC as the Accrediting Authority for Training</div><div class="owner-roles"><span class="role-lab">Exec Board</span>Errol Maynard · <span class="role-lab">Lead</span>Shondell Hodge · <span class="role-lab">Lead</span>Michael Lewis · <span class="role-lab">Contributors</span>Vachel Murrain, CFO · Keridon Williams, CFO · Victor Adams (Grant), CFO</div></div></div>
+
+    <div class="owner-block"><div class="owner-num">02</div><div><div class="owner-title">Strengthen Governance, Continuity, and Recognition</div><div class="owner-roles"><span class="role-lab">Exec Board</span>Kevin Haughton, CFO · <span class="role-lab">Lead</span>Dwight Rankin, CFO · <span class="role-lab">Lead</span>Vivian Parker, CFO · <span class="role-lab">Contributors</span>Gregory Wickham, CFO · Whitman Tatum, CFO · Roy Charlton, CFO</div></div></div>
+
+    <div class="owner-block"><div class="owner-num">03</div><div><div class="owner-title">Build Regional Mutual Aid, Procurement, and Interoperability</div><div class="owner-roles"><span class="role-lab">Exec Board</span>Errol Maynard, CFO · <span class="role-lab">Lead</span>Ditney Downes, CFO · <span class="role-lab">Lead</span>Cylred Richardson, EMS Chief · <span class="role-lab">Contributors</span>Marlon Small, FO · Anwar Deterville, CFO · Elvis Gordon, CFO · Charles Tipton, DCFO · Col. Levif</div></div></div>
+
+    <div class="owner-block"><div class="owner-num">04</div><div><div class="owner-title">Position CAFC as Regional Voice for Emergency Services Funding</div><div class="owner-roles"><span class="role-lab">Exec Board</span>Kenrick Hackett, CFO · <span class="role-lab">Lead</span>Vivian Parker, CFO · <span class="role-lab">Lead</span>Lester Bagot, CFO · <span class="role-lab">Contributors</span>Vachel Murrain, CFO · Omari Bourne, CFO · Shondell Hodge, CFO</div></div></div>
+
+    <div class="owner-block"><div class="owner-num">05</div><div><div class="owner-title">Protect Mental Health and Wellness of the Regional Workforce</div><div class="owner-roles"><span class="role-lab">Lead</span>Dr. Hezedean A. Smith, CFO · <span class="role-lab">Lead</span>Dr. Winston R. Warren, EMT-P · <span class="role-lab">Contributors</span>Dr. David Byer, MD · Gregory Wickham, CFO · Clive Richardson, CFO</div></div></div>
+
+    <div class="owner-block"><div class="owner-num">06</div><div><div class="owner-title">Climate Resilience and Threat Preparedness</div><div class="owner-roles"><span class="role-lab">Exec Board</span>Silvanico Pauletta, CFO · <span class="role-lab">Lead</span>Damion Byane, FO · <span class="role-lab">Lead</span>Marlon Small, FO · <span class="role-lab">Contributors</span>Lester Bagot, CFO · Timothy Martin, CFO · Charles Tipton, CFO</div></div></div>
+  </div>
+</section>
+
+<!-- Acknowledgments + group photo -->
+<figure class="plate">
+  <img src="images/strategic_plan_2026/stakeholders_group.jpg" alt="Strategic planning stakeholders at the 2026 CAFC Annual Conference">
+  <figcaption class="plate-cap">Strategic planning stakeholder team · 56 chiefs, junior officers, EMS officers, and partners</figcaption>
+</figure>
+
+<article class="article nodropcap" id="acknowledgments">
+  <hr class="section-rule">
+  <div class="dept">Article VIII · Acknowledgments</div>
+  <h2 class="headline">Built <em>together</em>.</h2>
+  <p class="deck">The Caribbean Association of Fire Chiefs Strategic Plan 2026 to 2031 reflects the contributions of chief officers from member islands and territories across the region. This plan is theirs, as much as it is the association's.</p>
+  <hr class="section-rule gold">
+  <p><strong>Facilitation</strong> was provided by Global Emergency Services Consulting Group using the Caribbean Chiefs-Driven Strategic Plan methodology specifically developed for CAFC. Lead Facilitator: Dr. Hezedean A. Smith, DM. Advisor: Dr. Winston R. Warren, DHSc, Academic Chair. This plan was adopted under the leadership of Chief Kenrick Hackett, President; the senior chief officer leadership team; and the Executive Board members as constituted in May 2026.</p>
+
+  <div class="actions">
+    <button class="btn" onclick="window.print()">Print Plan</button>
+    <a class="btn ghost" href="#letter">Back to Top</a>
+  </div>
+</article>
+
+<!-- Colophon -->
+<footer class="colophon">
+  <div class="cn">CAFC</div>
+  <div class="ct">Caribbean Association of Fire Chiefs · Strategic Plan 2026 – 2031</div>
+  <div class="cnote">Draft v 5.27.2026 · For Member Review · <a href="https://www.caribbeanfirechiefs.com">caribbeanfirechiefs.com</a></div>
+</footer>
+
+</body>
+</html>
