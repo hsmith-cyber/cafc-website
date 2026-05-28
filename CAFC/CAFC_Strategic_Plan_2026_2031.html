@@ -230,42 +230,58 @@ a.mh-pill:hover .arrow{transform:translateX(3px)}
 .owners-table .role-lab{font-family:'Cinzel',serif;font-weight:700;font-size:10px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-right:4px}
 
 /* Roster table */
-.roster-table{width:100%;border-collapse:collapse;margin-top:14px;font-family:'Lato',sans-serif;font-size:14px}
-.roster-table th,.roster-table td{border:1px solid var(--line);padding:9px 14px;text-align:left;vertical-align:top}
-.roster-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.roster-table td.rn{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--navy);font-size:16px;width:40%}
-.roster-table td.rt{font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
-.roster-note{font-family:'Lato',sans-serif;font-size:13.5px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.55}
+.roster-table{width:100%;border-collapse:collapse;margin-top:14px;font-family:'Lato',sans-serif;font-size:15.5px;color:var(--ink)}
+.roster-table th,.roster-table td{border:1px solid var(--line);padding:12px 16px;text-align:left;vertical-align:middle}
+.roster-table tbody tr:nth-child(odd){background:#fdfaf2}
+.roster-table tbody tr:nth-child(even){background:#fff}
+.roster-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;padding:13px 16px}
+.roster-table td.rn{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--navy);font-size:19px;width:44%;letter-spacing:-0.1px}
+.roster-table td.rt{font-family:'Lato',sans-serif;font-size:15px;color:var(--ink-soft);font-weight:500;letter-spacing:0.1px}
+.roster-note{font-family:'Lato',sans-serif;font-size:15px;color:var(--ink-soft);margin-top:14px;line-height:1.65;padding:14px 18px;background:#fff;border-left:3px solid var(--gold);border-radius:0 6px 6px 0}
+.roster-note strong{color:var(--navy);font-weight:700}
 
 /* Committee Guidance objective tables */
-.cg-goal{margin:22px 0;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:24px 26px;border-top:5px solid var(--gold)}
-.cg-goal h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:24px;color:var(--navy);letter-spacing:-0.2px;margin-bottom:6px;line-height:1.2}
-.cg-goal .cg-anchor{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;font-weight:700}
-.cg-table{width:100%;border-collapse:collapse;margin-top:10px;font-family:'Lato',sans-serif;font-size:13.5px}
-.cg-table th,.cg-table td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
-.cg-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.cg-table td.cgnum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;color:var(--gold);font-size:18px;text-align:center;width:54px}
-.cg-table td.cghoriz,.cg-table td.cgpillar{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:1px;color:var(--navy);text-transform:uppercase;text-align:center;width:110px;font-weight:700}
-.glance-table{width:100%;border-collapse:collapse;margin-top:14px;font-family:'Lato',sans-serif;font-size:14px}
-.glance-table th,.glance-table td{border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top}
-.glance-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.glance-table td.gnum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;color:var(--gold);font-size:20px;text-align:center;width:60px;background:#fff}
-.glance-table td.gname{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--navy);font-size:16px;line-height:1.3}
-.glance-table td.gpillar,.glance-table td.ganchor,.glance-table td.gcount{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;text-align:center;width:120px}
-.glance-table td.gcount{color:var(--gold);font-weight:700;font-size:16px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
-.glance-table tr.total td{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
-.glance-table tr.total td.gcount{color:var(--gold-light);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:22px;letter-spacing:0;text-transform:none}
+.cg-goal{margin:26px 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 28px;border-top:5px solid var(--gold);box-shadow:0 2px 8px rgba(20,33,61,0.04)}
+.cg-goal h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:26px;color:var(--navy);letter-spacing:-0.2px;margin-bottom:6px;line-height:1.2}
+.cg-goal .cg-anchor{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:14px;font-weight:700}
+.cg-goal > p{font-family:'Lato',sans-serif;font-size:15.5px;line-height:1.65;color:var(--ink);margin-bottom:10px}
+.cg-goal .cg-rationale{font-family:'Lato',sans-serif;font-size:14.5px !important;line-height:1.7 !important;color:var(--ink-soft) !important;font-style:normal !important;background:var(--paper);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 6px 6px 0;margin:14px 0 6px}
+.cg-goal .cg-rationale strong{font-style:normal;color:var(--navy);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:6px}
+.cg-table{width:100%;border-collapse:collapse;margin-top:14px;font-family:'Lato',sans-serif;font-size:15px;color:var(--ink)}
+.cg-table th,.cg-table td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:middle}
+.cg-table tbody tr:nth-child(odd){background:var(--paper)}
+.cg-table tbody tr:nth-child(even){background:#fff}
+.cg-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:12px 14px}
+.cg-table td{line-height:1.55}
+.cg-table td.cgnum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;color:var(--gold-deep);font-size:22px;text-align:center;width:60px;background:#fff !important}
+.cg-table td.cghoriz,.cg-table td.cgpillar{font-family:'Lato',sans-serif;font-size:13.5px;letter-spacing:0.3px;color:var(--navy);text-align:center;width:118px;font-weight:700;text-transform:none}
+.glance-table{width:100%;border-collapse:collapse;margin-top:14px;font-family:'Lato',sans-serif;font-size:15px;color:var(--ink)}
+.glance-table th,.glance-table td{border:1px solid var(--line);padding:13px 16px;text-align:left;vertical-align:middle}
+.glance-table tbody tr:nth-child(odd){background:var(--paper)}
+.glance-table tbody tr:nth-child(even){background:#fff}
+.glance-table th{background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.glance-table td.gnum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;color:var(--gold-deep);font-size:26px;text-align:center;width:64px;background:#fff !important}
+.glance-table td.gname{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--navy);font-size:18px;line-height:1.3;letter-spacing:-0.1px}
+.glance-table td.gpillar,.glance-table td.ganchor{font-family:'Lato',sans-serif;font-size:13.5px;color:var(--ink-soft);text-align:center;font-weight:600}
+.glance-table td.gpillar{width:80px;font-family:'Cinzel',serif;color:var(--navy);letter-spacing:1px}
+.glance-table td.ganchor{width:170px;font-style:italic}
+.glance-table td.gcount{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--gold-deep);font-weight:700;font-size:22px;text-align:center;width:70px;background:#fff !important}
+.glance-table tr.total td{background:var(--navy) !important;color:#fff;font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.glance-table tr.total td.gname{font-family:'Cinzel',serif;color:#fff;font-style:normal;font-size:14px;letter-spacing:2px}
+.glance-table tr.total td.ganchor{color:var(--gold-light);font-style:normal;font-size:13px;letter-spacing:1.2px}
+.glance-table tr.total td.gpillar{color:var(--gold-light);font-size:13px;letter-spacing:1.2px}
+.glance-table tr.total td.gcount{background:var(--navy) !important;color:var(--gold-light);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:26px;letter-spacing:0;text-transform:none}
 
 /* Glossary */
-.gloss-letter{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:44px;color:var(--gold);text-align:center;padding:16px 0 8px;border-bottom:2px solid var(--gold);margin:24px 0 14px;line-height:1}
-.gloss-term{padding:16px 18px;margin-bottom:10px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px}
-.gloss-term .term{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:19px;color:var(--navy);letter-spacing:-0.2px;margin-bottom:6px;line-height:1.3}
-.gloss-term .term em{font-style:italic;font-weight:500;color:var(--muted);font-size:14px}
-.gloss-term .gdef{font-family:'Lato',sans-serif;font-size:14px;line-height:1.6;color:var(--ink-soft);margin-bottom:6px}
-.gloss-term .gdef strong{color:var(--navy);font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;display:block;margin:6px 0 2px;font-weight:700}
-.gloss-jump{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:14px;background:var(--paper);border-radius:8px;border:1px solid var(--line);margin:14px 0 20px}
-.gloss-jump a{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:18px;color:var(--gold);text-decoration:none;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;transition:all 0.15s}
-.gloss-jump a:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.gloss-letter{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:54px;color:var(--gold-deep);text-align:center;padding:18px 0 10px;border-bottom:2px solid var(--gold);margin:28px 0 16px;line-height:1}
+.gloss-term{padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;box-shadow:0 1px 4px rgba(20,33,61,0.04)}
+.gloss-term .term{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:22px;color:var(--navy);letter-spacing:-0.2px;margin-bottom:8px;line-height:1.3}
+.gloss-term .term em{font-style:italic;font-weight:500;color:var(--gold-deep);font-size:16px}
+.gloss-term .gdef{font-family:'Lato',sans-serif;font-size:15.5px;line-height:1.7;color:var(--ink);margin-bottom:6px}
+.gloss-term .gdef strong{color:var(--navy);font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;display:block;margin:12px 0 4px;font-weight:700;padding-top:8px;border-top:1px solid var(--line)}
+.gloss-jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:16px;background:#fff;border-radius:8px;border:1px solid var(--line);margin:14px 0 22px}
+.gloss-jump a{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:20px;color:var(--gold-deep);text-decoration:none;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);border-radius:50%;transition:all 0.15s;background:var(--paper)}
+.gloss-jump a:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-1px)}
 
 /* Footer */
 footer{background:var(--navy);color:#fff;padding:24px;text-align:center;border-top:6px solid var(--gold)}
@@ -801,7 +817,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
   </div>
 
   <div class="block-card">
-    <h3>Senior Officers <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-left:8px">STRATEGIC PLANNING STAKEHOLDER TEAM</span></h3>
+    <h3>Senior Officers <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1.8px;color:var(--gold-deep);font-weight:700;margin-left:10px">STRATEGIC PLANNING STAKEHOLDER TEAM</span></h3>
     <table class="roster-table">
       <thead><tr><th>Name</th><th>Member Island or Territory</th></tr></thead>
       <tbody>
@@ -831,7 +847,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
   </div>
 
   <div class="block-card">
-    <h3>Junior and EMS Officers <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-left:8px">STRATEGIC PLANNING STAKEHOLDER TEAM</span></h3>
+    <h3>Junior and EMS Officers <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1.8px;color:var(--gold-deep);font-weight:700;margin-left:10px">STRATEGIC PLANNING STAKEHOLDER TEAM</span></h3>
     <p>Ten junior and EMS officers from seven member islands and territories convened during the conference and contributed to the workforce, succession, wellness, and clinical and prehospital dimensions of the plan, with particular attention to objectives within Goal 1 (training accreditation), Goal 3 (mutual aid and interoperability), and Goal 5 (mental health and wellness of the workforce). The roster appears alphabetically by surname.</p>
     <table class="roster-table">
       <thead><tr><th>Name</th><th>Member Island or Territory</th></tr></thead>
@@ -868,8 +884,8 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
 
   <div class="block-card">
     <h3>Membership-Adopted Foundations</h3>
-    <p><span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700">MISSION</span> &nbsp; The mission of the Caribbean Association of Fire Chiefs is to strengthen fire and emergency services across the region through leadership, training, advocacy, regional collaboration, and the advancement of policies and practices that protect life, property, and the environment.</p>
-    <p><span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700">VISION</span> &nbsp; To create a united, resilient Caribbean emergency services system that safeguards life, property, and the environment across the region.</p>
+    <p style="font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:14px"><span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep);font-weight:700;margin-right:10px">MISSION</span>The mission of the Caribbean Association of Fire Chiefs is to strengthen fire and emergency services across the region through leadership, training, advocacy, regional collaboration, and the advancement of policies and practices that protect life, property, and the environment.</p>
+    <p style="font-size:16px;line-height:1.7;color:var(--ink)"><span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep);font-weight:700;margin-right:10px">VISION</span>To create a united, resilient Caribbean emergency services system that safeguards life, property, and the environment across the region.</p>
   </div>
 
   <div class="block-card">
@@ -885,7 +901,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 1 · C4 Cluster II · C5B 9 Submissions · Pillar I: Training Standardization</div>
     <h4>Establish CAFC as the Accrediting and Coordinating Authority for Training</h4>
     <p>Move from ad-hoc training delivery to an accredited regional architecture that closes the historical fire and EMS integration gap, meets international standards, and serves a multilingual region.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> C4: Lack of Regional Training Hub (T2), Lack of Accredited Training and EMS Integration (T1). C5B: 9 submissions (Wickham, Rankin, Tipton, Bourne, Bayne, Murrain, Williams, Martin, Hodge). Training is the largest single area of convergence in the strategic planning process. Half of all C5B submissions centered here, and both C4 teams arrived independently at the same conclusion. The target (85% FREC or equivalent EMT certification across active-duty Caribbean fire personnel by December 31, 2027) provides the headline measurable anchor.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> C4: Lack of Regional Training Hub (T2), Lack of Accredited Training and EMS Integration (T1). C5B: 9 submissions (Wickham, Rankin, Tipton, Bourne, Bayne, Murrain, Williams, Martin, Hodge). Training is the largest single area of convergence in the strategic planning process. Half of all C5B submissions centered here, and both C4 teams arrived independently at the same conclusion. The target (85% FREC or equivalent EMT certification across active-duty Caribbean fire personnel by December 31, 2027) provides the headline measurable anchor.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
@@ -905,7 +921,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 2 · C4 Cluster III · C5B 3 Submissions · Pillar III: Organizational Governance</div>
     <h4>Strengthen Governance, Continuity, and Member Country Recognition</h4>
     <p>Close institutional gaps that delay project delivery, restrict membership engagement, and threaten the long-term sustainability of the association, and convert CAFC into a government-recognized institution.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> C4: Lack of Political Influence (T2), Lack of Full Representation by Member Countries (T2), High Dependence on Voluntarism (T2), Lack of Full-Time HR for the Secretariat (T2), Disbandment of Countries from CAFC (T1). C5B: Haughton (Jamaica), Richardson (Sint Maarten), Lewis. This was the densest cluster in the Component 4 workshop, with five issues and the largest concentration of CAFC-internal levers. Haughton's three SMART targets (governance framework by Dec 2026, five regional technical committees by Jun 2027, 30% participation increase by Dec 2028) provide the measurable anchors.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> C4: Lack of Political Influence (T2), Lack of Full Representation by Member Countries (T2), High Dependence on Voluntarism (T2), Lack of Full-Time HR for the Secretariat (T2), Disbandment of Countries from CAFC (T1). C5B: Haughton (Jamaica), Richardson (Sint Maarten), Lewis. This was the densest cluster in the Component 4 workshop, with five issues and the largest concentration of CAFC-internal levers. Haughton's three SMART targets (governance framework by Dec 2026, five regional technical committees by Jun 2027, 30% participation increase by Dec 2028) provide the measurable anchors.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
@@ -926,7 +942,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 3 · C4 Cluster IV · C5B 5 Submissions · Pillar II: Mutual Aid and Sourcing</div>
     <h4>Build a Regional Mutual Aid, Procurement, and Interoperability Framework</h4>
     <p>Pool member resources and standardize operational equipment so deployed teams can communicate, surge resources can move efficiently, and procurement leverage is collective rather than fragmented.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> C4: Lack of Collective Procurement (T2), Lack of Interoperability of Equipment (T2), Manpower Shortages (T1). C5B: Charles (EN), LEVIF (French Guiana, FR), Davis (ES), Small (Barbados), Deterville. Three C5B chiefs working in three working languages (English, French, Spanish) converged on the same operational ask: a common response framework. Two more (Small, Deterville) named complementary mutual aid mechanisms. Col. Levif explicitly noted that final adoption requires written guidelines and approval from governments and the UN.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> C4: Lack of Collective Procurement (T2), Lack of Interoperability of Equipment (T2), Manpower Shortages (T1). C5B: Charles (EN), LEVIF (French Guiana, FR), Davis (ES), Small (Barbados), Deterville. Three C5B chiefs working in three working languages (English, French, Spanish) converged on the same operational ask: a common response framework. Two more (Small, Deterville) named complementary mutual aid mechanisms. Col. Levif explicitly noted that final adoption requires written guidelines and approval from governments and the UN.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
@@ -947,7 +963,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 4 · C4 Cluster I · Pillar IV: Strategic Advocacy</div>
     <h4>Position CAFC as the Authoritative Regional Voice for Emergency Services Funding</h4>
     <p>Convert CAFC's collective standing into political influence and tangible financial outcomes for member services facing resource constraints, financial pressure, and aging asset bases.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> C4: Resource Limitations (T1), Financial Constraints of the Various Islands (T1), Ageing Equipment and Infrastructure (T1). Mission poll: Advocacy is one of the five core mechanisms named in the membership-adopted mission. All three Component 4 issues in this cluster were raised by Team 1 and share a common CAFC lever: the ability to lobby governments and stakeholders. The poll-adopted mission explicitly names advocacy as one of the five core mechanisms by which CAFC strengthens emergency services across the region.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> C4: Resource Limitations (T1), Financial Constraints of the Various Islands (T1), Ageing Equipment and Infrastructure (T1). Mission poll: Advocacy is one of the five core mechanisms named in the membership-adopted mission. All three Component 4 issues in this cluster were raised by Team 1 and share a common CAFC lever: the ability to lobby governments and stakeholders. The poll-adopted mission explicitly names advocacy as one of the five core mechanisms by which CAFC strengthens emergency services across the region.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
@@ -965,7 +981,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 5 · Committee Addition · Pillar V (Proposed): Workforce Mental Health and Wellness</div>
     <h4>Protect the Mental Health and Wellness of the Regional Emergency Services Workforce</h4>
     <p>Establish a Caribbean-wide framework that recognizes psychological distress as an operational risk, supports responders and their families, and embeds wellbeing into every CAFC training and governance product.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> Strategic Planning Committee addition, grounded in the Smith, Akogun, Byer, and Warren (2025) cross-sectional CARICOM study using the K10 Psychological Distress Scale and the WHO-5 Wellbeing Index, which documented significant psychological distress and reduced wellbeing among Caribbean Fire and EMS personnel. Although workforce mental health did not surface in the Component 4 issues workshop or as a distinct C5B goal statement, the committee added this goal in recognition of the 2025 CARICOM workforce data. The objectives below use validated instruments (K10, WHO-5) and reference regional health partners (PAHO, CARPHA). Cross-references to other goals reflect the reconciled six-goal architecture.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> Strategic Planning Committee addition, grounded in the Smith, Akogun, Byer, and Warren (2025) cross-sectional CARICOM study using the K10 Psychological Distress Scale and the WHO-5 Wellbeing Index, which documented significant psychological distress and reduced wellbeing among Caribbean Fire and EMS personnel. Although workforce mental health did not surface in the Component 4 issues workshop or as a distinct C5B goal statement, the committee added this goal in recognition of the 2025 CARICOM workforce data. The objectives below use validated instruments (K10, WHO-5) and reference regional health partners (PAHO, CARPHA). Cross-references to other goals reflect the reconciled six-goal architecture.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
@@ -987,7 +1003,7 @@ footer .fnote a{color:var(--gold-light);text-decoration:none}
     <div class="cg-anchor">Goal 6 · C4 Cluster V (Cross-cutting) · Pillar VI (Proposed): Climate Resilience</div>
     <h4>Embed Climate Resilience and Emerging Threat Preparedness Across All CAFC Programs</h4>
     <p>Position CAFC member services to operate effectively in an environment where the threat landscape is changing faster than departmental capacity, by developing shared frameworks, doctrine, and research capability that protect life, property, and the environment.</p>
-    <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.55"><strong style="font-style:normal;color:var(--navy)">Anchoring inputs.</strong> C4: Negative Impacts of Climate Change and Recovery (T2), Natural Disasters and Climate Change (T1), Evolving Emergency Threats and Environmental Changes (T1). Mission poll: protection of the environment is one of the three protective ends named in the membership-adopted mission. All 17 Component 3 stakeholder respondents and both Component 4 workshop teams converged on climate as a strategic priority. The poll-adopted mission explicitly names protection of the environment alongside life and property as CAFC's protective scope, which provides the membership mandate for this goal.</p>
+    <p class="cg-rationale"><strong>Anchoring Inputs</strong> C4: Negative Impacts of Climate Change and Recovery (T2), Natural Disasters and Climate Change (T1), Evolving Emergency Threats and Environmental Changes (T1). Mission poll: protection of the environment is one of the three protective ends named in the membership-adopted mission. All 17 Component 3 stakeholder respondents and both Component 4 workshop teams converged on climate as a strategic priority. The poll-adopted mission explicitly names protection of the environment alongside life and property as CAFC's protective scope, which provides the membership mandate for this goal.</p>
     <table class="cg-table">
       <thead><tr><th style="width:54px">Obj</th><th>Objective</th><th>Horizon</th><th>Anchor Pillar</th></tr></thead>
       <tbody>
